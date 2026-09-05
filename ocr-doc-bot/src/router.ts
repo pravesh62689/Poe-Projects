@@ -65,13 +65,17 @@ export function detectDocumentType(ocrText: string): 'receipt' | 'statement' | '
 /**
  * Routes OCR text to the appropriate parser, honoring user overrides.
  */
-export function routeAndParse(userPrompt: string, ocrText: string): ParsedDocument {
+export function routeAndParse(
+  userPrompt: string,
+  ocrInput: string | { text: string; words?: any[] }
+): ParsedDocument {
+  const ocrText = typeof ocrInput === 'string' ? ocrInput : ocrInput.text;
   const explicitRoute = extractRouteCommand(userPrompt);
   const route = explicitRoute !== 'auto' ? explicitRoute : detectDocumentType(ocrText);
 
   switch (route) {
     case 'statement':
-      return parseBankStatement(ocrText);
+      return parseBankStatement(ocrInput);
     case 'id':
       return parseIdDocument(ocrText);
     case 'receipt':

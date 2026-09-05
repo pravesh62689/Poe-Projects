@@ -8,13 +8,15 @@ import {
   QueryRequest,
   PoeRequest,
 } from '@poe-projects/poe-protocol-core';
-import { runOcr, fetchImageBuffer } from './ocr.js';
+import { runOcr, fetchImageBuffer, detectBlur, deskewImage, OcrOutput } from './ocr.js';
 import { routeAndParse } from './router.js';
 
 export interface ServerOptions {
   accessKey?: string;
-  ocrRunner?: (source: string | Buffer) => Promise<string>;
+  ocrRunner?: (source: string | Buffer) => Promise<string | OcrOutput>;
   imageFetcher?: (url: string) => Promise<Buffer>;
+  blurGateEnabled?: boolean;
+  blurThreshold?: number;
 }
 
 export function createServer(options: ServerOptions = {}) {
@@ -24,6 +26,8 @@ export function createServer(options: ServerOptions = {}) {
   const expectedKey = options.accessKey || process.env['POE_ACCESS_KEY'] || '';
   const ocrFn = options.ocrRunner || runOcr;
   const fetchFn = options.imageFetcher || fetchImageBuffer;
+  const blurGateEnabled = options.blurGateEnabled ?? true;
+  const blurThreshold = options.blurThreshold ?? 300;
 
   // Health check
   app.get('/health', (_req: Request, res: Response) => {
@@ -98,13 +102,51 @@ export function createServer(options: ServerOptions = {}) {
           throw new Error('Attachment object is missing a valid URL.');
         }
 
-        res.write(formatTextEvent('🔍 *Fetching image and running local OCR...*\n\n'));
+        res.write(formatTextEvent('🔍 *Fetching image and analyzing quality...*\n\n'));
 
         const imageBuffer = await fetchFn(attachment.url);
-        const ocrText = await ocrFn(imageBuffer);
+
+        // A. Blur detection gate (Laplacian variance < 300)
+        if (blurGateEnabled) {
+          const blurCheck = await detectBlur(imageBuffer, blurThreshold);
+          if (blurCheck.isBlurred) {
+            const blurNotice = [
+              '⚠️ **Document Quality Notice: Image is too blurry for reliable data extraction**',
+              '',
+              `Our image quality filter detected excessive blur (sharpness metric: ${blurCheck.score.toFixed(1)}, threshold: ${blurCheck.threshold}).`,
+              'Processing blurred images leads to high error rates, garbled numbers, and corrupted records.',
+              '',
+              '📸 **Please retake the photo and upload again:**',
+              '- Hold your device steady and tap the screen to ensure the document is sharply focused.',
+              '- Provide adequate, even lighting without harsh glare or heavy shadows.',
+              '- Frame the document neatly without motion blur.',
+            ].join('\n');
+            res.write(formatTextEvent(blurNotice));
+            res.write(formatDoneEvent());
+            res.end();
+            return;
+          }
+        }
+
+        // B. Guarded deskewing pass
+        const { buffer: processedBuffer, angle } = await deskewImage(imageBuffer);
+        if (angle !== 0) {
+          res.write(formatTextEvent(`📐 *Corrected ${angle}° skew tilt...*\n\n`));
+        }
+
+        // C. OCR execution
+        res.write(formatTextEvent('🔍 *Running OCR extraction...*\n\n'));
+        const ocrOutput = await ocrFn(processedBuffer);
 
         const prompt = lastMsg.content || '';
-        const parsedResult = routeAndParse(prompt, ocrText);
+        const parsedResult = routeAndParse(prompt, ocrOutput);
+
+        const isHandwritten =
+          (parsedResult.documentType === 'receipt' &&
+            parsedResult.amount?.flagReason?.includes('Handwritten')) ||
+          (parsedResult.documentType === 'receipt' &&
+            parsedResult.vendor?.confidence === 'low' &&
+            parsedResult.amount?.confidence === 'low');
 
         const formattedMarkdown = [
           '### 📄 Document Extraction Results',
@@ -114,6 +156,9 @@ export function createServer(options: ServerOptions = {}) {
           JSON.stringify(parsedResult, null, 2),
           '```',
           '',
+          isHandwritten
+            ? '> ⚠️ **Notice**: Document text appears handwritten or has low clarity. Tesseract OCR is not optimized for handwriting; extracted values carry low confidence and must be manually verified.\n\n'
+            : '',
           '> ℹ️ *Fields flagged with `"confidence": "low"` indicate low OCR clarity or ambiguous layout. Please verify against the source document.*',
         ].join('\n');
 

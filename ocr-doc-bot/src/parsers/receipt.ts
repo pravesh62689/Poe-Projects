@@ -1,6 +1,106 @@
 import { ParsedReceipt, FieldValue } from '../types.js';
 
-const GSTIN_REGEX = /\b([0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1})\b/i;
+export const GST_ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+export const CONFUSION_SUBS: Record<string, string> = {
+  '0': 'O',
+  'O': '0',
+  '1': 'I',
+  'I': '1',
+  '2': 'Z',
+  'Z': '2',
+  '5': 'S',
+  'S': '5',
+  '8': 'B',
+  'B': '8',
+};
+
+/**
+ * Validates 15-character GSTIN format and mod-36 checksum.
+ * Ported directly from research/ocr-validation/run_ocr_eval.py.
+ */
+export function gstinChecksumValid(gstin: string): boolean {
+  const upper = gstin.toUpperCase();
+  if (upper.length !== 15) return false;
+  for (let i = 0; i < 15; i++) {
+    if (!GST_ALPHABET.includes(upper[i]!)) return false;
+  }
+  let total = 0;
+  for (let i = 0; i < 14; i++) {
+    const factor = i % 2 === 1 ? 2 : 1;
+    const cp = GST_ALPHABET.indexOf(upper[i]!);
+    let product = cp * factor;
+    product = Math.floor(product / 36) + (product % 36);
+    total += product;
+  }
+  const checkCp = (36 - (total % 36)) % 36;
+  return GST_ALPHABET[checkCp] === upper[14];
+}
+
+/**
+ * Checks whether a character conforms to standard GSTIN positional types:
+ * - 0..1: State code (digits)
+ * - 2..6: PAN alphanumeric prefix (letters)
+ * - 7..10: PAN sequential digits (digits)
+ * - 11: PAN letter (letter)
+ * - 12: Entity code (1-9 or A-Z)
+ * - 13: Default 'Z'
+ * - 14: Check code
+ */
+function isPositionalClassMatch(char: string, index: number): boolean {
+  if (index === 0 || index === 1 || (index >= 7 && index <= 10)) {
+    return /[0-9]/.test(char);
+  }
+  if ((index >= 2 && index <= 6) || index === 11 || index === 13) {
+    return /[A-Z]/.test(char);
+  }
+  return true;
+}
+
+/**
+ * Tries single-character OCR confusion substitutions to recover a valid GSTIN checksum.
+ * Ported directly from research/ocr-validation/run_ocr_eval.py with positional sanity checks.
+ */
+export function tryCorrectGstin(raw: string | undefined | null): {
+  value: string;
+  corrected: boolean;
+  valid: boolean;
+} | null {
+  if (!raw) return null;
+  const cleaned = raw.toUpperCase().replace(/[^0-9A-Z]/g, '');
+  if (cleaned.length !== 15) {
+    return { value: cleaned, corrected: false, valid: false };
+  }
+  if (gstinChecksumValid(cleaned)) {
+    return { value: cleaned, corrected: false, valid: true };
+  }
+
+  // Try single-character confusion substitutions
+  for (let i = 0; i < cleaned.length; i++) {
+    const ch = cleaned[i]!;
+    const sub = CONFUSION_SUBS[ch];
+    if (sub && isPositionalClassMatch(sub, i)) {
+      const candidate = cleaned.slice(0, i) + sub + cleaned.slice(i + 1);
+      if (gstinChecksumValid(candidate)) {
+        return { value: candidate, corrected: true, valid: true };
+      }
+    }
+  }
+
+  // If positional pass failed, try unconstrained confusion substitutions as fallback
+  for (let i = 0; i < cleaned.length; i++) {
+    const ch = cleaned[i]!;
+    const sub = CONFUSION_SUBS[ch];
+    if (sub) {
+      const candidate = cleaned.slice(0, i) + sub + cleaned.slice(i + 1);
+      if (gstinChecksumValid(candidate)) {
+        return { value: candidate, corrected: true, valid: true };
+      }
+    }
+  }
+
+  return { value: cleaned, corrected: false, valid: false };
+}
+
 const DATE_REGEXES = [
   /\b(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b/,
   /\b(\d{4}[/-]\d{1,2}[/-]\d{1,2})\b/,
@@ -97,7 +197,9 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
           amount = {
             value: parsedNum,
             confidence: isHandwrittenOrApprox ? 'low' : isGrandTotal ? 'high' : 'medium',
-            flagReason: isHandwrittenOrApprox ? 'Handwritten, approximate, or uncertain amount notation' : undefined,
+            flagReason: isHandwrittenOrApprox
+              ? 'Handwritten, approximate, or uncertain amount notation'
+              : undefined,
             rawText: line,
           };
           break;
@@ -125,15 +227,51 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     }
   }
 
-  // 4. Extract GSTIN (if present)
+  // 4. Extract GSTIN
   let gstin: FieldValue<string> | undefined;
-  const gstinMatch = ocrText.match(GSTIN_REGEX);
-  if (gstinMatch && gstinMatch[1]) {
-    gstin = {
-      value: gstinMatch[1].toUpperCase(),
-      confidence: 'high',
-      rawText: gstinMatch[0],
-    };
+
+  // Keyword match: e.g. "GSTIN: 27AABCS1429B1Z8" or "GST!N : 07AAAAA0000A1Z5"
+  const keywordMatch = ocrText.match(/(?:gstin|gst\s*no|gst!n|gst)\s*[:=-]?\s*([0-9A-Za-z]{15})/i);
+  let rawCandidate: string | undefined = keywordMatch?.[1];
+
+  // Pattern match if keyword not found
+  if (!rawCandidate) {
+    const structMatch = ocrText.match(
+      /\b([0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[1-9A-Za-z]{1}[Zz][0-9A-Za-z]{1})\b/
+    );
+    rawCandidate = structMatch?.[1];
+  }
+
+  // Candidate scan from 15-character tokens if pattern didn't match
+  if (!rawCandidate) {
+    const tokens = ocrText.split(/\s+/);
+    for (const token of tokens) {
+      const cleanToken = token.replace(/[^0-9A-Za-z]/g, '');
+      if (cleanToken.length === 15) {
+        const testRes = tryCorrectGstin(cleanToken);
+        if (testRes && testRes.valid) {
+          rawCandidate = cleanToken;
+          break;
+        }
+      }
+    }
+  }
+
+  if (rawCandidate) {
+    const rawVal = rawCandidate.toUpperCase();
+    const corrected = tryCorrectGstin(rawVal);
+    if (corrected) {
+      gstin = {
+        value: corrected.value,
+        confidence: corrected.valid ? 'high' : 'low',
+        flagReason: corrected.valid
+          ? corrected.corrected
+            ? 'GSTIN checksum auto-corrected via confusion substitution'
+            : undefined
+          : 'GSTIN failed checksum validation; verify against source document',
+        rawText: rawCandidate,
+      };
+    }
   }
 
   return {

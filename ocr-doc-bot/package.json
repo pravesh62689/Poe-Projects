@@ -13,6 +13,7 @@
     "@poe-projects/poe-protocol-core": "*",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "sharp": "^0.33.5",
     "tesseract.js": "^5.1.1"
   },
   "devDependencies": {
