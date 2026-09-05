@@ -3,7 +3,7 @@ services:
     name: poe-ocr-doc-bot
     env: node
     plan: free
-    buildCommand: npm install && npm run build --workspace=@poe-projects/poe-protocol-core && npm run build --workspace=@poe-projects/ocr-doc-bot
+    buildCommand: npm install --include=dev && npm run build --workspace=@poe-projects/poe-protocol-core && npm run build --workspace=@poe-projects/ocr-doc-bot
     startCommand: node ocr-doc-bot/dist/index.js
     envVars:
       - key: NODE_ENV
