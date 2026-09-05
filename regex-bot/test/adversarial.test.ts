@@ -97,4 +97,45 @@ describe('Layer 2 Adversarial: regex-bot', () => {
       expect(text).not.toContain('You are an expert regex generator'); // Did not leak prompt
     });
   });
+
+  describe('Deliberately Ambiguous Ask', () => {
+    it('returns its explicit interpretation rather than silently guessing when ask is vague', async () => {
+      const req = new Request('https://regex-bot.workers.dev/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${testKey}`,
+        },
+        body: JSON.stringify({
+          version: '1.0.0',
+          type: 'query',
+          user_id: 'u_ambig',
+          conversation_id: 'c_ambig',
+          message_id: 'm_ambig',
+          query: [{
+            role: 'user',
+            content: 'Match anything with a number in it.\nSample: hello123\nSample: no numbers here',
+          }],
+        }),
+      });
+
+      // Inject a custom upstream that returns pattern + explicit interpretation
+      const res = await handleRegexWorkerRequest(req, { POE_ACCESS_KEY: testKey }, async (_instruction) => ({
+        pattern: '\\d+',
+        flags: '',
+        explanation: 'Interpreted as: match strings containing one or more consecutive digits. This matches any substring of digits within the input.',
+      }));
+
+      const text = await res.text();
+
+      // Must contain the explicit interpretation statement - never silently guessed
+      expect(text).toContain('Interpreted as:');
+      expect(text).toContain('Regex Execution Report');
+      // Must have actually executed the pattern against both samples
+      expect(text).toContain('hello123');
+      expect(text).toContain('Matched');
+      expect(text).toContain('no numbers here');
+      expect(text).toContain('No Match');
+    });
+  });
 });

@@ -28,9 +28,14 @@ describe('Regex Bot Worker Integration (Poe Protocol E2E)', () => {
     const res = await handleRegexWorkerRequest(req, { POE_ACCESS_KEY: testKey });
     expect(res.status).toBe(200);
 
-    const data = (await res.json()) as { allow_attachments: boolean; server_bot_dependencies: Record<string, number> };
+    const data = (await res.json()) as {
+      allow_attachments: boolean;
+      server_bot_dependencies: Record<string, number>;
+      introduction_message: string;
+    };
     expect(data.allow_attachments).toBe(false);
     expect(data.server_bot_dependencies['Claude-3.5-Sonnet']).toBe(1);
+    expect(data.introduction_message).toContain('Regex-Generator');
   });
 
   it('generates regex and executes it against test samples returning streamed SSE results', async () => {

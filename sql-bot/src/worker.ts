@@ -38,6 +38,16 @@ export type CustomSqlGenerator = (
   errorFeedback?: string,
 ) => Promise<string>;
 
+const SQL_INTRO_MESSAGE = `📊 **SQL-Query-Gen** — turn plain English into SQL that's *verified by execution*.
+
+Paste your \`CREATE TABLE\` statements (and optional sample \`INSERT\` rows), then describe what you want:
+
+> _"Show the top 5 customers by total order value."_
+
+I generate the query, run it against an in-memory SQLite copy of your schema, self-correct if it errors, and warn you about destructive statements.
+
+Also useful: @Regex-Generator and @OCR-Doc-Parser.`;
+
 export async function handleSqlWorkerRequest(
   request: Request,
   env: WorkerEnv = {},
@@ -82,8 +92,7 @@ export async function handleSqlWorkerRequest(
     const settings = buildSettingsResponse({
       allowAttachments: false,
       enableImageComprehension: false,
-      introductionMessage:
-        'Welcome! Provide your CREATE TABLE statements (+ optional sample rows) and describe the query you want. I will generate and actually execute the SQL in an in-memory database to verify it before returning the results.',
+      introductionMessage: SQL_INTRO_MESSAGE,
       serverBotDependencies: {
         'Claude-3.5-Sonnet': 1,
       },
@@ -206,6 +215,9 @@ export async function handleSqlWorkerRequest(
           );
 
           stream.sendText(lines.join('\n'));
+          stream.sendSuggestedReply('Add sorting and a LIMIT');
+          stream.sendSuggestedReply('Rewrite this as a JOIN');
+          stream.sendSuggestedReply('Show the EXPLAIN query plan');
         } else {
           // Honest failure report per AGENTS.md requirements
           const failLines = [

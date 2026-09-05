@@ -52,13 +52,23 @@ export async function handleRegexWorkerRequest(
     });
   }
 
+const REGEX_INTRO_MESSAGE = `⚡ **Regex-Generator** — describe the pattern you need in plain English and I'll build it *and* run it against your test strings in real time.
+
+**Example:**
+\`Match email addresses.\`
+\`Sample: hi@example.com\`
+\`Sample: not-an-email\`
+
+You get the pattern, a per-sample match table with capture groups and timing, plus a catastrophic-backtracking (ReDoS) safety check.
+
+Working with data? Try @SQL-Query-Gen and @OCR-Doc-Parser.`;
+
   // 2. Settings request
   if (body.type === 'settings') {
     const settings = buildSettingsResponse({
       allowAttachments: false,
       enableImageComprehension: false,
-      introductionMessage:
-        'Welcome! Describe the regex pattern you need, and provide sample strings (e.g. "Sample: test@example.com"). I will generate the pattern and execute it in real-time against your samples.',
+      introductionMessage: REGEX_INTRO_MESSAGE,
       serverBotDependencies: {
         'Claude-3.5-Sonnet': 1,
       },
@@ -141,6 +151,9 @@ export async function handleRegexWorkerRequest(
         }
 
         stream.sendText(lines.join('\n'));
+        stream.sendSuggestedReply('Make it case-insensitive');
+        stream.sendSuggestedReply('Explain each part of this pattern');
+        stream.sendSuggestedReply('Add a sample that should NOT match');
       } catch (err) {
         const errStr = err instanceof Error ? err.message : 'Unknown regex execution error.';
         stream.sendError(errStr, false);

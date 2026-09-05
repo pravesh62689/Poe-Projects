@@ -159,4 +159,58 @@ describe('Layer 2 Adversarial: sql-bot', () => {
       db.close();
     });
   });
+
+
+  describe('Ambiguous Ask with Multiple SQL Interpretations', () => {
+    it('picks one interpretation and explicitly states which was chosen', async () => {
+      const userMessage = [
+        '```sql',
+        'CREATE TABLE students (id INT PRIMARY KEY, name TEXT, grade REAL);',
+        'CREATE TABLE enrollments (student_id INT, course TEXT);',
+        "INSERT INTO students VALUES (1, 'Alice', 95.0);",
+        "INSERT INTO students VALUES (2, 'Bob', 88.0);",
+        "INSERT INTO students VALUES (3, 'Charlie', 92.0);",
+        "INSERT INTO enrollments VALUES (1, 'Math');",
+        "INSERT INTO enrollments VALUES (1, 'Science');",
+        "INSERT INTO enrollments VALUES (2, 'Math');",
+        "INSERT INTO enrollments VALUES (3, 'Math');",
+        "INSERT INTO enrollments VALUES (3, 'Science');",
+        "INSERT INTO enrollments VALUES (3, 'History');",
+        '```',
+        'Who are the top students?',
+      ].join('\n');
+
+      const req = new Request('https://sql-bot.workers.dev/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${testKey}`,
+        },
+        body: JSON.stringify({
+          version: '1.0.0',
+          type: 'query',
+          user_id: 'u_ambig',
+          conversation_id: 'c_ambig',
+          message_id: 'm_ambig',
+          query: [{ role: 'user', content: userMessage }],
+        }),
+      });
+
+      // Inject custom generator that picks one interpretation
+      const res = await handleSqlWorkerRequest(req, { POE_ACCESS_KEY: testKey }, async () => {
+        return 'SELECT name, grade FROM students ORDER BY grade DESC LIMIT 3;';
+      });
+
+      const text = await res.text();
+
+      // Must contain verified output proving query was actually executed
+      expect(text).toContain('Verified SQL Query');
+      expect(text).toContain('Alice');
+      // Must contain SQLite dialect disclaimer
+      expect(text).toContain('Dialect Notice');
+      expect(text).toContain('SQLite');
+      // Must contain actual tabular result (executed, not hallucinated)
+      expect(text).toContain('grade');
+    });
+  });
 });

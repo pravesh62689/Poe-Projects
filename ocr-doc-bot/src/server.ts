@@ -3,6 +3,7 @@ import {
   evaluateAuthorization,
   buildSettingsResponse,
   formatTextEvent,
+  formatSuggestedReplyEvent,
   formatErrorEvent,
   formatDoneEvent,
   QueryRequest,
@@ -10,6 +11,14 @@ import {
 } from '@poe-projects/poe-protocol-core';
 import { runOcr, fetchImageBuffer, detectBlur, deskewImage, OcrOutput } from './ocr.js';
 import { routeAndParse } from './router.js';
+
+const OCR_INTRO_MESSAGE = `📄 **OCR-Doc-Parser** turns photos of **receipts, bank statements, and ID documents** into clean, structured JSON.
+
+**Attach an image to start.** Every field comes back with a confidence flag, and blurry scans are caught before they corrupt your data.
+
+**Commands:** \`/receipt\` · \`/statement\` · \`/id\` (PAN, Aadhaar, Passport, DL)
+
+Need SQL or regex instead? Try @SQL-Query-Gen and @Regex-Generator.`;
 
 export interface ServerOptions {
   accessKey?: string;
@@ -39,8 +48,7 @@ export function createServer(options: ServerOptions = {}) {
     const settings = buildSettingsResponse({
       allowAttachments: true,
       enableImageComprehension: false,
-      introductionMessage:
-        'Welcome! Upload an image of a receipt, bank statement, or government ID document. You can also use /receipt, /statement, or /id to specify the parser.',
+      introductionMessage: OCR_INTRO_MESSAGE,
     });
     res.status(200).json(settings);
   });
@@ -62,8 +70,7 @@ export function createServer(options: ServerOptions = {}) {
       const settings = buildSettingsResponse({
         allowAttachments: true,
         enableImageComprehension: false,
-        introductionMessage:
-          'Welcome! Upload an image of a receipt, bank statement, or government ID document.',
+        introductionMessage: OCR_INTRO_MESSAGE,
       });
       res.status(200).json(settings);
       return;
@@ -99,29 +106,26 @@ export function createServer(options: ServerOptions = {}) {
       try {
         const attachment = lastMsg.attachments[0];
         if (!attachment || !attachment.url) {
-          throw new Error('Attachment object is missing a valid URL.');
+          throw new Error('Image attachment missing download URL.');
         }
 
         res.write(formatTextEvent('🔍 *Fetching image and analyzing quality...*\n\n'));
 
         const imageBuffer = await fetchFn(attachment.url);
 
-        // A. Blur detection gate (Laplacian variance < 300)
+        // A. Laplacian blur detection gate
         if (blurGateEnabled) {
-          const blurCheck = await detectBlur(imageBuffer, blurThreshold);
-          if (blurCheck.isBlurred) {
-            const blurNotice = [
-              '⚠️ **Document Quality Notice: Image is too blurry for reliable data extraction**',
+          const blurResult = await detectBlur(imageBuffer, blurThreshold);
+          if (blurResult.isBlurred) {
+            const blurWarning = [
+              '⚠️ **Low Image Clarity Detected**',
               '',
-              `Our image quality filter detected excessive blur (sharpness metric: ${blurCheck.score.toFixed(1)}, threshold: ${blurCheck.threshold}).`,
-              'Processing blurred images leads to high error rates, garbled numbers, and corrupted records.',
+              `The uploaded document image appears blurred (Clarity Score: \`${blurResult.score.toFixed(1)}\`, Minimum Required: \`${blurResult.threshold}\`).`,
               '',
-              '📸 **Please retake the photo and upload again:**',
-              '- Hold your device steady and tap the screen to ensure the document is sharply focused.',
-              '- Provide adequate, even lighting without harsh glare or heavy shadows.',
-              '- Frame the document neatly without motion blur.',
+              'OCR accuracy is severely degraded on blurry photos. Please provide a sharper, well-focused photo or scan for reliable data extraction.',
             ].join('\n');
-            res.write(formatTextEvent(blurNotice));
+
+            res.write(formatTextEvent(blurWarning));
             res.write(formatDoneEvent());
             res.end();
             return;
@@ -163,6 +167,9 @@ export function createServer(options: ServerOptions = {}) {
         ].join('\n');
 
         res.write(formatTextEvent(formattedMarkdown));
+        res.write(formatSuggestedReplyEvent('Extract the line items too'));
+        res.write(formatSuggestedReplyEvent('Return only the total and date'));
+        res.write(formatSuggestedReplyEvent('Explain the low-confidence fields'));
         res.write(formatDoneEvent());
         res.end();
       } catch (err) {

@@ -6,3 +6,6 @@ dist
 !.env.example
 *.log
 *.tsbuildinfo
+**/src/**/*.js
+**/src/**/*.js.map
+**/src/**/*.d.ts

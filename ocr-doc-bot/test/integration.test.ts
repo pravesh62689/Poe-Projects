@@ -74,6 +74,7 @@ describe('OCR Doc Bot Integration (Poe Protocol E2E)', () => {
     const data = await res.json();
     expect(data.allow_attachments).toBe(true);
     expect(data.enable_image_comprehension).toBe(false);
+    expect(data.introduction_message).toContain('OCR-Doc-Parser');
   });
 
   it('prompts the user when a query is sent without an attachment', async () => {

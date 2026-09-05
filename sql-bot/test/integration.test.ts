@@ -28,9 +28,14 @@ describe('SQL Bot Worker Integration (Poe Protocol E2E)', () => {
     const res = await handleSqlWorkerRequest(req, { POE_ACCESS_KEY: testKey });
     expect(res.status).toBe(200);
 
-    const settings = (await res.json()) as { allow_attachments: boolean; server_bot_dependencies: Record<string, number> };
+    const settings = (await res.json()) as {
+      allow_attachments: boolean;
+      server_bot_dependencies: Record<string, number>;
+      introduction_message: string;
+    };
     expect(settings.allow_attachments).toBe(false);
     expect(settings.server_bot_dependencies['Claude-3.5-Sonnet']).toBe(1);
+    expect(settings.introduction_message).toContain('SQL-Query-Gen');
   });
 
   it('executes schema, verifies query against in-memory db, and streams tabular output', async () => {
