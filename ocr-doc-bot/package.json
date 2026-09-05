@@ -1,0 +1,26 @@
+{
+  "name": "@poe-projects/ocr-doc-bot",
+  "version": "1.0.0",
+  "description": "Poe server bot for OCR document extraction (receipts, statements, IDs) deployed on Render",
+  "main": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@poe-projects/poe-protocol-core": "*",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "supertest": "^7.0.0",
+    "@types/supertest": "^6.0.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

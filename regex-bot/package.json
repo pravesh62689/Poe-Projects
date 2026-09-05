@@ -1,0 +1,21 @@
+{
+  "name": "@poe-projects/regex-bot",
+  "version": "1.0.0",
+  "description": "Poe server bot for Regex generation and safe real-time execution deployed on Cloudflare Workers",
+  "main": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "@poe-projects/poe-protocol-core": "*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241205.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.95.0"
+  }
+}

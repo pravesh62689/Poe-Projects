@@ -1,0 +1,29 @@
+{
+  "name": "poe-projects-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-cost Poe Server Bots Monorepo",
+  "workspaces": [
+    "shared/poe-protocol-core",
+    "ocr-doc-bot",
+    "regex-bot",
+    "sql-bot"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc -b shared/poe-protocol-core ocr-doc-bot regex-bot sql-bot"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "autocannon": "^8.0.0",
+    "eslint": "^9.16.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

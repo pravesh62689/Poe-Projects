@@ -1,0 +1,16 @@
+{
+  "name": "@poe-projects/poe-protocol-core",
+  "version": "1.0.0",
+  "description": "Runtime-agnostic TypeScript implementation of Poe server-bot protocol",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: poe-ocr-doc-bot
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build --workspace=@poe-projects/poe-protocol-core && npm run build --workspace=@poe-projects/ocr-doc-bot
+    startCommand: node ocr-doc-bot/dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: POE_ACCESS_KEY
+        sync: false
