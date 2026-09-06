@@ -160,18 +160,42 @@ export function createServer(options: ServerOptions = {}) {
           '| :--- | :--- | :--- |',
         ];
 
+        let itemsTable = '';
         const rec = parsedResult as any;
         if (parsedResult.documentType === 'receipt') {
           tableRows.push(`| **Vendor / Store** | ${rec.vendor?.value || 'Unknown'} | ${rec.vendor?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
           tableRows.push(`| **Date** | ${rec.date?.value || 'Unknown'} | ${rec.date?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
-          tableRows.push(`| **Total Amount** | ${rec.amount?.value !== undefined ? '$' + rec.amount.value : 'Unknown'} | ${rec.amount?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          if (rec.invoiceNumber) {
+            tableRows.push(`| **Receipt / Invoice #** | ${rec.invoiceNumber.value} | ✅ High |`);
+          }
+          if (rec.subtotal) {
+            tableRows.push(`| **Subtotal** | $${rec.subtotal.value.toFixed(2)} | ✅ High |`);
+          }
+          if (rec.tax) {
+            tableRows.push(`| **Tax (GST / VAT)** | $${rec.tax.value.toFixed(2)} | ✅ High |`);
+          }
+          tableRows.push(`| **Total Amount** | ${rec.amount?.value !== undefined ? '$' + rec.amount.value.toFixed(2) : 'Unknown'} | ${rec.amount?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          if (rec.paymentMethod) {
+            tableRows.push(`| **Payment Method** | ${rec.paymentMethod.value} | ✅ High |`);
+          }
           if (rec.gstin) {
             tableRows.push(`| **GSTIN / Tax ID** | ${rec.gstin.value} | ${rec.gstin.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          }
+
+          if (rec.lineItems && rec.lineItems.length > 0) {
+            const itemRows = rec.lineItems.map((it: any) => `| ${it.description} | ${it.quantity || 1} | $${it.amount.toFixed(2)} |`);
+            itemsTable = [
+              '',
+              '#### 🛒 Line Items Detected:',
+              '| Item | Qty | Price |',
+              '| :--- | :---: | ---: |',
+              ...itemRows,
+            ].join('\n');
           }
         } else if (parsedResult.documentType === 'statement') {
           tableRows.push(`| **Account Holder** | ${rec.accountHolder?.value || 'Unknown'} | ${rec.accountHolder?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
           tableRows.push(`| **Statement Period** | ${rec.period?.value || 'Unknown'} | ${rec.period?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
-          tableRows.push(`| **Closing Balance** | ${rec.closingBalance?.value !== undefined ? rec.closingBalance.value : 'Unknown'} | ${rec.closingBalance?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Closing Balance** | ${rec.closingBalance?.value !== undefined ? '$' + rec.closingBalance.value.toFixed(2) : 'Unknown'} | ${rec.closingBalance?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
           tableRows.push(`| **Transactions Found** | ${rec.transactions?.length || 0} entries | ✅ High |`);
         } else if (parsedResult.documentType === 'id') {
           tableRows.push(`| **ID Type** | ${rec.idType || 'Unknown'} | ✅ High |`);
@@ -186,6 +210,7 @@ export function createServer(options: ServerOptions = {}) {
           '',
           '#### 📋 Extracted Summary:',
           tableRows.join('\n'),
+          itemsTable ? itemsTable : '',
           '',
           '#### 📦 Structured JSON:',
           '```json',
@@ -199,7 +224,7 @@ export function createServer(options: ServerOptions = {}) {
             ? '> ⚠️ **Notice**: Document text appears handwritten or has low clarity. Tesseract OCR is not optimized for handwriting; extracted values carry low confidence and must be manually verified.\n\n'
             : '',
           '> ℹ️ *Fields flagged with `"confidence": "low"` indicate low OCR clarity or ambiguous layout. Please verify against the source document.*',
-        ].join('\n');
+        ].filter(Boolean).join('\n');
 
         res.write(formatTextEvent(formattedMarkdown));
         res.write(formatSuggestedReplyEvent('Extract the line items too'));

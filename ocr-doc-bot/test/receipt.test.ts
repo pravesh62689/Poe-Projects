@@ -81,4 +81,43 @@ describe('parseReceipt', () => {
     expect(result.amount.confidence).toBe('low');
     expect(result.amount.flagReason).toBeDefined();
   });
+
+  it('parses real cafe receipt with top border noise, extracting clean vendor, line items, and totals', () => {
+    const cafeOcr = `
+      ET A Ee —
+      _— =
+      = = = a a)
+      1 oe es ee
+      Sei a
+      = ARTISAN ROAST carp = 37
+      =o 28 Brew Street = ———— =
+      London, EC1 545
+      DATE: 14-Oct-2024 =— :
+      TIME: 10:24 AM
+      RECEIPT: "pr7739 ———
+      : IX Caramel Macchiato $5.20 = ==
+      1X Avocado Toast $9.50 ——
+      SUBTOTAL: 14.70
+      CGST @ 2.5% $0.37
+      SGST @ 2.5% $0.37
+      TE TOTAL $15.44 =
+      Paid by Visa sex 1984 == == —
+    `;
+
+    const result = parseReceipt(cafeOcr);
+    expect(result.vendor.value).toBe('ARTISAN ROAST CAFE');
+    expect(result.vendor.confidence).toBe('high');
+    expect(result.date.value).toBe('14-Oct-2024');
+    expect(result.amount.value).toBe(15.44);
+    expect(result.lineItems).toBeDefined();
+    expect(result.lineItems?.length).toBe(2);
+    expect(result.lineItems?.[0]?.description).toContain('Caramel Macchiato');
+    expect(result.lineItems?.[0]?.amount).toBe(5.2);
+    expect(result.lineItems?.[1]?.description).toContain('Avocado Toast');
+    expect(result.lineItems?.[1]?.amount).toBe(9.5);
+    expect(result.subtotal?.value).toBe(14.7);
+    expect(result.tax?.value).toBe(0.74);
+    expect(result.invoiceNumber?.value).toBe('#AR7739');
+    expect(result.paymentMethod?.value).toBe('VISA ending in 1984');
+  });
 });

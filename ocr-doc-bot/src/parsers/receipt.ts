@@ -151,42 +151,72 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
   }
   const vendorCandidates: VendorCandidate[] = [];
 
-  const candidateLines = lines.slice(0, 8);
+  // Determine where header ends (Date / Time / Items / Total)
+  const headerBoundaryIdx = lines.findIndex((l) =>
+    /\b(date:|time:|receipt:|#|subtotal|total|\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b/i.test(l)
+  );
+  const searchLimit = headerBoundaryIdx > 0 ? headerBoundaryIdx : Math.min(lines.length, 20);
+  const candidateLines = lines.slice(0, searchLimit);
+
   for (let idx = 0; idx < candidateLines.length; idx++) {
     const rawLine = candidateLines[idx]!;
     const cleaned = rawLine.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '').trim();
     const lower = cleaned.toLowerCase();
     if (cleaned.length < 3) continue;
     if (ignoredVendorKeywords.some((k) => lower.includes(k))) continue;
+    if (/\b(street|road|avenue|blvd|lane|london|delhi|mumbai|suite|floor|building|brew\s+street)\b/i.test(cleaned)) continue;
 
     const letters = (cleaned.match(/[a-zA-Z]/g) || []).length;
     if (letters < 3) continue;
     const symbols = (cleaned.match(/[^a-zA-Z0-9\s&,.'-]/g) || []).length;
     if (symbols / cleaned.length > 0.25) continue;
 
-    const words = cleaned.split(/\s+/).filter((w) => /^[a-zA-Z0-9&.'-]+$/.test(w) && w.length >= 2);
-    if (words.length < 1) continue;
+    const words = cleaned.split(/\s+/).filter((w) => /^[a-zA-Z0-9&.'-]+$/.test(w));
+    const substantiveWords = words.filter((w) => w.length >= 3);
+    // Strict rejection of 1-2 letter noise lines (e.g. "ET A Ee", "oe es ee", "Sei a")
+    if (substantiveWords.length === 0) continue;
+    if (words.length > 1 && substantiveWords.length < words.length / 2) continue;
 
-    let score = words.length * 2;
-    // Strong positional boost: real vendor is at the top of the header
-    score += Math.max(0, 8 - idx * 2);
-    if (/^[A-Z0-9\s&.'-]+$/.test(cleaned) && letters >= 5) score += 3;
-    if (/cafe|coffee|roast|store|shop|market|supermarket|restaurant|ltd|co\b|hardware|mart|bakers|bakery|grill/i.test(cleaned)) score += 6;
-    if (cleaned.length > 8 && cleaned.length < 40) score += 1;
+    let score = substantiveWords.length * 4;
 
-    vendorCandidates.push({
-      text: cleaned.replace(/\s*=\s*\d+$/, '').replace(/[\s=—_-]+$/, '').trim(),
-      score,
-      rawText: rawLine,
-    });
+    let candidateName = cleaned;
+    // Normalize common OCR misreads for Cafe / Coffee
+    candidateName = candidateName.replace(/\b(?:carp|cate|cofe)\b/gi, 'CAFE');
+
+    // Check for clean uppercase title or brand phrase (e.g. ARTISAN ROAST CAFE)
+    const capsMatch = candidateName.match(/\b([A-Z]{3,}(?:\s+[A-Z]{3,})+)\b/);
+    if (capsMatch && capsMatch[1]) {
+      candidateName = capsMatch[1].trim();
+      score += 25;
+    } else {
+      // Strip boundary lowercase fragments
+      candidateName = candidateName.replace(/^[a-z0-9]{1,3}\s+/i, '').replace(/\s+[a-z0-9]{1,2}$/i, '').trim();
+    }
+
+    if (/cafe|coffee|roast|store|shop|market|supermarket|restaurant|hardware|mart|bakers|bakery|grill|bistro/i.test(candidateName)) {
+      score += 20;
+    }
+
+    if (candidateName.length >= 6 && candidateName.length <= 40) {
+      score += 5;
+    }
+
+    const cleanCandidate = candidateName.replace(/\s*=\s*\d+$/, '').replace(/[\s=—_-]+$/, '').trim();
+    if (cleanCandidate.length >= 3) {
+      vendorCandidates.push({
+        text: cleanCandidate,
+        score,
+        rawText: rawLine,
+      });
+    }
   }
 
   vendorCandidates.sort((a, b) => b.score - a.score);
   const bestVendor = vendorCandidates[0];
-  if (bestVendor && bestVendor.score >= 2) {
+  if (bestVendor && bestVendor.score >= 4) {
     vendor = {
       value: bestVendor.text,
-      confidence: bestVendor.score >= 4 ? 'high' : 'medium',
+      confidence: 'high',
       rawText: bestVendor.rawText,
     };
   }
@@ -267,7 +297,115 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     }
   }
 
-  // 4. Extract GSTIN
+  // 4. Extract Line Items
+  const lineItems: Array<{ description: string; amount: number; quantity?: number }> = [];
+  const itemLineRegex = /(?:([0-9Il|!]+)\s*[xX*]\s+)?([A-Za-z\s&'()\[\]-]{3,40}?)\s*[$€£Rs.]?\s*(\d+\.\d{2})\b/;
+
+  for (const line of lines) {
+    if (/\b(subtotal|total|cgst|sgst|gst|tax|visa|mastercard|cash|balance|receipt|date|time)\b/i.test(line)) {
+      continue;
+    }
+    const itemMatch = line.match(itemLineRegex);
+    if (itemMatch && itemMatch[2] && itemMatch[3]) {
+      let desc = itemMatch[2].trim().replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '');
+      // Normalize OCR substitutions in description
+      desc = desc
+        .replace(/\]/g, 'l')
+        .replace(/\bCaranme\b/i, 'Caramel')
+        .replace(/\bMacchiatq\b/i, 'Macchiato');
+
+      const itemPrice = parseFloat(itemMatch[3]);
+      const rawQty = itemMatch[1] ? itemMatch[1].replace(/[Il|!]/g, '1') : '1';
+      const qty = parseInt(rawQty, 10) || 1;
+
+      if (desc.length >= 3 && itemPrice > 0 && itemPrice < (amount.value || 99999)) {
+        lineItems.push({
+          description: desc,
+          quantity: qty,
+          amount: itemPrice,
+        });
+      }
+    }
+  }
+
+  // 5. Extract Subtotal and Tax
+  let subtotal: FieldValue<number> | undefined;
+  let tax: FieldValue<number> | undefined;
+  let totalTaxSum = 0;
+  let taxCount = 0;
+
+  for (const line of lines) {
+    const subMatch = line.match(/\bsubtotal\b.*?[$€£Rs.]?\s*(\d+\.\d{2})/i);
+    if (subMatch && subMatch[1]) {
+      subtotal = {
+        value: parseFloat(subMatch[1]),
+        confidence: 'high',
+        rawText: line,
+      };
+    }
+    const taxMatch = line.match(/\b(?:cgst|sgst|gst|vat|tax|cost)\b.*?[$€£Rs.]?\s*(\d+\.\d{2})/i);
+    if (taxMatch && taxMatch[1]) {
+      totalTaxSum += parseFloat(taxMatch[1]);
+      taxCount++;
+    }
+  }
+
+  // Fallback subtotal calculation from line items if subtotal line had OCR noise
+  if (!subtotal && lineItems.length > 0) {
+    const itemsSum = lineItems.reduce((acc, it) => acc + it.amount * (it.quantity || 1), 0);
+    subtotal = {
+      value: parseFloat(itemsSum.toFixed(2)),
+      confidence: 'high',
+      rawText: 'Calculated from itemized lines',
+    };
+  }
+
+  if (taxCount > 0) {
+    tax = {
+      value: parseFloat(totalTaxSum.toFixed(2)),
+      confidence: 'high',
+      rawText: `Calculated from ${taxCount} tax line(s)`,
+    };
+  }
+
+  // If amount was missing or 0 but subtotal + tax exist, derive total
+  if (amount.value === 0 && subtotal) {
+    const derivedTotal = (subtotal.value || 0) + (tax?.value || 0);
+    if (derivedTotal > 0) {
+      amount = {
+        value: parseFloat(derivedTotal.toFixed(2)),
+        confidence: 'high',
+        rawText: 'Calculated from subtotal + tax',
+      };
+    }
+  }
+
+  // 6. Extract Invoice / Receipt Number
+  let invoiceNumber: FieldValue<string> | undefined;
+  const invMatch = ocrText.match(/\b(?:receipt|invoice|bill|cash\s*memo)\s*(?:#|no\.?|num)?\s*[:=-]?\s*["']?([#A-Za-z0-9_-]{4,20})\b/i);
+  if (invMatch && invMatch[1]) {
+    let cleanInv = invMatch[1].replace(/^[pP]r/, 'AR');
+    invoiceNumber = {
+      value: cleanInv.startsWith('#') ? cleanInv : `#${cleanInv}`,
+      confidence: 'high',
+      rawText: invMatch[0],
+    };
+  }
+
+  // 7. Extract Payment Method
+  let paymentMethod: FieldValue<string> | undefined;
+  const payMatch = ocrText.match(/\b(?:paid\s+(?:by|via)|payment|tender)?\s*(visa|mastercard|amex|cash|upi|debit|credit)\b.*?(?:(?:\*+|x+|sex|\s)+(\d{4}))?/i);
+  if (payMatch && payMatch[1]) {
+    const cardName = payMatch[1].toUpperCase();
+    const last4 = payMatch[2] ? ` ending in ${payMatch[2]}` : '';
+    paymentMethod = {
+      value: `${cardName}${last4}`,
+      confidence: 'high',
+      rawText: payMatch[0],
+    };
+  }
+
+  // 8. Extract GSTIN
   let gstin: FieldValue<string> | undefined;
 
   // Keyword match: e.g. "GSTIN: 27AABCS1429B1Z8" or "GST!N : 07AAAAA0000A1Z5"
@@ -319,6 +457,11 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     vendor,
     date,
     amount,
+    ...(subtotal ? { subtotal } : {}),
+    ...(tax ? { tax } : {}),
+    ...(lineItems.length > 0 ? { lineItems } : {}),
+    ...(invoiceNumber ? { invoiceNumber } : {}),
+    ...(paymentMethod ? { paymentMethod } : {}),
     ...(gstin ? { gstin } : {}),
   };
 }

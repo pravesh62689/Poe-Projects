@@ -18,7 +18,11 @@ export interface ParsedReceipt {
   lineItems?: Array<{
     description: string;
     amount: number;
+    quantity?: number;
   }>;
+  subtotal?: FieldValue<number>;
+  tax?: FieldValue<number>;
+  paymentMethod?: FieldValue<string>;
 }
 
 export interface StatementTransaction {
