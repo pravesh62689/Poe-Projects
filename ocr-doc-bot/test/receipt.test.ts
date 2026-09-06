@@ -120,4 +120,55 @@ describe('parseReceipt', () => {
     expect(result.invoiceNumber?.value).toBe('#AR7739');
     expect(result.paymentMethod?.value).toBe('VISA ending in 1984');
   });
+
+  it('parses the exact user OCR text with noise, extracting address, time, balanced tax, and card number', () => {
+    const userRawOcr = `
+ET A Ee —
+_— =
+= = = a a)
+1 oe es ee
+Sei ale Saas
+Rie T= =
+Ex ASE = a
+= o =
+ea <0 Artisan ==
+= Roast Cafe = =
+Tee ee i a
+. Ss an Aw
+Foes ARTISAN ROAST CAFE a
+ee — 176 Brew Street a
+= aa London, ECT 208 === ee
+= DATE: 14-Oct-2024 =————>
+= TIME: 10:24 AM |
+: RECEIPT: #ARTT39 —— =e =
+Sh = “=
+= 3 1x Caramel Macchiato $5.20 =———— £2
+1x Avocado Toast $9.50 B=——
+. ee =
+= = SUBTOTAL Hh $14.70 = =
+fos CesT @ 2.5% a ==
+= GST @ 2.5% $0.37 =
+TE TOTAL $15.44 =
+y — a
+& paid by Visa xkkx 1984 ed
+— —
+    `;
+
+    const result = parseReceipt(userRawOcr);
+    expect(result.vendor.value).toBe('ARTISAN ROAST CAFE');
+    expect(result.vendor.confidence).toBe('high');
+    expect(result.date.value).toBe('14-Oct-2024');
+    expect(result.time?.value).toBe('10:24 AM');
+    expect(result.address?.value).toContain('176 Brew Street');
+    expect(result.invoiceNumber?.value).toBe('#AR7739');
+    expect(result.subtotal?.value).toBe(14.70);
+    expect(result.tax?.value).toBe(0.74);
+    expect(result.amount.value).toBe(15.44);
+    expect(result.paymentMethod?.value).toBe('VISA ending in 1984');
+    expect(result.lineItems?.length).toBe(2);
+    expect(result.lineItems?.[0]?.description).toContain('Caramel Macchiato');
+    expect(result.lineItems?.[0]?.amount).toBe(5.20);
+    expect(result.lineItems?.[1]?.description).toContain('Avocado Toast');
+    expect(result.lineItems?.[1]?.amount).toBe(9.50);
+  });
 });

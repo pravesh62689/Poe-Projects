@@ -164,7 +164,11 @@ export function createServer(options: ServerOptions = {}) {
         const rec = parsedResult as any;
         if (parsedResult.documentType === 'receipt') {
           tableRows.push(`| **Vendor / Store** | ${rec.vendor?.value || 'Unknown'} | ${rec.vendor?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
-          tableRows.push(`| **Date** | ${rec.date?.value || 'Unknown'} | ${rec.date?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          if (rec.address) {
+            tableRows.push(`| **Store Address** | ${rec.address.value} | ✅ High |`);
+          }
+          const dateTimeStr = rec.time ? `${rec.date?.value || 'Unknown'} at ${rec.time.value}` : (rec.date?.value || 'Unknown');
+          tableRows.push(`| **Date & Time** | ${dateTimeStr} | ${rec.date?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
           if (rec.invoiceNumber) {
             tableRows.push(`| **Receipt / Invoice #** | ${rec.invoiceNumber.value} | ✅ High |`);
           }

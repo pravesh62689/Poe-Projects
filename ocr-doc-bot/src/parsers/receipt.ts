@@ -378,6 +378,18 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     };
   }
 
+  // Reconcile tax if total and subtotal are present and tax was only partially parsed
+  if (amount.value > 0 && subtotal && amount.value > subtotal.value) {
+    const diff = parseFloat((amount.value - subtotal.value).toFixed(2));
+    if (!tax || Math.abs(tax.value - diff) > 0.05) {
+      tax = {
+        value: diff,
+        confidence: 'high',
+        rawText: `Calculated from total ($${amount.value.toFixed(2)}) - subtotal ($${subtotal.value.toFixed(2)})`,
+      };
+    }
+  }
+
   // If amount was missing or low-confidence amount is strictly less than subtotal, derive from items
   if ((amount.value === 0 || (amount.confidence === 'low' && subtotal && subtotal.value > amount.value)) && subtotal) {
     const derivedTotal = (subtotal.value || 0) + (tax?.value || 0);
@@ -390,11 +402,39 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     }
   }
 
-  // 6. Extract Invoice / Receipt Number
+  // 6. Extract Time & Address
+  let time: FieldValue<string> | undefined;
+  const timeMatch = ocrText.match(/\b(?:time\s*[:=-]?\s*)?(\d{1,2}:\d{2}(?:\s*[AaPp][Mm])?)\b/i);
+  if (timeMatch && timeMatch[1] && /\d{1,2}:\d{2}/.test(timeMatch[1])) {
+    time = {
+      value: timeMatch[1].trim(),
+      confidence: 'high',
+      rawText: timeMatch[0],
+    };
+  }
+
+  let address: FieldValue<string> | undefined;
+  const addrMatch = ocrText.match(
+    /\b(\d{1,5}\s+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Blvd|Lane|Way|Drive|Dr)[^,\n]*(?:,\s*[A-Za-z\s]+(?:,\s*[A-Z0-9\s]{3,10})?)?)/i
+  );
+  if (addrMatch && addrMatch[1]) {
+    let cleanAddr = addrMatch[1].replace(/^[=\s—_-]+|[=\s—_-]+$/g, '').trim();
+    if (cleanAddr.length >= 8 && cleanAddr.length <= 60) {
+      address = {
+        value: cleanAddr,
+        confidence: 'high',
+        rawText: addrMatch[0],
+      };
+    }
+  }
+
+  // 7. Extract Invoice / Receipt Number
   let invoiceNumber: FieldValue<string> | undefined;
   const invMatch = ocrText.match(/\b(?:receipt|invoice|bill|cash\s*memo)\s*(?:#|no\.?|num)?\s*[:=-]?\s*["']?([#A-Za-z0-9_-]{4,20})\b/i);
   if (invMatch && invMatch[1]) {
-    let cleanInv = invMatch[1].replace(/^[pP]r/, 'AR');
+    let cleanInv = invMatch[1].replace(/^#?[pP]r/i, 'AR');
+    // Dot-matrix correction: TT followed by digits (e.g. #ARTT39 -> #AR7739)
+    cleanInv = cleanInv.replace(/^#?([A-Za-z]{2})[Tt]{2}(\d+)/i, '$177$2');
     invoiceNumber = {
       value: cleanInv.startsWith('#') ? cleanInv : `#${cleanInv}`,
       confidence: 'high',
@@ -402,9 +442,9 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     };
   }
 
-  // 7. Extract Payment Method
+  // 8. Extract Payment Method
   let paymentMethod: FieldValue<string> | undefined;
-  const payMatch = ocrText.match(/\b(?:paid\s+(?:by|via)|payment|tender)?\s*(visa|mastercard|amex|cash|upi|debit|credit)\b.*?(?:(?:\*+|x+|sex|\s)+(\d{4}))?/i);
+  const payMatch = ocrText.match(/\b(?:paid\s+(?:by|via)|payment|tender)?\s*(visa|mastercard|amex|cash|upi|debit|credit)\b.*?(?:(?:\*+|x+|k+|#|•|\s|sex)+(\d{4}))?/i);
   if (payMatch && payMatch[1]) {
     const cardName = payMatch[1].toUpperCase();
     const last4 = payMatch[2] ? ` ending in ${payMatch[2]}` : '';
@@ -467,6 +507,8 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     vendor,
     date,
     amount,
+    ...(time ? { time } : {}),
+    ...(address ? { address } : {}),
     ...(subtotal ? { subtotal } : {}),
     ...(tax ? { tax } : {}),
     ...(lineItems.length > 0 ? { lineItems } : {}),

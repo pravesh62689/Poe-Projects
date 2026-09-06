@@ -20,6 +20,8 @@ export interface ParsedReceipt {
     amount: number;
     quantity?: number;
   }>;
+  time?: FieldValue<string>;
+  address?: FieldValue<string>;
   subtotal?: FieldValue<number>;
   tax?: FieldValue<number>;
   paymentMethod?: FieldValue<string>;
