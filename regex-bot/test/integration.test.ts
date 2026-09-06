@@ -34,8 +34,7 @@ describe('Regex Bot Worker Integration (Poe Protocol E2E)', () => {
       introduction_message: string;
     };
     expect(data.allow_attachments).toBe(false);
-    expect(data.server_bot_dependencies['Claude-3.5-Sonnet']).toBe(1);
-    expect(data.introduction_message).toContain('Regex-Generator');
+    expect(data.introduction_message).toContain('Regex-Gen-Tester');
   });
 
   it('generates regex and executes it against test samples returning streamed SSE results', async () => {

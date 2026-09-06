@@ -52,7 +52,7 @@ export async function handleRegexWorkerRequest(
     });
   }
 
-const REGEX_INTRO_MESSAGE = `⚡ **Regex-Generator** — describe the pattern you need in plain English and I'll build it *and* run it against your test strings in real time.
+const REGEX_INTRO_MESSAGE = `⚡ **Regex-Gen-Tester** — describe the pattern you need in plain English and I'll build it *and* run it against your test strings in real time.
 
 **Example:**
 \`Match email addresses.\`
@@ -61,7 +61,7 @@ const REGEX_INTRO_MESSAGE = `⚡ **Regex-Generator** — describe the pattern yo
 
 You get the pattern, a per-sample match table with capture groups and timing, plus a catastrophic-backtracking (ReDoS) safety check.
 
-Working with data? Try @SQL-Query-Gen and @OCR-Doc-Parser.`;
+Working with data? Try @English-To-SQL and @OCR-Doc-Parser.`;
 
   // 2. Settings request
   if (body.type === 'settings') {
@@ -69,9 +69,9 @@ Working with data? Try @SQL-Query-Gen and @OCR-Doc-Parser.`;
       allowAttachments: false,
       enableImageComprehension: false,
       introductionMessage: REGEX_INTRO_MESSAGE,
-      serverBotDependencies: {
-        'Claude-3.5-Sonnet': 1,
-      },
+      // serverBotDependencies: {
+      //   'Claude-3.5-Sonnet': 1,
+      // },
     });
     return new Response(JSON.stringify(settings), {
       status: 200,

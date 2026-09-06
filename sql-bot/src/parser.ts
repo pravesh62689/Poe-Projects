@@ -29,9 +29,38 @@ export function extractSchemaAndAsk(text: string): ExtractedSqlPrompt {
       }
 
       if (inSchemaSection) {
-        schemaLines.push(line);
+        // Handle mixed SQL + natural-language on a single semicolon-delimited line.
+        // Split by `;`, keep SQL statements, and move the trailing non-SQL remainder to ask.
+        const segments = trimmed.split(';');
+        const sqlSegments: string[] = [];
+        let foundNonSql = false;
+
+        for (let i = 0; i < segments.length; i++) {
+          const rawSeg = segments[i];
+          if (!rawSeg) continue;
+          const seg = rawSeg.trim();
+          if (!seg) continue;
+
+          const segIsSql =
+            /^(CREATE\s+TABLE|INSERT\s+INTO|DROP\s+TABLE|ALTER\s+TABLE|SELECT\b|UPDATE\b|DELETE\b)/i.test(seg);
+
+          if (segIsSql || (!foundNonSql && i < segments.length - 1)) {
+            // SQL statement or mid-line segment before the trailing ask
+            sqlSegments.push(seg + ';');
+          } else {
+            // Non-SQL trailing segment — this is the natural language ask
+            foundNonSql = true;
+            askLines.push(seg);
+          }
+        }
+
+        if (sqlSegments.length > 0) {
+          schemaLines.push(sqlSegments.join(' '));
+        }
+
+        // Exit schema mode after last semicolon-terminated statement if no SQL keyword continues
         if (trimmed.endsWith(';')) {
-          // Could be end of a statement; keep scanning next lines
+          inSchemaSection = false;
         }
       } else {
         if (trimmed.length > 0) {

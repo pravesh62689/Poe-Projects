@@ -18,7 +18,7 @@ const OCR_INTRO_MESSAGE = `📄 **OCR-Doc-Parser** turns photos of **receipts, b
 
 **Commands:** \`/receipt\` · \`/statement\` · \`/id\` (PAN, Aadhaar, Passport, DL)
 
-Need SQL or regex instead? Try @SQL-Query-Gen and @Regex-Generator.`;
+Need SQL or regex instead? Try @English-To-SQL and @Regex-Gen-Tester.`;
 
 export interface ServerOptions {
   accessKey?: string;

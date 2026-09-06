@@ -34,8 +34,7 @@ describe('SQL Bot Worker Integration (Poe Protocol E2E)', () => {
       introduction_message: string;
     };
     expect(settings.allow_attachments).toBe(false);
-    expect(settings.server_bot_dependencies['Claude-3.5-Sonnet']).toBe(1);
-    expect(settings.introduction_message).toContain('SQL-Query-Gen');
+    expect(settings.introduction_message).toContain('English-To-SQL');
   });
 
   it('executes schema, verifies query against in-memory db, and streams tabular output', async () => {

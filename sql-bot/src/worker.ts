@@ -38,7 +38,7 @@ export type CustomSqlGenerator = (
   errorFeedback?: string,
 ) => Promise<string>;
 
-const SQL_INTRO_MESSAGE = `📊 **SQL-Query-Gen** — turn plain English into SQL that's *verified by execution*.
+const SQL_INTRO_MESSAGE = `📊 **English-To-SQL** — turn plain English into SQL that's *verified by execution*.
 
 Paste your \`CREATE TABLE\` statements (and optional sample \`INSERT\` rows), then describe what you want:
 
@@ -46,7 +46,7 @@ Paste your \`CREATE TABLE\` statements (and optional sample \`INSERT\` rows), th
 
 I generate the query, run it against an in-memory SQLite copy of your schema, self-correct if it errors, and warn you about destructive statements.
 
-Also useful: @Regex-Generator and @OCR-Doc-Parser.`;
+Also useful: @Regex-Gen-Tester and @OCR-Doc-Parser.`;
 
 export async function handleSqlWorkerRequest(
   request: Request,
@@ -93,9 +93,9 @@ export async function handleSqlWorkerRequest(
       allowAttachments: false,
       enableImageComprehension: false,
       introductionMessage: SQL_INTRO_MESSAGE,
-      serverBotDependencies: {
-        'Claude-3.5-Sonnet': 1,
-      },
+      // serverBotDependencies: {
+      //   'Claude-3.5-Sonnet': 1,
+      // },
     });
     return new Response(JSON.stringify(settings), {
       status: 200,

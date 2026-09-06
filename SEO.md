@@ -213,6 +213,31 @@ Also useful: @Regex-Generator and @OCR-Doc-Parser.
 | Third-party mentions | genuine answers on Reddit / StackOverflow / Quora linking the bot |
 | Brand queries | people googling the exact handle after hearing of it → keep handle memorable |
 
+### 4.4 Poe's recommendation engine — "Related bots" (your biggest channel once it kicks in)
+
+Separate from search. This is what surfaces your bot to people who never looked for it — the
+"Related bots", "you might like", and on-other-bots'-pages placements. It is the compounding
+channel; search just gets you the first users.
+
+Primary signal: **co-usage** — *users who messaged bot A also messaged bot B* → B shows on A's
+page and to A's users. Secondary: the **Related recommendations** toggle (must be ON — it's in
+the create form), shared **category**, bot rating, recency.
+
+Levers you control:
+
+- **Related recommendations = ON** on all 3 (set at creation — POE_SETUP §A).
+- **Cross-link the 3 bots in every intro message** (already in the code, §3) — this seeds
+  co-usage *among your own bots* from day one, so they recommend each other before any outside
+  traffic exists.
+- **regex-bot + sql-bot in the same category** (Programming) — category adjacency.
+- **First ~100 seeded conversations (§5): have each tester try 2–3 of your bots in one
+  session** — that is a direct co-usage signal, not just volume.
+- **Keep ratings high** — fast, error-free, useful responses. Low-rated bots are dropped from
+  the recommendation pool entirely.
+
+Net effect: ship the three as a set and cross-linked, and once *one* ranks, the recommender
+pulls the other two up with it.
+
 ---
 
 ## 5. Launch protocol — first 14 days (this is what triggers the surge)

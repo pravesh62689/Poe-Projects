@@ -1,14 +1,57 @@
 import initSqlJs, { Database, SqlJsStatic } from 'sql.js';
 import { SqlQueryResult, BenchmarkReport } from './types.js';
 
+// Wrangler resolves .wasm imports to a pre-compiled WebAssembly.Module at build time.
+// In Vitest, this is mocked to `undefined` via vitest.config.ts resolve alias.
+// @ts-expect-error — no TS declaration for raw .wasm module imports
+import sqlWasmModule from 'sql.js/dist/sql-wasm.wasm';
+
+
 let sqlJsModulePromise: Promise<SqlJsStatic> | null = null;
 
 export async function getSqlJs(): Promise<SqlJsStatic> {
   if (!sqlJsModulePromise) {
-    sqlJsModulePromise = initSqlJs();
+    const t0 = performance.now();
+
+    // In Cloudflare Workers, sqlWasmModule is a pre-compiled WebAssembly.Module.
+    // In Node.js/Vitest, it's undefined — fall back to default init.
+    if (sqlWasmModule) {
+      // Polyfill: sql.js's Emscripten code detects WorkerGlobalScope and unconditionally
+      // accesses `self.location.href`. CF Workers has WorkerGlobalScope but no self.location,
+      // causing "Cannot read properties of undefined (reading 'href')".
+      const s = self as unknown as Record<string, unknown>;
+      if (typeof self !== 'undefined' && !s.location) {
+        s.location = { href: '' };
+      }
+
+
+      sqlJsModulePromise = initSqlJs({
+        // locateFile prevents Emscripten's env detection from crashing on `self.location.href`
+        // (undefined in CF Workers). The return value is unused since instantiateWasm handles loading.
+        locateFile: (file: string) => file,
+        instantiateWasm(
+          importObject: WebAssembly.Imports,
+          successCallback: (instance: WebAssembly.Instance) => void,
+        ) {
+          const instance = new WebAssembly.Instance(sqlWasmModule, importObject);
+          successCallback(instance);
+          return instance.exports;
+        },
+      });
+
+    } else {
+      // Fallback for Node.js / Vitest where WASM is loaded from disk
+      sqlJsModulePromise = initSqlJs();
+    }
+
+    sqlJsModulePromise.then(() => {
+      const wasmInitMs = (performance.now() - t0).toFixed(2);
+      console.log(`[sql-bot] WASM init: ${wasmInitMs}ms`);
+    });
   }
   return sqlJsModulePromise;
 }
+
 
 /**
  * Creates an in-memory database instance seeded with the provided schema and rows.
