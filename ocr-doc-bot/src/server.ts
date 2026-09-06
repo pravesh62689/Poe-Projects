@@ -152,14 +152,49 @@ export function createServer(options: ServerOptions = {}) {
             parsedResult.vendor?.confidence === 'low' &&
             parsedResult.amount?.confidence === 'low');
 
+        const rawOcrText = typeof ocrOutput === 'string' ? ocrOutput : ocrOutput.text || '';
+
+        // Build human-readable summary table
+        const tableRows: string[] = [
+          '| Field | Extracted Value | Confidence |',
+          '| :--- | :--- | :--- |',
+        ];
+
+        const rec = parsedResult as any;
+        if (parsedResult.documentType === 'receipt') {
+          tableRows.push(`| **Vendor / Store** | ${rec.vendor?.value || 'Unknown'} | ${rec.vendor?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Date** | ${rec.date?.value || 'Unknown'} | ${rec.date?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Total Amount** | ${rec.amount?.value !== undefined ? '$' + rec.amount.value : 'Unknown'} | ${rec.amount?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          if (rec.gstin) {
+            tableRows.push(`| **GSTIN / Tax ID** | ${rec.gstin.value} | ${rec.gstin.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          }
+        } else if (parsedResult.documentType === 'statement') {
+          tableRows.push(`| **Account Holder** | ${rec.accountHolder?.value || 'Unknown'} | ${rec.accountHolder?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Statement Period** | ${rec.period?.value || 'Unknown'} | ${rec.period?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Closing Balance** | ${rec.closingBalance?.value !== undefined ? rec.closingBalance.value : 'Unknown'} | ${rec.closingBalance?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Transactions Found** | ${rec.transactions?.length || 0} entries | ✅ High |`);
+        } else if (parsedResult.documentType === 'id') {
+          tableRows.push(`| **ID Type** | ${rec.idType || 'Unknown'} | ✅ High |`);
+          tableRows.push(`| **Document Number** | ${rec.idNumber?.value || 'Unknown'} | ${rec.idNumber?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Name** | ${rec.name?.value || 'Unknown'} | ${rec.name?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+          tableRows.push(`| **Date of Birth** | ${rec.dateOfBirth?.value || 'Unknown'} | ${rec.dateOfBirth?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
+        }
+
         const formattedMarkdown = [
           '### 📄 Document Extraction Results',
           `**Document Type**: \`${parsedResult.documentType}\``,
           '',
+          '#### 📋 Extracted Summary:',
+          tableRows.join('\n'),
+          '',
+          '#### 📦 Structured JSON:',
           '```json',
           JSON.stringify(parsedResult, null, 2),
           '```',
           '',
+          rawOcrText
+            ? `<details>\n<summary>🔍 <b>View Full Raw OCR Text (Click to expand)</b></summary>\n\n\`\`\`text\n${rawOcrText.trim()}\n\`\`\`\n</details>\n`
+            : '',
           isHandwritten
             ? '> ⚠️ **Notice**: Document text appears handwritten or has low clarity. Tesseract OCR is not optimized for handwriting; extracted values carry low confidence and must be manually verified.\n\n'
             : '',

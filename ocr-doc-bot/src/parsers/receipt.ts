@@ -117,7 +117,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     .map((l) => l.trim())
     .filter((l) => l.length > 0);
 
-  // 1. Extract Vendor
+  // 1. Extract Vendor with multi-line scoring (filters edge artifacts like "ET A Ee —")
   let vendor: FieldValue<string> = {
     value: 'Unknown Vendor',
     confidence: 'low',
@@ -136,19 +136,59 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     'call ',
     'remember to',
     'todo',
+    'date:',
+    'time:',
+    'system override',
+    'ignore all',
+    'instruction',
+    'prompt',
   ];
-  for (const line of lines.slice(0, 5)) {
-    const lower = line.toLowerCase();
-    const isHeaderKeyword = ignoredVendorKeywords.some((k) => lower.includes(k));
-    const hasSufficientLetters = (line.match(/[a-zA-Z]/g) || []).length >= 3;
-    if (!isHeaderKeyword && hasSufficientLetters && !/^\d+$/.test(line)) {
-      vendor = {
-        value: line,
-        confidence: line.length > 4 ? 'high' : 'medium',
-        rawText: line,
-      };
-      break;
-    }
+
+  interface VendorCandidate {
+    text: string;
+    score: number;
+    rawText: string;
+  }
+  const vendorCandidates: VendorCandidate[] = [];
+
+  const candidateLines = lines.slice(0, 8);
+  for (let idx = 0; idx < candidateLines.length; idx++) {
+    const rawLine = candidateLines[idx]!;
+    const cleaned = rawLine.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '').trim();
+    const lower = cleaned.toLowerCase();
+    if (cleaned.length < 3) continue;
+    if (ignoredVendorKeywords.some((k) => lower.includes(k))) continue;
+
+    const letters = (cleaned.match(/[a-zA-Z]/g) || []).length;
+    if (letters < 3) continue;
+    const symbols = (cleaned.match(/[^a-zA-Z0-9\s&,.'-]/g) || []).length;
+    if (symbols / cleaned.length > 0.25) continue;
+
+    const words = cleaned.split(/\s+/).filter((w) => /^[a-zA-Z0-9&.'-]+$/.test(w) && w.length >= 2);
+    if (words.length < 1) continue;
+
+    let score = words.length * 2;
+    // Strong positional boost: real vendor is at the top of the header
+    score += Math.max(0, 8 - idx * 2);
+    if (/^[A-Z0-9\s&.'-]+$/.test(cleaned) && letters >= 5) score += 3;
+    if (/cafe|coffee|roast|store|shop|market|supermarket|restaurant|ltd|co\b|hardware|mart|bakers|bakery|grill/i.test(cleaned)) score += 6;
+    if (cleaned.length > 8 && cleaned.length < 40) score += 1;
+
+    vendorCandidates.push({
+      text: cleaned.replace(/\s*=\s*\d+$/, '').replace(/[\s=—_-]+$/, '').trim(),
+      score,
+      rawText: rawLine,
+    });
+  }
+
+  vendorCandidates.sort((a, b) => b.score - a.score);
+  const bestVendor = vendorCandidates[0];
+  if (bestVendor && bestVendor.score >= 2) {
+    vendor = {
+      value: bestVendor.text,
+      confidence: bestVendor.score >= 4 ? 'high' : 'medium',
+      rawText: bestVendor.rawText,
+    };
   }
 
   // 2. Extract Date
