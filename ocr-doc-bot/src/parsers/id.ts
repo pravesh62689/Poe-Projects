@@ -52,21 +52,29 @@ export function parseIdDocument(ocrText: string): ParsedIdDocument {
   // 3. Identify Passport
   if (idType === 'Unknown') {
     const passportMatch = ocrText.match(PASSPORT_REGEX);
-    const isPassport = /republic\s+of\s+india|passport/i.test(ocrText);
-    if (passportMatch && passportMatch[1] && isPassport) {
+    const mrzMatch = ocrText.match(/P<([A-Z]{3})<<([A-Z<]+)/i);
+    const isPassport = /republic\s+of\s+india|passport/i.test(ocrText) || !!mrzMatch;
+    if (isPassport) {
       idType = 'Passport';
-      idNumber = {
-        value: passportMatch[1].toUpperCase(),
-        confidence: 'high',
-        rawText: passportMatch[0],
-      };
+      let passportNum = passportMatch ? passportMatch[1] : undefined;
+      if (!passportNum && mrzMatch) {
+        const mrz2 = ocrText.match(/([A-Z0-9]{8,12})\d[A-Z]{3}/i);
+        if (mrz2 && mrz2[1]) passportNum = mrz2[1];
+      }
+      if (passportNum) {
+        idNumber = {
+          value: passportNum.toUpperCase(),
+          confidence: 'high',
+          rawText: passportNum,
+        };
+      }
     }
   }
 
   // 4. Identify Driving License
   if (idType === 'Unknown') {
-    const dlMatch = ocrText.match(DL_REGEX);
-    const isDL = /driving\s+licen[cs]e|transport\s+department|motor\s+vehicles/i.test(ocrText);
+    const dlMatch = ocrText.match(DL_REGEX) || ocrText.match(/\b(?:DL|DVLA|NSW)[ -]?(?:USA|UK|AUS)?[ -]?([A-Za-z0-9-]{6,16})\b/i);
+    const isDL = /driving\s+licen[cs]e|driver\s+licen[cs]e|transport\s+department|motor\s+vehicles|dvla/i.test(ocrText);
     if (dlMatch && dlMatch[1]) {
       idType = 'DrivingLicense';
       idNumber = {
@@ -77,25 +85,63 @@ export function parseIdDocument(ocrText: string): ParsedIdDocument {
     }
   }
 
-  // 5. Extract Name
+  // 5. Identify National ID / Other Government ID
+  if (idType === 'Unknown') {
+    const isNationalId = /national\s+id|identity\s+card|personalausweis|carte\s+nationale|documento\s+nacional|cni|dni/i.test(ocrText);
+    const docNumMatch = ocrText.match(/(?:document\s+number|id\s+no\.?|doc\s*#|card\s+no\.?)\s*[:=-]?\s*([A-Za-z0-9 -]{5,22})/i);
+    if (isNationalId || docNumMatch) {
+      idType = 'NationalID';
+      if (docNumMatch && docNumMatch[1]) {
+        idNumber = {
+          value: docNumMatch[1].trim().toUpperCase(),
+          confidence: 'high',
+          rawText: docNumMatch[0],
+        };
+      }
+    }
+  }
+
+  // Fallback for Document Number if idNumber is still Unknown
+  if (idNumber.confidence === 'low') {
+    const docNumMatch = ocrText.match(/(?:document\s+number|id\s+no\.?|doc\s*#|card\s+no\.?)\s*[:=-]?\s*([A-Za-z0-9 -]{5,22})/i);
+    if (docNumMatch && docNumMatch[1]) {
+      idNumber = {
+        value: docNumMatch[1].trim().toUpperCase(),
+        confidence: 'high',
+        rawText: docNumMatch[0],
+      };
+    }
+  }
+
+  // 6. Extract Name
   let name: FieldValue<string> = {
     value: 'Unknown Name',
     confidence: 'low',
     flagReason: 'Unable to discern human name with high confidence',
   };
 
-  const namePrefixMatch = ocrText.match(/(?:name\s*[:=-]|given\s+name[s]?\s*[:=-])\s*([A-Za-z .]+)/i);
+  const namePrefixMatch = ocrText.match(/(?:full\s+name|given\s+name[s]?|name|nom|nombre)\s*[:=-]?\s*([A-Za-z .'-]+)/i);
   if (namePrefixMatch && namePrefixMatch[1]) {
     const clean = namePrefixMatch[1].trim();
-    if (clean.length > 2) {
-      name = {
-        value: clean,
-        confidence: 'high',
-        rawText: namePrefixMatch[0],
-      };
-    }
+    name = {
+      value: clean,
+      confidence: 'high',
+      rawText: namePrefixMatch[0],
+    };
   } else {
-    // Heuristic: On PAN card, name is typically right above Father's name or after Government header
+    // Check MRZ line: P<USA<<SMITH<JORDAN<<<<
+    const mrzNameMatch = ocrText.match(/P<[A-Z]{3}<<([A-Z<]+)/i);
+    if (mrzNameMatch && mrzNameMatch[1]) {
+      const cleanMrz = mrzNameMatch[1].replace(/<+/g, ' ').trim();
+      if (cleanMrz.length > 2) {
+        name = {
+          value: cleanMrz,
+          confidence: 'high',
+          rawText: mrzNameMatch[0],
+        };
+      }
+    } else {
+      // Heuristic: On PAN card, name is typically right above Father's name or after Government header
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       if (!line) continue;
@@ -112,6 +158,7 @@ export function parseIdDocument(ocrText: string): ParsedIdDocument {
         }
       }
     }
+  }
   }
 
   // 6. Extract Date of Birth

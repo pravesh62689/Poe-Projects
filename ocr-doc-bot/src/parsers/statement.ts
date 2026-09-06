@@ -228,10 +228,64 @@ export function parseBankStatement(
     }
   }
 
+  // 4. Extract Account Holder
+  let accountHolder: FieldValue<string> | undefined;
+  const holderMatch = ocrText.match(/(?:account\s+holder|customer\s+name|name)\s*[:=-]?\s*([A-Za-z\s.]+)/i);
+  if (holderMatch && holderMatch[1]) {
+    const cleanHolder = holderMatch[1].trim();
+    if (cleanHolder.length >= 3) {
+      accountHolder = {
+        value: cleanHolder,
+        confidence: 'high',
+        rawText: holderMatch[0],
+      };
+    }
+  }
+
+  // 5. Extract Statement Period
+  let period: FieldValue<string> | undefined;
+  const periodMatch = ocrText.match(/(?:statement\s+period|period|date\s+range)\s*[:=-]?\s*([A-Za-z0-9\s,.-]+)/i);
+  if (periodMatch && periodMatch[1]) {
+    const cleanPeriod = periodMatch[1].trim();
+    if (cleanPeriod.length >= 5) {
+      period = {
+        value: cleanPeriod,
+        confidence: 'high',
+        rawText: periodMatch[0],
+      };
+    }
+  }
+
+  // 6. Extract Closing / Ending Balance
+  let closingBalance: FieldValue<number> | undefined;
+  const closeMatch = ocrText.match(/(?:closing\s+balance|ending\s+balance|final\s+balance|balance\s+as\s+of)\s*[:=-]?\s*[$€£Rs.]?\s*([\d,]+\.\d{2})/i);
+  if (closeMatch && closeMatch[1]) {
+    const cleanBal = parseFloat(closeMatch[1].replace(/,/g, ''));
+    if (!isNaN(cleanBal)) {
+      closingBalance = {
+        value: cleanBal,
+        confidence: 'high',
+        rawText: closeMatch[0],
+      };
+    }
+  } else if (transactions.length > 0) {
+    const lastTx = transactions[transactions.length - 1];
+    if (lastTx && lastTx.balance?.value !== undefined) {
+      closingBalance = {
+        value: lastTx.balance.value,
+        confidence: 'high',
+        rawText: 'Derived from final ledger transaction balance',
+      };
+    }
+  }
+
   return {
     documentType: 'statement',
     ...(bankName ? { bankName } : {}),
     ...(accountNumber ? { accountNumber } : {}),
+    ...(accountHolder ? { accountHolder } : {}),
+    ...(period ? { period } : {}),
+    ...(closingBalance ? { closingBalance } : {}),
     transactions,
   };
 }

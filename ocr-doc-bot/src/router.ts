@@ -26,16 +26,20 @@ export function extractRouteCommand(prompt: string): DocumentRoute {
 export function detectDocumentType(ocrText: string): 'receipt' | 'statement' | 'id' {
   const lower = ocrText.toLowerCase();
 
-  // ID cues: government keywords, specific ID number formats
+  // ID cues: government keywords, specific ID number formats, passports, driver licenses
   const isId =
     /\b([a-z]{5}[0-9]{4}[a-z]{1})\b/i.test(ocrText) || // PAN
     /\b(\d{4}\s\d{4}\s\d{4})\b/.test(ocrText) || // Aadhaar
+    /P<[A-Z]{3}<<[A-Z<]+/i.test(ocrText) || // Passport MRZ
+    /\b(passport|driver\s+licen[cs]e|driving\s+licen[cs]e|national\s+id|identity\s+card|photo\s+id|document\s+number)\b/i.test(ocrText) ||
     lower.includes('income tax department') ||
     lower.includes('permanent account number') ||
     lower.includes('unique identification authority') ||
-    lower.includes('driving licence') ||
     lower.includes('republic of india') ||
-    lower.includes('election commission');
+    lower.includes('election commission') ||
+    lower.includes('personalausweis') ||
+    lower.includes('carte nationale') ||
+    lower.includes('documento nacional');
 
   if (isId) {
     return 'id';
@@ -43,8 +47,9 @@ export function detectDocumentType(ocrText: string): 'receipt' | 'statement' | '
 
   // Bank Statement cues: balance columns, transaction lines, bank headers
   const isStatement =
-    /\b(cr|dr|credit|debit)\b/i.test(ocrText) &&
-    /\b(balance|withdrawal|deposit|a\/c|account no)\b/i.test(ocrText);
+    /\b(account\s+statement|bank\s+statement|statement\s+period|closing\s+balance|opening\s+balance)\b/i.test(ocrText) ||
+    (/\b(cr|dr|credit|debit)\b/i.test(ocrText) &&
+     /\b(balance|withdrawal|deposit|a\/c|account no)\b/i.test(ocrText));
 
   if (isStatement) {
     return 'statement';

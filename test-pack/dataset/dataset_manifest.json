@@ -1,0 +1,1707 @@
+[
+  {
+    "id": "rec_001",
+    "category": "receipt",
+    "filename": "01_receipts/rec_001.jpg",
+    "expected": {
+      "vendor": "BLUE BOTTLE COFFEE",
+      "date": "11-Oct-2024",
+      "amount": 11.31,
+      "invoiceNumber": "RC-7700",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_002",
+    "category": "receipt",
+    "filename": "01_receipts/rec_002.jpg",
+    "expected": {
+      "vendor": "STARBUCKS COFFEE",
+      "date": "12-Oct-2024",
+      "amount": 10.5,
+      "invoiceNumber": "RC-7701",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_003",
+    "category": "receipt",
+    "filename": "01_receipts/rec_003.jpg",
+    "expected": {
+      "vendor": "PEETS COFFEE & TEA",
+      "date": "13-Oct-2024",
+      "amount": 15.64,
+      "invoiceNumber": "RC-7702",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_004",
+    "category": "receipt",
+    "filename": "01_receipts/rec_004.jpg",
+    "expected": {
+      "vendor": "TIM HORTONS CAFE",
+      "date": "14-Oct-2024",
+      "amount": 11.58,
+      "invoiceNumber": "RC-7703",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_005",
+    "category": "receipt",
+    "filename": "01_receipts/rec_005.jpg",
+    "expected": {
+      "vendor": "COSTA COFFEE ROASTERS",
+      "date": "15-Oct-2024",
+      "amount": 16.72,
+      "invoiceNumber": "RC-7704",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_006",
+    "category": "receipt",
+    "filename": "01_receipts/rec_006.jpg",
+    "expected": {
+      "vendor": "MCDONALDS EXPRESS",
+      "date": "16-Oct-2024",
+      "amount": 10.5,
+      "invoiceNumber": "RC-7705",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_007",
+    "category": "receipt",
+    "filename": "01_receipts/rec_007.jpg",
+    "expected": {
+      "vendor": "BURGER KING STORE",
+      "date": "17-Oct-2024",
+      "amount": 12.39,
+      "invoiceNumber": "RC-7706",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_008",
+    "category": "receipt",
+    "filename": "01_receipts/rec_008.jpg",
+    "expected": {
+      "vendor": "SUBWAY FRESH SANDWICHES",
+      "date": "18-Oct-2024",
+      "amount": 11.58,
+      "invoiceNumber": "RC-7707",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_009",
+    "category": "receipt",
+    "filename": "01_receipts/rec_009.jpg",
+    "expected": {
+      "vendor": "CHIPOTLE MEXICAN GRILL",
+      "date": "19-Oct-2024",
+      "amount": 16.72,
+      "invoiceNumber": "RC-7708",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_010",
+    "category": "receipt",
+    "filename": "01_receipts/rec_010.jpg",
+    "expected": {
+      "vendor": "WENDYS BURGERS",
+      "date": "11-Oct-2024",
+      "amount": 12.67,
+      "invoiceNumber": "RC-7709",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_011",
+    "category": "receipt",
+    "filename": "01_receipts/rec_011.jpg",
+    "expected": {
+      "vendor": "TRATTORIA ROMA BISTRO",
+      "date": "12-Oct-2024",
+      "amount": 12.39,
+      "invoiceNumber": "RC-7710",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_012",
+    "category": "receipt",
+    "filename": "01_receipts/rec_012.jpg",
+    "expected": {
+      "vendor": "LE BISTRO PARISIEN",
+      "date": "13-Oct-2024",
+      "amount": 11.58,
+      "invoiceNumber": "RC-7711",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_013",
+    "category": "receipt",
+    "filename": "01_receipts/rec_013.jpg",
+    "expected": {
+      "vendor": "SAKURA SUSHI BAR",
+      "date": "14-Oct-2024",
+      "amount": 13.48,
+      "invoiceNumber": "RC-7712",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_014",
+    "category": "receipt",
+    "filename": "01_receipts/rec_014.jpg",
+    "expected": {
+      "vendor": "SPICE GARDEN CURRY HOUSE",
+      "date": "15-Oct-2024",
+      "amount": 12.67,
+      "invoiceNumber": "RC-7713",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_015",
+    "category": "receipt",
+    "filename": "01_receipts/rec_015.jpg",
+    "expected": {
+      "vendor": "NANDO PIRI PIRI",
+      "date": "16-Oct-2024",
+      "amount": 17.81,
+      "invoiceNumber": "RC-7714",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_016",
+    "category": "receipt",
+    "filename": "01_receipts/rec_016.jpg",
+    "expected": {
+      "vendor": "WALMART SUPERCENTER",
+      "date": "17-Oct-2024",
+      "amount": 8.34,
+      "invoiceNumber": "RC-7715",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_017",
+    "category": "receipt",
+    "filename": "01_receipts/rec_017.jpg",
+    "expected": {
+      "vendor": "TARGET RETAIL STORE",
+      "date": "18-Oct-2024",
+      "amount": 13.48,
+      "invoiceNumber": "RC-7716",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_018",
+    "category": "receipt",
+    "filename": "01_receipts/rec_018.jpg",
+    "expected": {
+      "vendor": "WHOLE FOODS MARKET",
+      "date": "19-Oct-2024",
+      "amount": 12.67,
+      "invoiceNumber": "RC-7717",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_019",
+    "category": "receipt",
+    "filename": "01_receipts/rec_019.jpg",
+    "expected": {
+      "vendor": "TRADER JOES GROCERY",
+      "date": "11-Oct-2024",
+      "amount": 14.56,
+      "invoiceNumber": "RC-7718",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_020",
+    "category": "receipt",
+    "filename": "01_receipts/rec_020.jpg",
+    "expected": {
+      "vendor": "COSTCO WHOLESALE",
+      "date": "12-Oct-2024",
+      "amount": 13.75,
+      "invoiceNumber": "RC-7719",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_021",
+    "category": "receipt",
+    "filename": "01_receipts/rec_021.jpg",
+    "expected": {
+      "vendor": "CARREFOUR SUPERMARKET",
+      "date": "13-Oct-2024",
+      "amount": 13.48,
+      "invoiceNumber": "RC-7720",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_022",
+    "category": "receipt",
+    "filename": "01_receipts/rec_022.jpg",
+    "expected": {
+      "vendor": "TESCO EXPRESS STORE",
+      "date": "14-Oct-2024",
+      "amount": 9.42,
+      "invoiceNumber": "RC-7721",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_023",
+    "category": "receipt",
+    "filename": "01_receipts/rec_023.jpg",
+    "expected": {
+      "vendor": "ALDI FOOD MARKET",
+      "date": "15-Oct-2024",
+      "amount": 14.56,
+      "invoiceNumber": "RC-7722",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_024",
+    "category": "receipt",
+    "filename": "01_receipts/rec_024.jpg",
+    "expected": {
+      "vendor": "LIDL DISCOUNT GROCER",
+      "date": "16-Oct-2024",
+      "amount": 13.75,
+      "invoiceNumber": "RC-7723",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_025",
+    "category": "receipt",
+    "filename": "01_receipts/rec_025.jpg",
+    "expected": {
+      "vendor": "KROGER PHARMACY",
+      "date": "17-Oct-2024",
+      "amount": 15.64,
+      "invoiceNumber": "RC-7724",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_026",
+    "category": "receipt",
+    "filename": "01_receipts/rec_026.jpg",
+    "expected": {
+      "vendor": "SHELL SERVICE STATION",
+      "date": "18-Oct-2024",
+      "amount": 9.42,
+      "invoiceNumber": "RC-7725",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_027",
+    "category": "receipt",
+    "filename": "01_receipts/rec_027.jpg",
+    "expected": {
+      "vendor": "CHEVRON GAS & MART",
+      "date": "19-Oct-2024",
+      "amount": 14.56,
+      "invoiceNumber": "RC-7726",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_028",
+    "category": "receipt",
+    "filename": "01_receipts/rec_028.jpg",
+    "expected": {
+      "vendor": "BP FUEL EXPRESS",
+      "date": "11-Oct-2024",
+      "amount": 10.5,
+      "invoiceNumber": "RC-7727",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_029",
+    "category": "receipt",
+    "filename": "01_receipts/rec_029.jpg",
+    "expected": {
+      "vendor": "EXXONMOBIL STATION",
+      "date": "12-Oct-2024",
+      "amount": 15.64,
+      "invoiceNumber": "RC-7728",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_030",
+    "category": "receipt",
+    "filename": "01_receipts/rec_030.jpg",
+    "expected": {
+      "vendor": "TOTALENERGIES MART",
+      "date": "13-Oct-2024",
+      "amount": 14.83,
+      "invoiceNumber": "RC-7729",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_031",
+    "category": "receipt",
+    "filename": "01_receipts/rec_031.jpg",
+    "expected": {
+      "vendor": "CVS PHARMACY CARE",
+      "date": "14-Oct-2024",
+      "amount": 11.31,
+      "invoiceNumber": "RC-7730",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_032",
+    "category": "receipt",
+    "filename": "01_receipts/rec_032.jpg",
+    "expected": {
+      "vendor": "WALGREENS HEALTH & DRUG",
+      "date": "15-Oct-2024",
+      "amount": 10.5,
+      "invoiceNumber": "RC-7731",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_033",
+    "category": "receipt",
+    "filename": "01_receipts/rec_033.jpg",
+    "expected": {
+      "vendor": "BOOTS CHEMIST UK",
+      "date": "16-Oct-2024",
+      "amount": 15.64,
+      "invoiceNumber": "RC-7732",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_034",
+    "category": "receipt",
+    "filename": "01_receipts/rec_034.jpg",
+    "expected": {
+      "vendor": "APOLLO PHARMACY LTD",
+      "date": "17-Oct-2024",
+      "amount": 11.58,
+      "invoiceNumber": "RC-7733",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_035",
+    "category": "receipt",
+    "filename": "01_receipts/rec_035.jpg",
+    "expected": {
+      "vendor": "GUARDIAN DRUGSTORE",
+      "date": "18-Oct-2024",
+      "amount": 16.72,
+      "invoiceNumber": "RC-7734",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_036",
+    "category": "receipt",
+    "filename": "01_receipts/rec_036.jpg",
+    "expected": {
+      "vendor": "UBER TRIP RECEIPT",
+      "date": "19-Oct-2024",
+      "amount": 10.5,
+      "invoiceNumber": "RC-7735",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_037",
+    "category": "receipt",
+    "filename": "01_receipts/rec_037.jpg",
+    "expected": {
+      "vendor": "LYFT RIDESHARE RECEIPT",
+      "date": "11-Oct-2024",
+      "amount": 12.39,
+      "invoiceNumber": "RC-7736",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_038",
+    "category": "receipt",
+    "filename": "01_receipts/rec_038.jpg",
+    "expected": {
+      "vendor": "YELLOW CAB NYC",
+      "date": "12-Oct-2024",
+      "amount": 11.58,
+      "invoiceNumber": "RC-7737",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "rec_039",
+    "category": "receipt",
+    "filename": "01_receipts/rec_039.jpg",
+    "expected": {
+      "vendor": "BEST BUY ELECTRONICS",
+      "date": "13-Oct-2024",
+      "amount": 16.72,
+      "invoiceNumber": "RC-7738",
+      "lineItemCount": 3
+    }
+  },
+  {
+    "id": "rec_040",
+    "category": "receipt",
+    "filename": "01_receipts/rec_040.jpg",
+    "expected": {
+      "vendor": "APPLE RETAIL STORE",
+      "date": "14-Oct-2024",
+      "amount": 12.67,
+      "invoiceNumber": "RC-7739",
+      "lineItemCount": 2
+    }
+  },
+  {
+    "id": "inv_001",
+    "category": "receipt",
+    "filename": "02_invoices/inv_001.jpg",
+    "expected": {
+      "vendor": "AMAZON WEB SERVICES INC",
+      "date": "2024-09-01",
+      "amount": 231,
+      "invoiceNumber": "INV-2024-8800"
+    }
+  },
+  {
+    "id": "inv_002",
+    "category": "receipt",
+    "filename": "02_invoices/inv_002.jpg",
+    "expected": {
+      "vendor": "GOOGLE CLOUD PLATFORM",
+      "date": "2024-09-02",
+      "amount": 247.5,
+      "invoiceNumber": "INV-2024-8801"
+    }
+  },
+  {
+    "id": "inv_003",
+    "category": "receipt",
+    "filename": "02_invoices/inv_003.jpg",
+    "expected": {
+      "vendor": "MICROSOFT AZURE SYSTEMS",
+      "date": "2024-09-03",
+      "amount": 264,
+      "invoiceNumber": "INV-2024-8802"
+    }
+  },
+  {
+    "id": "inv_004",
+    "category": "receipt",
+    "filename": "02_invoices/inv_004.jpg",
+    "expected": {
+      "vendor": "SLACK TECHNOLOGIES LLC",
+      "date": "2024-09-04",
+      "amount": 280.5,
+      "invoiceNumber": "INV-2024-8803"
+    }
+  },
+  {
+    "id": "inv_005",
+    "category": "receipt",
+    "filename": "02_invoices/inv_005.jpg",
+    "expected": {
+      "vendor": "GITHUB ENTERPRISE",
+      "date": "2024-09-05",
+      "amount": 297,
+      "invoiceNumber": "INV-2024-8804"
+    }
+  },
+  {
+    "id": "inv_006",
+    "category": "receipt",
+    "filename": "02_invoices/inv_006.jpg",
+    "expected": {
+      "vendor": "ZOOM VIDEO COMMUNICATIONS",
+      "date": "2024-09-06",
+      "amount": 313.5,
+      "invoiceNumber": "INV-2024-8805"
+    }
+  },
+  {
+    "id": "inv_007",
+    "category": "receipt",
+    "filename": "02_invoices/inv_007.jpg",
+    "expected": {
+      "vendor": "FIGMA CLOUD SOLUTIONS",
+      "date": "2024-09-07",
+      "amount": 330,
+      "invoiceNumber": "INV-2024-8806"
+    }
+  },
+  {
+    "id": "inv_008",
+    "category": "receipt",
+    "filename": "02_invoices/inv_008.jpg",
+    "expected": {
+      "vendor": "PACIFIC GAS & ELECTRIC",
+      "date": "2024-09-08",
+      "amount": 346.5,
+      "invoiceNumber": "INV-2024-8807"
+    }
+  },
+  {
+    "id": "inv_009",
+    "category": "receipt",
+    "filename": "02_invoices/inv_009.jpg",
+    "expected": {
+      "vendor": "CONEDISON ELECTRIC UTILITIES",
+      "date": "2024-09-09",
+      "amount": 363,
+      "invoiceNumber": "INV-2024-8808"
+    }
+  },
+  {
+    "id": "inv_010",
+    "category": "receipt",
+    "filename": "02_invoices/inv_010.jpg",
+    "expected": {
+      "vendor": "THAMES WATER UK",
+      "date": "2024-09-10",
+      "amount": 379.5,
+      "invoiceNumber": "INV-2024-8809"
+    }
+  },
+  {
+    "id": "inv_011",
+    "category": "receipt",
+    "filename": "02_invoices/inv_011.jpg",
+    "expected": {
+      "vendor": "BRITISH GAS CORPORATION",
+      "date": "2024-09-11",
+      "amount": 396,
+      "invoiceNumber": "INV-2024-8810"
+    }
+  },
+  {
+    "id": "inv_012",
+    "category": "receipt",
+    "filename": "02_invoices/inv_012.jpg",
+    "expected": {
+      "vendor": "EDF ENERGY SUPPLY",
+      "date": "2024-09-12",
+      "amount": 412.5,
+      "invoiceNumber": "INV-2024-8811"
+    }
+  },
+  {
+    "id": "inv_013",
+    "category": "receipt",
+    "filename": "02_invoices/inv_013.jpg",
+    "expected": {
+      "vendor": "AT&T BUSINESS TELECOM",
+      "date": "2024-09-13",
+      "amount": 429,
+      "invoiceNumber": "INV-2024-8812"
+    }
+  },
+  {
+    "id": "inv_014",
+    "category": "receipt",
+    "filename": "02_invoices/inv_014.jpg",
+    "expected": {
+      "vendor": "VERIZON WIRELESS CORP",
+      "date": "2024-09-14",
+      "amount": 445.5,
+      "invoiceNumber": "INV-2024-8813"
+    }
+  },
+  {
+    "id": "inv_015",
+    "category": "receipt",
+    "filename": "02_invoices/inv_015.jpg",
+    "expected": {
+      "vendor": "VODAFONE GLOBAL NETWORK",
+      "date": "2024-09-15",
+      "amount": 462,
+      "invoiceNumber": "INV-2024-8814"
+    }
+  },
+  {
+    "id": "inv_016",
+    "category": "receipt",
+    "filename": "02_invoices/inv_016.jpg",
+    "expected": {
+      "vendor": "T-MOBILE ENTERPRISE",
+      "date": "2024-09-16",
+      "amount": 478.5,
+      "invoiceNumber": "INV-2024-8815"
+    }
+  },
+  {
+    "id": "inv_017",
+    "category": "receipt",
+    "filename": "02_invoices/inv_017.jpg",
+    "expected": {
+      "vendor": "COMCAST XFINITY BUSINESS",
+      "date": "2024-09-17",
+      "amount": 495,
+      "invoiceNumber": "INV-2024-8816"
+    }
+  },
+  {
+    "id": "inv_018",
+    "category": "receipt",
+    "filename": "02_invoices/inv_018.jpg",
+    "expected": {
+      "vendor": "FEDEX FREIGHT LOGISTICS",
+      "date": "2024-09-18",
+      "amount": 511.5,
+      "invoiceNumber": "INV-2024-8817"
+    }
+  },
+  {
+    "id": "inv_019",
+    "category": "receipt",
+    "filename": "02_invoices/inv_019.jpg",
+    "expected": {
+      "vendor": "DHL EXPRESS GLOBAL",
+      "date": "2024-09-19",
+      "amount": 528,
+      "invoiceNumber": "INV-2024-8818"
+    }
+  },
+  {
+    "id": "inv_020",
+    "category": "receipt",
+    "filename": "02_invoices/inv_020.jpg",
+    "expected": {
+      "vendor": "UPS WORLDWIDE SHIPPING",
+      "date": "2024-09-20",
+      "amount": 544.5,
+      "invoiceNumber": "INV-2024-8819"
+    }
+  },
+  {
+    "id": "inv_021",
+    "category": "receipt",
+    "filename": "02_invoices/inv_021.jpg",
+    "expected": {
+      "vendor": "DELOITTE CONSULTING LLP",
+      "date": "2024-09-21",
+      "amount": 561,
+      "invoiceNumber": "INV-2024-8820"
+    }
+  },
+  {
+    "id": "inv_022",
+    "category": "receipt",
+    "filename": "02_invoices/inv_022.jpg",
+    "expected": {
+      "vendor": "MCKINSEY & COMPANY",
+      "date": "2024-09-22",
+      "amount": 577.5,
+      "invoiceNumber": "INV-2024-8821"
+    }
+  },
+  {
+    "id": "inv_023",
+    "category": "receipt",
+    "filename": "02_invoices/inv_023.jpg",
+    "expected": {
+      "vendor": "ACCENTURE STRATEGY TECH",
+      "date": "2024-09-23",
+      "amount": 594,
+      "invoiceNumber": "INV-2024-8822"
+    }
+  },
+  {
+    "id": "inv_024",
+    "category": "receipt",
+    "filename": "02_invoices/inv_024.jpg",
+    "expected": {
+      "vendor": "QUEST DIAGNOSTICS LABS",
+      "date": "2024-09-24",
+      "amount": 610.5,
+      "invoiceNumber": "INV-2024-8823"
+    }
+  },
+  {
+    "id": "inv_025",
+    "category": "receipt",
+    "filename": "02_invoices/inv_025.jpg",
+    "expected": {
+      "vendor": "CITY DENTAL CARE GROUP",
+      "date": "2024-09-25",
+      "amount": 627,
+      "invoiceNumber": "INV-2024-8824"
+    }
+  },
+  {
+    "id": "inv_026",
+    "category": "receipt",
+    "filename": "02_invoices/inv_026.jpg",
+    "expected": {
+      "vendor": "MARRIOTT GRAND HOTEL",
+      "date": "2024-09-01",
+      "amount": 643.5,
+      "invoiceNumber": "INV-2024-8825"
+    }
+  },
+  {
+    "id": "inv_027",
+    "category": "receipt",
+    "filename": "02_invoices/inv_027.jpg",
+    "expected": {
+      "vendor": "HILTON WORLDWIDE RESORT",
+      "date": "2024-09-02",
+      "amount": 660,
+      "invoiceNumber": "INV-2024-8826"
+    }
+  },
+  {
+    "id": "inv_028",
+    "category": "receipt",
+    "filename": "02_invoices/inv_028.jpg",
+    "expected": {
+      "vendor": "HYATT REGENCY SUITES",
+      "date": "2024-09-03",
+      "amount": 676.5,
+      "invoiceNumber": "INV-2024-8827"
+    }
+  },
+  {
+    "id": "inv_029",
+    "category": "receipt",
+    "filename": "02_invoices/inv_029.jpg",
+    "expected": {
+      "vendor": "AUTODESK SOFTWARE SYSTEMS",
+      "date": "2024-09-04",
+      "amount": 693,
+      "invoiceNumber": "INV-2024-8828"
+    }
+  },
+  {
+    "id": "inv_030",
+    "category": "receipt",
+    "filename": "02_invoices/inv_030.jpg",
+    "expected": {
+      "vendor": "SALESFORCE ENTERPRISE",
+      "date": "2024-09-05",
+      "amount": 709.5,
+      "invoiceNumber": "INV-2024-8829"
+    }
+  },
+  {
+    "id": "stmt_001",
+    "category": "statement",
+    "filename": "03_statements/stmt_001.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 1",
+      "closingBalance": 2869.4
+    }
+  },
+  {
+    "id": "stmt_002",
+    "category": "statement",
+    "filename": "03_statements/stmt_002.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 2",
+      "closingBalance": 3119.4
+    }
+  },
+  {
+    "id": "stmt_003",
+    "category": "statement",
+    "filename": "03_statements/stmt_003.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 3",
+      "closingBalance": 3369.4
+    }
+  },
+  {
+    "id": "stmt_004",
+    "category": "statement",
+    "filename": "03_statements/stmt_004.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 4",
+      "closingBalance": 3619.4
+    }
+  },
+  {
+    "id": "stmt_005",
+    "category": "statement",
+    "filename": "03_statements/stmt_005.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 5",
+      "closingBalance": 3869.4
+    }
+  },
+  {
+    "id": "stmt_006",
+    "category": "statement",
+    "filename": "03_statements/stmt_006.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 6",
+      "closingBalance": 4119.4
+    }
+  },
+  {
+    "id": "stmt_007",
+    "category": "statement",
+    "filename": "03_statements/stmt_007.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 7",
+      "closingBalance": 4369.4
+    }
+  },
+  {
+    "id": "stmt_008",
+    "category": "statement",
+    "filename": "03_statements/stmt_008.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 8",
+      "closingBalance": 4619.4
+    }
+  },
+  {
+    "id": "stmt_009",
+    "category": "statement",
+    "filename": "03_statements/stmt_009.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 9",
+      "closingBalance": 4869.4
+    }
+  },
+  {
+    "id": "stmt_010",
+    "category": "statement",
+    "filename": "03_statements/stmt_010.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 10",
+      "closingBalance": 5119.4
+    }
+  },
+  {
+    "id": "stmt_011",
+    "category": "statement",
+    "filename": "03_statements/stmt_011.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 11",
+      "closingBalance": 5369.4
+    }
+  },
+  {
+    "id": "stmt_012",
+    "category": "statement",
+    "filename": "03_statements/stmt_012.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 12",
+      "closingBalance": 5619.4
+    }
+  },
+  {
+    "id": "stmt_013",
+    "category": "statement",
+    "filename": "03_statements/stmt_013.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 13",
+      "closingBalance": 5869.4
+    }
+  },
+  {
+    "id": "stmt_014",
+    "category": "statement",
+    "filename": "03_statements/stmt_014.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 14",
+      "closingBalance": 6119.4
+    }
+  },
+  {
+    "id": "stmt_015",
+    "category": "statement",
+    "filename": "03_statements/stmt_015.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 15",
+      "closingBalance": 6369.4
+    }
+  },
+  {
+    "id": "stmt_016",
+    "category": "statement",
+    "filename": "03_statements/stmt_016.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 16",
+      "closingBalance": 6619.4
+    }
+  },
+  {
+    "id": "stmt_017",
+    "category": "statement",
+    "filename": "03_statements/stmt_017.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 17",
+      "closingBalance": 6869.4
+    }
+  },
+  {
+    "id": "stmt_018",
+    "category": "statement",
+    "filename": "03_statements/stmt_018.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 18",
+      "closingBalance": 7119.4
+    }
+  },
+  {
+    "id": "stmt_019",
+    "category": "statement",
+    "filename": "03_statements/stmt_019.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 19",
+      "closingBalance": 7369.4
+    }
+  },
+  {
+    "id": "stmt_020",
+    "category": "statement",
+    "filename": "03_statements/stmt_020.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 20",
+      "closingBalance": 7619.4
+    }
+  },
+  {
+    "id": "stmt_021",
+    "category": "statement",
+    "filename": "03_statements/stmt_021.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 21",
+      "closingBalance": 7869.4
+    }
+  },
+  {
+    "id": "stmt_022",
+    "category": "statement",
+    "filename": "03_statements/stmt_022.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 22",
+      "closingBalance": 8119.4
+    }
+  },
+  {
+    "id": "stmt_023",
+    "category": "statement",
+    "filename": "03_statements/stmt_023.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 23",
+      "closingBalance": 8369.4
+    }
+  },
+  {
+    "id": "stmt_024",
+    "category": "statement",
+    "filename": "03_statements/stmt_024.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 24",
+      "closingBalance": 8619.4
+    }
+  },
+  {
+    "id": "stmt_025",
+    "category": "statement",
+    "filename": "03_statements/stmt_025.jpg",
+    "expected": {
+      "accountHolder": "ALEXANDER MERCER 25",
+      "closingBalance": 8869.4
+    }
+  },
+  {
+    "id": "id_001",
+    "category": "id",
+    "filename": "04_identity_kyc/id_001.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 1",
+      "idNumber": "ABCDE1000F",
+      "dateOfBirth": "15/08/1980"
+    }
+  },
+  {
+    "id": "id_002",
+    "category": "id",
+    "filename": "04_identity_kyc/id_002.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 2",
+      "idNumber": "UK-DVLA-55037",
+      "dateOfBirth": "15/08/1981"
+    }
+  },
+  {
+    "id": "id_003",
+    "category": "id",
+    "filename": "04_identity_kyc/id_003.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 3",
+      "idNumber": "CAN-ID-55074",
+      "dateOfBirth": "15/08/1982"
+    }
+  },
+  {
+    "id": "id_004",
+    "category": "id",
+    "filename": "04_identity_kyc/id_004.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 4",
+      "idNumber": "AUS-NSW-55111",
+      "dateOfBirth": "15/08/1983"
+    }
+  },
+  {
+    "id": "id_005",
+    "category": "id",
+    "filename": "04_identity_kyc/id_005.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 5",
+      "idNumber": "ABCDE1004F",
+      "dateOfBirth": "15/08/1984"
+    }
+  },
+  {
+    "id": "id_006",
+    "category": "id",
+    "filename": "04_identity_kyc/id_006.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 6",
+      "idNumber": "FRA-CNI-55185",
+      "dateOfBirth": "15/08/1985"
+    }
+  },
+  {
+    "id": "id_007",
+    "category": "id",
+    "filename": "04_identity_kyc/id_007.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 7",
+      "idNumber": "ESP-DNI-55222",
+      "dateOfBirth": "15/08/1986"
+    }
+  },
+  {
+    "id": "id_008",
+    "category": "id",
+    "filename": "04_identity_kyc/id_008.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 8",
+      "idNumber": "IND-PAN-55259",
+      "dateOfBirth": "15/08/1987"
+    }
+  },
+  {
+    "id": "id_009",
+    "category": "id",
+    "filename": "04_identity_kyc/id_009.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 9",
+      "idNumber": "ABCDE1008F",
+      "dateOfBirth": "15/08/1988"
+    }
+  },
+  {
+    "id": "id_010",
+    "category": "id",
+    "filename": "04_identity_kyc/id_010.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 10",
+      "idNumber": "UK-DVLA-55333",
+      "dateOfBirth": "15/08/1989"
+    }
+  },
+  {
+    "id": "id_011",
+    "category": "id",
+    "filename": "04_identity_kyc/id_011.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 11",
+      "idNumber": "CAN-ID-55370",
+      "dateOfBirth": "15/08/1990"
+    }
+  },
+  {
+    "id": "id_012",
+    "category": "id",
+    "filename": "04_identity_kyc/id_012.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 12",
+      "idNumber": "AUS-NSW-55407",
+      "dateOfBirth": "15/08/1991"
+    }
+  },
+  {
+    "id": "id_013",
+    "category": "id",
+    "filename": "04_identity_kyc/id_013.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 13",
+      "idNumber": "ABCDE1012F",
+      "dateOfBirth": "15/08/1992"
+    }
+  },
+  {
+    "id": "id_014",
+    "category": "id",
+    "filename": "04_identity_kyc/id_014.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 14",
+      "idNumber": "FRA-CNI-55481",
+      "dateOfBirth": "15/08/1993"
+    }
+  },
+  {
+    "id": "id_015",
+    "category": "id",
+    "filename": "04_identity_kyc/id_015.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 15",
+      "idNumber": "ESP-DNI-55518",
+      "dateOfBirth": "15/08/1994"
+    }
+  },
+  {
+    "id": "id_016",
+    "category": "id",
+    "filename": "04_identity_kyc/id_016.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 16",
+      "idNumber": "IND-PAN-55555",
+      "dateOfBirth": "15/08/1980"
+    }
+  },
+  {
+    "id": "id_017",
+    "category": "id",
+    "filename": "04_identity_kyc/id_017.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 17",
+      "idNumber": "ABCDE1016F",
+      "dateOfBirth": "15/08/1981"
+    }
+  },
+  {
+    "id": "id_018",
+    "category": "id",
+    "filename": "04_identity_kyc/id_018.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 18",
+      "idNumber": "UK-DVLA-55629",
+      "dateOfBirth": "15/08/1982"
+    }
+  },
+  {
+    "id": "id_019",
+    "category": "id",
+    "filename": "04_identity_kyc/id_019.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 19",
+      "idNumber": "CAN-ID-55666",
+      "dateOfBirth": "15/08/1983"
+    }
+  },
+  {
+    "id": "id_020",
+    "category": "id",
+    "filename": "04_identity_kyc/id_020.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 20",
+      "idNumber": "AUS-NSW-55703",
+      "dateOfBirth": "15/08/1984"
+    }
+  },
+  {
+    "id": "id_021",
+    "category": "id",
+    "filename": "04_identity_kyc/id_021.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 21",
+      "idNumber": "ABCDE1020F",
+      "dateOfBirth": "15/08/1985"
+    }
+  },
+  {
+    "id": "id_022",
+    "category": "id",
+    "filename": "04_identity_kyc/id_022.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 22",
+      "idNumber": "FRA-CNI-55777",
+      "dateOfBirth": "15/08/1986"
+    }
+  },
+  {
+    "id": "id_023",
+    "category": "id",
+    "filename": "04_identity_kyc/id_023.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 23",
+      "idNumber": "ESP-DNI-55814",
+      "dateOfBirth": "15/08/1987"
+    }
+  },
+  {
+    "id": "id_024",
+    "category": "id",
+    "filename": "04_identity_kyc/id_024.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 24",
+      "idNumber": "IND-PAN-55851",
+      "dateOfBirth": "15/08/1988"
+    }
+  },
+  {
+    "id": "id_025",
+    "category": "id",
+    "filename": "04_identity_kyc/id_025.jpg",
+    "expected": {
+      "name": "JORDAN SMITH 25",
+      "idNumber": "ABCDE1024F",
+      "dateOfBirth": "15/08/1989"
+    }
+  },
+  {
+    "id": "memo_001",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_001.jpg",
+    "expected": {
+      "vendor": "Greenfield Farm Fresh",
+      "amount": 210,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_002",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_002.jpg",
+    "expected": {
+      "vendor": "Star Laundry & Dry Cleaners",
+      "amount": 225,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_003",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_003.jpg",
+    "expected": {
+      "vendor": "City Hardware Supply",
+      "amount": 240,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_004",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_004.jpg",
+    "expected": {
+      "vendor": "Dr. Sharma Family Clinic",
+      "amount": 255,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_005",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_005.jpg",
+    "expected": {
+      "vendor": "Sharma Grocery Store",
+      "amount": 270,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_006",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_006.jpg",
+    "expected": {
+      "vendor": "Golden Tailor Shop",
+      "amount": 285,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_007",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_007.jpg",
+    "expected": {
+      "vendor": "Express Courier Memo",
+      "amount": 300,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_008",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_008.jpg",
+    "expected": {
+      "vendor": "Auto Care Repair Memo",
+      "amount": 315,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_009",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_009.jpg",
+    "expected": {
+      "vendor": "Sunshine Bakery Memo",
+      "amount": 330,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_010",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_010.jpg",
+    "expected": {
+      "vendor": "Standard Timber Works",
+      "amount": 345,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_011",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_011.jpg",
+    "expected": {
+      "vendor": "Modern Electrical Works",
+      "amount": 360,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_012",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_012.jpg",
+    "expected": {
+      "vendor": "Gupta General Store",
+      "amount": 375,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_013",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_013.jpg",
+    "expected": {
+      "vendor": "Metro Cycle Repairs",
+      "amount": 390,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_014",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_014.jpg",
+    "expected": {
+      "vendor": "Bakers Delight Memo",
+      "amount": 405,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_015",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_015.jpg",
+    "expected": {
+      "vendor": "Universal Book Depot",
+      "amount": 420,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_016",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_016.jpg",
+    "expected": {
+      "vendor": "Krishna Dairy Products",
+      "amount": 435,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_017",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_017.jpg",
+    "expected": {
+      "vendor": "Quick Wash Services",
+      "amount": 450,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_018",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_018.jpg",
+    "expected": {
+      "vendor": "Sunrise Medical Store",
+      "amount": 465,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_019",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_019.jpg",
+    "expected": {
+      "vendor": "Modern Paint House",
+      "amount": 480,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "memo_020",
+    "category": "receipt",
+    "filename": "05_handwritten_memos/memo_020.jpg",
+    "expected": {
+      "vendor": "Central Stationery Mart",
+      "amount": 495,
+      "isHandwritten": true
+    }
+  },
+  {
+    "id": "edge_001",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_001.jpg",
+    "expected": {
+      "title": "Blurry Motion Capture",
+      "amount": 50,
+      "expectLowConf": true,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_002",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_002.jpg",
+    "expected": {
+      "title": "Rotated 22 Deg CW",
+      "amount": 40,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_003",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_003.jpg",
+    "expected": {
+      "title": "Rotated -25 Deg CCW",
+      "amount": 80,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_004",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_004.jpg",
+    "expected": {
+      "title": "Adversarial Prompt 1",
+      "amount": 4.5,
+      "expectLowConf": false,
+      "isAdversarial": true
+    }
+  },
+  {
+    "id": "edge_005",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_005.jpg",
+    "expected": {
+      "title": "Adversarial Prompt 2",
+      "amount": 5,
+      "expectLowConf": false,
+      "isAdversarial": true
+    }
+  },
+  {
+    "id": "edge_006",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_006.jpg",
+    "expected": {
+      "title": "Faded Thermal Paper",
+      "amount": 12.5,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_007",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_007.jpg",
+    "expected": {
+      "title": "Enterprise Mega Invoice",
+      "amount": 1450000,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_008",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_008.jpg",
+    "expected": {
+      "title": "Free Promotional Voucher",
+      "amount": 0,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_009",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_009.jpg",
+    "expected": {
+      "title": "Bäcker & Konditorei München",
+      "amount": 8.3,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_010",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_010.jpg",
+    "expected": {
+      "title": "Boulangerie Artisanale Paris",
+      "amount": 5.2,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_011",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_011.jpg",
+    "expected": {
+      "title": "Supermercado Madrid Central",
+      "amount": 8,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_012",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_012.jpg",
+    "expected": {
+      "title": "London High Street Shop",
+      "amount": 8,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_013",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_013.jpg",
+    "expected": {
+      "title": "Mumbai Retail Mart Ltd",
+      "amount": 40,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_014",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_014.jpg",
+    "expected": {
+      "title": "Supermarket 10-Item Run",
+      "amount": 21,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_015",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_015.jpg",
+    "expected": {
+      "title": "Extreme Skew Bill",
+      "amount": 18,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_016",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_016.jpg",
+    "expected": {
+      "title": "Extreme Negative Skew",
+      "amount": 28,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_017",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_017.jpg",
+    "expected": {
+      "title": "Multiple Subtotal Tags",
+      "amount": 20,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_018",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_018.jpg",
+    "expected": {
+      "title": "Hybrid Printed and Hand Ink",
+      "amount": 55,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_019",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_019.jpg",
+    "expected": {
+      "title": "Stray Printer Symbols",
+      "amount": 4,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  },
+  {
+    "id": "edge_020",
+    "category": "edge_case",
+    "filename": "06_edge_cases/edge_020.jpg",
+    "expected": {
+      "title": "Shadow Glare Receipt",
+      "amount": 6,
+      "expectLowConf": false,
+      "isAdversarial": false
+    }
+  }
+]

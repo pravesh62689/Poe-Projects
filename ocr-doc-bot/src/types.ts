@@ -35,12 +35,15 @@ export interface StatementTransaction {
 
 export interface ParsedBankStatement {
   documentType: 'statement';
+  accountHolder?: FieldValue<string>;
+  period?: FieldValue<string>;
+  closingBalance?: FieldValue<number>;
   bankName?: FieldValue<string>;
   accountNumber?: FieldValue<string>;
   transactions: StatementTransaction[];
 }
 
-export type IdType = 'PAN' | 'Aadhaar' | 'Passport' | 'DrivingLicense' | 'VoterID' | 'Unknown';
+export type IdType = 'PAN' | 'Aadhaar' | 'Passport' | 'DrivingLicense' | 'VoterID' | 'NationalID' | 'Unknown';
 
 export interface ParsedIdDocument {
   documentType: 'id';
