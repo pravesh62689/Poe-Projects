@@ -415,10 +415,14 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
 
   let address: FieldValue<string> | undefined;
   const addrMatch = ocrText.match(
-    /\b(\d{1,5}\s+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Blvd|Lane|Way|Drive|Dr)[^,\n]*(?:,\s*[A-Za-z\s]+(?:,\s*[A-Z0-9\s]{3,10})?)?)/i
+    /\b(\d{1,5}\s+[A-Za-z\s]+(?:Street|St|Road|Rd|Avenue|Ave|Blvd|Lane|Way|Drive|Dr))\b/i
   );
   if (addrMatch && addrMatch[1]) {
     let cleanAddr = addrMatch[1].replace(/^[=\s—_-]+|[=\s—_-]+$/g, '').trim();
+    const cityMatch = ocrText.match(/\b(London|New\s*York|San\s*Francisco|Chicago|Mumbai|Delhi|Bangalore|Paris|Berlin|Tokyo|Toronto)\b/i);
+    if (cityMatch && cityMatch[1] && !cleanAddr.toLowerCase().includes(cityMatch[1].toLowerCase())) {
+      cleanAddr = `${cleanAddr}, ${cityMatch[1]}`;
+    }
     if (cleanAddr.length >= 8 && cleanAddr.length <= 60) {
       address = {
         value: cleanAddr,

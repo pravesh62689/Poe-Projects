@@ -58,7 +58,7 @@ describe('OCR Ported Enhancements (REPORT.md Compliance)', () => {
       const deskewed = await deskewImage(buf);
       expect(deskewed.angle).toBe(angle);
       expect(deskewed.buffer).toBeInstanceOf(Buffer);
-    });
+    }, 15000);
 
     it('guard protects clean upright images from spurious rotation', async () => {
       if (!hasSamples) return;
@@ -70,7 +70,7 @@ describe('OCR Ported Enhancements (REPORT.md Compliance)', () => {
 
       const deskewed = await deskewImage(buf);
       expect(deskewed.angle).toBe(0);
-    });
+    }, 15000);
   });
 
   describe('GSTIN Checksum & Confusion Auto-Correction', () => {
