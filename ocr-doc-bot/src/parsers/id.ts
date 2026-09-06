@@ -73,9 +73,12 @@ export function parseIdDocument(ocrText: string): ParsedIdDocument {
 
   // 4. Identify Driving License
   if (idType === 'Unknown') {
-    const dlMatch = ocrText.match(DL_REGEX) || ocrText.match(/\b(?:DL|DVLA|NSW)[ -]?(?:USA|UK|AUS)?[ -]?([A-Za-z0-9-]{6,16})\b/i);
+    const dlMatch =
+      ocrText.match(DL_REGEX) ||
+      ocrText.match(/(?:4d\.?|licen[cs]e\s*(?:no\.?|number)?)\s*[:=-]?\s*([A-Za-z0-9-]*\d[A-Za-z0-9-]{3,16})\b/i) ||
+      ocrText.match(/\b(?:DL|DVLA|NSW|UK-DVLA)[ -]?(?:USA|UK|AUS)?[ -]?([A-Za-z0-9-]*\d[A-Za-z0-9-]{3,16})\b/i);
     const isDL = /driving\s+licen[cs]e|driver\s+licen[cs]e|transport\s+department|motor\s+vehicles|dvla/i.test(ocrText);
-    if (dlMatch && dlMatch[1]) {
+    if (dlMatch && dlMatch[1] && /\d/.test(dlMatch[1])) {
       idType = 'DrivingLicense';
       idNumber = {
         value: dlMatch[1].toUpperCase(),

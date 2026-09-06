@@ -125,6 +125,14 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
   };
 
   const ignoredVendorKeywords = [
+    'item description',
+    'description',
+    'item amount',
+    'unit price',
+    'qty',
+    'quantity',
+    'particulars',
+    'price',
     'tax invoice',
     'receipt',
     'bill',
@@ -138,6 +146,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     'todo',
     'date:',
     'time:',
+    'cashier',
     'system override',
     'ignore all',
     'instruction',
@@ -164,7 +173,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     const lower = cleaned.toLowerCase();
     if (cleaned.length < 3) continue;
     if (ignoredVendorKeywords.some((k) => lower.includes(k))) continue;
-    if (/\b(street|road|avenue|blvd|lane|london|delhi|mumbai|suite|floor|building|brew\s+street)\b/i.test(cleaned)) continue;
+    if (/\b\d+\s+(?:street|road|avenue|blvd|lane|suite|floor|building|brew\s+street)\b/i.test(cleaned) || /,\s*[A-Z]{1,2}\d/i.test(cleaned)) continue;
 
     const letters = (cleaned.match(/[a-zA-Z]/g) || []).length;
     if (letters < 3) continue;
@@ -183,8 +192,8 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     // Normalize common OCR misreads for Cafe / Coffee
     candidateName = candidateName.replace(/\b(?:carp|cate|cofe)\b/gi, 'CAFE');
 
-    // Check for clean uppercase title or brand phrase (e.g. ARTISAN ROAST CAFE)
-    const capsMatch = candidateName.match(/\b([A-Z]{3,}(?:\s+[A-Z]{3,})+)\b/);
+    // Check for clean uppercase title or brand phrase (e.g. ARTISAN ROAST CAFE or PRET A MANGER)
+    const capsMatch = candidateName.match(/\b([A-Z]{2,}(?:\s+[A-Z0-9&.'-]+)+)\b/);
     if (capsMatch && capsMatch[1]) {
       candidateName = capsMatch[1].trim();
       score += 25;
@@ -262,7 +271,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
           const isSubtotal = /\bsubtotal\b/i.test(line);
           const isGrandTotal =
             !isSubtotal &&
-            /\b(grand\s+total|net\s+payable|total\s+amount|total|कुल\s+राशि)\b/i.test(line);
+            /\b(grand\s+total|net\s+payable|total\s+amount|net\s+refund|refund|total|कुल\s+राशि)\b/i.test(line);
           const isHandwrittenOrApprox = /~|approx|handwritten|\?|estimated/i.test(line);
           amount = {
             value: parsedNum,
@@ -318,7 +327,8 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
       const rawQty = itemMatch[1] ? itemMatch[1].replace(/[Il|!]/g, '1') : '1';
       const qty = parseInt(rawQty, 10) || 1;
 
-      if (desc.length >= 3 && itemPrice > 0 && itemPrice < (amount.value || 99999)) {
+      const maxItemPrice = amount.confidence === 'high' ? amount.value : 999999;
+      if (desc.length >= 3 && itemPrice > 0 && itemPrice <= maxItemPrice) {
         lineItems.push({
           description: desc,
           quantity: qty,

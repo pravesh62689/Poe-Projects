@@ -14,7 +14,7 @@ export interface StatementInputObject {
 }
 
 const TRANSACTION_LINE_REGEX =
-  /^(\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\s+(.+?)\s+([\d,]+\.\d{2})\s*(cr|dr|credit|debit)?\s+([\d,]+\.\d{2})/i;
+  /^(\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\s+(.+?)\s+(-?[\d,]+\.\d{2})\s*(cr|dr|credit|debit)?\s+(-?[\d,]+\.\d{2})/i;
 
 const BANK_NAMES = [
   'HDFC',
@@ -157,8 +157,10 @@ export function parseBankStatement(
         let type: 'debit' | 'credit' | 'unknown' = 'unknown';
         if (indicator === 'cr' || indicator === 'credit') {
           type = 'credit';
-        } else if (indicator === 'dr' || indicator === 'debit') {
+        } else if (indicator === 'dr' || indicator === 'debit' || rawAmount < 0) {
           type = 'debit';
+        } else if (rawAmount > 0) {
+          type = 'credit';
         }
 
         transactions.push({
@@ -174,7 +176,7 @@ export function parseBankStatement(
             flagReason: rawDesc.length < 4 ? 'Truncated or noisy description text' : undefined,
           },
           amount: {
-            value: rawAmount,
+            value: Math.abs(rawAmount),
             confidence: 'high',
             rawText: match[3],
           },
