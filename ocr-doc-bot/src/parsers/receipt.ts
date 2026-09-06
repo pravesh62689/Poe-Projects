@@ -378,8 +378,8 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     };
   }
 
-  // If amount was missing or 0 but subtotal + tax exist, derive total
-  if (amount.value === 0 && subtotal) {
+  // If amount was missing or low-confidence amount is strictly less than subtotal, derive from items
+  if ((amount.value === 0 || (amount.confidence === 'low' && subtotal && subtotal.value > amount.value)) && subtotal) {
     const derivedTotal = (subtotal.value || 0) + (tax?.value || 0);
     if (derivedTotal > 0) {
       amount = {
