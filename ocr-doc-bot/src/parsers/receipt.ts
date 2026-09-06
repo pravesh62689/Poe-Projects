@@ -173,7 +173,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     const lower = cleaned.toLowerCase();
     if (cleaned.length < 3) continue;
     if (ignoredVendorKeywords.some((k) => lower.includes(k))) continue;
-    if (/\b\d+\s+(?:street|road|avenue|blvd|lane|suite|floor|building|brew\s+street)\b/i.test(cleaned) || /,\s*[A-Z]{1,2}\d/i.test(cleaned)) continue;
+    if (/\b\d+\s+[A-Za-z\s]+(?:street|st|road|rd|avenue|ave|blvd|lane|way|drive|suite|floor|building)\b/i.test(cleaned) || /,\s*[A-Z]{1,2}\d/i.test(cleaned)) continue;
 
     const letters = (cleaned.match(/[a-zA-Z]/g) || []).length;
     if (letters < 3) continue;
@@ -202,7 +202,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
       candidateName = candidateName.replace(/^[a-z0-9]{1,3}\s+/i, '').replace(/\s+[a-z0-9]{1,2}$/i, '').trim();
     }
 
-    if (/cafe|coffee|roast|store|shop|market|supermarket|restaurant|hardware|mart|bakers|bakery|grill|bistro/i.test(candidateName)) {
+    if (/cafe|coffee|roast|store|shop|market|supermarket|restaurant|hardware|mart|bakers|bakery|grill|bistro|pharmacy|clinic|station|hotel/i.test(candidateName)) {
       score += 20;
     }
 
@@ -308,10 +308,10 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
 
   // 4. Extract Line Items
   const lineItems: Array<{ description: string; amount: number; quantity?: number }> = [];
-  const itemLineRegex = /(?:([0-9Il|!]+)\s*[xX*]\s+)?([A-Za-z\s&'()\[\]-]{3,40}?)\s*[$€£Rs.]?\s*(\d+\.\d{2})\b/;
+  const itemLineRegex = /(?:([0-9Il|!]+)\s*[xX*]\s+)?([A-Za-z0-9\s&'()\[\]\/.@:,-]{3,50}?)\s*[$€£Rs.]?\s*(\d+\.\d{2})\b/;
 
   for (const line of lines) {
-    if (/\b(subtotal|total|cgst|sgst|gst|tax|visa|mastercard|cash|balance|receipt|date|time)\b/i.test(line)) {
+    if (/\b(subtotal|total|cgst|sgst|gst|vat|tax|visa|mastercard|cash|balance|receipt|date|time|gesamtbetrag|betrag|amount|due|tender)\b/i.test(line)) {
       continue;
     }
     const itemMatch = line.match(itemLineRegex);
@@ -434,8 +434,10 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
 
   // 7. Extract Invoice / Receipt Number
   let invoiceNumber: FieldValue<string> | undefined;
-  const invMatch = ocrText.match(/\b(?:receipt|invoice|bill|cash\s*memo)\s*(?:#|no\.?|num)?\s*[:=-]?\s*["']?([#A-Za-z0-9_-]{4,20})\b/i);
-  if (invMatch && invMatch[1]) {
+  const invMatch = ocrText.match(
+    /\b(?:receipt|invoice|bill|cash\s*memo)\s*(?:#|no\.?|num|number)?\s*[:=-]?\s*["']?(?!(?:date|time|amount|total)\b)([#A-Za-z0-9_-]{3,20})\b/i
+  );
+  if (invMatch && invMatch[1] && (/[\d#]/.test(invMatch[1]) || /^[A-Za-z]{2,}\d+/.test(invMatch[1]))) {
     let cleanInv = invMatch[1].replace(/^#?[pP]r/i, 'AR');
     // Dot-matrix correction: TT followed by digits (e.g. #ARTT39 -> #AR7739)
     cleanInv = cleanInv.replace(/^#?([A-Za-z]{2})[Tt]{2}(\d+)/i, '$177$2');
