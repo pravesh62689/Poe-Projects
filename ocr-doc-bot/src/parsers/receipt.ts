@@ -448,7 +448,9 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
 
   // 8. Extract Payment Method
   let paymentMethod: FieldValue<string> | undefined;
-  const payMatch = ocrText.match(/\b(?:paid\s+(?:by|via)|payment|tender)?\s*(visa|mastercard|amex|cash|upi|debit|credit)\b.*?(?:(?:\*+|x+|k+|#|•|\s|sex)+(\d{4}))?/i);
+  const payMatch = ocrText.match(
+    /\b(?:paid\s+(?:by|via)|payment|tender)?\s*(visa|mastercard|amex|cash|upi|debit|credit)\b(?:[^\n\d]*?(?:ending\s+(?:in|with)\s*|ending\s*#?\s*|[\*xk#•]{2,}|(?:sex)+)\s*(\d{4}))?/i
+  );
   if (payMatch && payMatch[1]) {
     const cardName = payMatch[1].toUpperCase();
     const last4 = payMatch[2] ? ` ending in ${payMatch[2]}` : '';

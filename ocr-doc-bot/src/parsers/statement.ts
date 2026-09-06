@@ -14,7 +14,7 @@ export interface StatementInputObject {
 }
 
 const TRANSACTION_LINE_REGEX =
-  /^(\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\s+(.+?)\s+(-?[\d,]+\.\d{2})\s*(cr|dr|credit|debit)?\s+(-?[\d,]+\.\d{2})/i;
+  /^(\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\s+(.+?)\s+[$£€₹]?(-?[\d,]+\.\d{2})\s*(cr|dr|credit|debit)?\s+[$£€₹]?(-?[\d,]+\.\d{2})/i;
 
 const BANK_NAMES = [
   'HDFC',
@@ -195,7 +195,7 @@ export function parseBankStatement(
   if (transactions.length === 0) {
     for (const line of lines) {
       const dateMatch = line.match(/^(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b/);
-      const amounts = [...line.matchAll(/([\d,]+\.\d{2})/g)].map((m) => m[1]);
+      const amounts = [...line.matchAll(/[$£€₹]?([\d,]+\.\d{2})/g)].map((m) => m[1]);
       if (dateMatch && dateMatch[1] && amounts.length >= 2) {
         const amtStr = amounts[0]?.replace(/,/g, '') ?? '0';
         const balStr = amounts[amounts.length - 1]?.replace(/,/g, '') ?? '0';
@@ -232,7 +232,7 @@ export function parseBankStatement(
 
   // 4. Extract Account Holder
   let accountHolder: FieldValue<string> | undefined;
-  const holderMatch = ocrText.match(/(?:account\s+holder|customer\s+name|name)\s*[:=-]?\s*([A-Za-z\s.]+)/i);
+  const holderMatch = ocrText.match(/(?:account\s+holder|customer\s+name|name)\s*[:=-]?\s*([A-Za-z\t .]+)/i);
   if (holderMatch && holderMatch[1]) {
     const cleanHolder = holderMatch[1].trim();
     if (cleanHolder.length >= 3) {
@@ -246,7 +246,7 @@ export function parseBankStatement(
 
   // 5. Extract Statement Period
   let period: FieldValue<string> | undefined;
-  const periodMatch = ocrText.match(/(?:statement\s+period|period|date\s+range)\s*[:=-]?\s*([A-Za-z0-9\s,.-]+)/i);
+  const periodMatch = ocrText.match(/(?:statement\s+period|period|date\s+range)\s*[:=-]?\s*([A-Za-z0-9\t ,./-]+)/i);
   if (periodMatch && periodMatch[1]) {
     const cleanPeriod = periodMatch[1].trim();
     if (cleanPeriod.length >= 5) {
