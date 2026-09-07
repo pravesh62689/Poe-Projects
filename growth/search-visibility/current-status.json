@@ -9,8 +9,15 @@
   "indexation": {
     "submitted_sitemap_urls": 16,
     "verified_accessible_urls": 18,
-    "search_console_status": "pending_external_verification",
-    "bing_webmaster_status": "pending_external_verification"
+    "search_console_status": "assets_live_ready_to_verify",
+    "bing_webmaster_status": "pending_external_verification",
+    "pending_indexing_requests": [
+      "https://apex-forge-tools.pages.dev/receipt-ocr/",
+      "https://apex-forge-tools.pages.dev/regex-tester/",
+      "https://apex-forge-tools.pages.dev/english-to-sql/",
+      "https://apex-forge-tools.pages.dev/",
+      "https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/"
+    ]
   },
   "quality_gates": {
     "crawlability": "pass",

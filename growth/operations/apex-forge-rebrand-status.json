@@ -1,6 +1,7 @@
 {
-  "timestamp": "2026-09-08T03:27:00Z",
+  "timestamp": "2026-09-08T04:26:00Z",
   "company": "Apex Forge Technology",
+  "suite": "Apex Forge Tools",
   "site_status": {
     "local_build": "pass",
     "public_url": "https://apex-forge-tools.pages.dev",
@@ -8,7 +9,7 @@
     "canonical_verified": true,
     "sitemap_verified": true,
     "robots_verified": true,
-    "search_console_verified": "pending_owner_token"
+    "search_console_verified": "assets_live_on_edge"
   },
   "brand_assets": {
     "company_icon": "validated",
@@ -24,12 +25,22 @@
     "links": "pass",
     "performance_budget": "pass"
   },
+  "pending_tasks_reminder": {
+    "task": "Request Priority Indexing in Google Search Console",
+    "pending_urls": [
+      "https://apex-forge-tools.pages.dev/receipt-ocr/",
+      "https://apex-forge-tools.pages.dev/regex-tester/",
+      "https://apex-forge-tools.pages.dev/english-to-sql/",
+      "https://apex-forge-tools.pages.dev/",
+      "https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/"
+    ],
+    "instructions": "In Google Search Console, paste each URL into the top inspection bar and click 'Request Indexing'."
+  },
   "external_actions_required": [
-    "EXT-001: Paste Google Search Console verification token into site/index.html and verify property",
-    "EXT-002: Submit sitemap in GSC (https://apex-forge-tools.pages.dev/sitemap.xml)",
-    "EXT-003: Update Poe Creator Studio display name and bio for Apex Forge OCR (handle @OCR-Doc-Parser preserved)",
-    "EXT-004: Update Poe Creator Studio display name and bio for Apex Forge Regex (handle @Regex-Gen-Tester preserved)",
-    "EXT-005: Update Poe Creator Studio display name and bio for Apex Forge SQL (handle @English-To-SQL preserved)"
+    "EXT-001: Click 'Verify' in Google Search Console (both HTML file & meta tag are 100% live on edge)",
+    "EXT-002: In GSC Sitemaps menu, enter 'sitemap.xml' and click Submit",
+    "EXT-003: Request indexing for the 3 bot landing pages (receipt-ocr, regex-tester, english-to-sql)",
+    "EXT-004: Update Poe Creator Studio display titles to Apex Forge OCR, Regex, SQL (handles preserved)"
   ],
   "remaining_tasks": []
 }
