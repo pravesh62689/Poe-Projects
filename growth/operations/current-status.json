@@ -14,7 +14,7 @@
     "poe_access_key": "available",
     "cloudflare_token": "available",
     "render_access": "available",
-    "github_secrets": "missing",
+    "github_secrets": "available",
     "search_console": "missing"
   },
   "quality": {
