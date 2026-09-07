@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Poe Developer Automation Suite</title>
+  <meta name="description" content="Zero-retention privacy policy for OCR-Doc-Parser, Regex-Gen-Tester, and English-To-SQL on Poe.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/privacy/">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
+          <li><a href="/regex-tester/">Regex Tester</a></li>
+          <li><a href="/english-to-sql/">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/benchmarks/">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
+    <span class="badge">Privacy Invariant</span>
+    <h1>Zero-Retention Privacy Policy</h1>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Effective Date: September 2026</p>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--text-secondary); line-height: 1.8;">
+      <section>
+        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">1. Core Architecture: Ephemeral Execution</h2>
+        <p>Our bots operate under a strict zero-retention invariant. When you send an image to OCR-Doc-Parser, regular expressions to Regex-Gen-Tester, or DDL schemas to English-To-SQL:</p>
+        <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>All payloads are processed ephemerally in RAM.</li>
+          <li>No raw images, OCR extracted text, SQL tables, regex strings, or personal documents are stored to disk, databases, object storage, or persistent logs.</li>
+          <li>Once the HTTP Server-Sent Event (SSE) stream terminates, in-memory buffers are immediately garbage collected.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">2. Telemetry & Analytics</h2>
+        <p>We do not track user identities, IP addresses, browser fingerprints, or message contents. Our telemetry records aggregate, anonymous operational counters only:</p>
+        <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>Task outcome status (<code>success</code>, <code>partial</code>, <code>failure</code>)</li>
+          <li>Execution latency buckets (e.g., <code>&lt;1s</code>, <code>1-3s</code>, <code>3-10s</code>)</li>
+          <li>High-level categorical error codes (e.g., <code>blur_detected</code>, <code>syntax_error</code>)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">3. Poe Platform Privacy</h2>
+        <p>The bots operate as server bots on the Quora Poe platform. Interaction history within the Poe application is governed by <a href="https://poe.com/privacy" target="_blank" rel="noopener noreferrer" style="color: #A5B4FC;">Poe's Privacy Policy</a>. We do not have access to your personal Poe account profile, billing details, or chat history beyond individual incoming query turns.</p>
+      </section>
+
+      <section>
+        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">4. Open Source & Verifiability</h2>
+        <p>The code powering these services is open source and auditable. Security researchers and users can independently inspect our repository to verify the absence of persistence layers or data collection sinks.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+    </div>
+  </footer>
+</body>
+</html>

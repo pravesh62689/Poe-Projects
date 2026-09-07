@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English to SQL Bot on Poe | In-Memory SQLite Sandbox Verification</title>
+  <meta name="description" content="Generate schema-aware SQL from English questions. Bot executes queries in an in-memory SQLite sandbox, verifies results, and prevents syntax errors.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/english-to-sql/">
+  
+  <meta property="og:title" content="English to SQL Bot on Poe">
+  <meta property="og:description" content="Schema-aware natural language to SQL converter that executes queries in an in-memory SQLite database before answering.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://poe-developer-suite.pages.dev/english-to-sql/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="English to SQL Bot on Poe">
+  <meta name="twitter:description" content="Schema-aware natural language to SQL converter that executes queries in an in-memory SQLite database before answering.">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "English-To-SQL",
+    "operatingSystem": "All (Web / Poe Platform)",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Natural language to SQL engine that executes queries in an in-memory SQLite sandbox to verify syntax and output.",
+    "url": "https://poe.com/English-To-SQL",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which SQL dialect is used for execution?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bot executes queries against an in-memory SQLite (WASM) engine. It converts standard ANSI SQL and highlights PostgreSQL or MySQL differences."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does English-To-SQL connect to my production database?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. English-To-SQL operates strictly stateless and in-memory. You provide DDL schemas and optional sample rows in the prompt; no network connection to external databases is made."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if a query generates an execution error?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The engine intercepts the SQLite engine error, executes exactly one automated correction retry, and transparently logs the error and fix in the output."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo" id="nav-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
+          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
+          <li><a href="/english-to-sql/" id="nav-sql" style="color: #fff;">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
+          <li><a href="/guides/" id="nav-guides">Guides</a></li>
+          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <span class="badge" style="background: rgba(34, 211, 238, 0.15); color: #67E8F9; border-color: rgba(34, 211, 238, 0.3);">Analytical SQL</span>
+    <h1>English-to-SQL Bot: Verified In-Memory Execution</h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2rem;">
+      Most AI SQL tools hallucinate column names or generate broken JOIN syntax that crashes in production. English-To-SQL creates an isolated in-memory SQLite sandbox, runs the query, verifies the table output, and provides both the query and raw records.
+    </p>
+
+    <div style="margin-bottom: 3rem;">
+      <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #0891B2;" id="cta-open-sql-poe">
+        Launch English-To-SQL on Poe &nearr;
+      </a>
+      <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">Free &bull; In-memory sandbox &bull; 0 database connection required</span>
+    </div>
+
+    <!-- Tested Example (SQL-LIVE-002) -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Tested Multi-Table JOIN Example (SQL-LIVE-002)</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Below is the verified end-to-end execution of a relational customer orders query:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff;">Schema & English Request</h3>
+          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px;">CREATE TABLE customers (id INT, name TEXT);
+CREATE TABLE orders (id INT, customer_id INT, amount REAL);
+
+INSERT INTO customers VALUES (1, 'Alice'), (2, 'Bob');
+INSERT INTO orders VALUES (101, 1, 120.50), (102, 1, 45.00), (103, 2, 89.00);
+
+Question: Show total spending by each customer, sorted highest first.</pre>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #67E8F9;">Bot Output: Generated & Executed SQL</h3>
+          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px; color: #E2E8F0;">-- Generated SQL (Verified in SQLite sandbox)
+SELECT c.name, SUM(o.amount) AS total_spent
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+GROUP BY c.id, c.name
+ORDER BY total_spent DESC;
+
+Verified Results (2 rows):
+| name  | total_spent |
+| Alice | 165.50      |
+| Bob   | 89.00       |
+
+Status: Success (Executed in 2.1ms)</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dialect Differences -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Dialect Guidance: SQLite vs PostgreSQL vs MySQL</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">The bot executes on SQLite WASM. When porting queries to larger databases, note these standard dialect differences:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>SQLite (In-Memory Bot)</th>
+            <th>PostgreSQL</th>
+            <th>MySQL / MariaDB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>String Concatenation</strong></td>
+            <td><code>first || ' ' || last</code></td>
+            <td><code>first || ' ' || last</code> or <code>CONCAT()</code></td>
+            <td><code>CONCAT(first, ' ', last)</code></td>
+          </tr>
+          <tr>
+            <td><strong>Date Math</strong></td>
+            <td><code>date('now', '-7 days')</code></td>
+            <td><code>CURRENT_DATE - INTERVAL '7 days'</code></td>
+            <td><code>DATE_SUB(NOW(), INTERVAL 7 DAY)</code></td>
+          </tr>
+          <tr>
+            <td><strong>Auto-Increment</strong></td>
+            <td><code>INTEGER PRIMARY KEY AUTOINCREMENT</code></td>
+            <td><code>SERIAL</code> or <code>IDENTITY</code></td>
+            <td><code>AUTO_INCREMENT</code></td>
+          </tr>
+          <tr>
+            <td><strong>JSON Extraction</strong></td>
+            <td><code>json_extract(data, '$.key')</code></td>
+            <td><code>data->>'key'</code></td>
+            <td><code>data->>'$.key'</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Destructive Operation Warning -->
+    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Destructive Query Policy & Security</h2>
+      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
+        <li><strong>Destructive Query Guard:</strong> If you request a <code>DROP TABLE</code>, <code>TRUNCATE</code>, or unconstrained <code>DELETE</code>, the bot flags a prominent warning and explains production data loss risks before executing in the temporary sandbox.</li>
+        <li><strong>Stateless Sandbox:</strong> Each query session runs in a fresh, isolated database instance. No data persists across turns or requests.</li>
+        <li><strong>Safe Pagination:</strong> Table output is bounded to 50 rows to prevent browser memory exhaustion.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Which SQL dialect is used for execution?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">The bot executes queries against an in-memory SQLite (WASM) engine. It converts standard ANSI SQL and highlights PostgreSQL or MySQL differences.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Does English-To-SQL connect to my production database?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">No. English-To-SQL operates strictly stateless and in-memory. You provide DDL schemas and optional sample rows in the prompt; no network connection to external databases is made.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">What happens if a query generates an execution error?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">The engine intercepts the SQLite engine error, executes exactly one automated correction retry, and transparently logs the error and fix in the output.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/receipt-ocr/">Receipt OCR</a></li>
+        <li><a href="/regex-tester/">Regex Tester</a></li>
+        <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+    </div>
+  </footer>
+</body>
+</html>

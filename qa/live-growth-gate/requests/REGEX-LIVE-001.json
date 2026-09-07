@@ -1,0 +1,13 @@
+{
+  "test_id": "REGEX-LIVE-001",
+  "test_name": "Valid email test with positive and negative samples",
+  "timestamp": "2026-09-07T05:31:44.416Z",
+  "instruction": "Match email addresses",
+  "samples": [
+    "Sample: user@example.com",
+    "Sample: invalid-email",
+    "Sample: test.name+tag@sub.domain.co"
+  ],
+  "literalPattern": null,
+  "flags": "i"
+}

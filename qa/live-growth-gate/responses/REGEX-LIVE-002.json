@@ -1,0 +1,37 @@
+{
+  "test_id": "REGEX-LIVE-002",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "Matched exactly 2/3 expected samples",
+  "details": {
+    "pattern": "^(\\+91)?[6-9]\\d{9}$",
+    "flags": "",
+    "isSafe": true,
+    "samples": [
+      {
+        "sample": "+919876543210",
+        "matched": true,
+        "matchGroups": [
+          "+919876543210",
+          "+91"
+        ],
+        "executionTimeMs": 0.056
+      },
+      {
+        "sample": "9876543210",
+        "matched": true,
+        "matchGroups": [
+          "9876543210",
+          null
+        ],
+        "executionTimeMs": 0.045
+      },
+      {
+        "sample": "12345",
+        "matched": false,
+        "matchGroups": [],
+        "executionTimeMs": 0.002
+      }
+    ]
+  }
+}

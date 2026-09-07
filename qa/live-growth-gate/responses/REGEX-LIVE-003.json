@@ -1,0 +1,29 @@
+{
+  "test_id": "REGEX-LIVE-003",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "Stateful lastIndex successfully reset between samples (no state leakage)",
+  "details": {
+    "pattern": "abc",
+    "flags": "g",
+    "isSafe": true,
+    "samples": [
+      {
+        "sample": "abc",
+        "matched": true,
+        "matchGroups": [
+          "abc"
+        ],
+        "executionTimeMs": 0.016
+      },
+      {
+        "sample": "abc",
+        "matched": true,
+        "matchGroups": [
+          "abc"
+        ],
+        "executionTimeMs": 0.003
+      }
+    ]
+  }
+}

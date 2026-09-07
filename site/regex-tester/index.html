@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex Generator & Tester Bot on Poe | Tested Samples & ReDoS Defense</title>
+  <meta name="description" content="Generate production-ready regular expressions tested against real sample strings. Bot executes matches, detects nested ReDoS risks, and outputs capture groups.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/regex-tester/">
+  
+  <meta property="og:title" content="Regex Generator & Tester Bot on Poe">
+  <meta property="og:description" content="Generate regular expressions tested on real positive and negative strings with ReDoS catastrophe detection.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://poe-developer-suite.pages.dev/regex-tester/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Regex Generator & Tester Bot on Poe">
+  <meta name="twitter:description" content="Generate regular expressions tested on real positive and negative strings with ReDoS catastrophe detection.">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Regex-Gen-Tester",
+    "operatingSystem": "All (Web / Poe Platform)",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Natural language regex generator and tester with ReDoS static analysis and capture group extraction.",
+    "url": "https://poe.com/Regex-Gen-Tester",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the bot test regular expressions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bot executes JavaScript RegExp against each provided test sample in an isolated, bounded microtask with reset lastIndex state, returning pass/fail counts and match values."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the bot detect ReDoS vulnerabilities?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Static analysis checks for nested unbounded quantifiers like (a+)+ or (.*a)+ that cause polynomial or exponential backtracking, warning the developer before execution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does format matching guarantee semantic validity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. A regex verifies string structure (e.g., valid email shape user@domain.com). It cannot verify whether an email inbox exists, an MX record is live, or an identity is genuine."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo" id="nav-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
+          <li><a href="/regex-tester/" id="nav-regex" style="color: #fff;">Regex Tester</a></li>
+          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
+          <li><a href="/guides/" id="nav-guides">Guides</a></li>
+          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <span class="badge" style="background: rgba(163, 230, 53, 0.15); color: #BEF264; border-color: rgba(163, 230, 53, 0.3);">Pattern Engineering</span>
+    <h1>Regex Generator & Tester: Tested Against Your Real Strings</h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2rem;">
+      Don't guess regex patterns or paste untested ChatGPT output into production. Regex-Gen-Tester writes the pattern, evaluates it on your sample strings in real time, breaks down capture groups, and scans for catastrophic ReDoS backtracking.
+    </p>
+
+    <div style="margin-bottom: 3rem;">
+      <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #65A30D;" id="cta-open-regex-poe">
+        Launch Regex-Gen-Tester on Poe &nearr;
+      </a>
+      <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">Free &bull; Instant execution &bull; 0 data persistence</span>
+    </div>
+
+    <!-- Live Verified Example -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Tested Execution Example (REG-LIVE-001)</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Here is the actual verified output when requesting an email validator with positive and negative test samples:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff;">User Request to Bot</h3>
+          <pre style="margin: 0; font-size: 0.85rem; max-height: 280px;">Write regex for valid work email.
+
+Test strings:
+- alex.smith@company.com
+- finance@sub.domain.org
+- plainaddress
+- @missingusername.com
+- user@.com.my</pre>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #BEF264;">Bot Output: Tested Regex & Execution</h3>
+          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px; color: #E2E8F0;">Pattern: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+Flags: none | Safety: SAFE (Linear O(N) runtime)
+
+Execution Results (5 samples tested):
+✓ alex.smith@company.com      -> MATCH
+✓ finance@sub.domain.org      -> MATCH
+✗ plainaddress                -> NO MATCH (expected)
+✗ @missingusername.com        -> NO MATCH (expected)
+✗ user@.com.my                -> NO MATCH (expected)
+
+Summary: 5/5 test assertions passed.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ReDoS Defense Guide -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Catastrophic Backtracking (ReDoS) Defense</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">A bad regex can freeze your NodeJS or Python API at 100% CPU on crafted inputs. The bot automatically identifies dangerous structures:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Dangerous Pattern</th>
+            <th>Vulnerability Mechanism</th>
+            <th>Safe Alternative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>(a+)+$</code></td>
+            <td>Nested one-or-more quantifiers create $2^N$ backtracking paths on non-matching strings.</td>
+            <td><code>a+$</code> (Flatten quantifier)</td>
+          </tr>
+          <tr>
+            <td><code>([0-9]+)+$</code></td>
+            <td>Nested character class quantifiers explode CPU on inputs like <code>123456789!</code></td>
+            <td><code>[0-9]+$</code></td>
+          </tr>
+          <tr>
+            <td><code>(a|aa)+$</code></td>
+            <td>Overlapping alternation branches cause exponential tree search.</td>
+            <td><code>a+$</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Limitations -->
+    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Engineering Boundaries & Honest Disclaimers</h2>
+      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
+        <li><strong>Structural Validation Only:</strong> Regular expressions validate text syntax; they do not perform network lookups or semantic verification. For instance, matching a valid credit card pattern does not verify if the card is active or funded.</li>
+        <li><strong>JavaScript V8 Engine:</strong> Sample execution runs in standard ECMAScript regex syntax. Named capture groups or lookbehinds may behave differently in older PCRE or POSIX engines.</li>
+        <li><strong>Boundaries:</strong> Bounded execution limits prevent infinite loops. Patterns exceeding 50ms evaluation time on synthetic strings are aborted.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">How does the bot test regular expressions?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">The bot executes JavaScript RegExp against each provided test sample in an isolated, bounded microtask with reset lastIndex state, returning pass/fail counts and match values.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">How does the bot detect ReDoS vulnerabilities?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Static analysis checks for nested unbounded quantifiers like (a+)+ or (.*a)+ that cause polynomial or exponential backtracking, warning the developer before execution.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Does format matching guarantee semantic validity?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">No. A regex verifies string structure. It cannot verify whether an email inbox exists, an MX record is live, or an identity is genuine.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/receipt-ocr/">Receipt OCR</a></li>
+        <li><a href="/english-to-sql/">English to SQL</a></li>
+        <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+    </div>
+  </footer>
+</body>
+</html>

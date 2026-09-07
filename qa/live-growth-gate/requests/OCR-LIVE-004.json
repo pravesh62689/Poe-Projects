@@ -1,0 +1,8 @@
+{
+  "test_id": "OCR-LIVE-004",
+  "test_name": "Glare over non-critical area preserving visible fields",
+  "timestamp": "2026-09-07T05:31:22.313Z",
+  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\receipt_001_glare.jpg",
+  "image_bytes": 249989,
+  "sha256": "654b481d6f052ea124231460934675a803558614711a64bb6fc0e2b025a51f2a"
+}

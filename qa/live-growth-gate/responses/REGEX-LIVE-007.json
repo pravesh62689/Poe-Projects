@@ -1,0 +1,27 @@
+{
+  "test_id": "REGEX-LIVE-007",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "Matched exactly 1/2 expected samples",
+  "details": {
+    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    "flags": "i",
+    "isSafe": true,
+    "samples": [
+      {
+        "sample": "123e4567-e89b-12d3-a456-426614174000",
+        "matched": true,
+        "matchGroups": [
+          "123e4567-e89b-12d3-a456-426614174000"
+        ],
+        "executionTimeMs": 0.128
+      },
+      {
+        "sample": "invalid",
+        "matched": false,
+        "matchGroups": [],
+        "executionTimeMs": 0.088
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-World Examples & Prompts | Poe Developer Automation Suite</title>
+  <meta name="description" content="Copyable prompts, schemas, and sample fixtures for OCR-Doc-Parser, Regex-Gen-Tester, and English-To-SQL on Poe.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/examples/">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
+          <li><a href="/regex-tester/">Regex Tester</a></li>
+          <li><a href="/english-to-sql/">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/benchmarks/">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <span class="badge">Practical Prompts</span>
+    <h1>Copyable Examples & Prompts</h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 700px; margin-bottom: 2.5rem;">
+      Ready-to-use prompts, schemas, and test fixtures for immediate testing in the Poe chat interface.
+    </p>
+
+    <div style="display: grid; gap: 2rem;">
+      <!-- OCR Example -->
+      <div class="card">
+        <h2 style="color: #A5B4FC;">OCR-Doc-Parser: Thermal Retail Receipt</h2>
+        <p>Attach a photo of your receipt and copy-paste this prompt:</p>
+        <pre>Extract this receipt to structured JSON. Please extract vendor, date, time, receipt number, individual line items with prices, tax rate and amount, and final total. Verify if subtotal + tax equals total.</pre>
+        <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
+      </div>
+
+      <!-- Regex Example -->
+      <div class="card">
+        <h2 style="color: #BEF264;">Regex-Gen-Tester: Phone Number with Country Code</h2>
+        <p>Generate a regex and validate against multiple country code formats:</p>
+        <pre>Generate a regex for international phone numbers with optional country code (+1 to +999) and 7-12 digits with optional hyphens.
+
+Test against:
++1-555-0199 (positive)
++91-9876543210 (positive)
+00123 (negative)
+abc-def (negative)</pre>
+        <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #65A30D; font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
+      </div>
+
+      <!-- SQL Example -->
+      <div class="card">
+        <h2 style="color: #67E8F9;">English-To-SQL: Churn & Retention Query</h2>
+        <p>Provide a schema and ask a recurring revenue churn question:</p>
+        <pre>CREATE TABLE subscriptions (
+  id INTEGER PRIMARY KEY,
+  user_id INTEGER,
+  plan TEXT,
+  mrr REAL,
+  status TEXT,
+  cancelled_at DATE
+);
+
+INSERT INTO subscriptions VALUES 
+(1, 101, 'Pro', 49.00, 'active', NULL),
+(2, 102, 'Starter', 19.00, 'cancelled', '2026-02-15'),
+(3, 103, 'Pro', 49.00, 'active', NULL),
+(4, 104, 'Enterprise', 199.00, 'cancelled', '2026-03-01');
+
+Question: What is total active MRR, and how much MRR was lost to cancellations?</pre>
+        <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #0891B2; font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+    </div>
+  </footer>
+</body>
+</html>

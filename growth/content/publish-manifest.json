@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "last_updated": "2026-09-07T05:30:00Z",
+  "editorial_status": "APPROVED_FOR_RELEASE",
+  "quality_gate_passed": true,
+  "articles": [
+    {
+      "id": "P0-001",
+      "slug": "receipt-ocr-json-guide",
+      "title": "Receipt OCR to JSON: A Practical, Tested Extraction Workflow",
+      "draft_file": "growth/content/drafts/guide-receipt-ocr-to-json.md",
+      "live_url": "https://poe-developer-suite.pages.dev/receipt-ocr/",
+      "target_bot": "OCR-Doc-Parser",
+      "primary_keyword": "receipt ocr to json",
+      "evidence_fixture": "OCR-LIVE-001",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-002",
+      "slug": "safe-regex-testing-redos",
+      "title": "How to Test Regular Expressions Safely and Prevent ReDoS Vulnerabilities",
+      "draft_file": "growth/content/drafts/guide-safe-regex-testing-redos.md",
+      "live_url": "https://poe-developer-suite.pages.dev/regex-tester/",
+      "target_bot": "Regex-Gen-Tester",
+      "primary_keyword": "regex tester with test cases",
+      "evidence_fixture": "REG-LIVE-001",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-003",
+      "slug": "english-to-sql-schema-verified",
+      "title": "English to SQL with Schema Verification: Eliminating Hallucinated Queries",
+      "draft_file": "growth/content/drafts/guide-english-to-sql-schema-verified.md",
+      "live_url": "https://poe-developer-suite.pages.dev/english-to-sql/",
+      "target_bot": "English-To-SQL",
+      "primary_keyword": "english to sql with schema",
+      "evidence_fixture": "SQL-LIVE-002",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-004",
+      "slug": "receipt-to-expense-analysis-workflow",
+      "title": "From Receipt Image to SQL Expense Analytics: A Zero-Code Cross-Bot Pipeline",
+      "draft_file": "growth/content/drafts/guide-receipt-to-expense-analysis-workflow.md",
+      "live_url": "https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/",
+      "target_bot": "All Three (Suite)",
+      "primary_keyword": "receipt image to sql expense report",
+      "evidence_fixture": "Cross-Bot End-to-End Suite",
+      "status": "PUBLISHED"
+    }
+  ]
+}

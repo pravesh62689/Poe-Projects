@@ -1,0 +1,12 @@
+{
+  "test_id": "REGEX-LIVE-006",
+  "test_name": "Unicode sample input matching",
+  "timestamp": "2026-09-07T05:31:44.431Z",
+  "instruction": "Match unicode words",
+  "samples": [
+    "Sample: Café",
+    "Sample: 123"
+  ],
+  "literalPattern": "\\p{L}+",
+  "flags": "u"
+}

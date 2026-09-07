@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer & Data Automation Suite for Poe | Zero-Retention Utilities</title>
+  <meta name="description" content="Verified, privacy-first developer bots for Poe: structured receipt & invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL generation.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Developer & Data Automation Suite for Poe">
+  <meta property="og:description" content="Structured receipt OCR, regex testing with sample execution, and schema-verified English-to-SQL for Poe.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://poe-developer-suite.pages.dev/">
+  <meta property="og:image" content="https://poe-developer-suite.pages.dev/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Developer & Data Automation Suite for Poe">
+  <meta name="twitter:description" content="Structured receipt OCR, regex testing with sample execution, and schema-verified English-to-SQL for Poe.">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <!-- Structured Data: WebSite & SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Poe Developer Automation Suite",
+    "url": "https://poe-developer-suite.pages.dev/",
+    "description": "Zero-budget, privacy-first developer utilities hosted on Poe.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Poe Developer Studio",
+      "url": "https://poe-developer-suite.pages.dev"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo" id="nav-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
+          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
+          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
+          <li><a href="/guides/" id="nav-guides">Guides</a></li>
+          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">Verified Quality & Zero-Retention Architecture</span>
+        <h1>Developer & Data Automation Suite for Poe</h1>
+        <p>Three specialized, transparent utilities built for developers, accountants, and analysts. Real OCR with confidence scoring, regex generation tested against samples, and natural-language SQL verified in an in-memory SQLite sandbox.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#bots" class="cta-button" id="cta-explore-bots">Explore Bots</a>
+          <a href="/workflows/receipt-to-expense-analysis/" class="card-link" style="padding: 0.85rem 1.5rem; border: 1px solid var(--border-subtle); border-radius: 8px;" id="cta-view-workflow">See Cross-Bot Workflow &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="bots">
+      <div class="grid-3">
+        <!-- OCR Card -->
+        <div class="card">
+          <span style="color: var(--accent-ocr); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Document Intelligence</span>
+          <h2>Receipt & Invoice OCR</h2>
+          <p>Extract vendor names, invoice dates, line items, taxes, and totals from receipt and bill photos. Returns structured JSON with arithmetic reconciliation and field confidence warnings.</p>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
+            <li>Pre-processing deskew & blur detection</li>
+            <li>Reconciles subtotal + tax = total</li>
+            <li>No document persistence in telemetry</li>
+          </ul>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/receipt-ocr/" class="card-link" id="link-ocr-tool">View Documentation &rarr;</a>
+            <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #6366F1;" id="link-ocr-poe">Open on Poe &nearr;</a>
+          </div>
+        </div>
+
+        <!-- Regex Card -->
+        <div class="card">
+          <span style="color: var(--accent-regex); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Pattern Engineering</span>
+          <h2>Regex Gen & Tester</h2>
+          <p>Translate plain requirements into production regular expressions. Bot executes candidate regex against your provided test strings, highlights capture groups, and flags ReDoS vulnerabilities.</p>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
+            <li>Evaluates on real positive/negative samples</li>
+            <li>Detects nested catastrophic quantifiers</li>
+            <li>Outputs capture groups in structured table</li>
+          </ul>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/regex-tester/" class="card-link" id="link-regex-tool">View Documentation &rarr;</a>
+            <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #A3E635;" id="link-regex-poe">Open on Poe &nearr;</a>
+          </div>
+        </div>
+
+        <!-- SQL Card -->
+        <div class="card">
+          <span style="color: var(--accent-sql); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Analytical SQL</span>
+          <h2>English-To-SQL Sandbox</h2>
+          <p>Convert business questions into verified SQL queries. Unlike generic LLMs that guess, this bot executes the SQL against an in-memory SQLite sandbox using your schema and returns verified row results.</p>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
+            <li>Eliminates guessed column syntax</li>
+            <li>Runs SQL in isolated WASM sandbox</li>
+            <li>Capped 50-row results with retry transparency</li>
+          </ul>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/english-to-sql/" class="card-link" id="link-sql-tool">View Documentation &rarr;</a>
+            <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #22D3EE;" id="link-sql-poe">Open on Poe &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ethical Trust & Principles -->
+    <section class="container" style="margin-top: 3rem;">
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2.5rem;">
+        <h2 style="font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 1rem;">Our Engineering Principles</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">1. Honest Verification</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">We do not make unverified accuracy claims or promise infallible AI. OCR confidence scores flag uncertain characters, and SQL queries are verified only against the schema you supply.</p>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">2. Ephemeral Zero-Retention</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents, raw text, and analytical schemas exist strictly in-memory during request processing. No customer files or personal data are stored in persistent databases or analytics.</p>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">3. Modular Composable Workflows</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Extract receipt data into JSON with the OCR bot, validate tax ID formats with the Regex bot, and insert the rows into SQLite for monthly spending analysis with the SQL bot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/benchmarks/">Benchmarks</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/examples/">Examples</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/contact/">Contact & Issues</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+    </div>
+  </footer>
+</body>
+</html>

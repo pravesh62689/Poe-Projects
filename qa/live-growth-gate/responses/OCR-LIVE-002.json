@@ -1,0 +1,29 @@
+{
+  "test_id": "OCR-LIVE-002",
+  "duration_ms": 4621,
+  "outcome": "PASS",
+  "evidence": "Successfully processed: type=receipt, fields=4",
+  "details": {
+    "blur_score": 1491.1395591740043,
+    "deskew_angle": 23,
+    "raw_ocr_length": 357,
+    "parsed": {
+      "documentType": "receipt",
+      "vendor": {
+        "value": "REE INCE SOAS",
+        "confidence": "high",
+        "rawText": "REE INCE SOAS"
+      },
+      "date": {
+        "value": "Unknown Date",
+        "confidence": "low",
+        "flagReason": "No valid date format found in text"
+      },
+      "amount": {
+        "value": 0,
+        "confidence": "low",
+        "flagReason": "No total or subtotal amount detected"
+      }
+    }
+  }
+}

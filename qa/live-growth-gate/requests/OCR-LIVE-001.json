@@ -1,0 +1,8 @@
+{
+  "test_id": "OCR-LIVE-001",
+  "test_name": "Clear cafe receipt with exact arithmetic verification",
+  "timestamp": "2026-09-07T05:31:09.621Z",
+  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\receipt_001_original.jpg",
+  "image_bytes": 1072036,
+  "sha256": "054af495091097bf5489a81facd0b8fffa11919401a95dfe015fcaf58e0563dd"
+}

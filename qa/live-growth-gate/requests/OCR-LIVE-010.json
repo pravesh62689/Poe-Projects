@@ -1,0 +1,8 @@
+{
+  "test_id": "OCR-LIVE-010",
+  "test_name": "Synthetic bank statement table row extraction",
+  "timestamp": "2026-09-07T05:31:42.216Z",
+  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\img_base_004_bank_statement.jpg",
+  "image_bytes": 766060,
+  "sha256": "c59a5f6cfdb87e5a995bb200f770e6b1d0cbefe1ef4b2205dc097444e3e83366"
+}

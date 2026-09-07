@@ -1,0 +1,39 @@
+{
+  "test_id": "OCR-LIVE-003",
+  "duration_ms": 2450,
+  "outcome": "PASS",
+  "evidence": "Successfully processed: type=receipt, fields=6",
+  "details": {
+    "blur_score": 2393.9341662622833,
+    "deskew_angle": -11.5,
+    "raw_ocr_length": 201,
+    "parsed": {
+      "documentType": "receipt",
+      "vendor": {
+        "value": "ARTISAN ROAST CAFE",
+        "confidence": "high",
+        "rawText": "ARTISAN ROAST CAFE =A"
+      },
+      "date": {
+        "value": "Unknown Date",
+        "confidence": "low",
+        "flagReason": "No valid date format found in text"
+      },
+      "amount": {
+        "value": 15.44,
+        "confidence": "high",
+        "rawText": "TOTAL $15.44 —"
+      },
+      "address": {
+        "value": "128 Brew Street, London",
+        "confidence": "high",
+        "rawText": "128 Brew Street"
+      },
+      "paymentMethod": {
+        "value": "VISA ending in 1984",
+        "confidence": "high",
+        "rawText": "paid by Visa sxkx 1984"
+      }
+    }
+  }
+}

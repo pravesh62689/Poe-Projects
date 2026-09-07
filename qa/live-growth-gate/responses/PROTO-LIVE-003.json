@@ -1,0 +1,7 @@
+{
+  "test_id": "PROTO-LIVE-003",
+  "duration_ms": 0,
+  "outcome": "PASS",
+  "evidence": "SSE controller formats text, suggested_reply, and done event streams per spec",
+  "details": {}
+}

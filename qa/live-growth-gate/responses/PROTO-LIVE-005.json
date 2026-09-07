@@ -1,0 +1,10 @@
+{
+  "test_id": "PROTO-LIVE-005",
+  "duration_ms": 121,
+  "outcome": "PASS",
+  "evidence": "Rejected with 401 Unauthorized and zero secret disclosure",
+  "details": {
+    "status": 401,
+    "body": "{\"error\":\"Missing Authorization header.\"}"
+  }
+}

@@ -1,0 +1,6 @@
+experiment_id,target_bot,hypothesis,control,variant_b,primary_metric,guardrail_metric,status,min_sample_size,start_time
+EXP-001,ocr-doc-parser,Direct upload instruction increases first task extraction success,Generic welcome greeting,Direct 4-corner upload prompt,First Successful Extraction Rate,Error Rate < 5%,Ready,50 turns,2026-09-07T06:00:00Z
+EXP-002,regex-gen-tester,Runnable template with test strings increases sample submission rate,Generic syntax explanation,Sample-first copyable template,Sample Submission Rate,Syntax Errors < 8%,Ready,50 turns,2026-09-07T06:00:00Z
+EXP-003,english-to-sql,Pre-populated DDL template eliminates missing-schema errors,Blank prompt,Copyable schema snippet,Schema-Provided Rate,Retry Rate < 10%,Ready,50 turns,2026-09-07T06:00:00Z
+EXP-004,all-three,Contextual cross-bot banner drives multi-utility usage,No handoff banner,Pre-formatted schema handoff,Cross-Bot Adoption Rate,Negative Feedback < 2%,Ready,100 turns,2026-09-07T12:00:00Z
+EXP-005,all-three,Diagnosis-first error copy improves recovery over generic apologies,Generic apology,Specific diagnosis + remedy,Successful Retry Rate,Abandonment < 25%,Ready,30 errors,2026-09-07T12:00:00Z

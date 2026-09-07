@@ -1,0 +1,22 @@
+{
+  "test_id": "REGEX-LIVE-004",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "ReDoS pattern successfully caught: Potential Catastrophic Backtracking (ReDoS) detected: nested quantifiers like (a+)+ or (.*)+ can cause exponential CPU freeze.",
+  "details": {
+    "pattern": "(a+)+$",
+    "flags": "",
+    "isSafe": false,
+    "securityWarning": "Potential Catastrophic Backtracking (ReDoS) detected: nested quantifiers like (a+)+ or (.*)+ can cause exponential CPU freeze.",
+    "suggestedAlternative": "a+$",
+    "samples": [
+      {
+        "sample": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa!",
+        "matched": false,
+        "matchGroups": [],
+        "executionTimeMs": 0,
+        "error": "Execution halted: Pattern failed safety verification."
+      }
+    ]
+  }
+}

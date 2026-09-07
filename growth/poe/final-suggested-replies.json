@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FinalPoeContextualSuggestedReplies",
+  "description": "Exhaustive state-aware suggested reply library across all bots, user states, and error conditions",
+  "bots": {
+    "ocr-doc-bot": {
+      "first_time_user": [
+        "How do I attach an image?",
+        "Show supported document types",
+        "Try sample cafe receipt"
+      ],
+      "receipt_success": [
+        "Extract line items with unit prices",
+        "Verify subtotal and tax math",
+        "Format as expense JSON",
+        "Analyze in @English-To-SQL"
+      ],
+      "statement_success": [
+        "Filter credits over $500",
+        "Show running balance column",
+        "Format as CSV table",
+        "Export transactions to SQL"
+      ],
+      "id_success": [
+        "Verify document number checksum",
+        "Extract address and DOB",
+        "Mask personal data fields"
+      ],
+      "partial_extraction": [
+        "Force /receipt mode",
+        "Extract visible totals only",
+        "Show raw OCR text"
+      ],
+      "error_blur": [
+        "Tips for taking a sharper photo",
+        "How to avoid camera glare",
+        "Retry image upload"
+      ],
+      "advanced_user": [
+        "Export canonical JSON schema",
+        "Show OCR confidence breakdown",
+        "Process multi-currency items"
+      ],
+      "cross_bot_handoff": [
+        "Send expenses to @English-To-SQL",
+        "Validate vendor format in @Regex-Gen-Tester"
+      ]
+    },
+    "regex-bot": {
+      "first_time_user": [
+        "Match email addresses",
+        "Match 10-digit phone numbers",
+        "Match ISO-8601 dates"
+      ],
+      "pattern_success": [
+        "Make it case-insensitive",
+        "Explain each token in this pattern",
+        "Add a negative test sample",
+        "Export for TypeScript"
+      ],
+      "pattern_with_groups": [
+        "Name the capture groups",
+        "Convert to non-capturing groups (?:...)",
+        "Show Python re code"
+      ],
+      "partial_match": [
+        "Why did sample fail to match?",
+        "Make pattern more permissive",
+        "Show regex token tree"
+      ],
+      "error_redos": [
+        "Show safe linear alternative",
+        "Explain catastrophic backtracking",
+        "Simplify the requirement"
+      ],
+      "error_syntax": [
+        "Fix regular expression syntax",
+        "Explain escape character rules",
+        "Start with standard template"
+      ],
+      "advanced_user": [
+        "Check catastrophic backtracking depth",
+        "Export for Go regexp",
+        "Optimize quantifier boundaries"
+      ],
+      "cross_bot_handoff": [
+        "Generate SQL table schema in @English-To-SQL",
+        "Extract invoice text in @OCR-Doc-Parser"
+      ]
+    },
+    "sql-bot": {
+      "first_time_user": [
+        "Show starter e-commerce schema",
+        "Show starter analytics schema",
+        "How to format CREATE TABLE"
+      ],
+      "query_success": [
+        "Add sorting and a LIMIT",
+        "Rewrite this as a JOIN",
+        "Show the EXPLAIN query plan",
+        "Translate to PostgreSQL"
+      ],
+      "query_with_aggregations": [
+        "Add a HAVING filter",
+        "Include percentage of total",
+        "Rewrite using a CTE"
+      ],
+      "partial_query": [
+        "Add sample INSERT rows",
+        "Show table schema",
+        "Explain column types"
+      ],
+      "error_syntax_retry": [
+        "Explain why the initial syntax failed",
+        "Show corrected SQL query",
+        "Use SQLite-compatible syntax"
+      ],
+      "error_destructive": [
+        "Add WHERE clause to protect rows",
+        "Rewrite as non-destructive SELECT",
+        "Explain the destructive risk"
+      ],
+      "advanced_user": [
+        "Add DENSE_RANK() window function",
+        "Optimize query execution plan",
+        "Polyfill MySQL date functions"
+      ],
+      "cross_bot_handoff": [
+        "Validate string columns in @Regex-Gen-Tester",
+        "Extract receipts into tables with @OCR-Doc-Parser"
+      ]
+    }
+  }
+}

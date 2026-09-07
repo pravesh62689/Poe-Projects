@@ -1,0 +1,9 @@
+{
+  "test_id": "SQL-LIVE-008",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "Destructive statement correctly flagged with warning callout",
+  "details": {
+    "is_destructive": true
+  }
+}

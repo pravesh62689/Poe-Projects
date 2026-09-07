@@ -1,0 +1,47 @@
+{
+  "test_id": "OCR-LIVE-005",
+  "duration_ms": 2085,
+  "outcome": "PASS",
+  "evidence": "Correctly omitted or marked low confidence on obscured total: 5.2",
+  "details": {
+    "blur_score": 2985.014564108157,
+    "deskew_angle": 0,
+    "raw_ocr_length": 238,
+    "parsed": {
+      "documentType": "receipt",
+      "vendor": {
+        "value": "Roast Cafe",
+        "confidence": "high",
+        "rawText": "Roast Cafe ==="
+      },
+      "date": {
+        "value": "14-Oct-2024",
+        "confidence": "high",
+        "rawText": "DATE: 14-0ct_p0p, = —"
+      },
+      "amount": {
+        "value": 5.2,
+        "confidence": "low",
+        "flagReason": "Derived from isolated currency symbol; verify against receipt",
+        "rawText": "$5.20"
+      },
+      "time": {
+        "value": "10:24",
+        "confidence": "high",
+        "rawText": "TIME: 10:24"
+      },
+      "subtotal": {
+        "value": 5.2,
+        "confidence": "high",
+        "rawText": "Calculated from itemized lines"
+      },
+      "lineItems": [
+        {
+          "description": "IX Caranmel Macchiatg",
+          "quantity": 1,
+          "amount": 5.2
+        }
+      ]
+    }
+  }
+}

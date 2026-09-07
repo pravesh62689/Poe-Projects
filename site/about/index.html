@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Poe Developer Automation Suite</title>
+  <meta name="description" content="About the open-source engineering behind Poe Developer Automation Suite.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/about/">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
+          <li><a href="/regex-tester/">Regex Tester</a></li>
+          <li><a href="/english-to-sql/">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/benchmarks/">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
+    <span class="badge">Open Source Engineering</span>
+    <h1>About Poe Developer Suite</h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 2rem;">
+      A zero-budget, high-reliability initiative creating specialized developer utilities that solve real-world document intelligence and data tasks.
+    </p>
+
+    <div style="color: var(--text-secondary); line-height: 1.8; display: flex; flex-direction: column; gap: 1.5rem;">
+      <p>
+        Generic conversational LLMs often struggle with specialized technical tasks: they hallucinate SQL columns, generate regex patterns vulnerable to catastrophic ReDoS backtracking, and hallucinate invoice totals when reading messy receipt images.
+      </p>
+      <p>
+        The <strong>Poe Developer Suite</strong> bridges this gap by combining modern language interfaces with deterministic local execution sandboxes:
+      </p>
+      <ul style="padding-left: 1.25rem;">
+        <li><strong>OCR-Doc-Parser:</strong> Runs computer vision deskew, Laplacian blur checks, Tesseract WASM optical extraction, and arithmetic reconciliation.</li>
+        <li><strong>Regex-Gen-Tester:</strong> Performs ReDoS AST static analysis and runs JavaScript regex engines against user-provided test samples.</li>
+        <li><strong>English-To-SQL:</strong> Translates natural language into SQL and executes it inside an isolated, in-memory SQLite (WASM) sandbox to verify results before showing them.</li>
+      </ul>
+      <p>
+        All services are hosted on free-tier infrastructure (Cloudflare Workers, Render, Cloudflare Pages) with zero-data retention, proving that enterprise-standard reliability and privacy can be delivered with zero budget.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+    </div>
+  </footer>
+</body>
+</html>

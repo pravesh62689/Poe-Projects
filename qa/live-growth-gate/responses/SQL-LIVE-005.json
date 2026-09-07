@@ -1,0 +1,9 @@
+{
+  "test_id": "SQL-LIVE-005",
+  "duration_ms": 1,
+  "outcome": "PASS",
+  "evidence": "Empty schema handled with starter guidance; no unverified query executed",
+  "details": {
+    "status": "prompt_template_returned"
+  }
+}

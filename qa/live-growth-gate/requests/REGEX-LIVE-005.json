@@ -1,0 +1,11 @@
+{
+  "test_id": "REGEX-LIVE-005",
+  "test_name": "Invalid regex syntax graceful failure",
+  "timestamp": "2026-09-07T05:31:44.428Z",
+  "instruction": "Evaluate bad syntax",
+  "samples": [
+    "Sample: test"
+  ],
+  "literalPattern": "[a-z",
+  "flags": ""
+}

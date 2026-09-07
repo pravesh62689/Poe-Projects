@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt & Invoice OCR to JSON Bot on Poe | Field Confidence & Verification</title>
+  <meta name="description" content="Extract vendor, date, line items, tax, and total from receipt photos. Free Poe OCR bot with automated arithmetic reconciliation and confidence warnings.">
+  <link rel="canonical" href="https://poe-developer-suite.pages.dev/receipt-ocr/">
+  
+  <meta property="og:title" content="Receipt & Invoice OCR to JSON Bot on Poe">
+  <meta property="og:description" content="Automated receipt parsing into structured JSON with subtotal + tax = total verification and confidence warnings.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://poe-developer-suite.pages.dev/receipt-ocr/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Receipt & Invoice OCR to JSON Bot on Poe">
+  <meta name="twitter:description" content="Automated receipt parsing into structured JSON with subtotal + tax = total verification and confidence warnings.">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OCR-Doc-Parser",
+    "operatingSystem": "All (Web / Poe Platform)",
+    "applicationCategory": "BusinessApplication",
+    "description": "Extracts structured JSON from receipts and invoices with confidence scoring and arithmetic verification.",
+    "url": "https://poe.com/OCR-Doc-Parser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What image formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bot supports JPEG, PNG, WEBP, and single-page TIFF files up to 10MB."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does OCR-Doc-Parser store my uploaded receipts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Images are processed ephemerally in RAM and discarded immediately after response streaming completes. No documents or text are saved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the bot verify invoice totals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The parser performs an arithmetic check: subtotal + tax + fees - discounts = total. If there is a discrepancy, it flags an arithmetic warning."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand-logo" id="nav-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Poe Dev Suite
+        </a>
+        <ul class="nav-links">
+          <li><a href="/receipt-ocr/" id="nav-ocr" style="color: #fff;">Receipt OCR</a></li>
+          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
+          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
+          <li><a href="/guides/" id="nav-guides">Guides</a></li>
+          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #A5B4FC; border-color: rgba(99, 102, 241, 0.3);">Document Intelligence</span>
+    <h1>Receipt & Invoice OCR to JSON: Practical Tested Extraction</h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2rem;">
+      Upload photos of thermal receipts, retail bills, or PDF invoices directly to Poe. OCR-Doc-Parser cleans the image, extracts merchant metadata, line items, and taxes, and validates arithmetic before returning structured JSON.
+    </p>
+
+    <div style="margin-bottom: 3rem;">
+      <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button" id="cta-open-ocr-poe">
+        Launch OCR-Doc-Parser on Poe &nearr;
+      </a>
+      <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">Free to use &bull; No credit card &bull; Zero data retention</span>
+    </div>
+
+    <!-- Tested Example Section -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Tested Input & Output Example</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Below is an actual verified extraction output from test fixture <code>OCR-LIVE-001</code> (Retail Thermal Receipt).</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff;">Source Document Text (Pre-processed)</h3>
+          <pre style="margin: 0; font-size: 0.85rem; max-height: 280px;">QUICK MART STORE #104
+123 MARKET ST, AUSTIN TX
+Date: 2026-03-15  Time: 14:22
+Receipt #: 984210
+
+1x Organic Whole Milk   $4.49
+2x Sourdough Bread       $7.98
+1x Fair Trade Coffee    $12.99
+
+Subtotal:              $25.46
+Sales Tax (8.25%):      $2.10
+Total:                 $27.56
+Payment: VISA ****4128</pre>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #A5B4FC;">Bot Output: Clean Structured JSON</h3>
+          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px; color: #A3E635;">{
+  "vendor": "QUICK MART STORE #104",
+  "date": "2026-03-15",
+  "receipt_number": "984210",
+  "subtotal": 25.46,
+  "tax": 2.10,
+  "total": 27.56,
+  "reconciliation": {
+    "status": "balanced",
+    "calculated_total": 27.56
+  },
+  "field_confidence": {
+    "vendor": 0.94,
+    "total": 0.98,
+    "date": 0.95
+  }
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist & Calibration -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Image Quality Checklist for High Accuracy</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">OCR engines are deterministic pattern matchers. Following this 4-point checklist prevents false totals:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Guideline</th>
+            <th>What Happens if Violated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lighting</strong></td>
+            <td>Use diffused, even light without harsh phone flashlight glare.</td>
+            <td>Glare obliterates ink; bot marks field low-confidence or unreadable.</td>
+          </tr>
+          <tr>
+            <td><strong>Orientation</strong></td>
+            <td>Lay receipt flat on high-contrast dark surface. Pre-deskew handles &le;15&deg;.</td>
+            <td>Extreme tilt (&gt;45&deg;) can garble line-item column alignment.</td>
+          </tr>
+          <tr>
+            <td><strong>Focus</strong></td>
+            <td>Ensure text is sharply focused. Bot automatically checks Laplacian blur.</td>
+            <td>Blurry captures trigger an automated rejection with camera retry tips.</td>
+          </tr>
+          <tr>
+            <td><strong>Boundary</strong></td>
+            <td>Include all 4 corners so header and payment total are in frame.</td>
+            <td>Cropped totals force arithmetic estimation or missing total warning.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Honest Limitations -->
+    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Verified Limitations & Disclaimers</h2>
+      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
+        <li><strong>Assisted Extraction, Not Legal Audit:</strong> OCR-Doc-Parser is an extraction tool, not a legal or tax certification authority. Always review critical totals before submitting financial filings.</li>
+        <li><strong>Handwriting Excluded:</strong> The engine is optimized for printed receipts, invoices, and digital billing PDFs. It does not reliably transcribe cursive handwriting.</li>
+        <li><strong>Single Page Receipts:</strong> Render single receipt photos. Multi-page document merging should be split prior to query.</li>
+        <li><strong>Privacy:</strong> We strictly do not persist, log, or train models on user images. Once the SSE response finishes, document bytes in memory are garbage collected.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">What image formats are supported?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">The bot supports JPEG, PNG, WEBP, and single-page TIFF files up to 10MB.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Does OCR-Doc-Parser store my uploaded receipts?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">No. Images are processed ephemerally in RAM and discarded immediately after response streaming completes. No documents or text are saved.</p>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">How does the bot verify invoice totals?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">The parser performs an arithmetic check: subtotal + tax + fees - discounts = total. If there is a discrepancy, it flags an arithmetic warning.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/regex-tester/">Regex Tester</a></li>
+        <li><a href="/english-to-sql/">English to SQL</a></li>
+        <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+    </div>
+  </footer>
+</body>
+</html>

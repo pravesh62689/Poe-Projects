@@ -1,0 +1,8 @@
+{
+  "test_id": "SQL-LIVE-004",
+  "test_name": "Invalid SQL with typo self-correction retry",
+  "timestamp": "2026-09-07T05:31:44.510Z",
+  "schema": "CREATE TABLE users (id INT, name TEXT); INSERT INTO users VALUES (1, \"Alice\");",
+  "ask": "Show users",
+  "sqlOverride": "SELECT id, nme_typo FROM users;"
+}

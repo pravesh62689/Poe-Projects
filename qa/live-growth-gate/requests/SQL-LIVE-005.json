@@ -1,0 +1,8 @@
+{
+  "test_id": "SQL-LIVE-005",
+  "test_name": "Empty schema prompt assistance without unverified execution",
+  "timestamp": "2026-09-07T05:31:44.516Z",
+  "schema": "",
+  "ask": "Show me sales",
+  "sqlOverride": ""
+}

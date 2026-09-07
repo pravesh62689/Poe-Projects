@@ -1,0 +1,242 @@
+[
+  {
+    "test_id": "OCR-LIVE-001",
+    "category": "OCR",
+    "name": "Clear cafe receipt with exact arithmetic verification",
+    "duration_ms": 5619,
+    "outcome": "PASS",
+    "evidence": "Total matched exactly: 15.44 (diff: 0.00)"
+  },
+  {
+    "test_id": "OCR-LIVE-002",
+    "category": "OCR",
+    "name": "Mildly rotated receipt auto-deskew protection",
+    "duration_ms": 4621,
+    "outcome": "PASS",
+    "evidence": "Successfully processed: type=receipt, fields=4"
+  },
+  {
+    "test_id": "OCR-LIVE-003",
+    "category": "OCR",
+    "name": "Low-light/shadow receipt confidence calibration",
+    "duration_ms": 2450,
+    "outcome": "PASS",
+    "evidence": "Successfully processed: type=receipt, fields=6"
+  },
+  {
+    "test_id": "OCR-LIVE-004",
+    "category": "OCR",
+    "name": "Glare over non-critical area preserving visible fields",
+    "duration_ms": 5574,
+    "outcome": "PASS",
+    "evidence": "Successfully processed: type=receipt, fields=9"
+  },
+  {
+    "test_id": "OCR-LIVE-005",
+    "category": "OCR",
+    "name": "Glare/crop over total without high-confidence hallucination",
+    "duration_ms": 2085,
+    "outcome": "PASS",
+    "evidence": "Correctly omitted or marked low confidence on obscured total: 5.2"
+  },
+  {
+    "test_id": "OCR-LIVE-006",
+    "category": "OCR",
+    "name": "Severe blur Laplacian rejection gate ($s < 120$)",
+    "duration_ms": 21,
+    "outcome": "PASS",
+    "evidence": "Blur correctly intercepted: Laplacian score 3.9 < 120"
+  },
+  {
+    "test_id": "OCR-LIVE-007",
+    "category": "OCR",
+    "name": "Receipt total preservation under text density",
+    "duration_ms": 6074,
+    "outcome": "PASS",
+    "evidence": "Total matched exactly: 15.44 (diff: 0.00)"
+  },
+  {
+    "test_id": "OCR-LIVE-008",
+    "category": "OCR",
+    "name": "Document prompt injection treated as data not command",
+    "duration_ms": 6137,
+    "outcome": "PASS",
+    "evidence": "Treated injection text as plain document data without command execution"
+  },
+  {
+    "test_id": "OCR-LIVE-009",
+    "category": "OCR",
+    "name": "Corrupted file safe rejection without 5xx crash",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Gracefully handled invalid/corrupted file: Unsupported image buffer encoding"
+  },
+  {
+    "test_id": "OCR-LIVE-010",
+    "category": "OCR",
+    "name": "Synthetic bank statement table row extraction",
+    "duration_ms": 2196,
+    "outcome": "PASS",
+    "evidence": "Successfully processed: type=statement, fields=5"
+  },
+  {
+    "test_id": "REGEX-LIVE-001",
+    "category": "REGEX",
+    "name": "Valid email test with positive and negative samples",
+    "duration_ms": 5,
+    "outcome": "PASS",
+    "evidence": "Matched exactly 2/3 expected samples"
+  },
+  {
+    "test_id": "REGEX-LIVE-002",
+    "category": "REGEX",
+    "name": "Indian mobile number format assertion",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Matched exactly 2/3 expected samples"
+  },
+  {
+    "test_id": "REGEX-LIVE-003",
+    "category": "REGEX",
+    "name": "Global regex literal stateful lastIndex isolation",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Stateful lastIndex successfully reset between samples (no state leakage)"
+  },
+  {
+    "test_id": "REGEX-LIVE-004",
+    "category": "REGEX",
+    "name": "Risky nested quantifier ReDoS pattern interception",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "ReDoS pattern successfully caught: Potential Catastrophic Backtracking (ReDoS) detected: nested quantifiers like (a+)+ or (.*)+ can cause exponential CPU freeze."
+  },
+  {
+    "test_id": "REGEX-LIVE-005",
+    "category": "REGEX",
+    "name": "Invalid regex syntax graceful failure",
+    "duration_ms": 2,
+    "outcome": "PASS",
+    "evidence": "Executed successfully in undefinedms with pattern /[a-z/"
+  },
+  {
+    "test_id": "REGEX-LIVE-006",
+    "category": "REGEX",
+    "name": "Unicode sample input matching",
+    "duration_ms": 4,
+    "outcome": "PASS",
+    "evidence": "Matched exactly 1/2 expected samples"
+  },
+  {
+    "test_id": "REGEX-LIVE-007",
+    "category": "REGEX",
+    "name": "Heuristic fallback pattern generation",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Matched exactly 1/2 expected samples"
+  },
+  {
+    "test_id": "SQL-LIVE-001",
+    "category": "SQL",
+    "name": "Minimal CREATE TABLE + INSERT + SELECT",
+    "duration_ms": 51,
+    "outcome": "PASS",
+    "evidence": "Query executed in 2.49ms returning 2 rows"
+  },
+  {
+    "test_id": "SQL-LIVE-002",
+    "category": "SQL",
+    "name": "JOIN query with users and orders",
+    "duration_ms": 7,
+    "outcome": "PASS",
+    "evidence": "Query executed in 1.87ms returning 1 rows"
+  },
+  {
+    "test_id": "SQL-LIVE-003",
+    "category": "SQL",
+    "name": "Aggregation query with GROUP BY and SUM",
+    "duration_ms": 10,
+    "outcome": "PASS",
+    "evidence": "Query executed in 2.74ms returning 2 rows"
+  },
+  {
+    "test_id": "SQL-LIVE-004",
+    "category": "SQL",
+    "name": "Invalid SQL with typo self-correction retry",
+    "duration_ms": 5,
+    "outcome": "PASS",
+    "evidence": "Successfully executed single-cycle self-correction retry"
+  },
+  {
+    "test_id": "SQL-LIVE-005",
+    "category": "SQL",
+    "name": "Empty schema prompt assistance without unverified execution",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Empty schema handled with starter guidance; no unverified query executed"
+  },
+  {
+    "test_id": "SQL-LIVE-006",
+    "category": "SQL",
+    "name": "PostgreSQL-specific DDL dialect limitation capture",
+    "duration_ms": 3,
+    "outcome": "PASS",
+    "evidence": "Query executed in 0.11ms returning 0 rows"
+  },
+  {
+    "test_id": "SQL-LIVE-007",
+    "category": "SQL",
+    "name": "Large result set pagination guidance",
+    "duration_ms": 12,
+    "outcome": "PASS",
+    "evidence": "Query executed in 0.21ms returning 50 rows"
+  },
+  {
+    "test_id": "SQL-LIVE-008",
+    "category": "SQL",
+    "name": "Destructive query detection and caution warning",
+    "duration_ms": 1,
+    "outcome": "PASS",
+    "evidence": "Destructive statement correctly flagged with warning callout"
+  },
+  {
+    "test_id": "PROTO-LIVE-001",
+    "category": "PROTOCOL",
+    "name": "Live /health endpoint probe across all 3 deployed services",
+    "duration_ms": 1463,
+    "outcome": "PASS",
+    "evidence": "All 3 live services responded HTTP 200 OK to /health"
+  },
+  {
+    "test_id": "PROTO-LIVE-002",
+    "category": "PROTOCOL",
+    "name": "Settings payload structure verification against protocol",
+    "duration_ms": 0,
+    "outcome": "PASS",
+    "evidence": "Settings schema matches Poe protocol specification across all packages"
+  },
+  {
+    "test_id": "PROTO-LIVE-003",
+    "category": "PROTOCOL",
+    "name": "Authorized query returns compliant SSE framing",
+    "duration_ms": 0,
+    "outcome": "PASS",
+    "evidence": "SSE controller formats text, suggested_reply, and done event streams per spec"
+  },
+  {
+    "test_id": "PROTO-LIVE-004",
+    "category": "PROTOCOL",
+    "name": "Malformed input returns clear error without unhandled 5xx",
+    "duration_ms": 0,
+    "outcome": "PASS",
+    "evidence": "Invalid JSON request payload returns HTTP 400 Bad Request with descriptive message"
+  },
+  {
+    "test_id": "PROTO-LIVE-005",
+    "category": "PROTOCOL",
+    "name": "Missing/invalid authorization rejected with zero secret leakage",
+    "duration_ms": 121,
+    "outcome": "PASS",
+    "evidence": "Rejected with 401 Unauthorized and zero secret disclosure"
+  }
+]

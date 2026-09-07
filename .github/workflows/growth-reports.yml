@@ -1,0 +1,35 @@
+name: Automated Growth & Conversion Reports
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  generate-reports:
+    name: Generate Conversion & Product Reports
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Analytics & Funnel Report
+        run: node scripts/growth/create-analytics-report.js
+
+      - name: Archive Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-growth-reports
+          path: |
+            growth/reports/*.md
+            growth/reports/*.csv

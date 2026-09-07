@@ -1,0 +1,8 @@
+{
+  "test_id": "SQL-LIVE-008",
+  "test_name": "Destructive query detection and caution warning",
+  "timestamp": "2026-09-07T05:31:44.538Z",
+  "schema": "CREATE TABLE sensitive (id INT);",
+  "ask": "Delete all",
+  "sqlOverride": "DROP TABLE sensitive;"
+}

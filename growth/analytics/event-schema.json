@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PoeBotTaskEvent",
+  "type": "object",
+  "required": [
+    "event_name",
+    "timestamp",
+    "bot",
+    "request_id",
+    "outcome",
+    "error_category",
+    "latency_bucket",
+    "first_task",
+    "suggested_replies_count",
+    "cross_bot_handoff_present",
+    "experiment_variant"
+  ],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "enum": ["bot_task_completed", "bot_task_started", "bot_suggested_reply_clicked"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "bot": {
+      "type": "string",
+      "enum": ["ocr", "regex", "sql"]
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "partial", "failure"]
+    },
+    "error_category": {
+      "type": "string",
+      "enum": [
+        "none",
+        "input",
+        "auth",
+        "protocol",
+        "image_quality",
+        "ocr",
+        "parser",
+        "regex_safety",
+        "sql_schema",
+        "sql_execution",
+        "upstream",
+        "unknown"
+      ]
+    },
+    "latency_bucket": {
+      "type": "string",
+      "enum": ["<1s", "1-3s", "3-10s", ">10s"]
+    },
+    "first_task": {
+      "type": "boolean"
+    },
+    "suggested_replies_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "cross_bot_handoff_present": {
+      "type": "boolean"
+    },
+    "experiment_variant": {
+      "type": "string",
+      "enum": ["control", "variant_a", "variant_b"]
+    }
+  },
+  "additionalProperties": false
+}
