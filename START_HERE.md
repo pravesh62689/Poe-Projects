@@ -169,9 +169,9 @@ The verification database is in-memory SQLite seeded only from the schema you pr
 You have a note like this:
 
 ```
-ocr-doc-bot | OCR-Doc-Parser   | key: mYoYmVACxXdFWfqkv51azCZ89jkkHgKA
-regex-bot   | Regex-Gen-Tester | key: CqL02BGnXLbfjKm74pRXDE7ua7Ere9hZ
-sql-bot     | English-To-SQL   | key: Frm5A2ODmLqbsc48Sp23eeAiDaTWxjLp
+ocr-doc-bot | OCR-Doc-Parser   | key: <CONFIGURED_IN_RENDER_ENV>
+regex-bot   | Regex-Gen-Tester | key: <CONFIGURED_IN_CLOUDFLARE_SECRET>
+sql-bot     | English-To-SQL   | key: <CONFIGURED_IN_CLOUDFLARE_SECRET>
 ```
 
 ---

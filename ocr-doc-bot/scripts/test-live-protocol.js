@@ -1,7 +1,7 @@
 import https from 'https';
 
-const BOT_URL = 'https://poe-ocr-doc-bot.onrender.com';
-const ACCESS_KEY = 'mYoYmVACxXdFWfqkv51azCZ89jkkHgKA';
+const BOT_URL = process.env.BOT_URL || 'https://poe-ocr-doc-bot.onrender.com';
+const ACCESS_KEY = process.env.POE_ACCESS_KEY || '';
 
 function postRequest(path, headers, body) {
   return new Promise((resolve, reject) => {
