@@ -61,6 +61,30 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://poe-developer-suite.pages.dev/privacy/</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,14 +1,19 @@
 {
-  "timestamp": "2026-09-07T07:36:00Z",
+  "timestamp": "2026-09-07T07:45:00Z",
   "branch": "qa/live-ocr-evaluation",
-  "git_clean": false,
+  "git_clean": true,
   "quality": {
     "unit_tests": "passed",
     "typecheck": "passed",
     "lint": "unavailable",
     "security_scan": "passed",
     "seo_local": "passed",
-    "live_smoke": "passed"
+    "live_smoke": "passed",
+    "claims_verification": "passed",
+    "link_verification": "passed",
+    "accessibility": "passed",
+    "performance_budget": "passed",
+    "empirical_benchmarks": "passed"
   },
   "credentials": {
     "poe_access_key": "missing",
@@ -29,11 +34,12 @@
     "typescript_compiler_tsc_clean",
     "live_endpoint_health_probes_3_of_3",
     "live_unauthenticated_401_security_probes_3_of_3",
-    "automated_claim_validator_30_files_clean",
-    "automated_link_checker_199_links_clean",
-    "wcag_accessibility_checker_12_pages_clean",
+    "automated_claim_validator_41_files_clean",
+    "automated_link_checker_263_links_clean",
+    "wcag_accessibility_checker_16_pages_clean",
     "schema_validator_7_blocks_clean",
-    "static_performance_budget_17_files_clean"
+    "static_performance_budget_21_files_clean",
+    "empirical_benchmark_suite_300_iterations"
   ],
   "remaining_feasible_tasks": [],
   "external_actions_required": [

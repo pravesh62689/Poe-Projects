@@ -48,6 +48,50 @@
       "primary_keyword": "receipt image to sql expense report",
       "evidence_fixture": "Cross-Bot End-to-End Suite",
       "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-005",
+      "slug": "how-to-photograph-receipts",
+      "title": "How to Photograph Receipts for Maximum OCR Accuracy",
+      "draft_file": "growth/content/drafts/guide-how-to-photograph-receipts.md",
+      "live_url": "https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/",
+      "target_bot": "OCR-Doc-Parser",
+      "primary_keyword": "how to photograph receipts for ocr",
+      "evidence_fixture": "OCR-CAM-001",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-006",
+      "slug": "tax-invoice-gstin-fields",
+      "title": "Essential Tax Invoice OCR Fields: Numbers, Dates & GSTIN",
+      "draft_file": "growth/content/drafts/guide-tax-invoice-gstin-fields.md",
+      "live_url": "https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/",
+      "target_bot": "OCR-Doc-Parser",
+      "primary_keyword": "tax invoice gstin ocr fields",
+      "evidence_fixture": "OCR-GST-001",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-007",
+      "slug": "sql-joins-with-sample-schema",
+      "title": "Practical Guide to SQL JOINs: Verified Queries with Real Data",
+      "draft_file": "growth/content/drafts/guide-sql-joins-with-sample-schema.md",
+      "live_url": "https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/",
+      "target_bot": "English-To-SQL",
+      "primary_keyword": "sql joins natural language prompt schema",
+      "evidence_fixture": "SQL-JOIN-001",
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "P0-008",
+      "slug": "sqlite-vs-postgres-syntax",
+      "title": "SQLite vs. PostgreSQL Syntax Differences for Analytical Queries",
+      "draft_file": "growth/content/drafts/guide-sqlite-vs-postgres-syntax.md",
+      "live_url": "https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/",
+      "target_bot": "English-To-SQL",
+      "primary_keyword": "sqlite vs postgresql syntax differences sql generator",
+      "evidence_fixture": "SQL-DIALECT-001",
+      "status": "PUBLISHED"
     }
   ]
 }

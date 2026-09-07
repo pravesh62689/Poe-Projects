@@ -123,6 +123,46 @@
       "og_type": "website",
       "twitter_card": "summary_large_image",
       "schemas": []
+    },
+    {
+      "url": "/guides/how-to-photograph-receipts/",
+      "title": "How to Photograph Receipts for Maximum OCR Accuracy | Poe Developer Suite",
+      "description": "Master receipt photography for optical character recognition. Eliminate flash glare, correct camera angles, and prevent blurry rejections in financial OCR.",
+      "h1": "How to Photograph Receipts for Maximum OCR Accuracy",
+      "canonical": "https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/",
+      "og_type": "article",
+      "twitter_card": "summary_large_image",
+      "schemas": []
+    },
+    {
+      "url": "/guides/tax-invoice-gstin-fields/",
+      "title": "Essential Tax Invoice OCR Fields: Numbers, Dates & GSTIN | Poe Developer Suite",
+      "description": "A complete guide to tax invoice OCR extraction: mandatory B2B billing fields, GSTIN 15-character structure validation, and automated tax breakdown calculation.",
+      "h1": "Essential Tax Invoice OCR Fields: Numbers, Dates & GSTIN",
+      "canonical": "https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/",
+      "og_type": "article",
+      "twitter_card": "summary_large_image",
+      "schemas": []
+    },
+    {
+      "url": "/guides/sql-joins-with-sample-schema/",
+      "title": "Guide to SQL JOINs: Verified Sandbox Queries | Poe Developer Suite",
+      "description": "Understand INNER JOIN vs LEFT JOIN with runnable schemas and sample rows. Test queries safely in an in-memory SQLite sandbox on Poe.",
+      "h1": "Practical Guide to SQL JOINs: Verified Queries with Real Data",
+      "canonical": "https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/",
+      "og_type": "article",
+      "twitter_card": "summary_large_image",
+      "schemas": []
+    },
+    {
+      "url": "/guides/sqlite-vs-postgres-syntax/",
+      "title": "SQLite vs PostgreSQL Syntax Translation | Poe Developer Suite",
+      "description": "A side-by-side SQL dialect translation matrix: date functions, string concatenation, JSON extraction, and auto-increment keys between SQLite and PostgreSQL.",
+      "h1": "SQLite vs. PostgreSQL Syntax Differences for Analytical Queries",
+      "canonical": "https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/",
+      "og_type": "article",
+      "twitter_card": "summary_large_image",
+      "schemas": []
     }
   ]
 }
