@@ -1,0 +1,20 @@
+keyword,target_bot,funnel_stage,intent_type,search_volume_tier,ranking_difficulty,priority,primary_landing_page,core_user_problem
+receipt ocr to json,ocr-doc-bot,BOFU,tool-intent,High,Moderate,P0,/receipt-ocr,Extract structured data from receipt image without manual typing
+extract receipt details from image,ocr-doc-bot,MOFU,solution-aware,High,Low,P0,/receipt-ocr,Turn receipt photo into clean JSON with total and tax
+bank statement table extraction,ocr-doc-bot,BOFU,tool-intent,Moderate,Moderate,P1,/guides/bank-statement-extraction,Convert paper statement image into transactional rows
+gst invoice ocr scanner,ocr-doc-bot,MOFU,solution-aware,Moderate,Low,P0,/guides/gst-invoice-ocr,Extract GSTIN and tax breakdowns from Indian tax invoices
+blurry receipt ocr fix,ocr-doc-bot,TOFU,problem-aware,Moderate,Low,P1,/guides/photographing-receipts,Prevent OCR failure on low-light or blurred photos
+receipt total reconciliation tool,ocr-doc-bot,BOFU,solution-aware,Low,Low,P1,/benchmarks/document-ocr-accuracy,Verify whether subtotal and tax mathematically equal total
+regex generator with test cases,regex-bot,BOFU,tool-intent,High,Moderate,P0,/regex-tester,Generate regex and verify against positive and negative samples
+safe regex generator plain english,regex-bot,MOFU,solution-aware,High,Low,P0,/regex-tester,Build regex from English without introducing ReDoS bugs
+regex catastrophic backtracking checker,regex-bot,TOFU,problem-aware,Moderate,Moderate,P1,/guides/redos-prevention,Identify exponential backtracking risks in regular expressions
+email regex tester with capture groups,regex-bot,BOFU,template-intent,High,Moderate,P1,/examples/email-regex,Validate email formats with parsed user and domain groups
+regex for indian phone numbers,regex-bot,MOFU,template-intent,Moderate,Low,P1,/examples/phone-number-regex,Validate 10-digit mobile numbers with optional +91 prefix
+uuid v4 regex pattern typescript,regex-bot,BOFU,template-intent,Moderate,Low,P2,/examples/uuid-regex,Strict UUID format assertion for API payloads
+english to sql with schema,sql-bot,BOFU,tool-intent,High,Moderate,P0,/english-to-sql,Generate SQL queries verified against schema definitions
+convert natural language to sql with test data,sql-bot,MOFU,solution-aware,High,Low,P0,/english-to-sql,Test SQL output with in-memory sample rows before running in prod
+sql query generator and runner,sql-bot,BOFU,tool-intent,High,Moderate,P0,/english-to-sql,Run generated queries instantly without local DB installation
+sql join examples with sample table,sql-bot,TOFU,educational,High,Moderate,P1,/guides/sql-joins-visual-guide,Understand LEFT vs INNER joins with working test tables
+sqlite vs postgresql syntax differences,sql-bot,TOFU,informational,Moderate,Low,P2,/guides/sqlite-vs-postgres,Translate date and window functions between dialects
+receipt image to sql expense report,cross-product,BOFU,solution-aware,Moderate,Low,P0,/guides/receipt-to-sql-workflow,End-to-end extraction validation and analytical SQL querying
+validate imported customer data with regex,cross-product,MOFU,solution-aware,Moderate,Low,P1,/guides/regex-data-validation,Clean CSV strings with regex before database ingestion

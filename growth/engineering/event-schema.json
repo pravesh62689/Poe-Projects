@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PoeBotTelemetryEvent",
+  "description": "JSON schema for privacy-safe telemetry events emitted by ocr-doc-bot, regex-bot, and sql-bot",
+  "type": "object",
+  "required": [
+    "event_name",
+    "bot",
+    "request_id",
+    "timestamp",
+    "outcome",
+    "latency_bucket",
+    "error_category"
+  ],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "enum": [
+        "bot_query_completed",
+        "bot_settings_loaded",
+        "feedback_received",
+        "cross_bot_handoff_shown"
+      ]
+    },
+    "bot": {
+      "type": "string",
+      "enum": ["ocr-doc-bot", "regex-bot", "sql-bot"]
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "partial", "failure"]
+    },
+    "latency_bucket": {
+      "type": "string",
+      "enum": ["<1s", "1-3s", "3-10s", ">10s"]
+    },
+    "route": {
+      "type": "string",
+      "enum": ["receipt", "statement", "id", "regex_eval", "sql_query", "unknown"]
+    },
+    "confidence_bucket": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "none"]
+    },
+    "error_category": {
+      "type": "string",
+      "enum": [
+        "none",
+        "auth",
+        "input_missing",
+        "image_blurred",
+        "ocr_empty",
+        "syntax_error",
+        "redos_rejected",
+        "upstream_timeout",
+        "unknown"
+      ]
+    },
+    "suggested_replies_emitted": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "cross_bot_handoff_emitted": {
+      "type": "boolean"
+    },
+    "arithmetic_verified": {
+      "type": "boolean"
+    },
+    "blur_score_tier": {
+      "type": "string",
+      "enum": ["sharp", "acceptable", "blurred", "none"]
+    }
+  },
+  "additionalProperties": false
+}

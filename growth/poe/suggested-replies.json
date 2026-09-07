@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PoeContextualSuggestedRepliesLibrary",
+  "description": "Contextual suggested reply trees for ocr-doc-bot, regex-bot, and sql-bot based on query state and outcome",
+  "bots": {
+    "ocr-doc-bot": {
+      "receipt_success": [
+        "Extract the line items too",
+        "Verify subtotal and tax math",
+        "Format this as expense JSON",
+        "Analyze receipts in @English-To-SQL"
+      ],
+      "statement_success": [
+        "Show running balances only",
+        "Filter credits over $500",
+        "Format as CSV table",
+        "Export transactions to SQL"
+      ],
+      "id_success": [
+        "Verify document number format",
+        "Extract address and DOB",
+        "Mask personal data fields"
+      ],
+      "image_blurred": [
+        "Tips for a clearer photo",
+        "How to avoid camera glare",
+        "Try receipt mode again"
+      ],
+      "no_attachment": [
+        "How to attach an image",
+        "Show supported document types",
+        "Try sample cafe receipt"
+      ],
+      "ambiguous_document": [
+        "Force /receipt mode",
+        "Force /statement mode",
+        "Force /id mode"
+      ]
+    },
+    "regex-bot": {
+      "pattern_success": [
+        "Make it case-insensitive",
+        "Explain each part of this pattern",
+        "Add a sample that should NOT match",
+        "Export for TypeScript"
+      ],
+      "pattern_with_groups": [
+        "Name the capture groups",
+        "Convert to non-capturing groups (?:...)",
+        "Show in Python re format"
+      ],
+      "redos_warning": [
+        "Show safe linear alternative",
+        "Explain catastrophic backtracking",
+        "Simplify the requirement"
+      ],
+      "no_samples_provided": [
+        "Test on sample email strings",
+        "Test on sample phone strings",
+        "Explain how to add samples"
+      ],
+      "execution_no_match": [
+        "Why did my sample fail to match?",
+        "Make pattern more permissive",
+        "Show regex token breakdown"
+      ]
+    },
+    "sql-bot": {
+      "query_success": [
+        "Add sorting and a LIMIT",
+        "Rewrite this as a JOIN",
+        "Show the EXPLAIN query plan",
+        "Translate to PostgreSQL"
+      ],
+      "query_with_aggregations": [
+        "Add a HAVING filter",
+        "Include percentage of total",
+        "Rewrite using a CTE"
+      ],
+      "syntax_error_retry": [
+        "Show corrected SQL query",
+        "Explain why the syntax failed",
+        "Use SQLite-compatible syntax"
+      ],
+      "no_schema_provided": [
+        "Show starter e-commerce schema",
+        "Show starter analytics schema",
+        "How to format CREATE TABLE"
+      ],
+      "destructive_query_warning": [
+        "Add WHERE clause to protect rows",
+        "Rewrite as non-destructive SELECT",
+        "Explain the destructive risk"
+      ]
+    }
+  }
+}

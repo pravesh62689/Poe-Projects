@@ -1,0 +1,13 @@
+exp_id,experiment_name,funnel_stage,target_bot,variant_a,variant_b,primary_metric,guardrail_metric,min_sample_size,decision_rule,status
+EXP-01,Listing Title & Snippet Optimization,Discovery,All,Control Feature Description,Challenger Action Description,Listing CTR,Feedback Ratio,2000 views,Deploy B if CTR +10% and p<0.05,Planned
+EXP-02,Introduction Message A/B Test,Onboarding,ocr-doc-bot,Variant A (Technical commands),Variant B (Step-by-step paperclip),First-Message Rate,Blur Reject Rate,500 queries,Deploy B if conversion +15%,Ready
+EXP-03,One-Click Starter Prompt Test,Onboarding,sql-bot,Generic Ask Example,Pre-Seeded CREATE TABLE Template,1st-Turn Task Success,Worker CPU Time,400 queries,Deploy B if success +20%,Planned
+EXP-04,OCR Output Format Test,Value Delivery,ocr-doc-bot,Detailed JSON First,Compact Summary Table First,Upvote Ratio,Latency,300 queries,Deploy B if thumbs-up +15%,Planned
+EXP-05,Error Copy Recovery Test,Retention,ocr-doc-bot,Generic Blur Warning,Actionable Lighting/Focus Advice,Second-Turn Retry Rate,Error Rate,200 errors,Deploy B if retry +25%,Planned
+EXP-06,Regex Execution vs Explanation First,Value Delivery,regex-bot,Explanation First,Execution Match Table First,Session Completion Rate,P95 Latency,400 queries,Deploy B if completion +10%,Planned
+EXP-07,Contextual Suggested Replies Test,Multi-Turn,All,Static 3 Replies,Dynamic State-Aware Reply Tree,Messages Per Session,Bounce Rate,600 sessions,Deploy B if turns/session +20%,Planned
+EXP-08,Conditional Cross-Bot Handoff Banner,Cross-Sell,ocr-doc-bot,Static Mention in Intro,Contextual Banner with SQL Query,Cross-Bot Handoff CTR,Unsubscribe/Dislike,500 queries,Deploy B if adoption >10%,Planned
+EXP-09,SQL Template-First Onboarding,Onboarding,sql-bot,Error on Missing Schema,Auto-Seed Starter Schema,Task Completion Rate,Worker Memory,300 queries,Deploy B if completion +30%,Planned
+EXP-10,Landing Page Single vs Pipeline CTA,Acquisition,Web Site,Direct Single Bot Link,3-Step Pipeline Interactive Hub,Site-to-Poe CTR,Page Bounce Rate,1000 visits,Deploy B if CTR +20%,Planned
+EXP-11,Interactive vs Static Code Guide,Acquisition,Web Site,Static Code Blocks,Interactive Test Harness,Time on Page,Core Web Vitals,800 visits,Deploy B if time on page +40%,Planned
+EXP-12,Benchmark Evidence vs Feature Page,Acquisition,Web Site,Feature Comparison Table,Live 16-Case Ground-Truth Hub,Referral Traffic,Domain Authority,1200 visits,Deploy B if referral +25%,Planned
