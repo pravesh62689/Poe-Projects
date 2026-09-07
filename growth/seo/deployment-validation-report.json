@@ -1,0 +1,153 @@
+{
+  "timestamp": "2026-09-07T20:20:02.637Z",
+  "baseUrl": "https://poe-developer-suite.pages.dev",
+  "totalChecked": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "path": "/",
+      "url": "https://poe-developer-suite.pages.dev/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 1248
+    },
+    {
+      "path": "/receipt-ocr/",
+      "url": "https://poe-developer-suite.pages.dev/receipt-ocr/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 132
+    },
+    {
+      "path": "/regex-tester/",
+      "url": "https://poe-developer-suite.pages.dev/regex-tester/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 63
+    },
+    {
+      "path": "/english-to-sql/",
+      "url": "https://poe-developer-suite.pages.dev/english-to-sql/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 42
+    },
+    {
+      "path": "/workflows/receipt-to-expense-analysis/",
+      "url": "https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 257
+    },
+    {
+      "path": "/guides/",
+      "url": "https://poe-developer-suite.pages.dev/guides/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 248
+    },
+    {
+      "path": "/guides/how-to-photograph-receipts/",
+      "url": "https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 39
+    },
+    {
+      "path": "/guides/tax-invoice-gstin-fields/",
+      "url": "https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 40
+    },
+    {
+      "path": "/guides/sql-joins-with-sample-schema/",
+      "url": "https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 33
+    },
+    {
+      "path": "/guides/sqlite-vs-postgres-syntax/",
+      "url": "https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 68
+    },
+    {
+      "path": "/examples/",
+      "url": "https://poe-developer-suite.pages.dev/examples/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 273
+    },
+    {
+      "path": "/benchmarks/",
+      "url": "https://poe-developer-suite.pages.dev/benchmarks/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 307
+    },
+    {
+      "path": "/privacy/",
+      "url": "https://poe-developer-suite.pages.dev/privacy/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 262
+    },
+    {
+      "path": "/terms/",
+      "url": "https://poe-developer-suite.pages.dev/terms/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 256
+    },
+    {
+      "path": "/about/",
+      "url": "https://poe-developer-suite.pages.dev/about/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 303
+    },
+    {
+      "path": "/contact/",
+      "url": "https://poe-developer-suite.pages.dev/contact/",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "timingMs": 248
+    },
+    {
+      "path": "/robots.txt",
+      "url": "https://poe-developer-suite.pages.dev/robots.txt",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/plain; charset=utf-8",
+      "timingMs": 250
+    },
+    {
+      "path": "/sitemap.xml",
+      "url": "https://poe-developer-suite.pages.dev/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml",
+      "timingMs": 25
+    }
+  ]
+}

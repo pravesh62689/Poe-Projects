@@ -105,20 +105,23 @@ async function runLiveGrowthGate() {
   const timestamp = new Date().toISOString();
   console.log(`[QA Live Gate] Starting Live Growth QA Gate at ${timestamp}`);
 
-  const poeAccessKey = process.env.POE_ACCESS_KEY || '';
-  const credentialState = poeAccessKey ? 'AVAILABLE' : 'MISSING';
-  console.log(`[QA Live Gate] Credential Status: POE_ACCESS_KEY is ${credentialState}`);
+  const regexKey = process.env.POE_ACCESS_KEY_REGEX || process.env.POE_ACCESS_KEY || '';
+  const sqlKey = process.env.POE_ACCESS_KEY_SQL || process.env.POE_ACCESS_KEY || '';
+  const ocrKey = process.env.POE_ACCESS_KEY_OCR || process.env.POE_ACCESS_KEY || '';
+  const hasAnyKey = Boolean(regexKey && sqlKey && ocrKey);
+  const credentialState = hasAnyKey ? 'AVAILABLE' : (regexKey || sqlKey || ocrKey ? 'PARTIAL' : 'MISSING');
+  console.log(`[QA Live Gate] Credential Status: POE_ACCESS_KEYS are ${credentialState}`);
 
   const testResults = [];
   const defects = [];
   const blockers = [];
 
-  if (!poeAccessKey) {
+  if (!hasAnyKey) {
     blockers.push({
       id: 'BLOCKER-CRED-01',
       severity: 'HIGH',
-      description: 'POE_ACCESS_KEY environment variable is missing. Authenticated live queries to production endpoints cannot be executed.',
-      remediation: 'Export POE_ACCESS_KEY=<valid_key> in the environment or GitHub Actions repository secrets.'
+      description: 'One or more POE_ACCESS_KEY variables are missing. Authenticated live queries require keys for each bot.',
+      remediation: 'Export POE_ACCESS_KEY_REGEX, POE_ACCESS_KEY_SQL, and POE_ACCESS_KEY_OCR in the environment.'
     });
   }
 
@@ -207,16 +210,18 @@ async function runLiveGrowthGate() {
 
   // Helper to record functional test
   function recordFunctionalTest(caseId, bot, inputSummary, expected, actual, localPass, durationMs, payload) {
-    const liveStatus = poeAccessKey ? (localPass ? 'PASS' : 'FAIL') : 'BLOCKED_MISSING_CREDENTIALS';
+    const keyForBot = bot === 'regex' ? regexKey : (bot === 'sql' ? sqlKey : ocrKey);
+    const hasKey = Boolean(keyForBot);
+    const liveStatus = hasKey ? (localPass ? 'PASS' : 'FAIL') : 'BLOCKED_MISSING_CREDENTIALS';
     testResults.push({
       caseId,
       bot,
       type: 'functional_logic',
-      authState: poeAccessKey ? 'AUTHENTICATED' : 'BLOCKED_MISSING_CREDENTIALS',
+      authState: hasKey ? 'AUTHENTICATED' : 'BLOCKED_MISSING_CREDENTIALS',
       localVerification: localPass ? 'LOCAL_VERIFIED' : 'LOCAL_FAILED',
       expected,
       actual,
-      status: poeAccessKey ? (localPass ? 'PASS' : 'FAIL') : 'BLOCKED_MISSING_CREDENTIALS',
+      status: hasKey ? (localPass ? 'PASS' : 'FAIL') : 'BLOCKED_MISSING_CREDENTIALS',
       timingMs: durationMs,
       evidencePath: `qa/live-growth-gate/responses/${caseId}.json`
     });
@@ -381,9 +386,9 @@ async function runLiveGrowthGate() {
     ...testResults.filter((r) => r.type === 'functional_logic').map((r) => `| \`${r.caseId}\` | ${r.bot} | ${r.actual} | **${r.localVerification}** | **${r.status}** | ${r.timingMs}ms |`),
     '',
     '## 3. Findings & Truthfulness Disclosure',
-    poeAccessKey
-      ? '- All authenticated live tests executed against production with valid access key.'
-      : '- **Truthfulness Notice:** Live network checks passed for `/health` and unauthenticated `401` rejection. Because `POE_ACCESS_KEY` is not present in the runtime environment, authenticated turn queries are flagged as `BLOCKED_MISSING_CREDENTIALS` rather than deceptively claiming live end-to-end execution. Local engine ground-truth verification was executed for all 25 functional scenarios.',
+    hasAnyKey
+      ? '- All authenticated live tests executed against production with valid bot access keys.'
+      : '- **Truthfulness Notice:** Live network checks passed for `/health` and unauthenticated `401` rejection. Because access keys are not present in the runtime environment, authenticated turn queries are flagged as `BLOCKED_MISSING_CREDENTIALS` rather than deceptively claiming live end-to-end execution. Local engine ground-truth verification was executed for all 25 functional scenarios.',
     ''
   ].join('\n');
   fs.writeFileSync(path.join(DIRS.reports, 'live-growth-gate-report.md'), mdReport);

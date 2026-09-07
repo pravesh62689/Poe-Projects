@@ -26,6 +26,13 @@ jobs:
       - name: Generate Analytics & Funnel Report
         run: node scripts/growth/create-analytics-report.js
 
+      - name: Track Daily User Activity & Champion Bot
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: node scripts/growth/track-daily-activity.js
+
       - name: Archive Reports
         uses: actions/upload-artifact@v4
         with:
@@ -33,3 +40,4 @@ jobs:
           path: |
             growth/reports/*.md
             growth/reports/*.csv
+            growth/analytics/*.json

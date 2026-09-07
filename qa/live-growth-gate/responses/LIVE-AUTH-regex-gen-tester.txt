@@ -1,0 +1,15 @@
+event: text
+data: {"text":"### ⚡ Regex Execution Report\n\n**Pattern**: `/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/i`\n**Description**: Matches RFC 5322 compliant email addresses including plus addressing (user+tag@domain.com) and subdomains. ℹ️ Notice: Regex verifies syntactic format only; it cannot verify deliverability or detect scam domains (.com.co). Use DNS MX record lookups and domain blocklists in your application layer.\n\n#### 🔬 Real Execution Against Provided Samples:\n| Sample String | Status | Execution Time | Match Groups |\n| :--- | :---: | :---: | :--- |\n| `test@example.com` | ✅ Matched | 0ms | `test@example.com` |\n| `invalid-email` | ❌ No Match | 0ms | *none* |"}
+
+event: suggested_reply
+data: {"text":"Make it case-insensitive"}
+
+event: suggested_reply
+data: {"text":"Explain each part of this pattern"}
+
+event: suggested_reply
+data: {"text":"Add a sample that should NOT match"}
+
+event: done
+data: {}
+

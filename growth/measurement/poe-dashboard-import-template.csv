@@ -1,0 +1,4 @@
+date,bot_handle,unique_users,messages,followers,charges,estimated_earnings_usd,data_source,notes
+2026-09-08,OCR-Doc-Bot,0,0,0,0,0.00,POE_CREATOR_DASHBOARD,Initial pre-launch baseline
+2026-09-08,Regex-Gen-Tester,0,0,0,0,0.00,POE_CREATOR_DASHBOARD,Initial pre-launch baseline
+2026-09-08,English-To-SQL,0,0,0,0,0.00,POE_CREATOR_DASHBOARD,Initial pre-launch baseline

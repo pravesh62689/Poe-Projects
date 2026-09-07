@@ -1,0 +1,15 @@
+event: text
+data: {"text":"### 📊 Verified SQL Query & Results\n\n> ✅ *Verified: Query successfully executed against an in-memory copy of your schema.*\n\n```sql\nSELECT * FROM users;\n```\n\n**Execution Time**: `0ms`\n\n#### 📋 Tabular Output:\n| id | name |\n| :--- | :--- |\n| 1 | Alice |\n\n> ℹ️ *Dialect Notice: This query was validated against in-memory SQLite semantics. If targeting PostgreSQL, MySQL, or SQL Server, verify dialect-specific date, string, or window functions.*"}
+
+event: suggested_reply
+data: {"text":"Add sorting and a LIMIT"}
+
+event: suggested_reply
+data: {"text":"Rewrite this as a JOIN"}
+
+event: suggested_reply
+data: {"text":"Show the EXPLAIN query plan"}
+
+event: done
+data: {}
+

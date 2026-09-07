@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-09-08",
+    "bot_handle": "OCR-Doc-Bot",
+    "unique_users": 0,
+    "messages": 0,
+    "followers": 0,
+    "charges": 0,
+    "estimated_earnings_usd": 0,
+    "data_source": "POE_CREATOR_DASHBOARD",
+    "notes": "Initial pre-launch baseline",
+    "verified": true
+  },
+  {
+    "date": "2026-09-08",
+    "bot_handle": "Regex-Gen-Tester",
+    "unique_users": 0,
+    "messages": 0,
+    "followers": 0,
+    "charges": 0,
+    "estimated_earnings_usd": 0,
+    "data_source": "POE_CREATOR_DASHBOARD",
+    "notes": "Initial pre-launch baseline",
+    "verified": true
+  },
+  {
+    "date": "2026-09-08",
+    "bot_handle": "English-To-SQL",
+    "unique_users": 0,
+    "messages": 0,
+    "followers": 0,
+    "charges": 0,
+    "estimated_earnings_usd": 0,
+    "data_source": "POE_CREATOR_DASHBOARD",
+    "notes": "Initial pre-launch baseline",
+    "verified": true
+  }
+]

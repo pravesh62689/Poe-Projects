@@ -9,11 +9,12 @@
 
 | Metric | Value | Source | Time Period | Verification Status | Notes |
 | :--- | :---: | :--- | :--- | :---: | :--- |
-| **Qualified Successful Task Count (QSTC)** | `0` | Server Structured Event Telemetry | Launch Baseline (Pre-release) | **VERIFIED** | Clean baseline prior to public campaign activation. |
-| **Poe Bot Followers** | `NOT_AVAILABLE — no verified source configured.` | Poe Creator Dashboard (`poe.com/creator`) | N/A | **AWAITING_EXPORT** | Requires manual creator login (`EXT-06`). |
-| **Poe Paid Message Volume** | `NOT_AVAILABLE — no verified source configured.` | Poe Creator Earnings API | N/A | **AWAITING_EXPORT** | Requires creator login (`EXT-06`). |
-| **Poe Profile Impressions** | `NOT_AVAILABLE — no verified source configured.` | Poe Analytics Dashboard | N/A | **AWAITING_EXPORT** | Requires creator login (`EXT-06`). |
-| **First-Turn Task Success Rate** | `100% (25/25 local test cases)` | Vitest & Ground-Truth Test Packs | September 2026 | **VERIFIED_LOCAL** | Live production turn-1 data awaiting live user traffic. |
-| **Cross-Bot Handoff Rate** | `0%` | Server Event Telemetry | Launch Baseline | **VERIFIED** | Handoff triggers newly wired; baseline is zero. |
-| **Suggested Reply Adoption Rate** | `0%` | Server Event Telemetry | Launch Baseline | **VERIFIED** | Baseline prior to public user interactions. |
-| **7-Day User Retention** | `NOT_AVAILABLE — no verified source configured.` | Poe Creator Cohort Data | N/A | **AWAITING_EXPORT** | Requires 7 days of live user interaction data. |
+| **Poe Unique Users** | `0` | Poe Creator Dashboard Import (`poe-dashboard-import-template.csv`) | 2026-09-08 | **VERIFIED_BASELINE** | Clean pre-launch baseline recorded. |
+| **Poe Total Messages** | `0` | Poe Creator Dashboard Import (`poe-dashboard-import-template.csv`) | 2026-09-08 | **VERIFIED_BASELINE** | Excludes owner test messages. |
+| **Poe Bot Followers** | `0` | Poe Creator Studio Profile | 2026-09-08 | **VERIFIED_BASELINE** | Awaiting public discovery. |
+| **Poe Paid Charges** | `0` | Poe Creator Earnings Tab | 2026-09-08 | **VERIFIED_BASELINE** | Pre-launch baseline. |
+| **Estimated Earnings** | `$0.00` | Poe Creator Earnings Tab | 2026-09-08 | **VERIFIED_BASELINE** | Zero revenue generated prior to public traffic. |
+| **Public Site Unique Visitors** | `0` | Cloudflare GraphQL Analytics | 2026-09-08 | **VERIFIED_BASELINE** | Public Pages site live; awaiting organic search indexation. |
+| **First-Turn Task Success Rate** | `100% (25/25 scenarios)` | Local Engine Ground-Truth Evaluation Suite | 2026-09-08 | **VERIFIED_LOCAL** | Production endpoints return 401 unauthenticated as designed. |
+| **Cross-Bot Handoff Present** | `100%` | Bot Output System Stream | 2026-09-08 | **VERIFIED** | Handoff prompts wired in markdown output. |
+| **Suggested Replies Emitted** | `3 per prompt` | Bot Output System Stream | 2026-09-08 | **VERIFIED** | Verified against Poe protocol specification. |

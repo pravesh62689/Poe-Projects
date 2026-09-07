@@ -3,5 +3,5 @@
   "bot": "sql",
   "status": "PASS",
   "localPass": true,
-  "timingMs": 12
+  "timingMs": 6
 }

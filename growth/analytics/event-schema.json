@@ -13,7 +13,8 @@
     "first_task",
     "suggested_replies_emitted",
     "cross_bot_handoff_present",
-    "experiment_variant"
+    "experiment_variant",
+    "owner_test"
   ],
   "properties": {
     "event_name": {
@@ -71,6 +72,9 @@
     "experiment_variant": {
       "type": "string",
       "enum": ["control", "variant_a", "variant_b"]
+    },
+    "owner_test": {
+      "type": "boolean"
     }
   },
   "additionalProperties": false

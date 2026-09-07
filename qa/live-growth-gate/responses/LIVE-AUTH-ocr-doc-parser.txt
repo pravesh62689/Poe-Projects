@@ -1,0 +1,6 @@
+event: text
+data: {"text":"📎 **No image attachment detected.**\n\nPlease upload or attach a photo/scan of a **Receipt**, **Bank Statement**, or **ID Document** (PAN, Aadhaar, Passport, DL) to extract structured data.\n\n*Optional commands:* `/receipt`, `/statement`, `/id`"}
+
+event: done
+data: {}
+

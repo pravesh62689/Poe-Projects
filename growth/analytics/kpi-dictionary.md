@@ -1,55 +1,46 @@
-# Enterprise Growth KPI Dictionary & Metric Governance
+# Enterprise KPI Dictionary & Measurement Taxonomy
 
-**Author:** Head of Analytics & Performance Marketing  
-**Scope:** Canonical definitions, mathematical formulas, data sources, and targets for all growth, conversion, and reliability metrics.
-
----
-
-## 1. Primary & North-Star Metrics
-
-### Weekly Successful Tasks Completed (WSTC) — North-Star Metric
-- **Definition:** The total count of verified, non-error query responses delivered to unique user accounts within a rolling 7-day window.
-- **Formula:**
-  $$\text{WSTC} = \sum_{\text{day}=1}^{7} \text{Count}(\text{UniqueUsers with } \text{outcome} == \text{'success'})$$
-- **Target:** $> 1,500$ WSTC across the three bots.
-- **Source:** Privacy-safe telemetry aggregations.
+**Organization:** Growth Engineering, Product Analytics, DevOps  
+**Version:** 1.0  
+**Effective Date:** 2026-09-08  
 
 ---
 
-## 2. Funnel Conversion Metrics
+## 1. Top-Level Growth & Acquisition KPIs
 
-### First-Message Conversion Rate (FMCR)
-- **Definition:** Percentage of users who view a bot's listing profile and initiate their first conversational turn.
-- **Formula:**
-  $$\text{FMCR} = \frac{\text{Unique Sessions with } \ge 1 \text{ User Message}}{\text{Total Bot Profile Page Views}} \times 100$$
-- **Baseline:** 28.0% | **Target:** $> 35.0\%$
-
-### Task Completion Rate (TCR)
-- **Definition:** Percentage of submitted queries that result in a verified, usable structured output (not rejected by blur or syntax errors).
-- **Formula:**
-  $$\text{TCR} = \frac{\text{Queries with } \text{outcome} == \text{'success'}}{\text{Total Queries Submitted}} \times 100$$
-- **Baseline:** 74.0% | **Target:** $> 85.0\%$
-
-### Cross-Bot Handoff Rate (CBHR)
-- **Definition:** Percentage of sessions where a user clicks or follows an emitted cross-bot recommendation link to a sibling bot within 30 minutes.
-- **Formula:**
-  $$\text{CBHR} = \frac{\text{Sessions Engaging } \ge 2 \text{ Studio Bots}}{\text{Total Active User Sessions}} \times 100$$
-- **Baseline:** 8.5% | **Target:** $> 15.0\%$
+| KPI Code | Name | Formula / Query | Target Cadence | Source of Truth |
+| :--- | :--- | :--- | :--- | :--- |
+| `KPI-ACQ-01` | **Verified Active Users** | `SUM(unique_users)` across 3 bots | Daily | Poe Creator Studio CSV export |
+| `KPI-ACQ-02` | **Organic Web Impressions** | Verified clicks & impressions on landing routes | Daily | Google Search Console API (pending verification) |
+| `KPI-ACQ-03` | **Web Unique Visitors** | Anonymized unique clients on `poe-developer-suite.pages.dev` | Daily | Cloudflare GraphQL Analytics |
+| `KPI-ACQ-04` | **Web-to-Bot Click-Through Rate** | `(SUM(bot_cta_clicks) / SUM(page_views)) * 100` | Weekly | Client telemetry beacon + Cloudflare |
+| `KPI-ACQ-05` | **Follower Growth Velocity** | `followers_t - followers_{t-1}` | Weekly | Poe Creator Studio |
 
 ---
 
-## 3. Reliability & Operational KPIs
+## 2. Product Experience & Quality KPIs
 
-### Blur Gate Accuracy (BGA)
-- **Definition:** Percentage of illegible or out-of-focus photographs ($s < 120$) correctly intercepted before entering OCR processing.
-- **Formula:** 100% on test pack suite.
+| KPI Code | Name | Formula / Description | SLA / Target | Source of Truth |
+| :--- | :--- | :--- | :--- | :--- |
+| `KPI-ENG-01` | **First-Task Success Rate** | `(Successful first-turn executions / Total first turns) * 100` | >= 90% | Edge worker event stream |
+| `KPI-ENG-02` | **OCR Reconciliation Rate** | Receipts where line items + taxes = detected total | >= 85% | `ocr-doc-bot` validation engine |
+| `KPI-ENG-03` | **Regex Safety Filtering** | Malicious / ReDoS pattern rejections without crash | 100% | `regex-bot` AST parser |
+| `KPI-ENG-04` | **SQL Generation Accuracy** | In-memory SQLite execution success without error | >= 88% | `sql-bot` retry loop telemetry |
+| `KPI-ENG-05` | **Edge Streaming Latency (p90)** | Time from request receipt to final SSE done event | < 3,500ms (Workers), < 7,000ms (Render OCR) | Cloudflare / Render logs |
 
-### ReDoS Prevention Rate (RPR)
-- **Definition:** Percentage of exponential backtracking regex queries safely flagged or halted before exceeding Cloudflare Worker CPU limits.
-- **Formula:** 100% on test pack suite.
+---
 
-### SQL Self-Correction Success Rate (SCSR)
-- **Definition:** Percentage of queries with initial syntax errors that are successfully auto-corrected by the in-memory SQLite WASM retry loop.
-- **Formula:**
-  $$\text{SCSR} = \frac{\text{Queries Recovered on 2nd Attempt}}{\text{Queries Failing Initial Execution}} \times 100$$
-- **Baseline:** 82.0% | **Target:** $> 90.0\%$
+## 3. Monetization & Unit Economics KPIs
+
+| KPI Code | Name | Formula / Description | Target | Source of Truth |
+| :--- | :--- | :--- | :--- | :--- |
+| `KPI-REV-01` | **Net Creator Revenue** | Cumulative creator payout credited by Poe | > $0.00 | Poe Creator Earnings tab |
+| `KPI-REV-02` | **Gross Margin per 1k Tasks** | `Creator Revenue per 1k - Infrastructure Cost per 1k` | 100% on Free Tier ($0 hosting) | Cost-to-serve financial model |
+| `KPI-REV-03` | **Effective Cost per Task** | Total monthly hosting / Total completed tasks | ₹0.00 ($0.00) on baseline tiers | Cloudflare / Render billing |
+
+---
+
+## 4. Governance & Anti-Gaming Rules
+
+- **Zero Synthetic Traffic:** Synthetic QA probes are tagged with test headers and routed through distinct channels; they must never contaminate KPI reporting.
+- **Zero Hallucinated Metrics:** If a platform does not provide a metric, report `NOT_AVAILABLE`.

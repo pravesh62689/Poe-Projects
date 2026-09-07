@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-07T07:55:32.633Z",
+  "timestamp": "2026-09-07T20:30:19.452Z",
   "credentialState": "AVAILABLE",
   "totalTests": 31,
   "passed": 31,
@@ -14,7 +14,7 @@
       "expected": "HTTP 200 { status: \"ok\" }",
       "actual": "HTTP 200 {\"status\":\"ok\",\"service\":\"ocr-doc-bot\"}",
       "status": "PASS",
-      "timingMs": 511,
+      "timingMs": 228,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-001-ocr.json"
     },
     {
@@ -25,7 +25,7 @@
       "expected": "HTTP 200 { status: \"ok\" }",
       "actual": "HTTP 200 {\"status\":\"ok\",\"service\":\"regex-bot\"}",
       "status": "PASS",
-      "timingMs": 444,
+      "timingMs": 302,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-001-regex.json"
     },
     {
@@ -36,7 +36,7 @@
       "expected": "HTTP 200 { status: \"ok\" }",
       "actual": "HTTP 200 {\"status\":\"ok\",\"service\":\"sql-bot\"}",
       "status": "PASS",
-      "timingMs": 481,
+      "timingMs": 308,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-001-sql.json"
     },
     {
@@ -45,9 +45,9 @@
       "type": "live_network",
       "authState": "UNAUTHENTICATED",
       "expected": "HTTP 401 Unauthorized with 0 secret leakage",
-      "actual": "HTTP 401 (272ms)",
+      "actual": "HTTP 401 (111ms)",
       "status": "PASS",
-      "timingMs": 272,
+      "timingMs": 111,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-005-ocr.json"
     },
     {
@@ -56,9 +56,9 @@
       "type": "live_network",
       "authState": "UNAUTHENTICATED",
       "expected": "HTTP 401 Unauthorized with 0 secret leakage",
-      "actual": "HTTP 401 (180ms)",
+      "actual": "HTTP 401 (112ms)",
       "status": "PASS",
-      "timingMs": 180,
+      "timingMs": 112,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-005-regex.json"
     },
     {
@@ -67,9 +67,9 @@
       "type": "live_network",
       "authState": "UNAUTHENTICATED",
       "expected": "HTTP 401 Unauthorized with 0 secret leakage",
-      "actual": "HTTP 401 (158ms)",
+      "actual": "HTTP 401 (112ms)",
       "status": "PASS",
-      "timingMs": 158,
+      "timingMs": 112,
       "evidencePath": "qa/live-growth-gate/responses/PROTO-LIVE-005-sql.json"
     },
     {
@@ -81,7 +81,7 @@
       "expected": "Deterministic structured extraction",
       "actual": "Vendor: QUICK MART, Total: $27.56, Confidence: high",
       "status": "PASS",
-      "timingMs": 15,
+      "timingMs": 7,
       "evidencePath": "qa/live-growth-gate/responses/OCR-LIVE-001.json"
     },
     {
@@ -165,7 +165,7 @@
       "expected": "Deterministic structured extraction",
       "actual": "Treated prompt injection as text literal: Total $10",
       "status": "PASS",
-      "timingMs": 2,
+      "timingMs": 1,
       "evidencePath": "qa/live-growth-gate/responses/OCR-LIVE-008.json"
     },
     {
@@ -189,7 +189,7 @@
       "expected": "Deterministic structured extraction",
       "actual": "Extracted 2 transaction rows, Closing: $2800",
       "status": "PASS",
-      "timingMs": 2,
+      "timingMs": 1,
       "evidencePath": "qa/live-growth-gate/responses/OCR-LIVE-010.json"
     },
     {
@@ -237,7 +237,7 @@
       "expected": "Bounded execution & ReDoS check",
       "actual": "Static AST ReDoS flag: isSafe=false",
       "status": "PASS",
-      "timingMs": 1,
+      "timingMs": 0,
       "evidencePath": "qa/live-growth-gate/responses/REGEX-LIVE-004.json"
     },
     {
@@ -285,7 +285,7 @@
       "expected": "In-memory sandbox execution",
       "actual": "Executed in SQLite sandbox: returned row id=1, name=Alice",
       "status": "PASS",
-      "timingMs": 80,
+      "timingMs": 47,
       "evidencePath": "qa/live-growth-gate/responses/SQL-LIVE-001.json"
     },
     {
@@ -297,7 +297,7 @@
       "expected": "In-memory sandbox execution",
       "actual": "JOIN verified: Alice total = $125",
       "status": "PASS",
-      "timingMs": 12,
+      "timingMs": 6,
       "evidencePath": "qa/live-growth-gate/responses/SQL-LIVE-002.json"
     },
     {
@@ -369,7 +369,7 @@
       "expected": "In-memory sandbox execution",
       "actual": "Detected destructive query: Warning emitted",
       "status": "PASS",
-      "timingMs": 6,
+      "timingMs": 3,
       "evidencePath": "qa/live-growth-gate/responses/SQL-LIVE-008.json"
     }
   ]

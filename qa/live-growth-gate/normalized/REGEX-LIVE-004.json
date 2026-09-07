@@ -3,5 +3,5 @@
   "bot": "regex",
   "status": "PASS",
   "localPass": true,
-  "timingMs": 1
+  "timingMs": 0
 }
