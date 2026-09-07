@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const BASE_URL = 'https://poe-developer-suite.pages.dev';
+const BASE_URL = 'https://apex-forge-tools.pages.dev';
 const PATHS = [
   '/',
   '/receipt-ocr/',
