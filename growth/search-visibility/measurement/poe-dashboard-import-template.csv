@@ -1,0 +1,4 @@
+Date,Bot_Handle,Product_Name,Unique_Users,Total_Messages,Followers,Creator_Points_Earned,Gross_Charges_USD,Owner_Test_Turns_Excluded,Notes
+2026-09-08,@OCR-Doc-Parser,Apex Forge OCR,0,0,0,0.00,0.00,10,Baseline setup - owner test turns filtered
+2026-09-08,@Regex-Gen-Tester,Apex Forge Regex,0,0,0,0.00,0.00,8,Baseline setup - owner test turns filtered
+2026-09-08,@English-To-SQL,Apex Forge SQL,0,0,0,0.00,0.00,8,Baseline setup - owner test turns filtered

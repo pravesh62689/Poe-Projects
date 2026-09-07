@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-09-08T04:05:00Z",
+  "company": "Apex Forge Technology",
+  "suite": "Apex Forge Tools",
+  "domains": {
+    "primary_production": "https://apex-forge-tools.pages.dev",
+    "legacy_alias": "https://poe-developer-suite.pages.dev"
+  },
+  "indexation": {
+    "submitted_sitemap_urls": 16,
+    "verified_accessible_urls": 18,
+    "search_console_status": "pending_external_verification",
+    "bing_webmaster_status": "pending_external_verification"
+  },
+  "quality_gates": {
+    "crawlability": "pass",
+    "canonical_consistency": "pass",
+    "metadata_uniqueness": "pass",
+    "links_integrity": "pass",
+    "claims_truthfulness": "pass",
+    "accessibility_wcag_aa": "pass",
+    "performance_budget": "pass"
+  },
+  "search_measurement": {
+    "search_console_connected": false,
+    "bing_webmaster_connected": false,
+    "cloudflare_analytics_connected": false,
+    "poe_creator_dashboard_connected": false
+  },
+  "active_status": "READY_FOR_SEARCH_CONSOLE_SETUP"
+}

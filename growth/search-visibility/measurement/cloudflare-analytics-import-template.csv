@@ -1,0 +1,6 @@
+Date,Page_Path,Unique_Visitors,Pageviews,Requests,Bandwidth_Bytes,Bot_Requests_Filtered,Outbound_Poe_Clicks,Landing_To_Poe_CTR,Notes
+2026-09-08,/,0,0,0,0,0,0,0.0%,Baseline setup
+2026-09-08,/receipt-ocr/,0,0,0,0,0,0,0.0%,Baseline setup
+2026-09-08,/regex-tester/,0,0,0,0,0,0,0.0%,Baseline setup
+2026-09-08,/english-to-sql/,0,0,0,0,0,0,0.0%,Baseline setup
+2026-09-08,/workflows/receipt-to-expense-analysis/,0,0,0,0,0,0,0.0%,Baseline setup

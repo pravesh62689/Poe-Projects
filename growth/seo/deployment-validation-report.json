@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-07T22:22:30.180Z",
+  "timestamp": "2026-09-07T22:40:08.494Z",
   "baseUrl": "https://apex-forge-tools.pages.dev",
   "totalChecked": 18,
   "passed": 18,
@@ -11,7 +11,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 655
+      "timingMs": 399
     },
     {
       "path": "/receipt-ocr/",
@@ -19,7 +19,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 344
+      "timingMs": 65
     },
     {
       "path": "/regex-tester/",
@@ -27,7 +27,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 255
+      "timingMs": 40
     },
     {
       "path": "/english-to-sql/",
@@ -35,7 +35,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 225
+      "timingMs": 27
     },
     {
       "path": "/workflows/receipt-to-expense-analysis/",
@@ -43,7 +43,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 242
+      "timingMs": 44
     },
     {
       "path": "/guides/",
@@ -51,7 +51,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 264
+      "timingMs": 37
     },
     {
       "path": "/guides/how-to-photograph-receipts/",
@@ -59,7 +59,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 227
+      "timingMs": 26
     },
     {
       "path": "/guides/tax-invoice-gstin-fields/",
@@ -67,7 +67,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 261
+      "timingMs": 37
     },
     {
       "path": "/guides/sql-joins-with-sample-schema/",
@@ -75,7 +75,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 224
+      "timingMs": 25
     },
     {
       "path": "/guides/sqlite-vs-postgres-syntax/",
@@ -83,7 +83,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 227
+      "timingMs": 29
     },
     {
       "path": "/examples/",
@@ -91,7 +91,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 222
+      "timingMs": 25
     },
     {
       "path": "/benchmarks/",
@@ -99,7 +99,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 229
+      "timingMs": 24
     },
     {
       "path": "/privacy/",
@@ -107,7 +107,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 228
+      "timingMs": 31
     },
     {
       "path": "/terms/",
@@ -115,7 +115,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 230
+      "timingMs": 22
     },
     {
       "path": "/about/",
@@ -123,7 +123,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 237
+      "timingMs": 26
     },
     {
       "path": "/contact/",
@@ -131,7 +131,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
-      "timingMs": 266
+      "timingMs": 41
     },
     {
       "path": "/robots.txt",
@@ -139,7 +139,7 @@
       "status": 200,
       "ok": true,
       "contentType": "text/plain; charset=utf-8",
-      "timingMs": 230
+      "timingMs": 22
     },
     {
       "path": "/sitemap.xml",
@@ -147,7 +147,7 @@
       "status": 200,
       "ok": true,
       "contentType": "application/xml",
-      "timingMs": 261
+      "timingMs": 19
     }
   ]
 }

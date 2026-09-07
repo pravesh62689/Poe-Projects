@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-09-07T22:33:37.476Z",
+  "records": [
+    {
+      "Date": "2026-09-08",
+      "Bot_Handle": "@OCR-Doc-Parser",
+      "Product_Name": "Apex Forge OCR",
+      "Unique_Users": "0",
+      "Total_Messages": "0",
+      "Followers": "0",
+      "Creator_Points_Earned": "0.00",
+      "Gross_Charges_USD": "0.00",
+      "Owner_Test_Turns_Excluded": "10",
+      "Notes": "Baseline setup - owner test turns filtered"
+    },
+    {
+      "Date": "2026-09-08",
+      "Bot_Handle": "@Regex-Gen-Tester",
+      "Product_Name": "Apex Forge Regex",
+      "Unique_Users": "0",
+      "Total_Messages": "0",
+      "Followers": "0",
+      "Creator_Points_Earned": "0.00",
+      "Gross_Charges_USD": "0.00",
+      "Owner_Test_Turns_Excluded": "8",
+      "Notes": "Baseline setup - owner test turns filtered"
+    },
+    {
+      "Date": "2026-09-08",
+      "Bot_Handle": "@English-To-SQL",
+      "Product_Name": "Apex Forge SQL",
+      "Unique_Users": "0",
+      "Total_Messages": "0",
+      "Followers": "0",
+      "Creator_Points_Earned": "0.00",
+      "Gross_Charges_USD": "0.00",
+      "Owner_Test_Turns_Excluded": "8",
+      "Notes": "Baseline setup - owner test turns filtered"
+    }
+  ]
+}

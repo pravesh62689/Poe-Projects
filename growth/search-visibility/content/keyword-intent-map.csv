@@ -1,0 +1,35 @@
+Cluster,Keyword,Intent,Target_URL,Audience,Primary_Task,Evidence_Asset,CTA_Label
+OCR,receipt OCR to JSON,Transactional,/receipt-ocr/,Accountants & Developers,Convert receipt image to JSON,Field confidence scores & arithmetic sum table,Launch Apex Forge OCR (@OCR-Doc-Parser on Poe)
+OCR,extract receipt total tax line items,Transactional,/receipt-ocr/,Expense Managers,Digitize line items and taxes,Synthetic receipt bounding-box trace,Open @OCR-Doc-Parser on Poe
+OCR,extract invoice fields from image,Transactional,/receipt-ocr/,Accounts Payable,Parse supplier invoice fields,Tax invoice field extraction checklist,Open @OCR-Doc-Parser on Poe
+OCR,how to photograph receipt for OCR,Informational,/guides/how-to-photograph-receipts/,Mobile App Users,Improve image clarity before scan,5-point receipt photography checklist,Test with Apex Forge OCR
+OCR,fix blurry glare receipt scans,Informational,/guides/how-to-photograph-receipts/,Bookkeepers,Eliminate glare and contrast defects,Contrast comparison chart,Launch Apex Forge OCR
+OCR,receipt tax subtotal reconciliation,Informational,/receipt-ocr/,Finance Ops,Verify arithmetic of tax + subtotal,Checksum reconciliation formula,Open @OCR-Doc-Parser on Poe
+OCR,OCR confidence flags explained,Informational,/receipt-ocr/,Technical Evaluators,Interpret low confidence field warnings,Confidence threshold table,Launch Apex Forge OCR
+OCR,receipt extraction test cases,Reference,/examples/,QA & Developers,Test sample receipts with edge cases,Copyable receipt test fixtures,Open @OCR-Doc-Parser on Poe
+OCR,invoice OCR field checklist,Informational,/guides/tax-invoice-gstin-fields/,Indian SMBs & Accounts,Ensure compliance with GST rules,15-digit GSTIN pattern validation,Try Apex Forge Tools on Poe
+OCR,document image data extraction workflow,Transactional,/workflows/receipt-to-expense-analysis/,Operations Leads,End-to-end receipt to database,Full synthetic 3-stage pipeline,Explore Apex Forge Tools
+Regex,regex tester with examples,Transactional,/regex-tester/,Web Developers,Test regex against multiple strings,Positive and negative test string runner,Launch Apex Forge Regex (@Regex-Gen-Tester on Poe)
+Regex,regex generator that tests samples,Transactional,/regex-tester/,Software Engineers,Generate regex from English description,Edge isolate regex execution,Open @Regex-Gen-Tester on Poe
+Regex,positive and negative regex test cases,Informational,/regex-tester/,QA Engineers,Validate edge-case strings against regex,Multi-string test fixture matrix,Open @Regex-Gen-Tester on Poe
+Regex,regex capture groups guide,Informational,/regex-tester/,Backend Developers,Extract named substrings,Named capture group example,Launch Apex Forge Regex
+Regex,ReDoS safety testing,Informational,/regex-tester/,Security Engineers,Detect catastrophic backtracking,Backtracking cycle warning heuristic,Open @Regex-Gen-Tester on Poe
+Regex,email regex testing,Informational,/examples/,Frontend Engineers,Validate RFC-compliant emails,Email regex test fixtures,Open @Regex-Gen-Tester on Poe
+Regex,Indian phone number regex tests,Informational,/examples/,Indian Tech Devs,Validate 10-digit Indian numbers,Mobile format regex test suite,Open @Regex-Gen-Tester on Poe
+Regex,UUID date URL IP MAC regex examples,Reference,/examples/,Fullstack Devs,Copy validated standard regexes,6 standard pattern fixtures,Open @Regex-Gen-Tester on Poe
+Regex,regex debugging guide,Informational,/regex-tester/,Junior Developers,Debug unexpected regex failures,Step-by-step regex debugger,Launch Apex Forge Regex
+Regex,when regex is not appropriate,Informational,/workflows/receipt-to-expense-analysis/,Architects,Understand regex limitations vs parser,Grammar vs regex distinction note,Explore Apex Forge Tools
+SQL,English to SQL with schema,Transactional,/english-to-sql/,Data Analysts,Translate question into SQL query,In-memory SQLite execution table,Launch Apex Forge SQL (@English-To-SQL on Poe)
+SQL,SQL query generator with sample data,Transactional,/english-to-sql/,Product Managers,Test queries against schema fixtures,Sample database schema + output,Open @English-To-SQL on Poe
+SQL,SQL JOIN examples,Informational,/guides/sql-joins-with-sample-schema/,Database Learners,Write INNER and LEFT JOIN queries,Multi-table order/customer schema,Run with Apex Forge SQL
+SQL,SQL aggregation examples,Informational,/guides/sql-joins-with-sample-schema/,Data Analysts,Calculate GROUP BY totals and averages,Aggregated sales query output,Run with Apex Forge SQL
+SQL,SQL schema template,Reference,/examples/,DBAs,Copy clean DDL table definitions,E-commerce schema DDL,Open @English-To-SQL on Poe
+SQL,SQLite query tester,Transactional,/english-to-sql/,Python & Mobile Devs,Test SQLite queries in memory,Isolated SQLite sandbox trace,Open @English-To-SQL on Poe
+SQL,debug SQL error,Informational,/english-to-sql/,Software Engineers,Diagnose syntax and schema mismatch,SQL error breakdown and fix,Launch Apex Forge SQL
+SQL,SQLite vs PostgreSQL MySQL,Informational,/guides/sqlite-vs-postgres-syntax/,Backend Developers,Port queries between dialects,Dialect syntax comparison matrix,Test queries in Apex Forge SQL
+SQL,SQL pagination,Informational,/guides/sql-joins-with-sample-schema/,Web Developers,Implement LIMIT and OFFSET safely,Paginated query sample,Run with Apex Forge SQL
+SQL,receipt data to expense reporting,Transactional,/workflows/receipt-to-expense-analysis/,Finance Analysts,Aggregate extracted receipt data in SQL,Expense categorization SQL script,Explore Apex Forge Tools
+Workflow,receipt image to structured data to expense SQL,Transactional,/workflows/receipt-to-expense-analysis/,Finance Operations,Run full document-to-analytics pipeline,End-to-end synthetic data flow,Explore Apex Forge Tools
+Workflow,extract validate analyze,Informational,/workflows/receipt-to-expense-analysis/,System Architects,Implement multi-step validation,3-step data validation diagram,Explore Apex Forge Tools
+Workflow,document data cleanup workflow,Informational,/workflows/receipt-to-expense-analysis/,Data Engineers,Clean noisy OCR text before analysis,Normalization pipeline example,Explore Apex Forge Tools
+Workflow,validate data before SQL import,Informational,/workflows/receipt-to-expense-analysis/,Database Administrators,Ensure schema types match extracted values,Data validation checklist,Explore Apex Forge Tools
