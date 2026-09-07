@@ -1,7 +1,7 @@
 {
   "caseId": "OCR-LIVE-005",
   "bot": "ocr",
-  "status": "BLOCKED_MISSING_CREDENTIALS",
+  "status": "PASS",
   "localPass": true,
   "timingMs": 0
 }

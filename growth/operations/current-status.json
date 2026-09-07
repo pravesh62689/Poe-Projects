@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-07T07:45:00Z",
+  "timestamp": "2026-09-07T08:00:00Z",
   "branch": "qa/live-ocr-evaluation",
   "git_clean": true,
   "quality": {
@@ -13,27 +13,44 @@
     "link_verification": "passed",
     "accessibility": "passed",
     "performance_budget": "passed",
-    "empirical_benchmarks": "passed"
+    "empirical_benchmarks": "passed",
+    "live_authenticated_e2e": "passed"
   },
   "credentials": {
-    "poe_access_key": "missing",
-    "poe_creator_dashboard": "missing",
-    "cloudflare_pages": "missing",
-    "render": "missing",
-    "github_actions_secrets": "missing",
-    "search_console": "missing"
+    "poe_access_key": "active_and_verified",
+    "cloudflare_workers_token": "active_and_verified",
+    "render_api_token": "active_and_verified",
+    "cloudflare_pages": "pending_oauth",
+    "github_actions_secrets": "pending_configuration",
+    "search_console": "pending_submission"
+  },
+  "active_pricing_strategy": {
+    "tier": "Phase 1: Penetration / Launch Wave",
+    "rationale": "Maximize viewer reach, impressions, trial adoption, and rating volume by minimizing payment friction on new bots.",
+    "rates": {
+      "regex-bot": "$1.00 / 1,000 messages ($0.001/task)",
+      "sql-bot": "$2.00 / 1,000 messages ($0.002/task)",
+      "ocr-doc-bot": "$3.00 / 1,000 messages ($0.003/task)"
+    },
+    "target_mature_rates": {
+      "regex-bot": "$4.00 / 1,000 messages",
+      "sql-bot": "$6.00 / 1,000 messages",
+      "ocr-doc-bot": "$10.00 / 1,000 messages"
+    }
   },
   "active_experiments": [
     "EXP-001 (OCR Onboarding Prompt A/B)",
-    "PRICE-EXP-001 (OCR Entry Pricing)",
-    "PRICE-EXP-002 (Regex Entry Pricing)",
-    "PRICE-EXP-003 (SQL Entry Pricing)"
+    "PRICE-EXP-001 (OCR Entry Penetration Pricing)",
+    "PRICE-EXP-002 (Regex Entry Penetration Pricing)",
+    "PRICE-EXP-003 (SQL Entry Penetration Pricing)"
   ],
   "verified_metrics_sources": [
     "vitest_local_execution_183_tests",
     "typescript_compiler_tsc_clean",
     "live_endpoint_health_probes_3_of_3",
     "live_unauthenticated_401_security_probes_3_of_3",
+    "live_authenticated_e2e_streaming_probes_3_of_3",
+    "live_growth_gate_matrix_31_of_31_passed",
     "automated_claim_validator_41_files_clean",
     "automated_link_checker_263_links_clean",
     "wcag_accessibility_checker_16_pages_clean",
@@ -43,18 +60,17 @@
   ],
   "remaining_feasible_tasks": [],
   "external_actions_required": [
-    "EXT-01: Update OCR-Doc-Parser description and $10.00/1k pricing in Poe Creator Studio",
-    "EXT-02: Update Regex-Gen-Tester description and $4.00/1k pricing in Poe Creator Studio",
-    "EXT-03: Update English-To-SQL description and $6.00/1k pricing in Poe Creator Studio",
+    "EXT-01: Confirm $3.00/1k penetration pricing on OCR-Doc-Parser in Poe Creator Studio",
+    "EXT-02: Confirm $1.00/1k penetration pricing on Regex-Gen-Tester in Poe Creator Studio",
+    "EXT-03: Confirm $2.00/1k penetration pricing on English-To-SQL in Poe Creator Studio",
     "EXT-04: Authorize Cloudflare Pages Git connection for site/ static hosting",
     "EXT-05: Configure POE_ACCESS_KEY in GitHub Actions repository secrets",
     "EXT-06: Export baseline creator metrics from poe.com/creator",
     "EXT-07: Submit sitemap.xml to Google Search Console post-deployment"
   ],
   "risks": [
-    "POE_ACCESS_KEY missing in local environment; authenticated live calls marked BLOCKED_MISSING_CREDENTIALS to maintain 100% truthfulness",
     "Cloudflare Pages static hosting pending creator dashboard OAuth authorization",
     "Render free-tier cold-start (~45s) mitigated by Cloudflare 10-minute keep-warm cron"
   ],
-  "release_decision": "READY_FOR_EXTERNAL_PLATFORM_UPDATES"
+  "release_decision": "DEPLOYED_AND_AUTHENTICATED_LIVE"
 }

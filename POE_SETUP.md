@@ -30,7 +30,7 @@ Fill these top to bottom, per bot. Per-bot values are in the tables further down
 | **Check reachability** ("Run check") | Skip for now. Run it in Step 2 after the server has the key. |
 | **Access** | `Everyone` (leave as-is — this makes it public and profile-listed). |
 | **Related recommendations** | **Leave ON.** This makes your bot eligible to show on other bots' pages — free distribution, keep it. |
-| **Monetization → Earnings (USD per 1,000 messages)** | regex-bot **$6**, sql-bot **$9**, ocr-doc-bot **$7**. Full analysis + revenue math in [PRICING.md](PRICING.md). Set it once and hold — Poe's tip warns that changing prices costs you users. |
+| **Monetization → Earnings (USD per 1,000 messages)** | **Penetration / Launch Pricing:** regex-bot **$1.00**, sql-bot **$2.00**, ocr-doc-bot **$3.00**. Designed to maximize initial viewer reach, impressions, and user base. Escalate over time as audience and reviews compound. |
 | **Publish** | Click. The bot is created even if "Run check" would fail. |
 
 ### 1. ocr-doc-bot

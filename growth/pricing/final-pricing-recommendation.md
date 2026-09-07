@@ -5,13 +5,25 @@
 
 ---
 
-## 1. Executive Pricing Recommendation Table
+## 1. Executive Pricing Recommendation Table (Phased Rollout)
 
-| Bot Service | Current Setting in Poe | Recommended Initial Price | Candidate Test Price | Strategic Rationale | Cost Risk | User Value Evidence | Activation Risk | Increase Gate | Rollback Trigger |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **OCR-Doc-Parser** | $0.00 (Unmonetized) | **$10.00 / 1,000 msgs** ($0.01/turn) | $12.00 / 1,000 msgs | High compute cost (WASM OCR); high business utility (expense receipts, invoices). | Render free container memory/CPU limits. | Structured JSON extraction with subtotal + tax reconciliation. | User abandons if cold-start latency exceeds 40s. | $\ge 100$ tasks, $>85\%$ success, $>4.5$ stars. | Activation drops $>20\%$; revert to $10.00 in Poe Studio. |
-| **English-To-SQL** | $0.00 (Unmonetized) | **$6.00 / 1,000 msgs** ($0.006/turn) | $8.00 / 1,000 msgs | Mid-tier; executed in-memory SQLite sandbox guarantees verified results. | Minimal edge compute risk. | Eliminates guessed syntax; returns verified markdown tables. | User lacks schema on Turn 1. | $\ge 100$ tasks, $>85\%$ success, $>4.5$ stars. | Activation drops $>20\%$; revert to $6.00 in Poe Studio. |
-| **Regex-Gen-Tester** | $0.00 (Unmonetized) | **$4.00 / 1,000 msgs** ($0.004/turn) | $5.00 / 1,000 msgs | Low-friction developer gateway bot; drives top-of-funnel cross-bot discovery. | Negligible edge compute cost. | Evaluates pattern against live test strings and checks ReDoS risks. | Crowded category of free regex tools. | $\ge 100$ tasks, $>85\%$ success, $>4.5$ stars. | Activation drops $>15\%$; revert to $4.00 in Poe Studio. |
+### Phase 1: Penetration / Launch Wave (Active Strategy)
+*Objective: Maximize viewer reach, impressions, trial adoption, and rating volume by removing payment friction.*
+
+| Bot Service | Active Launch Price | Per Query Cost | Strategic Rationale | Marginal Compute Cost | Contribution Margin |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Regex-Gen-Tester** | **$1.00 / 1,000 msgs** | $0.001 / task | Developer gateway bot; maximum reach and viral adoption. | $0.00 (CF Workers free tier) | **100%** |
+| **English-To-SQL** | **$2.00 / 1,000 msgs** | $0.002 / task | Low barrier for data analysts testing schema verification. | $0.00 (CF Workers free tier) | **100%** |
+| **OCR-Doc-Parser** | **$3.00 / 1,000 msgs** | $0.003 / task | Unlocks receipt/invoice extraction with minimal initial cost. | $0.00 (Render free tier) | **100%** |
+
+### Phase 2: Mature Target Pricing (Escalation Milestone)
+*Trigger: Cumulative 500+ active conversations and sustained >4.5 creator rating.*
+
+| Bot Service | Target Mature Price | Per Query Cost | Strategic Rationale | Contribution Margin |
+| :--- | :--- | :--- | :--- | :--- |
+| **Regex-Gen-Tester** | **$4.00 / 1,000 msgs** | $0.004 / task | High-volume developer utility. | 87.5% |
+| **English-To-SQL** | **$6.00 / 1,000 msgs** | $0.006 / task | Verified SQL generation with execution proofs. | 86.7% |
+| **OCR-Doc-Parser** | **$10.00 / 1,000 msgs** | $0.010 / task | High-compute document intelligence & reconciliation. | 76.0% |
 
 ---
 
