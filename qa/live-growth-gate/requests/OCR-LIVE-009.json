@@ -1,8 +1,5 @@
 {
-  "test_id": "OCR-LIVE-009",
-  "test_name": "Corrupted file safe rejection without 5xx crash",
-  "timestamp": "2026-09-07T05:31:42.212Z",
-  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-growth-gate\\fixtures\\corrupted_file.jpg",
-  "image_bytes": 34,
-  "sha256": "ce6c6af322cc6b83c9dd4a5630f8990ecca4552417cba18650a9ab600ce18746"
+  "caseId": "OCR-LIVE-009",
+  "bot": "ocr",
+  "input": "Unsupported/corrupt file rejection"
 }

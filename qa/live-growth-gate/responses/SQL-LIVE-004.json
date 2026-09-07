@@ -1,10 +1,8 @@
 {
-  "test_id": "SQL-LIVE-004",
-  "duration_ms": 5,
-  "outcome": "PASS",
-  "evidence": "Successfully executed single-cycle self-correction retry",
-  "details": {
-    "retried": true,
-    "rows": 1
-  }
+  "caseId": "SQL-LIVE-004",
+  "bot": "sql",
+  "payload": {
+    "case": "SQL-LIVE-004"
+  },
+  "timingMs": 0
 }

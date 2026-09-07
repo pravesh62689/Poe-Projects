@@ -1,20 +1,8 @@
 {
-  "test_id": "SQL-LIVE-003",
-  "duration_ms": 10,
-  "outcome": "PASS",
-  "evidence": "Query executed in 2.74ms returning 2 rows",
-  "details": {
-    "rows": [
-      [
-        "Travel",
-        100
-      ],
-      [
-        "Food",
-        40
-      ]
-    ],
-    "executionTimeMs": 2.74,
-    "error": null
-  }
+  "caseId": "SQL-LIVE-003",
+  "bot": "sql",
+  "payload": {
+    "case": "SQL-LIVE-003"
+  },
+  "timingMs": 0
 }

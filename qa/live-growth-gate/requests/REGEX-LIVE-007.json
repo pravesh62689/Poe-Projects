@@ -1,12 +1,5 @@
 {
-  "test_id": "REGEX-LIVE-007",
-  "test_name": "Heuristic fallback pattern generation",
-  "timestamp": "2026-09-07T05:31:44.436Z",
-  "instruction": "Extract uuid v4",
-  "samples": [
-    "Sample: 123e4567-e89b-12d3-a456-426614174000",
-    "Sample: invalid"
-  ],
-  "literalPattern": null,
-  "flags": "i"
+  "caseId": "REGEX-LIVE-007",
+  "bot": "regex",
+  "input": "Complex heuristic fallback"
 }

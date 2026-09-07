@@ -1,8 +1,5 @@
 {
-  "test_id": "OCR-LIVE-003",
-  "test_name": "Low-light/shadow receipt confidence calibration",
-  "timestamp": "2026-09-07T05:31:19.862Z",
-  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\receipt_001_shadow.jpg",
-  "image_bytes": 262118,
-  "sha256": "a856d00b746e5109e4b7453b9d19eb9156f8db8ec0bc70881a763298633ad3b9"
+  "caseId": "OCR-LIVE-003",
+  "bot": "ocr",
+  "input": "Low light shadow compensation"
 }

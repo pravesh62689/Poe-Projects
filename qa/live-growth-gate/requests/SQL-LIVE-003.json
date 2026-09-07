@@ -1,8 +1,5 @@
 {
-  "test_id": "SQL-LIVE-003",
-  "test_name": "Aggregation query with GROUP BY and SUM",
-  "timestamp": "2026-09-07T05:31:44.498Z",
-  "schema": "CREATE TABLE expenses (category TEXT, amount DECIMAL); INSERT INTO expenses VALUES (\"Food\", 25.50), (\"Food\", 14.50), (\"Travel\", 100.00);",
-  "ask": "Sum per category",
-  "sqlOverride": "SELECT category, SUM(amount) as total FROM expenses GROUP BY category ORDER BY total DESC;"
+  "caseId": "SQL-LIVE-003",
+  "bot": "sql",
+  "input": "Aggregation COUNT/SUM/GROUP BY"
 }

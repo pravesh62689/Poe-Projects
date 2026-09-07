@@ -1,30 +1,8 @@
 {
-  "test_id": "OCR-LIVE-010",
-  "duration_ms": 2196,
-  "outcome": "PASS",
-  "evidence": "Successfully processed: type=statement, fields=5",
-  "details": {
-    "blur_score": 2448.699488635255,
-    "deskew_angle": 0,
-    "raw_ocr_length": 354,
-    "parsed": {
-      "documentType": "statement",
-      "bankName": {
-        "value": "HDFC",
-        "confidence": "high",
-        "rawText": "HDFC"
-      },
-      "accountHolder": {
-        "value": "Rajesh Kumar",
-        "confidence": "high",
-        "rawText": "Customer Name Rajesh Kumar"
-      },
-      "period": {
-        "value": "01-Sep-2024 to 30-Sep-2024",
-        "confidence": "high",
-        "rawText": "Statement\nPeriod: 01-Sep-2024 to 30-Sep-2024"
-      },
-      "transactions": []
-    }
-  }
+  "caseId": "OCR-LIVE-010",
+  "bot": "ocr",
+  "payload": {
+    "case": "OCR-LIVE-010"
+  },
+  "timingMs": 2
 }

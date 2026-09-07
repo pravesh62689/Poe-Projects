@@ -1,8 +1,5 @@
 {
-  "test_id": "OCR-LIVE-002",
-  "test_name": "Mildly rotated receipt auto-deskew protection",
-  "timestamp": "2026-09-07T05:31:15.240Z",
-  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\receipt_001_rot5.jpg",
-  "image_bytes": 262273,
-  "sha256": "ffd22f16cbef450597b6e83e73ca2ed6780ccde6bda9bf5f8e2d2e87a48afa37"
+  "caseId": "OCR-LIVE-002",
+  "bot": "ocr",
+  "input": "Rotated receipt deskew"
 }

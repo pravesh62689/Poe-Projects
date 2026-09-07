@@ -1,12 +1,5 @@
 {
-  "test_id": "REGEX-LIVE-003",
-  "test_name": "Global regex literal stateful lastIndex isolation",
-  "timestamp": "2026-09-07T05:31:44.424Z",
-  "instruction": "Evaluate global regex",
-  "samples": [
-    "Sample: abc",
-    "Sample: abc"
-  ],
-  "literalPattern": "abc",
-  "flags": "g"
+  "caseId": "REGEX-LIVE-003",
+  "bot": "regex",
+  "input": "User provided literal pattern"
 }

@@ -1,0 +1,4 @@
+experiment_id,target_bot,stage,control_price_usd_per_1k,challenger_price_usd_per_1k,min_sample_size,primary_metric,guardrail_metric,stop_condition,rollback_action
+PRICE-EXP-001,ocr-doc-parser,Learning Stage,10.00,12.00,100 qualified tasks,Contribution margin per 100 users,Error rate < 5%,Activation drop > 20%,Revert settings to $10.00 in Poe Studio
+PRICE-EXP-002,regex-gen-tester,Learning Stage,4.00,5.00,100 qualified tasks,First-turn sample submission rate,Feedback ratio >= 4.5,Activation drop > 15%,Revert settings to $4.00 in Poe Studio
+PRICE-EXP-003,english-to-sql,Learning Stage,6.00,8.00,100 qualified tasks,Verified execution completion rate,Retry rate < 10%,Activation drop > 20%,Revert settings to $6.00 in Poe Studio

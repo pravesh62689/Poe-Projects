@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "data": {
+    "status": "ok",
+    "service": "sql-bot"
+  },
+  "durationMs": 360
+}

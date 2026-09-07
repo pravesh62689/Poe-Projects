@@ -1,8 +1,5 @@
 {
-  "test_id": "SQL-LIVE-006",
-  "test_name": "PostgreSQL-specific DDL dialect limitation capture",
-  "timestamp": "2026-09-07T05:31:44.520Z",
-  "schema": "CREATE TABLE test (id SERIAL PRIMARY KEY, data JSONB);",
-  "ask": "Show test",
-  "sqlOverride": "SELECT * FROM test;"
+  "caseId": "SQL-LIVE-006",
+  "bot": "sql",
+  "input": "PostgreSQL DDL dialect notice"
 }

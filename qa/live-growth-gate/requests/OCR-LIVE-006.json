@@ -1,8 +1,5 @@
 {
-  "test_id": "OCR-LIVE-006",
-  "test_name": "Severe blur Laplacian rejection gate ($s < 120$)",
-  "timestamp": "2026-09-07T05:31:29.975Z",
-  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\img_quality_008_severe_blur.png",
-  "image_bytes": 51909,
-  "sha256": "79422a87a5c1cdd464faf58971bbbe74d32ff3f541c88505bf92452dd6a70341"
+  "caseId": "OCR-LIVE-006",
+  "bot": "ocr",
+  "input": "Blurry photo Laplacian rejection"
 }

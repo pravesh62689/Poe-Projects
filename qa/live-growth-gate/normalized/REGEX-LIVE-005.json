@@ -1,0 +1,7 @@
+{
+  "caseId": "REGEX-LIVE-005",
+  "bot": "regex",
+  "status": "BLOCKED_MISSING_CREDENTIALS",
+  "localPass": true,
+  "timingMs": 0
+}

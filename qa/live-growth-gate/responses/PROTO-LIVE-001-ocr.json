@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "data": {
+    "status": "ok",
+    "service": "ocr-doc-bot"
+  },
+  "durationMs": 364
+}

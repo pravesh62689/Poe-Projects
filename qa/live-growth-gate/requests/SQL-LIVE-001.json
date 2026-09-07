@@ -1,8 +1,5 @@
 {
-  "test_id": "SQL-LIVE-001",
-  "test_name": "Minimal CREATE TABLE + INSERT + SELECT",
-  "timestamp": "2026-09-07T05:31:44.438Z",
-  "schema": "CREATE TABLE users (id INT, name TEXT); INSERT INTO users VALUES (1, \"Alice\"), (2, \"Bob\");",
-  "ask": "Show all users",
-  "sqlOverride": "SELECT * FROM users;"
+  "caseId": "SQL-LIVE-001",
+  "bot": "sql",
+  "input": "Schema CREATE TABLE + SELECT"
 }

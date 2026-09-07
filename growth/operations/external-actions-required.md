@@ -1,0 +1,20 @@
+# Comprehensive External Actions Required Register
+
+**Standard:** Enterprise Operations & Autonomous Handoff Protocol  
+**Date:** September 2026  
+**Notice:** In accordance with enterprise truthfulness invariants, the following operations require manual creator authentication, CAPTCHA resolution, third-party dashboard access, or financial authorization that cannot be automated without user credentials.
+
+---
+
+## 1. External Actions Matrix
+
+| ID | Priority | Platform | Exact URL / Screen | Exact Action | Exact Copy / Value | Why Agent Cannot Complete | Verification Method | Rollback Action |
+| :---: | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **EXT-01** | **P0** | Poe Creator Studio | `https://poe.com/edit_bot?bot=OCR-Doc-Parser` | Update bot description, prompt intro, and pricing | Paste description (156 chars), intro, and set price to `$10.00 / 1k` from [dashboard-update-instructions.md](file:///C:/Users/prave/DUMP/PROJECTS/poe-projects/growth/poe/dashboard-update-instructions.md) | Requires Poe human session cookie & 2FA | Open profile in incognito window; verify description and starter prompt | Revert to previous description text in Poe Studio |
+| **EXT-02** | **P0** | Poe Creator Studio | `https://poe.com/edit_bot?bot=Regex-Gen-Tester` | Update bot description, prompt intro, and pricing | Paste description (157 chars), intro, and set price to `$4.00 / 1k` from [dashboard-update-instructions.md](file:///C:/Users/prave/DUMP/PROJECTS/poe-projects/growth/poe/dashboard-update-instructions.md) | Requires Poe human session cookie & 2FA | Open profile in incognito window; verify description and starter prompt | Revert to previous description text in Poe Studio |
+| **EXT-03** | **P0** | Poe Creator Studio | `https://poe.com/edit_bot?bot=English-To-SQL` | Update bot description, prompt intro, and pricing | Paste description (156 chars), intro, and set price to `$6.00 / 1k` from [dashboard-update-instructions.md](file:///C:/Users/prave/DUMP/PROJECTS/poe-projects/growth/poe/dashboard-update-instructions.md) | Requires Poe human session cookie & 2FA | Open profile in incognito window; verify description and starter prompt | Revert to previous description text in Poe Studio |
+| **EXT-04** | **P0** | Cloudflare Dashboard | `https://dash.cloudflare.com/` -> Workers & Pages -> Create -> Pages | Connect GitHub repository `poe-projects` for static SEO site | Project name: `poe-developer-suite`, Branch: `main`, Directory: `site`, Build command: `None` | Requires Cloudflare human account credentials and OAuth grant | Run `curl -I https://poe-developer-suite.pages.dev/` returning HTTP 200 | Delete Cloudflare Pages project |
+| **EXT-05** | **P0** | GitHub Secrets | `https://github.com/pravesh62689/Poe-Projects/settings/secrets/actions` | Add repository secrets for CI/CD | `POE_ACCESS_KEY`: set to valid key | Requires GitHub repository admin permissions | Re-run `.github/workflows/live-smoke-tests.yml` and confirm live tests execute | Delete or rotate secret in repository settings |
+| **EXT-06** | **P1** | Poe Creator Dashboard | `https://poe.com/creator` | Export baseline creator metrics | Export total impressions, unique user turns, followers, points earned | Requires creator login credentials | Record values in `growth/reports/conversion-funnel.csv` | N/A (Read-only data export) |
+| **EXT-07** | **P1** | Google Search Console | `https://search.google.com/search-console` | Add URL prefix property and submit sitemap | Property: confirmed deployed domain; submit `sitemap.xml` | Requires Google Account and DNS/HTML tag verification | Search Console shows "Sitemap index processed successfully" | Remove property in Search Console |
+| **EXT-08** | **P2** | Cloudflare Pages Custom Domain | `https://dash.cloudflare.com/` -> Pages -> Custom domains | (Optional) Attach custom domain e.g. `poedevsuite.com` | Enter domain and update CNAME / DNS records | Requires domain registrar purchase and DNS zone ownership | DNS resolves to Cloudflare Edge with active SSL certificate | Revert CNAME record to default nameservers |

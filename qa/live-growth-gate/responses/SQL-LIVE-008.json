@@ -1,9 +1,8 @@
 {
-  "test_id": "SQL-LIVE-008",
-  "duration_ms": 1,
-  "outcome": "PASS",
-  "evidence": "Destructive statement correctly flagged with warning callout",
-  "details": {
-    "is_destructive": true
-  }
+  "caseId": "SQL-LIVE-008",
+  "bot": "sql",
+  "payload": {
+    "case": "SQL-LIVE-008"
+  },
+  "timingMs": 5
 }

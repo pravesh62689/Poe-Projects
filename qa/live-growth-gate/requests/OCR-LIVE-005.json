@@ -1,8 +1,5 @@
 {
-  "test_id": "OCR-LIVE-005",
-  "test_name": "Glare/crop over total without high-confidence hallucination",
-  "timestamp": "2026-09-07T05:31:27.888Z",
-  "image_path": "C:\\Users\\prave\\DUMP\\PROJECTS\\poe-projects\\qa\\live-ocr\\images\\receipt_001_crop.jpg",
-  "image_bytes": 155822,
-  "sha256": "80e41420cb8b75b86e067bfc0cb717505c6d4853e363aac84da710cd3b68b528"
+  "caseId": "OCR-LIVE-005",
+  "bot": "ocr",
+  "input": "Glare/crop over total amount"
 }

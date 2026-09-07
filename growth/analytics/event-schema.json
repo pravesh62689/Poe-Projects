@@ -6,12 +6,12 @@
     "event_name",
     "timestamp",
     "bot",
-    "request_id",
+    "request_id_hash",
     "outcome",
     "error_category",
     "latency_bucket",
     "first_task",
-    "suggested_replies_count",
+    "suggested_replies_emitted",
     "cross_bot_handoff_present",
     "experiment_variant"
   ],
@@ -28,9 +28,9 @@
       "type": "string",
       "enum": ["ocr", "regex", "sql"]
     },
-    "request_id": {
+    "request_id_hash": {
       "type": "string",
-      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+      "pattern": "^[0-9a-f]{64}$"
     },
     "outcome": {
       "type": "string",
@@ -60,7 +60,7 @@
     "first_task": {
       "type": "boolean"
     },
-    "suggested_replies_count": {
+    "suggested_replies_emitted": {
       "type": "integer",
       "minimum": 0,
       "maximum": 5

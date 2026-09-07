@@ -1,16 +1,8 @@
 {
-  "test_id": "SQL-LIVE-002",
-  "duration_ms": 7,
-  "outcome": "PASS",
-  "evidence": "Query executed in 1.87ms returning 1 rows",
-  "details": {
-    "rows": [
-      [
-        "Alice",
-        49.99
-      ]
-    ],
-    "executionTimeMs": 1.87,
-    "error": null
-  }
+  "caseId": "SQL-LIVE-002",
+  "bot": "sql",
+  "payload": {
+    "case": "SQL-LIVE-002"
+  },
+  "timingMs": 8
 }

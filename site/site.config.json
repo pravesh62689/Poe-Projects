@@ -1,0 +1,18 @@
+{
+  "site_name": "Poe Developer Automation Suite",
+  "site_description": "Verified, privacy-first developer bots for Poe: structured receipt & invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL generation.",
+  "deployed_domain_confirmed": false,
+  "site_url": "",
+  "provisional_domain": "https://poe-developer-suite.pages.dev",
+  "base_path": "/",
+  "author": "Poe Developer Studio",
+  "social": {
+    "twitter": "@poedevsuite",
+    "github": "https://github.com/pravesh62689/Poe-Projects"
+  },
+  "deployment": {
+    "target_platform": "Cloudflare Pages",
+    "verification_status": "LOCAL_BUILD_ONLY_PENDING_EXTERNAL_LINK",
+    "indexing_status": "NOT_INDEXED_PENDING_DEPLOYMENT"
+  }
+}

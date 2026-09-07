@@ -1,71 +1,8 @@
 {
-  "test_id": "OCR-LIVE-007",
-  "duration_ms": 6074,
-  "outcome": "PASS",
-  "evidence": "Total matched exactly: 15.44 (diff: 0.00)",
-  "details": {
-    "blur_score": 2992.6574738606346,
-    "deskew_angle": -11.5,
-    "raw_ocr_length": 490,
-    "parsed": {
-      "documentType": "receipt",
-      "vendor": {
-        "value": "ARTISAN ROAST CAFE",
-        "confidence": "high",
-        "rawText": "Foes ARTISAN ROAST CAFE a"
-      },
-      "date": {
-        "value": "14-Oct-2024",
-        "confidence": "high",
-        "rawText": "= DATE: 14-Oct-2024 =————>"
-      },
-      "amount": {
-        "value": 15.44,
-        "confidence": "high",
-        "rawText": "TE TOTAL $15.44 ="
-      },
-      "time": {
-        "value": "10:24 AM",
-        "confidence": "high",
-        "rawText": "TIME: 10:24 AM"
-      },
-      "address": {
-        "value": "176 Brew Street, London",
-        "confidence": "high",
-        "rawText": "176 Brew Street"
-      },
-      "subtotal": {
-        "value": 14.7,
-        "confidence": "high",
-        "rawText": "= = SUBTOTAL Hh $14.70 = ="
-      },
-      "tax": {
-        "value": 0.74,
-        "confidence": "high",
-        "rawText": "Calculated from total ($15.44) - subtotal ($14.70)"
-      },
-      "lineItems": [
-        {
-          "description": "3 1x Caramel Macchiato",
-          "quantity": 1,
-          "amount": 5.2
-        },
-        {
-          "description": "Avocado Toast",
-          "quantity": 1,
-          "amount": 9.5
-        }
-      ],
-      "invoiceNumber": {
-        "value": "#AR7739",
-        "confidence": "high",
-        "rawText": "RECEIPT: #ARTT39"
-      },
-      "paymentMethod": {
-        "value": "VISA ending in 1984",
-        "confidence": "high",
-        "rawText": "paid by Visa xkkx 1984"
-      }
-    }
-  }
+  "caseId": "OCR-LIVE-007",
+  "bot": "ocr",
+  "payload": {
+    "case": "OCR-LIVE-007"
+  },
+  "timingMs": 0
 }

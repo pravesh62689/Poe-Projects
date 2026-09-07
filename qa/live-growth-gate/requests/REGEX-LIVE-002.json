@@ -1,13 +1,5 @@
 {
-  "test_id": "REGEX-LIVE-002",
-  "test_name": "Indian mobile number format assertion",
-  "timestamp": "2026-09-07T05:31:44.422Z",
-  "instruction": "Match 10 digit phone with optional +91",
-  "samples": [
-    "Sample: +919876543210",
-    "Sample: 9876543210",
-    "Sample: 12345"
-  ],
-  "literalPattern": "^(\\+91)?[6-9]\\d{9}$",
-  "flags": ""
+  "caseId": "REGEX-LIVE-002",
+  "bot": "regex",
+  "input": "Indian mobile phone formats"
 }

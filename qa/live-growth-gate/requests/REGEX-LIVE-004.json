@@ -1,11 +1,5 @@
 {
-  "test_id": "REGEX-LIVE-004",
-  "test_name": "Risky nested quantifier ReDoS pattern interception",
-  "timestamp": "2026-09-07T05:31:44.426Z",
-  "instruction": "Evaluate nested quantifier",
-  "samples": [
-    "Sample: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa!"
-  ],
-  "literalPattern": "(a+)+$",
-  "flags": ""
+  "caseId": "REGEX-LIVE-004",
+  "bot": "regex",
+  "input": "Known ReDoS catastrophic patterns"
 }

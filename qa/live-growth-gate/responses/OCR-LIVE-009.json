@@ -1,10 +1,8 @@
 {
-  "test_id": "OCR-LIVE-009",
-  "duration_ms": 1,
-  "outcome": "PASS",
-  "evidence": "Gracefully handled invalid/corrupted file: Unsupported image buffer encoding",
-  "details": {
-    "error": "Unsupported image buffer encoding",
-    "status": "rejected_safely"
-  }
+  "caseId": "OCR-LIVE-009",
+  "bot": "ocr",
+  "payload": {
+    "case": "OCR-LIVE-009"
+  },
+  "timingMs": 0
 }

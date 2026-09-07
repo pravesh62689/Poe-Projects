@@ -1,21 +1,8 @@
 {
-  "test_id": "REGEX-LIVE-005",
-  "duration_ms": 2,
-  "outcome": "PASS",
-  "evidence": "Executed successfully in undefinedms with pattern /[a-z/",
-  "details": {
-    "pattern": "[a-z",
-    "flags": "",
-    "isSafe": false,
-    "securityWarning": "Invalid regular expression: /[a-z/: Unterminated character class",
-    "samples": [
-      {
-        "sample": "test",
-        "matched": false,
-        "matchGroups": [],
-        "executionTimeMs": 0,
-        "error": "Syntax error: Invalid regular expression: /[a-z/: Unterminated character class"
-      }
-    ]
-  }
+  "caseId": "REGEX-LIVE-005",
+  "bot": "regex",
+  "payload": {
+    "case": "REGEX-LIVE-005"
+  },
+  "timingMs": 0
 }

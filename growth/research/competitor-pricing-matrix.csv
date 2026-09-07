@@ -1,0 +1,10 @@
+category,competitor,pricing_model,unit_cost,free_tier,differentiation_vs_poe
+ocr,Veryfi,API per call,$0.08 - $0.16/doc,50 doc trial,Enterprise document intelligence with SOC2 but high API pricing
+ocr,Taggun,Monthly subscription,$0.038 - $0.05/doc,50 scans free,Developer API requiring backend code; no native chat interface
+ocr,OCR-Doc-Parser (Poe),Poe Creator points,$0.010/turn,Included in Poe points,Conversational receipt parsing with tax math check and zero data retention
+regex,Regex101,Ad-supported,Free ($0.00),Unlimited,Interactive web GUI; no natural language generative translation
+regex,ChatGPT / Claude,Monthly SaaS,$20.00/month,Limited,Generic chatbots write untested regex with no execution or ReDoS check
+regex,Regex-Gen-Tester (Poe),Poe Creator points,$0.004/turn,Included in Poe points,Generates pattern AND executes user test strings with ReDoS warning
+sql,AI2SQL,Monthly SaaS,$9.00 - $24.00/mo,7-day trial,Web app generating SQL; does not run query in sandbox to verify table output
+sql,Vanna.ai,Freemium Python,$0 - $500.00/mo,Open source,Python package requiring developer infrastructure and database connectivity
+sql,English-To-SQL (Poe),Poe Creator points,$0.006/turn,Included in Poe points,Schema-grounded in-memory SQLite sandbox executes query before showing results

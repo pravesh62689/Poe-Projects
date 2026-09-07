@@ -1,0 +1,7 @@
+{
+  "caseId": "SQL-LIVE-004",
+  "bot": "sql",
+  "status": "BLOCKED_MISSING_CREDENTIALS",
+  "localPass": true,
+  "timingMs": 0
+}

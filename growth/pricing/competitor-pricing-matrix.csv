@@ -1,0 +1,11 @@
+category,service_name,pricing_model,unit_price_usd,free_tier_limits,value_metric,differentiation_vs_poe_bot
+ocr,Veryfi,Usage-Based API,$0.08 - $0.16 per receipt,50 document trial,Structured JSON with line items,Enterprise compliance but expensive for casual users
+ocr,Taggun,Monthly Subscription + Overage,$0.038 - $0.050 per receipt,50 scans free trial,Receipt OCR to JSON,No native chat conversational interface
+ocr,Mindee,Monthly Subscription,$0.050 - $0.100 per document,250 free pages/month,Invoice & Receipt API,Developer API only; requires backend integration
+ocr,OCR-Doc-Parser (Poe),Poe Per-Message Creator Fee,$0.008 - $0.012 per turn ($8-12/1k),Free on Poe (Points budget),Conversational chat extraction with zero integration required
+regex,Regex101,Ad-Supported Web,Free ($0),Unlimited browser execution,Online Regex Tester,Web UI only; no generative AI translation from English
+regex,ChatGPT Plus,Monthly Subscription ($20/mo),Bundled in $20/month subscription,Free tier throttled,General LLM,Generates untested regex; does not execute samples or check ReDoS
+regex,Regex-Gen-Tester (Poe),Poe Per-Message Creator Fee,$0.003 - $0.005 per turn ($3-5/1k),Free on Poe (Points budget),Generates AND tests regex on user sample strings with ReDoS check
+sql,AI2SQL,Monthly SaaS Subscription,$9 - $24 per month,7-day free trial,Text to SQL generation,Web dashboard; does not execute query in sandbox to verify table output
+sql,Vanna.ai,Freemium Python Package,Free OSS / $500/mo hosted,Open source self-hosted,Python RAG text-to-SQL,Requires developer Python infrastructure and DB connection
+sql,English-To-SQL (Poe),Poe Per-Message Creator Fee,$0.005 - $0.008 per turn ($5-8/1k),Free on Poe (Points budget),Executes query in in-memory SQLite WASM sandbox to verify results before answering
