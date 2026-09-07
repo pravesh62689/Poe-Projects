@@ -1,0 +1,49 @@
+name: Automated Search Visibility & Metrics Aggregation
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Daily at 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  aggregate-metrics:
+    name: Aggregate Search Visibility & Edge Telemetry
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Import Search Console Data
+        run: node growth/search-visibility/measurement/import-search-console.js
+
+      - name: Import Bing Webmaster Data
+        run: node growth/search-visibility/measurement/import-bing-webmaster.js
+
+      - name: Import Cloudflare Edge Analytics
+        run: node growth/search-visibility/measurement/import-cloudflare-analytics.js
+
+      - name: Import Poe Dashboard Metrics
+        run: node growth/search-visibility/measurement/import-poe-dashboard.js
+
+      - name: Generate Master Search Visibility Report
+        run: node growth/search-visibility/measurement/generate-search-visibility-report.js
+
+      - name: Verify Public Edge Endpoints
+        run: node scripts/growth/check-public-deployment.js
+
+      - name: Upload Growth Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-visibility-reports
+          path: growth/search-visibility/

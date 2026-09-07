@@ -1,0 +1,65 @@
+{
+  "updated_at": "2026-09-07T22:33:37.346Z",
+  "records": [
+    {
+      "Date": "2026-09-08",
+      "Page_Path": "/",
+      "Unique_Visitors": "0",
+      "Pageviews": "0",
+      "Requests": "0",
+      "Bandwidth_Bytes": "0",
+      "Bot_Requests_Filtered": "0",
+      "Outbound_Poe_Clicks": "0",
+      "Landing_To_Poe_CTR": "0.0%",
+      "Notes": "Baseline setup"
+    },
+    {
+      "Date": "2026-09-08",
+      "Page_Path": "/receipt-ocr/",
+      "Unique_Visitors": "0",
+      "Pageviews": "0",
+      "Requests": "0",
+      "Bandwidth_Bytes": "0",
+      "Bot_Requests_Filtered": "0",
+      "Outbound_Poe_Clicks": "0",
+      "Landing_To_Poe_CTR": "0.0%",
+      "Notes": "Baseline setup"
+    },
+    {
+      "Date": "2026-09-08",
+      "Page_Path": "/regex-tester/",
+      "Unique_Visitors": "0",
+      "Pageviews": "0",
+      "Requests": "0",
+      "Bandwidth_Bytes": "0",
+      "Bot_Requests_Filtered": "0",
+      "Outbound_Poe_Clicks": "0",
+      "Landing_To_Poe_CTR": "0.0%",
+      "Notes": "Baseline setup"
+    },
+    {
+      "Date": "2026-09-08",
+      "Page_Path": "/english-to-sql/",
+      "Unique_Visitors": "0",
+      "Pageviews": "0",
+      "Requests": "0",
+      "Bandwidth_Bytes": "0",
+      "Bot_Requests_Filtered": "0",
+      "Outbound_Poe_Clicks": "0",
+      "Landing_To_Poe_CTR": "0.0%",
+      "Notes": "Baseline setup"
+    },
+    {
+      "Date": "2026-09-08",
+      "Page_Path": "/workflows/receipt-to-expense-analysis/",
+      "Unique_Visitors": "0",
+      "Pageviews": "0",
+      "Requests": "0",
+      "Bandwidth_Bytes": "0",
+      "Bot_Requests_Filtered": "0",
+      "Outbound_Poe_Clicks": "0",
+      "Landing_To_Poe_CTR": "0.0%",
+      "Notes": "Baseline setup"
+    }
+  ]
+}

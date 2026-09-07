@@ -1,0 +1,65 @@
+{
+  "updated_at": "2026-09-07T22:33:37.041Z",
+  "records": [
+    {
+      "Date": "2026-09-08",
+      "URL": "https://apex-forge-tools.pages.dev/",
+      "Query": "",
+      "Clicks": "0",
+      "Impressions": "0",
+      "CTR": "0.0%",
+      "Position": "0.0",
+      "Crawl_Status": "Submitted",
+      "Indexing_Status": "Pending",
+      "Notes": "Awaiting property verification"
+    },
+    {
+      "Date": "2026-09-08",
+      "URL": "https://apex-forge-tools.pages.dev/receipt-ocr/",
+      "Query": "",
+      "Clicks": "0",
+      "Impressions": "0",
+      "CTR": "0.0%",
+      "Position": "0.0",
+      "Crawl_Status": "Submitted",
+      "Indexing_Status": "Pending",
+      "Notes": "Awaiting property verification"
+    },
+    {
+      "Date": "2026-09-08",
+      "URL": "https://apex-forge-tools.pages.dev/regex-tester/",
+      "Query": "",
+      "Clicks": "0",
+      "Impressions": "0",
+      "CTR": "0.0%",
+      "Position": "0.0",
+      "Crawl_Status": "Submitted",
+      "Indexing_Status": "Pending",
+      "Notes": "Awaiting property verification"
+    },
+    {
+      "Date": "2026-09-08",
+      "URL": "https://apex-forge-tools.pages.dev/english-to-sql/",
+      "Query": "",
+      "Clicks": "0",
+      "Impressions": "0",
+      "CTR": "0.0%",
+      "Position": "0.0",
+      "Crawl_Status": "Submitted",
+      "Indexing_Status": "Pending",
+      "Notes": "Awaiting property verification"
+    },
+    {
+      "Date": "2026-09-08",
+      "URL": "https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/",
+      "Query": "",
+      "Clicks": "0",
+      "Impressions": "0",
+      "CTR": "0.0%",
+      "Position": "0.0",
+      "Crawl_Status": "Submitted",
+      "Indexing_Status": "Pending",
+      "Notes": "Awaiting property verification"
+    }
+  ]
+}

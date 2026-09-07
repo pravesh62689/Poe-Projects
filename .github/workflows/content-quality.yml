@@ -1,0 +1,46 @@
+name: Content Quality & Truthfulness Gate
+
+on:
+  push:
+    paths:
+      - 'site/guides/**'
+      - 'site/examples/**'
+      - 'growth/content/**'
+      - 'growth/search-visibility/**'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate-content-gate:
+    name: Validate Content Quality & Claims
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Validate Marketing Claims & Superlatives
+        run: node scripts/growth/check-claims.js
+
+      - name: Validate Duplicate & Doorway Pages
+        run: node scripts/growth/check-duplicate-content.js
+
+      - name: Validate Technical SEO & Metadata
+        run: node scripts/growth/audit-seo.js
+
+      - name: Validate Link Integrity
+        run: node scripts/growth/check-links.js
+
+      - name: Validate Accessibility Baseline
+        run: node scripts/growth/check-accessibility.js

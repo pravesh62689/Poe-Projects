@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated_at": "2026-09-08T04:05:00Z",
+  "publisher": "Apex Forge Technology",
+  "canonical_domain": "https://apex-forge-tools.pages.dev",
+  "published_pages": [
+    {
+      "slug": "/",
+      "title": "Apex Forge Tools | Document Extraction, Regex Testing & SQL Analysis",
+      "cluster": "Core Hub",
+      "word_count": 840,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/receipt-ocr/",
+      "title": "Apex Forge OCR | Extract Structured Data from Receipts & Invoices",
+      "cluster": "OCR",
+      "word_count": 1150,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/regex-tester/",
+      "title": "Apex Forge Regex | Generate, Test, and Inspect Regular Expressions",
+      "cluster": "Regex",
+      "word_count": 980,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/english-to-sql/",
+      "title": "Apex Forge SQL | Translate Natural Language to Executable SQL",
+      "cluster": "SQL",
+      "word_count": 1020,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/workflows/receipt-to-expense-analysis/",
+      "title": "Receipt-to-Expense Analysis Workflow | Apex Forge Tools",
+      "cluster": "Workflow",
+      "word_count": 920,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/guides/",
+      "title": "Technical Guides & Workflows — Apex Forge Technology",
+      "cluster": "Guides Index",
+      "word_count": 480,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/guides/how-to-photograph-receipts/",
+      "title": "How to Photograph Receipts for Better OCR Accuracy — Apex Forge",
+      "cluster": "OCR Guide",
+      "word_count": 750,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/guides/tax-invoice-gstin-fields/",
+      "title": "Tax Invoice & GSTIN Field Extraction Guide — Apex Forge",
+      "cluster": "OCR / Compliance Guide",
+      "word_count": 820,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/guides/sql-joins-with-sample-schema/",
+      "title": "SQL JOINs and Aggregations with Sample Schema — Apex Forge",
+      "cluster": "SQL Guide",
+      "word_count": 890,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/guides/sqlite-vs-postgres-syntax/",
+      "title": "SQLite vs PostgreSQL Syntax Differences — Apex Forge",
+      "cluster": "SQL Guide",
+      "word_count": 780,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/examples/",
+      "title": "Interactive Code & Prompt Examples — Apex Forge Tools",
+      "cluster": "Reference",
+      "word_count": 650,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "slug": "/benchmarks/",
+      "title": "Performance Benchmarks & Methodology — Apex Forge Tools",
+      "cluster": "Evidence",
+      "word_count": 820,
+      "gate_status": "PASS",
+      "last_verified": "2026-09-08"
+    }
+  ]
+}

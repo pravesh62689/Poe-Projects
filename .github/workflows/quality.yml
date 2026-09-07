@@ -41,3 +41,9 @@ jobs:
 
       - name: Run Broken Link Check
         run: node scripts/growth/check-links.js
+
+      - name: Run Canonical Consistency Check
+        run: node scripts/growth/check-canonical-consistency.js
+
+      - name: Run Indexability & Crawl Directives Check
+        run: node scripts/growth/check-indexability.js
