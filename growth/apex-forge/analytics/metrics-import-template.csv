@@ -1,0 +1,10 @@
+Date,Product,Web_Page_Views,Outbound_CTA_Clicks,Poe_Messages,Poe_Unique_Users,Poe_Points_Earned,Error_Rate_Pct,Avg_Latency_Bucket,Notes
+2026-09-01,ocr,0,0,0,0,0.00,0.0%,1-3s,Baseline setup
+2026-09-01,regex,0,0,0,0,0.00,0.0%,<1s,Baseline setup
+2026-09-01,sql,0,0,0,0,0.00,0.0%,<1s,Baseline setup
+2026-09-02,ocr,0,0,0,0,0.00,0.0%,1-3s,Synthetic verification test
+2026-09-02,regex,0,0,0,0,0.00,0.0%,<1s,Synthetic verification test
+2026-09-02,sql,0,0,0,0,0.00,0.0%,<1s,Synthetic verification test
+2026-09-03,ocr,0,0,0,0,0.00,0.0%,1-3s,Synthetic verification test
+2026-09-03,regex,0,0,0,0,0.00,0.0%,<1s,Synthetic verification test
+2026-09-03,sql,0,0,0,0,0.00,0.0%,<1s,Synthetic verification test

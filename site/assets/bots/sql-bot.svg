@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1A22"/>
+      <stop offset="1" stop-color="#0A0A0E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="256" cy="288" r="215" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <clipPath id="tbl"><rect x="150" y="160" width="212" height="192" rx="26"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="114" fill="url(#tile)"/>
+  <rect width="512" height="512" rx="114" fill="url(#glow)"/>
+  <rect x="2.5" y="2.5" width="507" height="507" rx="111.5" fill="none" stroke="url(#edge)" stroke-width="3"/>
+  <g clip-path="url(#tbl)">
+    <rect x="150" y="160" width="212" height="52" fill="#22D3EE"/>
+    <g stroke="#F5F5F7" stroke-linecap="round">
+      <line x1="150" y1="212" x2="362" y2="212" stroke-width="14"/>
+      <line x1="150" y1="264" x2="362" y2="264" stroke-width="11" stroke-opacity="0.82"/>
+      <line x1="150" y1="308" x2="362" y2="308" stroke-width="11" stroke-opacity="0.82"/>
+      <line x1="256" y1="212" x2="256" y2="352" stroke-width="11" stroke-opacity="0.82"/>
+    </g>
+  </g>
+  <rect x="150" y="160" width="212" height="192" rx="26" fill="none" stroke="#F5F5F7" stroke-width="14"/>
+</svg>

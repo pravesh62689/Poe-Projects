@@ -3,61 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Issue Reporting | Poe Developer Automation Suite</title>
-  <meta name="description" content="Report bugs, request features, and get in touch with the Poe Developer Automation Suite maintainers.">
+  <title>Contact &amp; Engineering Support | Apex Forge Technology</title>
+  <meta name="description" content="Report parsing bugs, request features, and get in touch with Apex Forge Technology engineering.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/contact/">
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/benchmarks/">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
-    <span class="badge">Support & Community</span>
-    <h1>Contact & Issue Reporting</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 2.5rem;">
-      Encountered an edge case, parsing bug, or unexpected SQL execution failure? We value transparent feedback and reproducible bug reports.
+  <main id="main-content" class="container section" style="max-width: 820px;">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Contact Engineering</li>
+    </ul>
+
+    <div class="hero-badge">Developer Support</div>
+    <h1 class="section-title">Contact &amp; Issue Reporting</h1>
+    <p class="section-desc" style="margin-bottom: 2.5rem;">
+      Encountered an edge case, parsing defect, or unexpected query execution failure? We value transparent feedback and reproducible bug reports.
     </p>
 
-    <div style="display: grid; gap: 1.5rem;">
-      <div class="card">
-        <h2 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Bug Reports & Edge Cases</h2>
-        <p style="margin-bottom: 1rem;">Please include sanitized fixtures: the document photo (with personal details redacted), the target regex input strings, or the SQL DDL schema.</p>
-        <a href="https://github.com/rathore-pravesh2002/poe-projects/issues" target="_blank" rel="noopener noreferrer" class="card-link">Open GitHub Issue &nearr;</a>
-      </div>
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <article class="product-card">
+        <h2 style="font-size: 1.15rem; color: var(--af-text-primary); margin-bottom: 0.5rem;">Technical Bug Reports &amp; Edge Cases</h2>
+        <p class="product-desc" style="margin-bottom: 1rem;">
+          To help us reproduce defects, please provide synthetic or redacted test fixtures: sample images with personal data blurred, sample regex strings, or table DDL schemas.
+        </p>
+        <a href="https://github.com/pravesh62689/Poe-Projects/issues" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Open GitHub Issue &rarr;</a>
+      </article>
 
-      <div class="card">
-        <h2 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Poe Bot Feedback</h2>
-        <p style="margin-bottom: 1rem;">You can thumbs-up or thumbs-down individual bot answers directly within the Poe interface, which helps calibrate prompt instructions and error handling.</p>
-        <a href="https://poe.com" target="_blank" rel="noopener noreferrer" class="card-link">Visit Poe &nearr;</a>
-      </div>
+      <article class="product-card">
+        <h2 style="font-size: 1.15rem; color: var(--af-text-primary); margin-bottom: 0.5rem;">Poe Platform Feedback</h2>
+        <p class="product-desc" style="margin-bottom: 1rem;">
+          You can provide direct feedback inside the Poe client by upvoting or downvoting responses on individual bots.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Apex Forge OCR</a>
+          <a href="https://poe.com/Regex-Gen-Tester" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Apex Forge Regex</a>
+          <a href="https://poe.com/English-To-SQL" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Apex Forge SQL</a>
+        </div>
+      </article>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

@@ -1,0 +1,107 @@
+/**
+ * Apex Forge Technology - Enterprise Design System Tokens
+ * Version: 2.0.0
+ * Strict WCAG 2.1 AA Contrast Compliance & Zero External Dependencies
+ */
+
+:root {
+  /* Surface & Canvas Tokens (Dark Mode Default) */
+  --af-bg-canvas: #07090e;
+  --af-bg-surface: #0d131f;
+  --af-bg-surface-raised: #141c2e;
+  --af-bg-surface-overlay: #1c263d;
+  --af-bg-code: #0b0f17;
+
+  /* Border Tokens */
+  --af-border-subtle: #1e293b;
+  --af-border-muted: #334155;
+  --af-border-accent: #ea580c;
+
+  /* Typography Colors */
+  --af-text-primary: #f8fafc;
+  --af-text-secondary: #94a3b8;
+  --af-text-muted: #64748b;
+  --af-text-on-accent: #ffffff;
+
+  /* Brand Accents - Forged Copper Core */
+  --af-copper-50: #fff7ed;
+  --af-copper-100: #ffedd5;
+  --af-copper-200: #fed7aa;
+  --af-copper-300: #fdba74;
+  --af-copper-400: #fb923c;
+  --af-copper-500: #f97316;
+  --af-copper-600: #ea580c;
+  --af-copper-700: #c2410c;
+  --af-copper-800: #9a3412;
+  --af-copper-900: #7c2d12;
+  --af-copper: var(--af-copper-600);
+  --af-copper-hover: var(--af-copper-700);
+  --af-copper-glow: rgba(234, 88, 12, 0.22);
+
+  /* Tech Blue & Status Accents */
+  --af-blue-accent: #38bdf8;
+  --af-blue-glow: rgba(56, 189, 248, 0.15);
+  --af-status-success: #10b981;
+  --af-status-warning: #f59e0b;
+  --af-status-error: #ef4444;
+
+  /* Typography Scales */
+  --af-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --af-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --af-text-xs: 0.75rem;
+  --af-text-sm: 0.875rem;
+  --af-text-base: 1rem;
+  --af-text-lg: 1.125rem;
+  --af-text-xl: 1.25rem;
+  --af-text-2xl: 1.5rem;
+  --af-text-3xl: 1.875rem;
+  --af-text-4xl: 2.25rem;
+  --af-text-5xl: 3rem;
+
+  /* Spacing Scale */
+  --af-space-1: 0.25rem;
+  --af-space-2: 0.5rem;
+  --af-space-3: 0.75rem;
+  --af-space-4: 1rem;
+  --af-space-5: 1.25rem;
+  --af-space-6: 1.5rem;
+  --af-space-8: 2rem;
+  --af-space-10: 2.5rem;
+  --af-space-12: 3rem;
+  --af-space-16: 4rem;
+  --af-space-20: 5rem;
+  --af-space-24: 6rem;
+
+  /* Radii */
+  --af-radius-sm: 0.375rem;
+  --af-radius-md: 0.5rem;
+  --af-radius-lg: 0.75rem;
+  --af-radius-xl: 1rem;
+  --af-radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --af-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --af-shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.35);
+  --af-shadow-lg: 0 10px 28px -4px rgba(0, 0, 0, 0.45);
+  --af-shadow-copper: 0 8px 24px -2px rgba(234, 88, 12, 0.25);
+  --af-focus-ring: 0 0 0 3px rgba(234, 88, 12, 0.45);
+
+  /* Layout */
+  --af-max-width: 1200px;
+  --af-header-height: 72px;
+
+  /* Transitions */
+  --af-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --af-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Accessible Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

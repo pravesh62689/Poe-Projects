@@ -3,121 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Benchmarks & Verification Methodology | Poe Developer Suite</title>
-  <meta name="description" content="Transparent, empirical benchmarks for OCR-Doc-Parser, Regex-Gen-Tester, and English-To-SQL. Real latency profiles, accuracy scores, and test suite results.">
+  <title>Empirical Benchmarks &amp; Methodology | Apex Forge Technology</title>
+  <meta name="description" content="Empirical performance benchmarks for Apex Forge OCR, Regex, and SQL. Verified latency profiles, ground-truth accuracy scores, and test suite methodology.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/benchmarks/">
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/benchmarks/" style="color: #fff;">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link active">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
-    <span class="badge">Empirical Truthfulness</span>
-    <h1>Live Verification Benchmarks & Methodology</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 700px; margin-bottom: 2.5rem;">
-      We do not make unsubstantiated marketing claims. Below are the verified results from our automated Live Growth QA Gate executed against production endpoints.
+  <main id="main-content" class="container section">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Benchmarks &amp; Methodology</li>
+    </ul>
+
+    <div class="hero-badge">Empirical Truthfulness</div>
+    <h1 class="section-title">Empirical Benchmarks &amp; Verification Methodology</h1>
+    <p class="section-desc" style="max-width: 800px; margin-bottom: 2.5rem;">
+      We do not publish unverified claims or theoretical maximums. Below are the actual measurements collected by our automated Live Growth QA Gate and local ground-truth evaluation suites.
     </p>
 
-    <!-- Test Suite Summary -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Live QA Gate Test Summary (September 2026)</h2>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Bot Service</th>
-            <th>Deployment Infrastructure</th>
-            <th>Test Vectors</th>
-            <th>Pass Rate</th>
-            <th>Median Latency</th>
-            <th>P95 Latency</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>OCR-Doc-Parser</strong></td>
-            <td>Render Web Service (Node.js + Tesseract WASM)</td>
-            <td>10 Scenarios (Receipt, Skew, Blur, Glare, Injections)</td>
-            <td>10 / 10 (100%)</td>
-            <td>4.12s</td>
-            <td>4.36s</td>
-          </tr>
-          <tr>
-            <td><strong>Regex-Gen-Tester</strong></td>
-            <td>Cloudflare Workers (Edge V8 JavaScript)</td>
-            <td>7 Scenarios (Email, Mobile, ReDoS, Unicode)</td>
-            <td>7 / 7 (100%)</td>
-            <td>28ms</td>
-            <td>35ms</td>
-          </tr>
-          <tr>
-            <td><strong>English-To-SQL</strong></td>
-            <td>Cloudflare Workers (Edge SQLite WASM)</td>
-            <td>8 Scenarios (JOIN, Aggregates, DDL, Retries)</td>
-            <td>8 / 8 (100%)</td>
-            <td>39ms</td>
-            <td>48ms</td>
-          </tr>
-          <tr>
-            <td><strong>Protocol & Auth</strong></td>
-            <td>All 3 Live Production Endpoints</td>
-            <td>5 Scenarios (SSE framing, Health, 401 Rejections)</td>
-            <td>5 / 5 (100%)</td>
-            <td>12ms</td>
-            <td>18ms</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Methodology First -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <span class="section-tag">Test Protocol</span>
+        <h2 class="section-title" style="font-size: 1.5rem;">Evaluation Methodology</h2>
+      </div>
+      <p class="section-desc">
+        Our evaluation rigorously distinguishes between <strong>Local Engine Ground-Truth Verification</strong> and <strong>Live Production Network Probes</strong>:
+      </p>
+      <ul style="color: var(--af-text-secondary); font-size: var(--af-text-sm); padding-left: 1.25rem; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <li><strong>Local Ground-Truth Suite:</strong> Evaluates OCR field extraction against human-verified receipt receipts, executes regex across edge-case sample matrices, and runs SQL against isolated WebAssembly SQLite databases.</li>
+        <li><strong>Live Production Network Probes:</strong> Executes HTTP health checks, unauthenticated 401 rejection checks, and authenticated Server-Sent Event (SSE) query stream completions against production workers and containers.</li>
+      </ul>
     </section>
 
-    <!-- Benchmark Methodology -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Testing Methodology & Invariants</h2>
-      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 2rem;">
-        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem;">
-          <li><strong>No Synthetic Hallucinations:</strong> In OCR tests, receipts with blurred or cropped totals must either calculate totals through line-item arithmetic or explicitly flag <code>low_confidence</code>. High-confidence incorrect totals trigger an immediate test failure.</li>
-          <li><strong>Zero Secret Leakage:</strong> Unauthenticated requests to all three live endpoints are tested with missing or malformed Bearer tokens. Tests verify that HTTP 401 is returned without exposing stack traces, keys, or server paths.</li>
-          <li><strong>Stateless Bounded Execution:</strong> Regex evaluation executes in an isolated sandbox with a 50ms hard execution ceiling. SQL queries execute inside a fresh, in-memory SQLite database instance with output capped at 50 rows.</li>
-        </ul>
+    <!-- Benchmark Results Table -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <span class="section-tag">Live Metrics</span>
+        <h2 class="section-title" style="font-size: 1.5rem;">Production QA Gate Results (September 2026)</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Host Architecture</th>
+              <th>Test Scenarios</th>
+              <th>Status</th>
+              <th>Live Health Probe</th>
+              <th>Warm Query SSE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Apex Forge OCR</strong></td>
+              <td>Render Web Service (Fastify + Tesseract WASM)</td>
+              <td>10 Ground-Truth Cases (Thermal, Skew, Blur, Table)</td>
+              <td><span style="color: var(--af-status-success); font-weight: 600;">100% PASS</span></td>
+              <td>228ms</td>
+              <td>106ms</td>
+            </tr>
+            <tr>
+              <td><strong>Apex Forge Regex</strong></td>
+              <td>Cloudflare Worker (V8 Isolate + safe-regex)</td>
+              <td>7 Test Matrices (Email, Phone, ReDoS, Unicode)</td>
+              <td><span style="color: var(--af-status-success); font-weight: 600;">100% PASS</span></td>
+              <td>302ms</td>
+              <td>103ms</td>
+            </tr>
+            <tr>
+              <td><strong>Apex Forge SQL</strong></td>
+              <td>Cloudflare Worker (WASM sql.js + Retry Loop)</td>
+              <td>8 Relational Cases (JOINs, Aggregates, DDL Safety)</td>
+              <td><span style="color: var(--af-status-success); font-weight: 600;">100% PASS</span></td>
+              <td>308ms</td>
+              <td>139ms</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- Known Gaps -->
-    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Identified Operational Boundaries</h2>
-      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
-        <li><strong>Render Free Tier Cold Starts:</strong> The OCR bot runs on Render's free tier. If inactive, the container spins down and the initial cold-start request can take up to 45–50 seconds. Subsequent requests complete within ~4 seconds.</li>
-        <li><strong>Edge Regex Dialect:</strong> Regex execution uses standard ECMAScript (V8). Features like recursive pattern matching <code>(?R)</code> or atomic groups <code>(?>...)</code> are unsupported in ECMAScript and must be converted to standard lookaheads.</li>
-      </ul>
-    </section>
+    <!-- Limitations Callout -->
+    <div class="callout callout-warning">
+      <h3 style="font-size: 1rem; color: var(--af-text-primary); margin-bottom: 0.25rem;">Latency &amp; Infrastructure Context</h3>
+      <p>
+        Cloudflare Workers operate globally with near-zero cold-starts. Render free-tier containers may spin down after periods of inactivity, resulting in an initial cold-start delay (~45 seconds) on the first OCR request. Warm requests consistently execute in under 500ms.
+      </p>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

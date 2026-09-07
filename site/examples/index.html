@@ -3,95 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real-World Examples & Prompts | Poe Developer Automation Suite</title>
-  <meta name="description" content="Copyable prompts, schemas, and sample fixtures for OCR-Doc-Parser, Regex-Gen-Tester, and English-To-SQL on Poe.">
+  <title>Tested Examples &amp; Prompts | Apex Forge Technology</title>
+  <meta name="description" content="Copyable starter prompts, schemas, and test fixtures for Apex Forge OCR, Regex, and SQL developer tools.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/examples/">
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/benchmarks/">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
-    <span class="badge">Practical Prompts</span>
-    <h1>Copyable Examples & Prompts</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 700px; margin-bottom: 2.5rem;">
-      Ready-to-use prompts, schemas, and test fixtures for immediate testing in the Poe chat interface.
+  <main id="main-content" class="container section">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Examples &amp; Prompts</li>
+    </ul>
+
+    <div class="hero-badge">Starter Kits</div>
+    <h1 class="section-title">Tested Examples &amp; Prompts</h1>
+    <p class="section-desc" style="max-width: 750px; margin-bottom: 3rem;">
+      Ready-to-use copyable prompts, database schemas, and test fixtures for immediate testing in the Poe chat interface.
     </p>
 
-    <div style="display: grid; gap: 2rem;">
+    <div style="display: flex; flex-direction: column; gap: 2.5rem;">
       <!-- OCR Example -->
-      <div class="card">
-        <h2 style="color: #A5B4FC;">OCR-Doc-Parser: Thermal Retail Receipt</h2>
-        <p>Attach a photo of your receipt and copy-paste this prompt:</p>
-        <pre>Extract this receipt to structured JSON. Please extract vendor, date, time, receipt number, individual line items with prices, tax rate and amount, and final total. Verify if subtotal + tax equals total.</pre>
-        <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
-      </div>
+      <article class="product-card">
+        <div class="workflow-step-num">APEX FORGE OCR · @OCR-Doc-Parser</div>
+        <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--af-text-primary);">Thermal Retail &amp; Cafe Receipt</h2>
+        <p class="product-desc">Attach your photo and copy-paste this prompt:</p>
+        <pre><code>Extract this receipt to structured JSON. Please extract vendor, date, time, receipt number, individual line items with prices, tax rate and amount, and final total. Verify if subtotal + tax equals total.</code></pre>
+        <div style="margin-top: 1rem;">
+          <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Try on Poe &rarr;</a>
+        </div>
+      </article>
 
       <!-- Regex Example -->
-      <div class="card">
-        <h2 style="color: #BEF264;">Regex-Gen-Tester: Phone Number with Country Code</h2>
-        <p>Generate a regex and validate against multiple country code formats:</p>
-        <pre>Generate a regex for international phone numbers with optional country code (+1 to +999) and 7-12 digits with optional hyphens.
-
-Test against:
-+1-555-0199 (positive)
-+91-9876543210 (positive)
-00123 (negative)
-abc-def (negative)</pre>
-        <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #65A30D; font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
-      </div>
+      <article class="product-card">
+        <div class="workflow-step-num">APEX FORGE REGEX · @Regex-Gen-Tester</div>
+        <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--af-text-primary);">International Phone Numbers (E.164)</h2>
+        <p class="product-desc">Paste requirement and test cases into chat:</p>
+        <pre><code>Match international phone numbers in E.164 format.
+Sample: +14155552671
+Sample: +442071838750
+Sample: 02071838750
+Sample: not-a-number</code></pre>
+        <div style="margin-top: 1rem;">
+          <a href="https://poe.com/Regex-Gen-Tester" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Try on Poe &rarr;</a>
+        </div>
+      </article>
 
       <!-- SQL Example -->
-      <div class="card">
-        <h2 style="color: #67E8F9;">English-To-SQL: Churn & Retention Query</h2>
-        <p>Provide a schema and ask a recurring revenue churn question:</p>
-        <pre>CREATE TABLE subscriptions (
-  id INTEGER PRIMARY KEY,
-  user_id INTEGER,
-  plan TEXT,
-  mrr REAL,
-  status TEXT,
-  cancelled_at DATE
-);
+      <article class="product-card">
+        <div class="workflow-step-num">APEX FORGE SQL · @English-To-SQL</div>
+        <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--af-text-primary);">E-Commerce Revenue by Category</h2>
+        <p class="product-desc">Paste schema + English question:</p>
+        <pre><code>CREATE TABLE products (id INT, title TEXT, category TEXT, price DECIMAL);
+CREATE TABLE order_items (id INT, order_id INT, product_id INT, quantity INT);
+INSERT INTO products VALUES (1, 'Mechanical Keyboard', 'Electronics', 120.00), (2, 'Desk Mat', 'Accessories', 25.00);
+INSERT INTO order_items VALUES (101, 1, 1, 2), (102, 1, 2, 1);
 
-INSERT INTO subscriptions VALUES 
-(1, 101, 'Pro', 49.00, 'active', NULL),
-(2, 102, 'Starter', 19.00, 'cancelled', '2026-02-15'),
-(3, 103, 'Pro', 49.00, 'active', NULL),
-(4, 104, 'Enterprise', 199.00, 'cancelled', '2026-03-01');
-
-Question: What is total active MRR, and how much MRR was lost to cancellations?</pre>
-        <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #0891B2; font-size: 0.9rem; padding: 0.6rem 1.2rem;">Try on Poe &nearr;</a>
-      </div>
+Find the total revenue generated by each category, sorted highest to lowest.</code></pre>
+        <div style="margin-top: 1rem;">
+          <a href="https://poe.com/English-To-SQL" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Try on Poe &rarr;</a>
+        </div>
+      </article>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

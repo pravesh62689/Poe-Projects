@@ -1,0 +1,11 @@
+Campaign Name,Ad Group,Keyword / Match Type,Headline 1,Headline 2,Description 1,Target Landing Page,Max CPC Bid (₹ Plan Only)
+Search_OCR_HighIntent,Receipt_JSON,"[receipt ocr to json]",Extract Receipt Data to JSON,Apex Forge OCR on Poe,"Extract merchant, dates, line items, and totals with confidence flags.",/receipt-ocr/,12.50
+Search_OCR_HighIntent,Receipt_JSON,"\"extract receipt data json\"",Extract Receipt Fields,Apex Forge Tools,"Turn receipt photos into structured JSON with arithmetic checks.",/receipt-ocr/,10.00
+Search_OCR_HighIntent,Invoice_Fields,"[extract invoice fields]",Extract Invoice Fields,Apex Forge OCR on Poe,"Extract supplier, tax, and line items from document images.",/receipt-ocr/,14.00
+Search_OCR_HighIntent,Invoice_Fields,"\"invoice field extraction\"",Parse Invoices to JSON,Apex Forge Tools,"Field-level confidence indicators highlight numbers for review.",/receipt-ocr/,11.00
+Search_Regex_HighIntent,Regex_Tester,"[regex generator with test cases]",Generate & Test Regex,Apex Forge Regex on Poe,"Describe patterns in English and test against sample strings.",/regex-tester/,8.00
+Search_Regex_HighIntent,Regex_Tester,"\"test regex against examples\"",Test Regex on Examples,Apex Forge Tools,"Inspect capture groups and flag common ReDoS risk patterns.",/regex-tester/,7.50
+Search_Regex_HighIntent,Regex_ReDoS,"[regex redos checker]",Check Regex for ReDoS,Apex Forge Regex,"Identify potential catastrophic backtracking risks in patterns.",/regex-tester/,9.00
+Search_SQL_HighIntent,English_SQL,"[english to sql with schema]",English to SQL with Schema,Apex Forge SQL on Poe,"Convert questions into SQL and run against a temporary sandbox.",/english-to-sql/,15.00
+Search_SQL_HighIntent,English_SQL,"\"generate sql and test it\"",Generate & Test SQL,Apex Forge Tools,"Test query outputs in an in-memory SQLite sandbox environment.",/english-to-sql/,12.00
+Search_SQL_HighIntent,SQL_Sandbox,"[sqlite query tester]",Test SQLite Queries,Apex Forge SQL,"Paste your schema and run natural language queries in seconds.",/english-to-sql/,10.00

@@ -3,77 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | Poe Developer Automation Suite</title>
-  <meta name="description" content="Zero-retention privacy policy for OCR-Doc-Parser, Regex-Gen-Tester, and English-To-SQL on Poe.">
+  <title>Privacy Policy | Apex Forge Technology</title>
+  <meta name="description" content="Zero-retention privacy policy for Apex Forge OCR, Regex, and SQL developer tools. Stateless ephemeral processing in RAM.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/privacy/">
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/benchmarks/">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
-    <span class="badge">Privacy Invariant</span>
-    <h1>Zero-Retention Privacy Policy</h1>
-    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Effective Date: September 2026</p>
+  <main id="main-content" class="container section" style="max-width: 820px;">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Privacy Policy</li>
+    </ul>
 
-    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--text-secondary); line-height: 1.8;">
+    <div class="hero-badge">Data Minimization</div>
+    <h1 class="section-title">Zero-Retention Privacy Policy</h1>
+    <p class="section-desc" style="margin-bottom: 2rem;">Effective Date: September 2026</p>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--af-text-secondary); line-height: 1.8;">
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">1. Core Architecture: Ephemeral Execution</h2>
-        <p>Our bots operate under a strict zero-retention invariant. When you send an image to OCR-Doc-Parser, regular expressions to Regex-Gen-Tester, or DDL schemas to English-To-SQL:</p>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">1. Ephemeral Execution Architecture</h2>
+        <p>Apex Forge Technology operates under a strict zero-retention invariant. When you send an image to Apex Forge OCR, sample strings to Apex Forge Regex, or DDL schemas to Apex Forge SQL:</p>
         <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
           <li>All payloads are processed ephemerally in RAM.</li>
-          <li>No raw images, OCR extracted text, SQL tables, regex strings, or personal documents are stored to disk, databases, object storage, or persistent logs.</li>
+          <li>No raw images, OCR extracted text, SQL tables, regex strings, or documents are stored to disk, databases, object storage, or persistent logs.</li>
           <li>Once the HTTP Server-Sent Event (SSE) stream terminates, in-memory buffers are immediately garbage collected.</li>
         </ul>
       </section>
 
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">2. Telemetry & Analytics</h2>
-        <p>We do not track user identities, IP addresses, browser fingerprints, or message contents. Our telemetry records aggregate, anonymous operational counters only:</p>
-        <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
-          <li>Task outcome status (<code>success</code>, <code>partial</code>, <code>failure</code>)</li>
-          <li>Execution latency buckets (e.g., <code>&lt;1s</code>, <code>1-3s</code>, <code>3-10s</code>)</li>
-          <li>High-level categorical error codes (e.g., <code>blur_detected</code>, <code>syntax_error</code>)</li>
-        </ul>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">2. Platform Transport</h2>
+        <p>Our tools are deployed as server bots on the Poe platform. Messages transmitted through the Poe client are governed by Poe's Privacy Policy. Apex Forge servers receive only the active turn query and attachments required to process the immediate task.</p>
       </section>
 
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">3. Poe Platform Privacy</h2>
-        <p>The bots operate as server bots on the Quora Poe platform. Interaction history within the Poe application is governed by <a href="https://poe.com/privacy" target="_blank" rel="noopener noreferrer" style="color: #A5B4FC;">Poe's Privacy Policy</a>. We do not have access to your personal Poe account profile, billing details, or chat history beyond individual incoming query turns.</p>
-      </section>
-
-      <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">4. Open Source & Verifiability</h2>
-        <p>The code powering these services is open source and auditable. Security researchers and users can independently inspect our repository to verify the absence of persistence layers or data collection sinks.</p>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">3. Web Telemetry &amp; Analytics</h2>
+        <p>The static website at <code>poe-developer-suite.pages.dev</code> uses privacy-first, cookieless edge analytics via Cloudflare. We do not use third-party tracking pixels, marketing beacons, or cross-site fingerprinting scripts.</p>
       </section>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

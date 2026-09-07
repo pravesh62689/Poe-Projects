@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#07090e"/>
+      <stop offset="60%" stop-color="#0d131f"/>
+      <stop offset="100%" stop-color="#141c2e"/>
+    </linearGradient>
+    <linearGradient id="cardMarkLeft" x1="120" y1="420" x2="256" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="cardMarkRight" x1="256" y1="90" x2="392" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+    <linearGradient id="glowGlow" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base & Glow -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <circle cx="1000" cy="150" r="400" fill="url(#glowGlow)"/>
+  <rect x="24" y="24" width="1152" height="582" rx="28" stroke="#1e293b" stroke-width="2" fill="none"/>
+
+  <!-- Brand Mark (Large Subtle Watermark on Right) -->
+  <g transform="translate(820, 115) scale(0.8)" opacity="0.15">
+    <path d="M256 86 L112 376 L184 394 L256 226 Z" fill="#94a3b8"/>
+    <path d="M256 86 L256 226 L328 394 L400 376 Z" fill="#ea580c"/>
+    <path d="M256 256 L196 396 L256 426 L316 396 Z" fill="#fdba74"/>
+  </g>
+
+  <!-- Brand Header Mark & Name (Left Side) -->
+  <g transform="translate(80, 80)">
+    <!-- Small Icon Box -->
+    <rect width="72" height="72" rx="16" fill="#0b0f17" stroke="#334155" stroke-width="2"/>
+    <path d="M36 14 L16 54 L26 57 L36 32 Z" fill="#64748b"/>
+    <path d="M36 14 L36 32 L46 57 L56 54 Z" fill="#ea580c"/>
+    <path d="M36 36 L28 57 L36 61 L44 57 Z" fill="#fdba74"/>
+    <polygon points="36,10 39,15 36,20 33,15" fill="#fff"/>
+
+    <!-- Text Lockup -->
+    <text x="96" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="2" fill="#f8fafc">APEX FORGE</text>
+    <text x="98" y="66" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="14" letter-spacing="4" fill="#ea580c">TECHNOLOGY</text>
+  </g>
+
+  <!-- Tagline / Value Proposition -->
+  <g transform="translate(80, 240)">
+    <text font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="46" fill="#ffffff" letter-spacing="-0.5">
+      Practical, Verifiable AI Developer Tools
+    </text>
+    <text y="58" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="22" fill="#94a3b8" letter-spacing="0.2">
+      Engineered for structured document extraction, data validation, and query analysis.
+    </text>
+  </g>
+
+  <!-- Product Suite Badges -->
+  <g transform="translate(80, 420)">
+    <!-- Badge 1: OCR -->
+    <rect x="0" y="0" width="280" height="88" rx="16" fill="#141c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <circle cx="44" cy="44" r="22" fill="#1e293b"/>
+    <text x="36" y="52" font-family="system-ui, sans-serif" font-size="20">📄</text>
+    <text x="78" y="38" font-family="system-ui, sans-serif" font-weight="700" font-size="17" fill="#f8fafc">Apex Forge OCR</text>
+    <text x="78" y="60" font-family="system-ui, sans-serif" font-weight="400" font-size="13" fill="#94a3b8">Receipt &amp; Invoice Data</text>
+
+    <!-- Badge 2: Regex -->
+    <rect x="310" y="0" width="280" height="88" rx="16" fill="#141c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <circle cx="354" cy="44" r="22" fill="#1e293b"/>
+    <text x="346" y="52" font-family="system-ui, sans-serif" font-size="20">⚡</text>
+    <text x="388" y="38" font-family="system-ui, sans-serif" font-weight="700" font-size="17" fill="#f8fafc">Apex Forge Regex</text>
+    <text x="388" y="60" font-family="system-ui, sans-serif" font-weight="400" font-size="13" fill="#94a3b8">Tested &amp; ReDoS-Guarded</text>
+
+    <!-- Badge 3: SQL -->
+    <rect x="620" y="0" width="280" height="88" rx="16" fill="#141c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <circle cx="664" cy="44" r="22" fill="#1e293b"/>
+    <text x="656" y="52" font-family="system-ui, sans-serif" font-size="20">📊</text>
+    <text x="698" y="38" font-family="system-ui, sans-serif" font-weight="700" font-size="17" fill="#f8fafc">Apex Forge SQL</text>
+    <text x="698" y="60" font-family="system-ui, sans-serif" font-weight="400" font-size="13" fill="#94a3b8">In-Memory SQLite Verify</text>
+  </g>
+
+  <!-- Footer Indicator -->
+  <g transform="translate(80, 560)">
+    <text font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#64748b">
+      poe-developer-suite.pages.dev · Powered by Poe Protocol
+    </text>
+  </g>
+</svg>

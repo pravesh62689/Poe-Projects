@@ -3,229 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receipt & Invoice OCR to JSON Bot on Poe | Field Confidence & Verification</title>
-  <meta name="description" content="Extract vendor, date, line items, tax, and total from receipt photos. Free Poe OCR bot with automated arithmetic reconciliation and confidence warnings.">
+  <title>Apex Forge OCR | Receipt &amp; Invoice OCR to Structured JSON</title>
+  <meta name="description" content="Extract visible data from receipts, invoices, and document images with field-confidence signals. Built by Apex Forge Technology for Poe.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/receipt-ocr/">
   
-  <meta property="og:title" content="Receipt & Invoice OCR to JSON Bot on Poe">
-  <meta property="og:description" content="Automated receipt parsing into structured JSON with subtotal + tax = total verification and confidence warnings.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apex Forge OCR | Receipt &amp; Invoice OCR to Structured JSON">
+  <meta property="og:description" content="Extract vendor, date, line items, and totals from document photos with field-confidence scoring and arithmetic tax checks.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://poe-developer-suite.pages.dev/receipt-ocr/">
+  <meta property="og:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Receipt & Invoice OCR to JSON Bot on Poe">
-  <meta name="twitter:description" content="Automated receipt parsing into structured JSON with subtotal + tax = total verification and confidence warnings.">
+  <meta name="twitter:title" content="Apex Forge OCR | Receipt &amp; Invoice OCR to Structured JSON">
+  <meta name="twitter:description" content="Extract vendor, date, line items, and totals from document photos with field-confidence scoring and arithmetic tax checks.">
+  <meta name="twitter:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
   
+  <!-- Structured Data: SoftwareApplication & FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "OCR-Doc-Parser",
-    "operatingSystem": "All (Web / Poe Platform)",
-    "applicationCategory": "BusinessApplication",
-    "description": "Extracts structured JSON from receipts and invoices with confidence scoring and arithmetic verification.",
-    "url": "https://poe.com/OCR-Doc-Parser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "What image formats are supported?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The bot supports JPEG, PNG, WEBP, and single-page TIFF files up to 10MB."
+        "@type": "SoftwareApplication",
+        "name": "Apex Forge OCR",
+        "alternateName": "OCR-Doc-Parser",
+        "operatingSystem": "All (Web / Poe Platform)",
+        "applicationCategory": "BusinessApplication",
+        "description": "Extracts structured JSON from receipts and invoices with confidence scoring and arithmetic verification.",
+        "url": "https://poe.com/OCR-Doc-Parser",
+        "author": {
+          "@type": "Organization",
+          "name": "Apex Forge Technology"
         }
       },
       {
-        "@type": "Question",
-        "name": "Does OCR-Doc-Parser store my uploaded receipts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Images are processed ephemerally in RAM and discarded immediately after response streaming completes. No documents or text are saved."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does the bot verify invoice totals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The parser performs an arithmetic check: subtotal + tax + fees - discounts = total. If there is a discrepancy, it flags an arithmetic warning."
-        }
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What image formats are supported by Apex Forge OCR?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The engine processes standard JPEG, PNG, WEBP, and single-page scans up to 10MB."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Apex Forge OCR store uploaded receipts or customer documents?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Images are processed ephemerally in RAM during the active query turn and discarded immediately upon stream completion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the tool verify invoice arithmetic?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The parser sums extracted line items and taxes, comparing the sum against the detected grand total within standard rounding tolerance."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo" id="nav-brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/" id="nav-ocr" style="color: #fff;">Receipt OCR</a></li>
-          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
-          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
-          <li><a href="/guides/" id="nav-guides">Guides</a></li>
-          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link active">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Bot on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
-    <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #A5B4FC; border-color: rgba(99, 102, 241, 0.3);">Document Intelligence</span>
-    <h1>Receipt & Invoice OCR to JSON: Practical Tested Extraction</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2rem;">
-      Upload photos of thermal receipts, retail bills, or PDF invoices directly to Poe. OCR-Doc-Parser cleans the image, extracts merchant metadata, line items, and taxes, and validates arithmetic before returning structured JSON.
-    </p>
+  <main id="main-content" class="container section">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li><a href="/#tools">Tools</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Apex Forge OCR</li>
+    </ul>
 
-    <div style="margin-bottom: 3rem;">
-      <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button" id="cta-open-ocr-poe">
-        Launch OCR-Doc-Parser on Poe &nearr;
-      </a>
-      <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">Free to use &bull; No credit card &bull; Zero data retention</span>
+    <!-- Product Hero Header -->
+    <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; margin-bottom: 3rem;">
+      <div style="width: 96px; height: 96px; border-radius: var(--af-radius-xl); background-color: var(--af-bg-surface); border: 1px solid var(--af-border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <img src="/assets/bots/ocr-doc-bot-1024.png" alt="Apex Forge OCR Official Icon" width="80" height="80">
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <p class="section-tag">Document Vision Engine · @OCR-Doc-Parser</p>
+        <h1 class="section-title">Apex Forge OCR</h1>
+        <p class="section-desc">
+          Extract structured data from receipts, tax invoices, and bank statements into clean JSON with field-level confidence flags and arithmetic reconciliation.
+        </p>
+      </div>
+      <div>
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Launch on Poe &rarr;</a>
+      </div>
     </div>
 
-    <!-- Tested Example Section -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Tested Input & Output Example</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Below is an actual verified extraction output from test fixture <code>OCR-LIVE-001</code> (Retail Thermal Receipt).</p>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
-          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff;">Source Document Text (Pre-processed)</h3>
-          <pre style="margin: 0; font-size: 0.85rem; max-height: 280px;">QUICK MART STORE #104
-123 MARKET ST, AUSTIN TX
-Date: 2026-03-15  Time: 14:22
-Receipt #: 984210
+    <!-- The Problem & Solution Breakdown -->
+    <div class="product-grid" style="margin-bottom: 3rem;">
+      <div class="product-card">
+        <h2 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--af-text-primary);">What You Provide</h2>
+        <p class="product-desc">
+          Upload or attach a photo, smartphone capture, or PDF scan of a physical receipt, commercial tax invoice (including Indian GSTIN bills), or bank statement table.
+        </p>
+        <ul style="color: var(--af-text-secondary); font-size: var(--af-text-sm); padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>Retail, grocery, and restaurant bills</li>
+          <li>B2B tax invoices with CGST/SGST/IGST</li>
+          <li>Tabular bank statement transactions</li>
+        </ul>
+      </div>
 
-1x Organic Whole Milk   $4.49
-2x Sourdough Bread       $7.98
-1x Fair Trade Coffee    $12.99
+      <div class="product-card">
+        <h2 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--af-text-primary);">What You Receive</h2>
+        <p class="product-desc">
+          Clean structured JSON containing normalized vendor name, purchase date, time, invoice number, itemized line items, subtotal, taxes, and grand total.
+        </p>
+        <ul style="color: var(--af-text-secondary); font-size: var(--af-text-sm); padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>Per-field confidence ratings (<code>high</code>, <code>medium</code>, <code>low</code>)</li>
+          <li>Arithmetic check: <code>subtotal + tax = total</code></li>
+          <li>Copyable JSON block ready for accounting sheets</li>
+        </ul>
+      </div>
+    </div>
 
-Subtotal:              $25.46
-Sales Tax (8.25%):      $2.10
-Total:                 $27.56
-Payment: VISA ****4128</pre>
+    <!-- Copyable Starter Prompts -->
+    <section class="section" style="padding-top: 0;" aria-labelledby="prompts-title">
+      <h2 id="prompts-title" class="section-title" style="font-size: 1.5rem;">Copyable Starter Prompts</h2>
+      <p class="section-desc" style="margin-bottom: 1.5rem;">Attach your image in Poe and paste any of these prompt patterns:</p>
+
+      <div class="product-grid">
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 01 · GENERAL EXPENSE</div>
+          <pre><code>Extract the vendor, date, line items, tax, and grand total.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Standard full extraction for restaurant, taxi, and retail receipts.</p>
         </div>
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 02 · TAX INVOICE RECONCILE</div>
+          <pre><code>/receipt Reconcile line items, GST tax breakdown, and verify arithmetic total.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Triggers explicit GSTIN parsing and line-item summation checks.</p>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 03 · BANK STATEMENT TABLE</div>
+          <pre><code>/statement Extract transactions into a markdown table with Date, Description, and Amount.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Reconstructs tabular banking and credit ledger rows.</p>
+        </div>
+      </div>
+    </section>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
-          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #A5B4FC;">Bot Output: Clean Structured JSON</h3>
-          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px; color: #A3E635;">{
-  "vendor": "QUICK MART STORE #104",
-  "date": "2026-03-15",
-  "receipt_number": "984210",
-  "subtotal": 25.46,
-  "tax": 2.10,
-  "total": 27.56,
-  "reconciliation": {
-    "status": "balanced",
-    "calculated_total": 27.56
+    <!-- Synthetic Output Example -->
+    <section class="section" aria-labelledby="example-title">
+      <h2 id="example-title" class="section-title" style="font-size: 1.5rem;">Verified Synthetic Output Example</h2>
+      <p class="section-desc">Sample extraction produced from a synthetic cafe receipt fixture:</p>
+      
+      <pre><code>{
+  "document_type": "receipt",
+  "vendor": {
+    "value": "ACME CAFE & ROASTERY",
+    "confidence": "high"
   },
-  "field_confidence": {
-    "vendor": 0.94,
-    "total": 0.98,
-    "date": 0.95
-  }
-}</pre>
+  "date": {
+    "value": "2026-08-14",
+    "confidence": "high"
+  },
+  "line_items": [
+    { "description": "Flat White", "quantity": 1, "amount": 4.50 },
+    { "description": "Almond Croissant", "quantity": 2, "amount": 9.00 }
+  ],
+  "subtotal": { "value": 13.50, "confidence": "high" },
+  "tax": { "value": 1.15, "confidence": "high" },
+  "total": { "value": 14.65, "confidence": "high" },
+  "arithmetic_reconciled": true
+}</code></pre>
+    </section>
+
+    <!-- Limitations Callout -->
+    <div class="callout callout-warning">
+      <h3 style="font-size: 1rem; color: var(--af-text-primary); margin-bottom: 0.25rem;">Limitations &amp; Responsible Use</h3>
+      <p>
+        Apex Forge OCR is designed for bookkeeping convenience and developer data workflows. Severely blurred photos, reflective thermal paper glare, or crumpled receipts may cause character misrecognition. The tool provides confidence scores and arithmetic warnings; users must review figures before submitting official tax returns or regulatory filings. It does not replace official KYC or certified accounting validation.
+      </p>
+    </div>
+
+    <!-- FAQs -->
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title" style="font-size: 1.5rem;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">What image formats are supported by Apex Forge OCR?</h3>
+          <p class="faq-answer">The engine processes standard JPEG, PNG, WEBP, and single-page scans up to 10MB.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Does Apex Forge OCR store uploaded receipts or customer documents?</h3>
+          <p class="faq-answer">No. Images are processed ephemerally in RAM during the active query turn and discarded immediately upon stream completion.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">How does the tool verify invoice arithmetic?</h3>
+          <p class="faq-answer">The parser sums extracted line items and taxes, comparing the sum against the detected grand total within standard rounding tolerance.</p>
         </div>
       </div>
     </section>
 
-    <!-- Checklist & Calibration -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Image Quality Checklist for High Accuracy</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">OCR engines are deterministic pattern matchers. Following this 4-point checklist prevents false totals:</p>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Factor</th>
-            <th>Guideline</th>
-            <th>What Happens if Violated</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Lighting</strong></td>
-            <td>Use diffused, even light without harsh phone flashlight glare.</td>
-            <td>Glare obliterates ink; bot marks field low-confidence or unreadable.</td>
-          </tr>
-          <tr>
-            <td><strong>Orientation</strong></td>
-            <td>Lay receipt flat on high-contrast dark surface. Pre-deskew handles &le;15&deg;.</td>
-            <td>Extreme tilt (&gt;45&deg;) can garble line-item column alignment.</td>
-          </tr>
-          <tr>
-            <td><strong>Focus</strong></td>
-            <td>Ensure text is sharply focused. Bot automatically checks Laplacian blur.</td>
-            <td>Blurry captures trigger an automated rejection with camera retry tips.</td>
-          </tr>
-          <tr>
-            <td><strong>Boundary</strong></td>
-            <td>Include all 4 corners so header and payment total are in frame.</td>
-            <td>Cropped totals force arithmetic estimation or missing total warning.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Honest Limitations -->
-    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Verified Limitations & Disclaimers</h2>
-      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
-        <li><strong>Assisted Extraction, Not Legal Audit:</strong> OCR-Doc-Parser is an extraction tool, not a legal or tax certification authority. Always review critical totals before submitting financial filings.</li>
-        <li><strong>Handwriting Excluded:</strong> The engine is optimized for printed receipts, invoices, and digital billing PDFs. It does not reliably transcribe cursive handwriting.</li>
-        <li><strong>Single Page Receipts:</strong> Render single receipt photos. Multi-page document merging should be split prior to query.</li>
-        <li><strong>Privacy:</strong> We strictly do not persist, log, or train models on user images. Once the SSE response finishes, document bytes in memory are garbage collected.</li>
+    <!-- Relevant Guide Links -->
+    <section class="section" style="border-top: 1px solid var(--af-border-subtle);">
+      <h2 class="section-title" style="font-size: 1.25rem; margin-bottom: 1rem;">Recommended Technical Guides</h2>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+        <li><a href="/guides/how-to-photograph-receipts/" class="nav-link" style="color: var(--af-copper);">How to Photograph Receipts for Accurate OCR Extraction &rarr;</a></li>
+        <li><a href="/guides/tax-invoice-gstin-fields/" class="nav-link" style="color: var(--af-copper);">Tax Invoice &amp; GSTIN Field Extraction Guide &rarr;</a></li>
+        <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link" style="color: var(--af-copper);">End-to-End Expense Analysis: From Receipt Image to SQL Report &rarr;</a></li>
       </ul>
-    </section>
-
-    <!-- FAQ Section -->
-    <section>
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">What image formats are supported?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">The bot supports JPEG, PNG, WEBP, and single-page TIFF files up to 10MB.</p>
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Does OCR-Doc-Parser store my uploaded receipts?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">No. Images are processed ephemerally in RAM and discarded immediately after response streaming completes. No documents or text are saved.</p>
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">How does the bot verify invoice totals?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">The parser performs an arithmetic check: subtotal + tax + fees - discounts = total. If there is a discrepancy, it flags an arithmetic warning.</p>
-      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/regex-tester/">Regex Tester</a></li>
-        <li><a href="/english-to-sql/">English to SQL</a></li>
-        <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

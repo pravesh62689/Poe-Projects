@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0b0f17"/>
+  <!-- Left Facet -->
+  <path d="M32 10 L14 47 L23 50 L32 28 Z" fill="#64748b"/>
+  <!-- Right Facet -->
+  <path d="M32 10 L32 28 L41 50 L50 47 Z" fill="#ea580c"/>
+  <!-- Center Core -->
+  <path d="M32 32 L25 50 L32 54 L39 50 Z" fill="#fdba74"/>
+  <!-- Apex Keystone -->
+  <polygon points="32,7 34,11 32,15 30,11" fill="#fff"/>
+</svg>

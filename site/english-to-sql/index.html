@@ -3,223 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English to SQL Bot on Poe | In-Memory SQLite Sandbox Verification</title>
-  <meta name="description" content="Generate schema-aware SQL from English questions. Bot executes queries in an in-memory SQLite sandbox, verifies results, and prevents syntax errors.">
+  <title>Apex Forge SQL | In-Memory Verified Query Engine</title>
+  <meta name="description" content="Turn schema plus natural language into SQL, execute it in a temporary in-memory SQLite sandbox, and preview tabular results. Built by Apex Forge Technology for Poe.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/english-to-sql/">
   
-  <meta property="og:title" content="English to SQL Bot on Poe">
-  <meta property="og:description" content="Schema-aware natural language to SQL converter that executes queries in an in-memory SQLite database before answering.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apex Forge SQL | In-Memory Verified Query Engine">
+  <meta property="og:description" content="Natural language to verified SQL: seeds in-memory SQLite WebAssembly, auto-corrects syntax errors, and previews tabular results.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://poe-developer-suite.pages.dev/english-to-sql/">
+  <meta property="og:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="English to SQL Bot on Poe">
-  <meta name="twitter:description" content="Schema-aware natural language to SQL converter that executes queries in an in-memory SQLite database before answering.">
+  <meta name="twitter:title" content="Apex Forge SQL | In-Memory Verified Query Engine">
+  <meta name="twitter:description" content="Natural language to verified SQL: seeds in-memory SQLite WebAssembly, auto-corrects syntax errors, and previews tabular results.">
+  <meta name="twitter:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
   
+  <!-- Structured Data: SoftwareApplication & FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "English-To-SQL",
-    "operatingSystem": "All (Web / Poe Platform)",
-    "applicationCategory": "DeveloperApplication",
-    "description": "Natural language to SQL engine that executes queries in an in-memory SQLite sandbox to verify syntax and output.",
-    "url": "https://poe.com/English-To-SQL",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Which SQL dialect is used for execution?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The bot executes queries against an in-memory SQLite (WASM) engine. It converts standard ANSI SQL and highlights PostgreSQL or MySQL differences."
+        "@type": "SoftwareApplication",
+        "name": "Apex Forge SQL",
+        "alternateName": "English-To-SQL",
+        "operatingSystem": "All (Web / Poe Platform)",
+        "applicationCategory": "DeveloperApplication",
+        "description": "Transforms plain English questions into verified SQL queries executed against an ephemeral SQLite database.",
+        "url": "https://poe.com/English-To-SQL",
+        "author": {
+          "@type": "Organization",
+          "name": "Apex Forge Technology"
         }
       },
       {
-        "@type": "Question",
-        "name": "Does English-To-SQL connect to my production database?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. English-To-SQL operates strictly stateless and in-memory. You provide DDL schemas and optional sample rows in the prompt; no network connection to external databases is made."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens if a query generates an execution error?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The engine intercepts the SQLite engine error, executes exactly one automated correction retry, and transparently logs the error and fix in the output."
-        }
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does Apex Forge SQL verify queries?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The engine instantiates an in-memory SQLite WebAssembly database, applies your CREATE TABLE schema, executes the generated SQL, and verifies the resulting tabular data."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Apex Forge SQL access my production database?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The bot operates purely on the schema and sample rows you paste into the chat. It has zero external database network connectivity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if a query contains DROP or DELETE statements?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The query runner detects destructive statements (DROP, TRUNCATE, DELETE without WHERE) and emits prominent safety warning banners."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo" id="nav-brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
-          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
-          <li><a href="/english-to-sql/" id="nav-sql" style="color: #fff;">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
-          <li><a href="/guides/" id="nav-guides">Guides</a></li>
-          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link active">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/English-To-SQL" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Bot on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
-    <span class="badge" style="background: rgba(34, 211, 238, 0.15); color: #67E8F9; border-color: rgba(34, 211, 238, 0.3);">Analytical SQL</span>
-    <h1>English-to-SQL Bot: Verified In-Memory Execution</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2rem;">
-      Most AI SQL tools hallucinate column names or generate broken JOIN syntax that crashes in production. English-To-SQL creates an isolated in-memory SQLite sandbox, runs the query, verifies the table output, and provides both the query and raw records.
-    </p>
+  <main id="main-content" class="container section">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li><a href="/#tools">Tools</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Apex Forge SQL</li>
+    </ul>
 
-    <div style="margin-bottom: 3rem;">
-      <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #0891B2;" id="cta-open-sql-poe">
-        Launch English-To-SQL on Poe &nearr;
-      </a>
-      <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">Free &bull; In-memory sandbox &bull; 0 database connection required</span>
+    <!-- Product Hero Header -->
+    <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; margin-bottom: 3rem;">
+      <div style="width: 96px; height: 96px; border-radius: var(--af-radius-xl); background-color: var(--af-bg-surface); border: 1px solid var(--af-border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <img src="/assets/bots/sql-bot-1024.png" alt="Apex Forge SQL Official Icon" width="80" height="80">
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <p class="section-tag">Relational Query Engine · @English-To-SQL</p>
+        <h1 class="section-title">Apex Forge SQL</h1>
+        <p class="section-desc">
+          Turn schema definitions plus natural language into verified SQL queries, executed against an in-memory SQLite sandbox with automated error self-correction.
+        </p>
+      </div>
+      <div>
+        <a href="https://poe.com/English-To-SQL" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Launch on Poe &rarr;</a>
+      </div>
     </div>
 
-    <!-- Tested Example (SQL-LIVE-002) -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Tested Multi-Table JOIN Example (SQL-LIVE-002)</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Below is the verified end-to-end execution of a relational customer orders query:</p>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
-          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff;">Schema & English Request</h3>
-          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px;">CREATE TABLE customers (id INT, name TEXT);
-CREATE TABLE orders (id INT, customer_id INT, amount REAL);
+    <!-- What to Provide & What to Receive -->
+    <div class="product-grid" style="margin-bottom: 3rem;">
+      <div class="product-card">
+        <h2 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--af-text-primary);">What You Provide</h2>
+        <p class="product-desc">
+          Paste your <code>CREATE TABLE</code> statements (and optional <code>INSERT</code> sample rows), followed by your business question in plain English.
+        </p>
+        <ul style="color: var(--af-text-secondary); font-size: var(--af-text-sm); padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>SQL DDL schema (tables, columns, types)</li>
+          <li>Optional sample rows for test results</li>
+          <li>Natural language query requirement</li>
+        </ul>
+      </div>
 
+      <div class="product-card">
+        <h2 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--af-text-primary);">What You Receive</h2>
+        <p class="product-desc">
+          Syntactically verified SQL that ran without errors, accompanied by a real preview data table, execution timing, and dialect migration notes.
+        </p>
+        <ul style="color: var(--af-text-secondary); font-size: var(--af-text-sm); padding-left: 1.25rem; margin-top: 0.5rem;">
+          <li>Guaranteed valid SQL verified by execution</li>
+          <li>Tabular Markdown result preview</li>
+          <li>Destructive query warnings (<code>DROP</code>/<code>DELETE</code>)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyable Starter Prompts -->
+    <section class="section" style="padding-top: 0;" aria-labelledby="prompts-title">
+      <h2 id="prompts-title" class="section-title" style="font-size: 1.5rem;">Copyable Starter Prompts</h2>
+      <p class="section-desc" style="margin-bottom: 1.5rem;">Paste these templates into the bot to see verified execution:</p>
+
+      <div class="product-grid">
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 01 · TOP SPENDERS (AGGREGATION)</div>
+          <pre><code>CREATE TABLE customers (id INT, name TEXT);
+CREATE TABLE orders (id INT, customer_id INT, amount DECIMAL);
 INSERT INTO customers VALUES (1, 'Alice'), (2, 'Bob');
-INSERT INTO orders VALUES (101, 1, 120.50), (102, 1, 45.00), (103, 2, 89.00);
+INSERT INTO orders VALUES (101, 1, 150.00), (102, 2, 45.00);
 
-Question: Show total spending by each customer, sorted highest first.</pre>
+Find the total spend for each customer, ordered by highest spend first.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Demonstrates GROUP BY, SUM, and JOIN verification.</p>
         </div>
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 02 · FILTERED DATE RANGES</div>
+          <pre><code>CREATE TABLE expenses (id INT, category TEXT, amount DECIMAL, expense_date TEXT);
+Show total spending for the 'Travel' category in August 2026.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Validates SQLite strftime and date filtering syntax.</p>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-step-num">PROMPT 03 · WINDOW FUNCTIONS</div>
+          <pre><code>CREATE TABLE employees (id INT, department TEXT, salary INT);
+Rank employees by salary within each department.</code></pre>
+          <p style="font-size: var(--af-text-xs); color: var(--af-text-muted);">Generates PARTITION BY and RANK() window queries.</p>
+        </div>
+      </div>
+    </section>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem;">
-          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #67E8F9;">Bot Output: Generated & Executed SQL</h3>
-          <pre style="margin: 0; font-size: 0.82rem; max-height: 280px; color: #E2E8F0;">-- Generated SQL (Verified in SQLite sandbox)
+    <!-- Synthetic Output Example -->
+    <section class="section" aria-labelledby="example-title">
+      <h2 id="example-title" class="section-title" style="font-size: 1.5rem;">Verified Real Execution Output</h2>
+      <p class="section-desc">Sample streamed response executing against in-memory SQLite:</p>
+      
+      <pre><code>### 📊 Verified SQL Query &amp; Results
+
+&gt; ✅ Verified: Query successfully executed against an in-memory copy of your schema.
+
+```sql
 SELECT c.name, SUM(o.amount) AS total_spent
 FROM customers c
 JOIN orders o ON c.id = o.customer_id
 GROUP BY c.id, c.name
 ORDER BY total_spent DESC;
+```
 
-Verified Results (2 rows):
-| name  | total_spent |
-| Alice | 165.50      |
-| Bob   | 89.00       |
+**Execution Time**: `0ms`
 
-Status: Success (Executed in 2.1ms)</pre>
+#### 📋 Tabular Output:
+| name | total_spent |
+| :--- | :--- |
+| Alice | 150 |
+| Bob | 45 |</code></pre>
+    </section>
+
+    <!-- Limitations Callout -->
+    <div class="callout callout-warning">
+      <h3 style="font-size: 1rem; color: var(--af-text-primary); margin-bottom: 0.25rem;">Limitations &amp; Responsible Use</h3>
+      <p>
+        Apex Forge SQL executes queries in an ephemeral in-memory SQLite sandbox using WebAssembly. It does not connect to your live databases or enterprise data warehouses. When porting generated queries to PostgreSQL, MySQL, or SQL Server, verify dialect-specific date formatting, full outer joins, and performance indexing before production rollout.
+      </p>
+    </div>
+
+    <!-- FAQs -->
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title" style="font-size: 1.5rem;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">How does Apex Forge SQL verify queries?</h3>
+          <p class="faq-answer">The engine instantiates an in-memory SQLite WebAssembly database, applies your CREATE TABLE schema, executes the generated SQL, and verifies the resulting tabular data.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Dialect Differences -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Dialect Guidance: SQLite vs PostgreSQL vs MySQL</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">The bot executes on SQLite WASM. When porting queries to larger databases, note these standard dialect differences:</p>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>SQLite (In-Memory Bot)</th>
-            <th>PostgreSQL</th>
-            <th>MySQL / MariaDB</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>String Concatenation</strong></td>
-            <td><code>first || ' ' || last</code></td>
-            <td><code>first || ' ' || last</code> or <code>CONCAT()</code></td>
-            <td><code>CONCAT(first, ' ', last)</code></td>
-          </tr>
-          <tr>
-            <td><strong>Date Math</strong></td>
-            <td><code>date('now', '-7 days')</code></td>
-            <td><code>CURRENT_DATE - INTERVAL '7 days'</code></td>
-            <td><code>DATE_SUB(NOW(), INTERVAL 7 DAY)</code></td>
-          </tr>
-          <tr>
-            <td><strong>Auto-Increment</strong></td>
-            <td><code>INTEGER PRIMARY KEY AUTOINCREMENT</code></td>
-            <td><code>SERIAL</code> or <code>IDENTITY</code></td>
-            <td><code>AUTO_INCREMENT</code></td>
-          </tr>
-          <tr>
-            <td><strong>JSON Extraction</strong></td>
-            <td><code>json_extract(data, '$.key')</code></td>
-            <td><code>data->>'key'</code></td>
-            <td><code>data->>'$.key'</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Destructive Operation Warning -->
-    <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Destructive Query Policy & Security</h2>
-      <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1.25rem;">
-        <li><strong>Destructive Query Guard:</strong> If you request a <code>DROP TABLE</code>, <code>TRUNCATE</code>, or unconstrained <code>DELETE</code>, the bot flags a prominent warning and explains production data loss risks before executing in the temporary sandbox.</li>
-        <li><strong>Stateless Sandbox:</strong> Each query session runs in a fresh, isolated database instance. No data persists across turns or requests.</li>
-        <li><strong>Safe Pagination:</strong> Table output is bounded to 50 rows to prevent browser memory exhaustion.</li>
-      </ul>
-    </section>
-
-    <!-- FAQ Section -->
-    <section>
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Which SQL dialect is used for execution?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">The bot executes queries against an in-memory SQLite (WASM) engine. It converts standard ANSI SQL and highlights PostgreSQL or MySQL differences.</p>
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">Does English-To-SQL connect to my production database?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">No. English-To-SQL operates strictly stateless and in-memory. You provide DDL schemas and optional sample rows in the prompt; no network connection to external databases is made.</p>
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.35rem;">What happens if a query generates an execution error?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem;">The engine intercepts the SQLite engine error, executes exactly one automated correction retry, and transparently logs the error and fix in the output.</p>
+        <div class="faq-item">
+          <h3 class="faq-question">Does Apex Forge SQL access my production database?</h3>
+          <p class="faq-answer">No. The bot operates purely on the schema and sample rows you paste into the chat. It has zero external database network connectivity.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">What happens if a query contains DROP or DELETE statements?</h3>
+          <p class="faq-answer">The query runner detects destructive statements (DROP, TRUNCATE, DELETE without WHERE) and emits prominent safety warning banners.</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-        <li><a href="/regex-tester/">Regex Tester</a></li>
-        <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

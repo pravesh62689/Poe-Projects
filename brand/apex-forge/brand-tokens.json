@@ -1,0 +1,140 @@
+{
+  "brand": {
+    "name": "Apex Forge Technology",
+    "suite": "Apex Forge Tools",
+    "tagline": "Practical, verifiable developer tools for document extraction, data validation, and query analysis.",
+    "version": "2.0.0"
+  },
+  "colors": {
+    "dark": {
+      "bg_canvas": "#07090e",
+      "bg_surface": "#0d131f",
+      "bg_surface_raised": "#141c2e",
+      "bg_surface_overlay": "#1c263d",
+      "border_subtle": "#1e293b",
+      "border_muted": "#334155",
+      "border_accent": "#ea580c",
+      "text_primary": "#f8fafc",
+      "text_secondary": "#94a3b8",
+      "text_muted": "#64748b",
+      "text_on_accent": "#ffffff"
+    },
+    "light": {
+      "bg_canvas": "#f8fafc",
+      "bg_surface": "#ffffff",
+      "bg_surface_raised": "#f1f5f9",
+      "border_subtle": "#e2e8f0",
+      "border_muted": "#cbd5e1",
+      "border_accent": "#ea580c",
+      "text_primary": "#0f172a",
+      "text_secondary": "#475569",
+      "text_muted": "#64748b",
+      "text_on_accent": "#ffffff"
+    },
+    "palette": {
+      "copper": {
+        "50": "#fff7ed",
+        "100": "#ffedd5",
+        "200": "#fed7aa",
+        "300": "#fdba74",
+        "400": "#fb923c",
+        "500": "#f97316",
+        "600": "#ea580c",
+        "700": "#c2410c",
+        "800": "#9a3412",
+        "900": "#7c2d12"
+      },
+      "slate": {
+        "50": "#f8fafc",
+        "100": "#f1f5f9",
+        "200": "#e2e8f0",
+        "300": "#cbd5e1",
+        "400": "#94a3b8",
+        "500": "#64748b",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1e293b",
+        "900": "#0f172a",
+        "950": "#07090e"
+      },
+      "accent_blue": {
+        "400": "#38bdf8",
+        "500": "#0ea5e9",
+        "600": "#0284c7"
+      },
+      "status": {
+        "success": "#10b981",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "info": "#0ea5e9"
+      }
+    }
+  },
+  "typography": {
+    "font_family_sans": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "font_family_mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    },
+    "font_weight": {
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "line_height": {
+      "tight": 1.25,
+      "snug": 1.375,
+      "normal": 1.5,
+      "relaxed": 1.625
+    }
+  },
+  "spacing": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem"
+  },
+  "radii": {
+    "none": "0",
+    "sm": "0.25rem",
+    "md": "0.5rem",
+    "lg": "0.75rem",
+    "xl": "1rem",
+    "full": "9999px"
+  },
+  "shadows": {
+    "subtle": "0 1px 3px rgba(0, 0, 0, 0.2)",
+    "card": "0 4px 12px rgba(0, 0, 0, 0.3)",
+    "card_hover": "0 8px 24px rgba(234, 88, 12, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3)",
+    "focus_ring": "0 0 0 3px rgba(234, 88, 12, 0.45)"
+  },
+  "transitions": {
+    "fast": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+    "base": "250ms cubic-bezier(0.4, 0, 0.2, 1)",
+    "reduced_motion": "0ms linear"
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px"
+  }
+}

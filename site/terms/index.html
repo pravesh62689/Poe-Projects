@@ -3,72 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | Poe Developer Automation Suite</title>
-  <meta name="description" content="Terms of service and acceptable use for Poe Developer Automation Suite bots.">
+  <title>Terms of Service | Apex Forge Technology</title>
+  <meta name="description" content="Terms of service and acceptable use for Apex Forge Technology tools on Poe.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/terms/">
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/benchmarks/">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
-    <span class="badge">Legal Terms</span>
-    <h1>Terms of Service</h1>
-    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Last Updated: September 2026</p>
+  <main id="main-content" class="container section" style="max-width: 820px;">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Terms of Service</li>
+    </ul>
 
-    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--text-secondary); line-height: 1.8;">
+    <div class="hero-badge">Acceptable Use</div>
+    <h1 class="section-title">Terms of Service</h1>
+    <p class="section-desc" style="margin-bottom: 2rem;">Last Updated: September 2026</p>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; color: var(--af-text-secondary); line-height: 1.8;">
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">1. Acceptance of Terms</h2>
-        <p>By interacting with OCR-Doc-Parser, Regex-Gen-Tester, or English-To-SQL on the Poe platform or browsing this documentation site, you agree to these Terms of Service.</p>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">1. Acceptance of Terms</h2>
+        <p>By interacting with Apex Forge OCR, Apex Forge Regex, or Apex Forge SQL on the Poe platform or browsing this documentation site, you agree to these Terms of Service.</p>
       </section>
 
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">2. Nature of Service: Extraction & Query Assistance</h2>
-        <p>These bots are provided as developer and productivity aids:</p>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">2. Nature of Service: Developer &amp; Extraction Assistance</h2>
+        <p>These tools are provided as productivity and verification aids:</p>
         <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
-          <li><strong>OCR Disclaimer:</strong> Optical Character Recognition is an extraction aid. It does not certify legal validity, invoice authenticity, or tax compliance. Users are solely responsible for reviewing critical numbers.</li>
-          <li><strong>Regex Disclaimer:</strong> Regular expressions test formatting constraints, not business or real-world validity.</li>
-          <li><strong>SQL Disclaimer:</strong> Queries execute in a temporary, isolated SQLite sandbox. Production execution on external database engines may require dialect adjustments.</li>
+          <li><strong>Apex Forge OCR</strong> extracts visible text and estimates totals; it does not replace professional auditing, legal document inspection, or regulatory tax filing validation.</li>
+          <li><strong>Apex Forge Regex</strong> validates structural lexical patterns; it does not guarantee deliverability of email addresses or live status of phone numbers.</li>
+          <li><strong>Apex Forge SQL</strong> tests queries in an ephemeral in-memory SQLite sandbox; it does not guarantee production performance or cross-dialect compatibility with PostgreSQL/MySQL.</li>
         </ul>
       </section>
 
       <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">3. Fair Use & Prohibited Conduct</h2>
-        <p>You agree not to abuse the services by executing deliberate denial-of-service payloads, automated scraper floods, malicious reverse-engineering of Poe protocol tokens, or uploading unlawful material.</p>
-      </section>
-
-      <section>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">4. Limitation of Liability</h2>
-        <p>The services are provided "AS IS" without warranties of any kind. To the fullest extent permitted by law, the authors and contributors shall not be liable for any direct, indirect, or consequential damages resulting from the use or inability to use the bots.</p>
+        <h2 style="color: var(--af-text-primary); font-size: 1.25rem; margin-bottom: 0.5rem;">3. Acceptable Use Policy</h2>
+        <p>Users must not use the tools to process unlawful, defamatory, infringing, or malicious content, nor attempt to flood or disrupt the underlying edge compute infrastructure.</p>
       </section>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

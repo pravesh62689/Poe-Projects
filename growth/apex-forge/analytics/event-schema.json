@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApexForgeAnalyticsEvent",
+  "description": "Privacy-safe, aggregated telemetry event schema for Apex Forge Technology and Poe bot interactions.",
+  "type": "object",
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "enum": [
+        "page_view",
+        "cta_click",
+        "copy_prompt",
+        "workflow_step_view",
+        "bot_message_received",
+        "bot_response_completed",
+        "bot_error"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of the event."
+    },
+    "product": {
+      "type": "string",
+      "enum": ["ocr", "regex", "sql", "suite"]
+    },
+    "page": {
+      "type": "string",
+      "description": "Normalized URL path where the event occurred (e.g., /receipt-ocr/)."
+    },
+    "campaign": {
+      "type": "string",
+      "description": "Attributed campaign identifier or organic source.",
+      "default": "organic"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "partial", "failure"]
+    },
+    "latency_bucket": {
+      "type": "string",
+      "enum": ["<1s", "1-3s", "3-10s", ">10s"]
+    },
+    "error_category": {
+      "type": "string",
+      "enum": [
+        "none",
+        "input",
+        "image_quality",
+        "ocr",
+        "parser",
+        "regex_safety",
+        "sql_schema",
+        "sql_execution",
+        "protocol",
+        "upstream",
+        "unknown"
+      ]
+    },
+    "suggested_reply_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of suggested follow-up prompts returned to user."
+    },
+    "cross_product_handoff": {
+      "type": "boolean",
+      "description": "Whether the event involved a handoff between tools (e.g., OCR to SQL)."
+    },
+    "owner_test": {
+      "type": "boolean",
+      "description": "Flag indicating internal development or benchmark synthetic traffic."
+    }
+  },
+  "required": [
+    "event_name",
+    "timestamp",
+    "product",
+    "outcome",
+    "error_category"
+  ],
+  "additionalProperties": false
+}

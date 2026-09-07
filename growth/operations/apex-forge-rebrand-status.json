@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-09-08T02:37:00Z",
+  "company": "Apex Forge Technology",
+  "site_status": {
+    "local_build": "pass",
+    "public_url": "https://poe-developer-suite.pages.dev",
+    "public_http_status": "200",
+    "canonical_verified": true,
+    "sitemap_verified": true,
+    "robots_verified": true,
+    "search_console_verified": "no"
+  },
+  "brand_assets": {
+    "company_icon": "validated",
+    "ocr_icon": "found",
+    "regex_icon": "found",
+    "sql_icon": "found"
+  },
+  "quality": {
+    "visual_checks": "pass",
+    "accessibility": "pass",
+    "seo": "pass",
+    "claims": "pass",
+    "links": "pass",
+    "performance_budget": "pass"
+  },
+  "external_actions_required": [
+    "EXT-001: Google Search Console property ownership verification",
+    "EXT-002: Google Search Console sitemap submission (https://poe-developer-suite.pages.dev/sitemap.xml)",
+    "EXT-003: Update Poe Creator Studio display name and bio for Apex Forge OCR (OCR-Doc-Bot)",
+    "EXT-004: Update Poe Creator Studio display name and bio for Apex Forge Regex (Regex-Gen-Tester)",
+    "EXT-005: Update Poe Creator Studio display name and bio for Apex Forge SQL (English-To-SQL)",
+    "EXT-006: (Optional) Connect custom domain apexforgetech.com in Cloudflare Pages",
+    "EXT-007: (Optional) Enable privacy-first Cloudflare Web Analytics in Pages dashboard"
+  ],
+  "remaining_tasks": []
+}

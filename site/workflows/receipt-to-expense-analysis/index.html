@@ -3,168 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receipt to Expense Analysis Workflow | Poe Automation Suite</title>
-  <meta name="description" content="End-to-end automated financial pipeline: extract receipt images with OCR-Doc-Parser, validate tax IDs with Regex-Gen-Tester, and analyze spend with English-To-SQL.">
+  <title>Receipt to Expense Analysis Workflow | Apex Forge Tools</title>
+  <meta name="description" content="End-to-end expense analysis pipeline: extract receipt images with Apex Forge OCR, validate tax IDs with Apex Forge Regex, and analyze spend with Apex Forge SQL.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/">
   
-  <meta property="og:title" content="Receipt to Expense Analysis Workflow | Poe Automation Suite">
-  <meta property="og:description" content="Step-by-step cross-bot pipeline from paper receipt to SQL spending analysis on Poe.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Receipt to Expense Analysis Workflow | Apex Forge Tools">
+  <meta property="og:description" content="Step-by-step cross-bot pipeline from paper receipt to SQL spending analysis by Apex Forge Technology.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/">
+  <meta property="og:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Receipt to Expense Analysis Workflow | Poe Automation Suite">
-  <meta name="twitter:description" content="Step-by-step cross-bot pipeline from paper receipt to SQL spending analysis on Poe.">
+  <meta name="twitter:title" content="Receipt to Expense Analysis Workflow | Apex Forge Tools">
+  <meta name="twitter:description" content="Step-by-step cross-bot pipeline from paper receipt to SQL spending analysis by Apex Forge Technology.">
+  <meta name="twitter:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo" id="nav-brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
-          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
-          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow" style="color: #fff;">Workflows</a></li>
-          <li><a href="/guides/" id="nav-guides">Guides</a></li>
-          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link active">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
-    <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #A5B4FC; border-color: rgba(99, 102, 241, 0.3);">Enterprise Workflow</span>
-    <h1>Receipt-to-Expense Analysis: Multi-Bot Automation Pipeline</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-bottom: 2.5rem;">
-      Connect three specialized Poe bots into a zero-code document pipeline. In this worked guide, we take a photographed receipt, extract clean structured JSON, validate the merchant tax ID format, and query quarterly expense aggregates using natural language.
+  <main id="main-content" class="container section">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li><a href="/#tools">Workflows</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">Receipt to Expense Analysis</li>
+    </ul>
+
+    <div class="hero-badge">End-to-End Technical Workflow</div>
+    <h1 class="section-title">Receipt-to-Expense Analysis: Multi-Tool Pipeline</h1>
+    <p class="section-desc" style="max-width: 800px; margin-bottom: 2.5rem;">
+      Connect three specialized Apex Forge developer tools into a zero-code document pipeline. In this worked example, we take a photographed receipt, extract clean structured JSON, validate the merchant tax ID format, and query quarterly expense aggregates using natural English.
     </p>
 
-    <!-- Pipeline Architecture -->
-    <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2rem; margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">Pipeline Architecture</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; text-align: center;">
-        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
-          <div style="color: #6366F1; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Step 1: Ingest</div>
-          <div style="font-size: 0.95rem; font-weight: 600;">OCR-Doc-Parser</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.35rem;">Image &rarr; Validated JSON</div>
-        </div>
-        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
-          <div style="color: #A3E635; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Step 2: Validate</div>
-          <div style="font-size: 0.95rem; font-weight: 600;">Regex-Gen-Tester</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.35rem;">Format Check on Tax ID / SKU</div>
-        </div>
-        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
-          <div style="color: #22D3EE; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Step 3: Analyze</div>
-          <div style="font-size: 0.95rem; font-weight: 600;">English-To-SQL</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.35rem;">Schema Query in SQLite Sandbox</div>
-        </div>
+    <!-- Pipeline Architecture Cards -->
+    <div class="workflow-grid" style="margin-bottom: 3.5rem;">
+      <div class="workflow-card">
+        <div class="workflow-step-num">STEP 01 · EXTRACTION</div>
+        <h3>1. Apex Forge OCR</h3>
+        <p>User attaches receipt photo. OCR engine deskews, detects blur, extracts fields, and performs arithmetic check (subtotal + tax = total).</p>
+      </div>
+      <div class="workflow-card">
+        <div class="workflow-step-num">STEP 02 · FORMAT VALIDATION</div>
+        <h3>2. Apex Forge Regex</h3>
+        <p>Validates merchant tax identification numbers (e.g. GSTIN, VAT ID) or invoice sequences using tested regular expressions.</p>
+      </div>
+      <div class="workflow-card">
+        <div class="workflow-step-num">STEP 03 · SQL ANALYSIS</div>
+        <h3>3. Apex Forge SQL</h3>
+        <p>Seeds SQLite WASM sandbox with extracted line items and executes queries like "Show total spend grouped by vendor category".</p>
       </div>
     </div>
 
-    <!-- Step 1 Details -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Step 1: Extract Receipt to Structured JSON with OCR-Doc-Parser</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1rem;">Upload your receipt image to <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" style="color: #A5B4FC;">@OCR-Doc-Parser</a> with this prompt:</p>
-      <pre>Extract this receipt to structured JSON with vendor, date, line items, and tax reconciliation.</pre>
-      <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Verified Result extracted from sample bill:</p>
-      <pre style="color: #A3E635;">{
-  "vendor": "OFFICE SUPPLY DEPOT",
-  "tax_id": "27AAPFU0912K1ZV",
-  "date": "2026-03-12",
-  "items": [
-    { "name": "Laser Toner Cartridge", "qty": 2, "price": 45.00 },
-    { "name": "Recycled Paper Box", "qty": 5, "price": 8.50 }
-  ],
-  "subtotal": 132.50,
-  "tax": 11.93,
-  "total": 144.43,
-  "reconciliation": "balanced"
-}</pre>
-    </section>
-
-    <!-- Step 2 Details -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Step 2: Validate Tax ID Format with Regex-Gen-Tester</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1rem;">Verify the 15-character GST/Tax format extracted above via <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" style="color: #BEF264;">@Regex-Gen-Tester</a>:</p>
-      <pre>Write regex for 15-character GSTIN tax ID: 2 digits state code, 10 alphanumeric PAN, 1 entity code, 1 Z, 1 check digit.
-Test sample: 27AAPFU0912K1ZV</pre>
-      <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Pattern generated and executed:</p>
-      <pre style="color: #E2E8F0;">Pattern: ^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$
-Sample: 27AAPFU0912K1ZV -> MATCH (Verified format)</pre>
-    </section>
-
-    <!-- Step 3 Details -->
-    <section style="margin-bottom: 3.5rem;">
-      <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Step 3: Analyze Spending Trends with English-To-SQL</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1rem;">Now insert the validated JSON row into an expenses table and run natural language queries in <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" style="color: #67E8F9;">@English-To-SQL</a>:</p>
+    <!-- Step 1 Detail -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <span class="section-tag">Step 1: Document Extraction</span>
+        <h2 class="section-title" style="font-size: 1.5rem;">Extract Structured JSON from Receipt Photo</h2>
+      </div>
+      <p class="section-desc" style="margin-bottom: 1rem;">
+        Attach your receipt photo to <strong>Apex Forge OCR (@OCR-Doc-Parser)</strong> with the starter prompt:
+      </p>
+      <pre><code>Extract the vendor, date, line items, tax, and grand total.</code></pre>
       
-      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
-        <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: #fff;">Copyable Schema & Prompt</h3>
-        <pre style="margin: 0; font-size: 0.85rem;">CREATE TABLE expenses (
-  id INTEGER PRIMARY KEY,
-  vendor TEXT,
-  category TEXT,
-  expense_date DATE,
-  amount REAL
+      <p class="section-desc" style="margin-top: 1rem; margin-bottom: 0.5rem;">Extracted verified JSON response:</p>
+      <pre><code>{
+  "vendor": { "value": "METRO LOGISTICS SUPPLIES", "confidence": "high" },
+  "date": { "value": "2026-07-15", "confidence": "high" },
+  "invoice_no": { "value": "INV-2026-8812", "confidence": "high" },
+  "tax_id": { "value": "27AAAPL1234C1ZV", "confidence": "high" },
+  "line_items": [
+    { "description": "Thermal Packing Rolls (5x)", "amount": 145.00 },
+    { "description": "Industrial Shipping Labels", "amount": 85.00 }
+  ],
+  "subtotal": { "value": 230.00, "confidence": "high" },
+  "tax": { "value": 41.40, "confidence": "high" },
+  "total": { "value": 271.40, "confidence": "high" },
+  "arithmetic_reconciled": true
+}</code></pre>
+    </section>
+
+    <!-- Step 2 Detail -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <span class="section-tag">Step 2: Lexical Validation</span>
+        <h2 class="section-title" style="font-size: 1.5rem;">Validate Merchant Tax Identifier with Regex</h2>
+      </div>
+      <p class="section-desc" style="margin-bottom: 1rem;">
+        Before storing the vendor record, verify that the 15-character Indian GSTIN adheres to statutory alphanumeric format using <strong>Apex Forge Regex (@Regex-Gen-Tester)</strong>:
+      </p>
+      <pre><code>Match Indian GSTIN format (2 digits state code, 10 char PAN, 1 entity digit, Z default, 1 checksum).
+Sample: 27AAAPL1234C1ZV
+Sample: INVALID_GSTIN_123</code></pre>
+
+      <p class="section-desc" style="margin-top: 1rem;">Verified pattern produced:</p>
+      <pre><code>/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/</code></pre>
+    </section>
+
+    <!-- Step 3 Detail -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <span class="section-tag">Step 3: Relational Spend Analysis</span>
+        <h2 class="section-title" style="font-size: 1.5rem;">Query Extracted Expenses in SQL</h2>
+      </div>
+      <p class="section-desc" style="margin-bottom: 1rem;">
+        Paste your expense table schema into <strong>Apex Forge SQL (@English-To-SQL)</strong> and ask a business question:
+      </p>
+      <pre><code>CREATE TABLE expenses (
+  id INT, 
+  vendor TEXT, 
+  category TEXT, 
+  amount DECIMAL, 
+  expense_date TEXT
 );
 
 INSERT INTO expenses VALUES 
-(1, 'OFFICE SUPPLY DEPOT', 'Supplies', '2026-03-12', 144.43),
-(2, 'CLOUD HOSTING INC', 'Software', '2026-03-01', 350.00),
-(3, 'COFFEE ROASTERS', 'Meals', '2026-03-05', 42.10),
-(4, 'OFFICE SUPPLY DEPOT', 'Supplies', '2026-02-18', 85.00);
+  (1, 'Metro Logistics Supplies', 'Packaging', 271.40, '2026-07-15'),
+  (2, 'Cloud Hosting Inc', 'Infrastructure', 85.00, '2026-07-18'),
+  (3, 'Metro Logistics Supplies', 'Packaging', 140.00, '2026-07-29');
 
-Question: What is total spend by category, and what percentage of total spend does each represent?</pre>
-      </div>
+Find total spending by category for July 2026, ordered by highest spend first.</code></pre>
 
-      <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Verified Result executed in sandbox:</p>
-      <pre style="color: #67E8F9;">SELECT 
-  category, 
-  ROUND(SUM(amount), 2) AS total_spent,
-  ROUND(SUM(amount) * 100.0 / (SELECT SUM(amount) FROM expenses), 1) AS pct_of_total
+      <p class="section-desc" style="margin-top: 1rem;">Verified SQL executed against in-memory SQLite WASM sandbox:</p>
+      <pre><code>SELECT category, SUM(amount) AS total_spend
 FROM expenses
+WHERE expense_date LIKE '2026-07%'
 GROUP BY category
-ORDER BY total_spent DESC;
+ORDER BY total_spend DESC;</code></pre>
 
-Verified Results:
-| category | total_spent | pct_of_total |
-| Software | 350.00      | 56.3%        |
-| Supplies | 229.43      | 36.9%        |
-| Meals    | 42.10       | 6.8%         |</pre>
+      <div class="table-responsive" style="max-width: 500px;">
+        <table>
+          <thead>
+            <tr>
+              <th>category</th>
+              <th>total_spend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Packaging</td>
+              <td>$411.40</td>
+            </tr>
+            <tr>
+              <td>Infrastructure</td>
+              <td>$85.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- CTAs to try all 3 -->
-    <div style="text-align: center; margin-top: 3rem; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px;">
-      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Start Automating on Poe Today</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        All three bots are live, free to test, and require zero credit cards or backend infrastructure setup.
+    <!-- Limitations Callout -->
+    <div class="callout callout-warning">
+      <h3 style="font-size: 1rem; color: var(--af-text-primary); margin-bottom: 0.25rem;">Workflow Considerations &amp; Data Integrity</h3>
+      <p>
+        Connecting separate tools requires human review of extracted monetary figures. Ensure that currency symbols and decimal separators are recognized accurately before inserting into relational databases. This workflow is completely stateless; no document images or table rows are persisted on the host servers.
       </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button">OCR-Doc-Parser &nearr;</a>
-        <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #65A30D;">Regex-Gen-Tester &nearr;</a>
-        <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #0891B2;">English-To-SQL &nearr;</a>
-      </div>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-        <li><a href="/regex-tester/">Regex Tester</a></li>
-        <li><a href="/english-to-sql/">English to SQL</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

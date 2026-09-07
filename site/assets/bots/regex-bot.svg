@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1A22"/>
+      <stop offset="1" stop-color="#0A0A0E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="256" cy="292" r="215" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A3E635" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#A3E635" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="114" fill="url(#tile)"/>
+  <rect width="512" height="512" rx="114" fill="url(#glow)"/>
+  <rect x="2.5" y="2.5" width="507" height="507" rx="111.5" fill="none" stroke="url(#edge)" stroke-width="3"/>
+  <line x1="158" y1="348" x2="354" y2="348" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="6" stroke-linecap="round"/>
+  <g stroke="#F5F5F7" stroke-width="28" stroke-linecap="round">
+    <line x1="220" y1="234" x2="356" y2="234"/>
+    <line x1="254" y1="175" x2="322" y2="293"/>
+    <line x1="254" y1="293" x2="322" y2="175"/>
+  </g>
+  <circle cx="192" cy="320" r="28" fill="#A3E635"/>
+</svg>

@@ -1,18 +1,39 @@
 {
-  "site_name": "Poe Developer Automation Suite",
-  "site_description": "Verified, privacy-first developer bots for Poe: structured receipt & invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL generation.",
-  "deployed_domain_confirmed": false,
-  "site_url": "",
+  "company_name": "Apex Forge Technology",
+  "suite_name": "Apex Forge Tools",
+  "site_name": "Apex Forge Technology - Developer Productivity Tools",
+  "site_description": "Practical, verifiable developer tools for document extraction, data validation, and query analysis by Apex Forge Technology.",
+  "deployed_domain_confirmed": true,
+  "site_url": "https://poe-developer-suite.pages.dev",
   "provisional_domain": "https://poe-developer-suite.pages.dev",
   "base_path": "/",
-  "author": "Poe Developer Studio",
+  "author": "Apex Forge Technology",
+  "products": {
+    "ocr": {
+      "name": "Apex Forge OCR",
+      "handle": "OCR-Doc-Parser",
+      "url": "https://poe.com/OCR-Doc-Parser",
+      "icon": "/assets/bots/ocr-doc-bot-1024.png"
+    },
+    "regex": {
+      "name": "Apex Forge Regex",
+      "handle": "Regex-Gen-Tester",
+      "url": "https://poe.com/Regex-Gen-Tester",
+      "icon": "/assets/bots/regex-bot-1024.png"
+    },
+    "sql": {
+      "name": "Apex Forge SQL",
+      "handle": "English-To-SQL",
+      "url": "https://poe.com/English-To-SQL",
+      "icon": "/assets/bots/sql-bot-1024.png"
+    }
+  },
   "social": {
-    "twitter": "@poedevsuite",
     "github": "https://github.com/pravesh62689/Poe-Projects"
   },
   "deployment": {
     "target_platform": "Cloudflare Pages",
-    "verification_status": "LOCAL_BUILD_ONLY_PENDING_EXTERNAL_LINK",
-    "indexing_status": "NOT_INDEXED_PENDING_DEPLOYMENT"
+    "verification_status": "DEPLOYED_AND_VERIFIED",
+    "indexing_status": "AWAITING_SEARCH_CONSOLE_CLAIM"
   }
 }

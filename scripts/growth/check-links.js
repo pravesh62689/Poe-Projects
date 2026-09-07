@@ -64,7 +64,7 @@ export function checkLinks() {
         targetPath = path.join(siteDir, 'index.html');
       } else if (href.startsWith('/')) {
         const cleanHref = href.split('?')[0].split('#')[0];
-        if (cleanHref.endsWith('.css') || cleanHref.endsWith('.png') || cleanHref.endsWith('.xml') || cleanHref.endsWith('.txt')) {
+        if (cleanHref.endsWith('.css') || cleanHref.endsWith('.png') || cleanHref.endsWith('.svg') || cleanHref.endsWith('.xml') || cleanHref.endsWith('.txt') || cleanHref.endsWith('.json') || cleanHref.endsWith('.ico') || cleanHref.endsWith('.webp')) {
           targetPath = path.join(siteDir, cleanHref.slice(1));
         } else {
           // directory route e.g. /receipt-ocr/

@@ -3,159 +3,311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer & Data Automation Suite for Poe | Zero-Retention Utilities</title>
-  <meta name="description" content="Verified, privacy-first developer bots for Poe: structured receipt & invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL generation.">
+  <title>Apex Forge Tools | Document Extraction, Regex Testing &amp; SQL Analysis</title>
+  <meta name="description" content="Task-focused developer tools by Apex Forge Technology. Extract document fields with confidence flags, test regex against samples, and run SQL in an in-memory SQLite sandbox.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Developer & Data Automation Suite for Poe">
-  <meta property="og:description" content="Structured receipt OCR, regex testing with sample execution, and schema-verified English-to-SQL for Poe.">
+  <meta property="og:title" content="Apex Forge Tools | Document Extraction, Regex Testing &amp; SQL Analysis">
+  <meta property="og:description" content="Practical AI tools by Apex Forge Technology: structured receipt &amp; invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://poe-developer-suite.pages.dev/">
-  <meta property="og:image" content="https://poe-developer-suite.pages.dev/og-image.png">
+  <meta property="og:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Developer & Data Automation Suite for Poe">
-  <meta name="twitter:description" content="Structured receipt OCR, regex testing with sample execution, and schema-verified English-to-SQL for Poe.">
+  <meta name="twitter:title" content="Apex Forge Tools | Document Extraction, Regex Testing &amp; SQL Analysis">
+  <meta name="twitter:description" content="Practical AI tools by Apex Forge Technology: structured receipt &amp; invoice OCR, ReDoS-safe regex testing, and schema-verified English-to-SQL.">
+  <meta name="twitter:image" content="https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png">
   
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
   
-  <!-- Structured Data: WebSite & SoftwareApplication -->
+  <!-- Structured Data: Organization & WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Poe Developer Automation Suite",
-    "url": "https://poe-developer-suite.pages.dev/",
-    "description": "Zero-budget, privacy-first developer utilities hosted on Poe.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Poe Developer Studio",
-      "url": "https://poe-developer-suite.pages.dev"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://poe-developer-suite.pages.dev/#organization",
+        "name": "Apex Forge Technology",
+        "url": "https://poe-developer-suite.pages.dev/",
+        "logo": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-1024.png",
+        "sameAs": [
+          "https://github.com/pravesh62689/Poe-Projects"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://poe-developer-suite.pages.dev/#website",
+        "url": "https://poe-developer-suite.pages.dev/",
+        "name": "Apex Forge Tools",
+        "description": "Practical, verifiable developer tools for document extraction, data validation, and query analysis.",
+        "publisher": {
+          "@id": "https://poe-developer-suite.pages.dev/#organization"
+        }
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo" id="nav-brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/" id="nav-ocr">Receipt OCR</a></li>
-          <li><a href="/regex-tester/" id="nav-regex">Regex Tester</a></li>
-          <li><a href="/english-to-sql/" id="nav-sql">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/" id="nav-workflow">Workflows</a></li>
-          <li><a href="/guides/" id="nav-guides">Guides</a></li>
-          <li><a href="/benchmarks/" id="nav-benchmarks">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" id="nav-brand" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link" id="nav-ocr">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link" id="nav-regex">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link" id="nav-sql">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link" id="nav-workflow">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link" id="nav-guides">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link" id="nav-benchmarks">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link" id="nav-about">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" id="nav-cta-poe" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span>⚡</span>
+          <span>Task-Focused Engineering · Zero-Retention Architecture</span>
+        </div>
+        <h1 id="hero-title" class="hero-title">
+          Practical AI Tools for Document Extraction, Data Validation, and Analysis
+        </h1>
+        <p class="hero-sub">
+          Apex Forge Technology builds task-focused Poe tools that help you extract document fields, test regex patterns, and run SQL against your own sample schema.
+        </p>
+        <div class="hero-actions">
+          <a href="#tools" class="btn btn-primary btn-lg" id="cta-explore-tools">Explore the Tools</a>
+          <a href="/workflows/receipt-to-expense-analysis/" class="btn btn-secondary btn-lg" id="cta-view-workflow">See a Tested Workflow &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="section" id="tools" aria-labelledby="tools-title">
       <div class="container">
-        <span class="badge">Verified Quality & Zero-Retention Architecture</span>
-        <h1>Developer & Data Automation Suite for Poe</h1>
-        <p>Three specialized, transparent utilities built for developers, accountants, and analysts. Real OCR with confidence scoring, regex generation tested against samples, and natural-language SQL verified in an in-memory SQLite sandbox.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#bots" class="cta-button" id="cta-explore-bots">Explore Bots</a>
-          <a href="/workflows/receipt-to-expense-analysis/" class="card-link" style="padding: 0.85rem 1.5rem; border: 1px solid var(--border-subtle); border-radius: 8px;" id="cta-view-workflow">See Cross-Bot Workflow &rarr;</a>
+        <div class="section-header">
+          <p class="section-tag">Product Suite</p>
+          <h2 id="tools-title" class="section-title">Apex Forge Tools for Poe</h2>
+          <p class="section-desc">Each tool solves one concrete engineering task with verifiable outputs and explicit constraints.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Product 1: OCR -->
+          <article class="product-card" aria-labelledby="prod-ocr-title">
+            <div class="product-header">
+              <div class="product-icon-wrapper">
+                <img src="/assets/bots/ocr-doc-bot-1024.png" alt="Apex Forge OCR Icon" width="48" height="48" loading="lazy">
+              </div>
+              <div>
+                <h3 id="prod-ocr-title" class="product-name">Apex Forge OCR</h3>
+                <span class="product-handle">@OCR-Doc-Parser</span>
+              </div>
+            </div>
+            <p class="product-desc">
+              Extracts visible data from receipts, tax invoices, and bank statements into structured JSON with per-field confidence flags and arithmetic total reconciliation.
+            </p>
+            <div class="product-best-for">
+              <strong>Best for:</strong> Bookkeepers, developers, and freelancers digitizing paper expense bills and tax invoices.
+            </div>
+            <div class="product-actions">
+              <a href="/receipt-ocr/" class="btn btn-outline btn-sm">Documentation</a>
+              <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Bot &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Product 2: Regex -->
+          <article class="product-card" aria-labelledby="prod-regex-title">
+            <div class="product-header">
+              <div class="product-icon-wrapper">
+                <img src="/assets/bots/regex-bot-1024.png" alt="Apex Forge Regex Icon" width="48" height="48" loading="lazy">
+              </div>
+              <div>
+                <h3 id="prod-regex-title" class="product-name">Apex Forge Regex</h3>
+                <span class="product-handle">@Regex-Gen-Tester</span>
+              </div>
+            </div>
+            <p class="product-desc">
+              Generates regular expressions from plain English, runs them live against your test samples in an edge isolate, and flags common catastrophic backtracking (ReDoS) risks.
+            </p>
+            <div class="product-best-for">
+              <strong>Best for:</strong> Software engineers building input validation rules for emails, phone numbers, and codes.
+            </div>
+            <div class="product-actions">
+              <a href="/regex-tester/" class="btn btn-outline btn-sm">Documentation</a>
+              <a href="https://poe.com/Regex-Gen-Tester" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Bot &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Product 3: SQL -->
+          <article class="product-card" aria-labelledby="prod-sql-title">
+            <div class="product-header">
+              <div class="product-icon-wrapper">
+                <img src="/assets/bots/sql-bot-1024.png" alt="Apex Forge SQL Icon" width="48" height="48" loading="lazy">
+              </div>
+              <div>
+                <h3 id="prod-sql-title" class="product-name">Apex Forge SQL</h3>
+                <span class="product-handle">@English-To-SQL</span>
+              </div>
+            </div>
+            <p class="product-desc">
+              Turns schema plus natural language into SQL, executes it in a temporary in-memory SQLite sandbox, self-corrects syntax errors, and displays tabular result previews.
+            </p>
+            <div class="product-best-for">
+              <strong>Best for:</strong> Data analysts, junior developers, and bootcamp students verifying query logic before production.
+            </div>
+            <div class="product-actions">
+              <a href="/english-to-sql/" class="btn btn-outline btn-sm">Documentation</a>
+              <a href="https://poe.com/English-To-SQL" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Bot &rarr;</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="container" id="bots">
-      <div class="grid-3">
-        <!-- OCR Card -->
-        <div class="card">
-          <span style="color: var(--accent-ocr); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Document Intelligence</span>
-          <h2>Receipt & Invoice OCR</h2>
-          <p>Extract vendor names, invoice dates, line items, taxes, and totals from receipt and bill photos. Returns structured JSON with arithmetic reconciliation and field confidence warnings.</p>
-          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
-            <li>Pre-processing deskew & blur detection</li>
-            <li>Reconciles subtotal + tax = total</li>
-            <li>No document persistence in telemetry</li>
-          </ul>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/receipt-ocr/" class="card-link" id="link-ocr-tool">View Documentation &rarr;</a>
-            <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #6366F1;" id="link-ocr-poe">Open on Poe &nearr;</a>
+    <!-- Three-Step Workflow Section -->
+    <section class="section" style="background-color: var(--af-bg-surface);" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <p class="section-tag">End-to-End Workflow</p>
+          <h2 id="workflow-title" class="section-title">Extract, Validate, and Analyze</h2>
+          <p class="section-desc">Connect individual tools into a seamless document-to-insight pipeline without manual transcription.</p>
+        </div>
+
+        <div class="workflow-grid">
+          <div class="workflow-card">
+            <div class="workflow-step-num">STEP 01 · EXTRACT</div>
+            <h3>Photograph &amp; Parse Document</h3>
+            <p>Upload a receipt or invoice photo to <strong>Apex Forge OCR</strong>. The vision engine checks for blur, deskews tilted photos, extracts line items, and reconciles subtotals with tax.</p>
+          </div>
+          <div class="workflow-card">
+            <div class="workflow-step-num">STEP 02 · VALIDATE</div>
+            <h3>Verify Field Formats</h3>
+            <p>Validate extracted tax identifiers or phone numbers using <strong>Apex Forge Regex</strong>. Test your validation pattern against real samples with safe execution guarantees.</p>
+          </div>
+          <div class="workflow-card">
+            <div class="workflow-step-num">STEP 03 · ANALYZE</div>
+            <h3>Query Your Data in SQL</h3>
+            <p>Paste your expense table schema into <strong>Apex Forge SQL</strong>. Ask questions in natural English to aggregate monthly totals, compare vendors, and inspect result tables directly in chat.</p>
           </div>
         </div>
 
-        <!-- Regex Card -->
-        <div class="card">
-          <span style="color: var(--accent-regex); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Pattern Engineering</span>
-          <h2>Regex Gen & Tester</h2>
-          <p>Translate plain requirements into production regular expressions. Bot executes candidate regex against your provided test strings, highlights capture groups, and flags ReDoS vulnerabilities.</p>
-          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
-            <li>Evaluates on real positive/negative samples</li>
-            <li>Detects nested catastrophic quantifiers</li>
-            <li>Outputs capture groups in structured table</li>
-          </ul>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/regex-tester/" class="card-link" id="link-regex-tool">View Documentation &rarr;</a>
-            <a href="https://poe.com/Regex-Gen-Tester" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #A3E635;" id="link-regex-poe">Open on Poe &nearr;</a>
-          </div>
-        </div>
-
-        <!-- SQL Card -->
-        <div class="card">
-          <span style="color: var(--accent-sql); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Analytical SQL</span>
-          <h2>English-To-SQL Sandbox</h2>
-          <p>Convert business questions into verified SQL queries. Unlike generic LLMs that guess, this bot executes the SQL against an in-memory SQLite sandbox using your schema and returns verified row results.</p>
-          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; list-style-position: inside;">
-            <li>Eliminates guessed column syntax</li>
-            <li>Runs SQL in isolated WASM sandbox</li>
-            <li>Capped 50-row results with retry transparency</li>
-          </ul>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/english-to-sql/" class="card-link" id="link-sql-tool">View Documentation &rarr;</a>
-            <a href="https://poe.com/English-To-SQL" target="_blank" rel="noopener noreferrer" class="card-link" style="color: #22D3EE;" id="link-sql-poe">Open on Poe &nearr;</a>
-          </div>
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="/workflows/receipt-to-expense-analysis/" class="btn btn-secondary">Walk Through the Expense Analysis Guide &rarr;</a>
         </div>
       </div>
     </section>
 
-    <!-- Ethical Trust & Principles -->
-    <section class="container" style="margin-top: 3rem;">
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 2.5rem;">
-        <h2 style="font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 1rem;">Our Engineering Principles</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-          <div>
-            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">1. Honest Verification</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">We do not make unverified accuracy claims or promise infallible AI. OCR confidence scores flag uncertain characters, and SQL queries are verified only against the schema you supply.</p>
+    <!-- Evidence & Trust Section -->
+    <section class="section" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Proof Over Predictions</p>
+          <h2 id="trust-title" class="section-title">Engineered with Verification Safeguards</h2>
+          <p class="section-desc">Generic chatbots guess answers. Apex Forge Tools verify output through execution and explicit confidence scoring.</p>
+        </div>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <h4><span>🔍</span> Per-Field OCR Confidence Flags</h4>
+            <p>Every extracted vendor, date, and monetary amount includes confidence metrics. If lighting is uneven or numbers are ambiguous, the tool flags them for review rather than guessing.</p>
           </div>
-          <div>
-            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">2. Ephemeral Zero-Retention</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Documents, raw text, and analytical schemas exist strictly in-memory during request processing. No customer files or personal data are stored in persistent databases or analytics.</p>
+          <div class="proof-card">
+            <h4><span>⚖️</span> Arithmetic Tax Reconciliation</h4>
+            <p>The parser automatically calculates whether <code>subtotal + tax = grand total</code>. Invoices with calculation mismatches are flagged immediately to prevent accounting errors.</p>
           </div>
-          <div>
-            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">3. Modular Composable Workflows</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Extract receipt data into JSON with the OCR bot, validate tax ID formats with the Regex bot, and insert the rows into SQLite for monthly spending analysis with the SQL bot.</p>
+          <div class="proof-card">
+            <h4><span>⚡</span> Live Isolate Regex Execution</h4>
+            <p>Patterns are compiled and executed against your positive and negative samples inside a secure V8 isolate, displaying capture groups, microsecond timing, and ReDoS safety analysis.</p>
           </div>
+          <div class="proof-card">
+            <h4><span>📊</span> In-Memory SQLite Verification</h4>
+            <p>SQL queries are verified by seeding a temporary SQLite WebAssembly database with your schema, executing the query, and auto-correcting syntax errors before streaming results.</p>
+          </div>
+          <div class="proof-card">
+            <h4><span>🛡️</span> Destructive Statement Warnings</h4>
+            <p>Queries containing <code>DROP</code>, <code>DELETE</code>, or <code>UPDATE</code> statements without restrictive <code>WHERE</code> clauses trigger immediate safety warnings.</p>
+          </div>
+          <div class="proof-card">
+            <h4><span>🔒</span> Zero Data Retention</h4>
+            <p>Ephemeral processing architecture: user documents and database schemas exist strictly in temporary memory during the conversation turn and are never stored.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-warning">
+          <strong>Transparent Limitations:</strong>
+          These tools are developer and bookkeeping aids. OCR accuracy depends on image legibility, glare, and resolution; verify extracted totals before financial filing. English-to-SQL runs in an ephemeral SQLite sandbox; verify dialect differences before running on production PostgreSQL or MySQL databases.
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <ul class="footer-links">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/benchmarks/">Benchmarks</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/examples/">Examples</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-        <li><a href="/contact/">Contact & Issues</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite. Free, zero-budget, open-source utilities for Poe.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-link">
+            <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="32" height="32">
+            <div class="brand-text">
+              <span class="brand-title">APEX FORGE</span>
+              <span class="brand-subtitle">TECHNOLOGY</span>
+            </div>
+          </a>
+          <p>Practical AI tools for document extraction, data validation, and query analysis. Built for reliable, verifiable workflows.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <ul class="footer-links">
+            <li><a href="/receipt-ocr/">Apex Forge OCR</a></li>
+            <li><a href="/regex-tester/">Apex Forge Regex</a></li>
+            <li><a href="/english-to-sql/">Apex Forge SQL</a></li>
+            <li><a href="/workflows/receipt-to-expense-analysis/">Expense Workflow</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul class="footer-links">
+            <li><a href="/guides/">Technical Guides</a></li>
+            <li><a href="/benchmarks/">Empirical Benchmarks</a></li>
+            <li><a href="/examples/">Tested Examples</a></li>
+            <li><a href="/about/">About Apex Forge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal &amp; Trust</h5>
+          <ul class="footer-links">
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/contact/">Contact Engineering</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Apex Forge Technology. All rights reserved. Zero-recurring budget enterprise engineering.</p>
+        <p>Powered by Poe Protocol · Hosted on Cloudflare Pages</p>
+      </div>
     </div>
   </footer>
 </body>

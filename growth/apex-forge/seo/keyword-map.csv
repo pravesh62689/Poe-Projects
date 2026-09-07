@@ -1,0 +1,32 @@
+Keyword,Cluster,Search Intent,Primary URL,Target Audience,Difficulty Estimate,Business Value
+extract data from receipt image,OCR,Transactional,/receipt-ocr/,Accountants / Developers,Medium,High
+receipt OCR to JSON,OCR,Informational/Transactional,/receipt-ocr/,Engineers / Bookkeepers,Medium,High
+extract invoice fields from image,OCR,Transactional,/receipt-ocr/,Accounts Payable,Medium,High
+scan receipt total and tax,OCR,Informational,/receipt-ocr/,Expense Managers,Low,High
+receipt line item extraction,OCR,Transactional,/receipt-ocr/,Developers / Analysts,Medium,High
+invoice OCR example,OCR,Informational,/examples/,Technical Evaluators,Low,Medium
+document image data extraction,OCR,Informational,/receipt-ocr/,Operations Teams,Medium,Medium
+bank statement table extraction,OCR,Informational,/receipt-ocr/,Finance Operators,High,High
+blurry receipt OCR tips,OCR,Informational,/guides/how-to-photograph-receipts/,Mobile App Users / Employees,Low,Medium
+GST invoice field extraction,OCR,Transactional,/guides/tax-invoice-gstin-fields/,Indian SMBs / Tax Filers,Low,High
+receipt image to expense data,OCR,Transactional,/workflows/receipt-to-expense-analysis/,Operations / Finance,Medium,High
+regex generator with test cases,Regex,Transactional,/regex-tester/,Software Engineers,Medium,High
+regex tester with capture groups,Regex,Transactional,/regex-tester/,Web Developers,Medium,High
+test regex against examples,Regex,Informational,/regex-tester/,Devs / QA Engineers,Medium,High
+regex ReDoS checker,Regex,Informational,/regex-tester/,Security Engineers / Devs,Low,High
+email regex tester,Regex,Informational,/examples/,Frontend / Backend Devs,High,Medium
+Indian phone regex,Regex,Informational,/examples/,Indian Tech Devs,Low,Medium
+UUID regex tester,Regex,Informational,/examples/,API Developers,Low,Medium
+date regex examples,Regex,Informational,/examples/,Data Engineers,Medium,Medium
+URL regex tester,Regex,Informational,/examples/,Web Crawlers / Devs,Medium,Medium
+regex debugging guide,Regex,Informational,/regex-tester/,Junior Developers,Medium,Medium
+English to SQL with schema,SQL,Transactional,/english-to-sql/,Data Analysts / Product Managers,Medium,High
+generate SQL and test it,SQL,Transactional,/english-to-sql/,Engineers / Analysts,Medium,High
+SQL query generator with sample data,SQL,Transactional,/english-to-sql/,Database Learners,Medium,High
+SQL JOIN examples,SQL,Informational,/guides/sql-joins-with-sample-schema/,Data Analysts,High,Medium
+SQL aggregation examples,SQL,Informational,/guides/sql-joins-with-sample-schema/,Data Analysts,Medium,Medium
+SQLite query tester,SQL,Transactional,/english-to-sql/,Embedded / Python Devs,Low,High
+natural language to SQL workflow,SQL,Informational,/english-to-sql/,Enterprise Tech Leads,Medium,High
+debug SQL syntax error,SQL,Informational,/english-to-sql/,Software Engineers,High,Medium
+SQLite vs PostgreSQL syntax,SQL,Informational,/guides/sqlite-vs-postgres-syntax/,Backend Developers,Medium,Medium
+SQL schema examples,SQL,Informational,/examples/,Database Architects,Medium,Medium

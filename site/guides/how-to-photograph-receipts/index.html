@@ -3,86 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Photograph Receipts for Maximum OCR Accuracy | Poe Developer Suite</title>
+  <title>How to Photograph Receipts for Accurate OCR | Apex Forge Technology</title>
   <meta name="description" content="Master receipt photography for optical character recognition. Eliminate flash glare, correct camera angles, and prevent blurry rejections in financial OCR.">
   <link rel="canonical" href="https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/">
-  
-  <meta property="og:title" content="How to Photograph Receipts for Maximum OCR Accuracy">
-  <meta property="og:description" content="Master receipt photography for optical character recognition. Eliminate flash glare and prevent blurry rejections.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Photograph Receipts for Maximum OCR Accuracy">
-  <meta name="twitter:description" content="Master receipt photography for optical character recognition. Eliminate flash glare and prevent blurry rejections.">
-  
+  <link rel="icon" type="image/svg+xml" href="/assets/apex-forge/apex-forge-favicon.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="brand-logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Poe Dev Suite
-        </a>
-        <ul class="nav-links">
-          <li><a href="/receipt-ocr/">Receipt OCR</a></li>
-          <li><a href="/regex-tester/">Regex Tester</a></li>
-          <li><a href="/english-to-sql/">English to SQL</a></li>
-          <li><a href="/workflows/receipt-to-expense-analysis/">Workflows</a></li>
-          <li><a href="/guides/" style="color: #fff;">Guides</a></li>
-          <li><a href="/benchmarks/">Benchmarks</a></li>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-link" aria-label="Apex Forge Technology Home">
+        <img src="/assets/apex-forge/apex-forge-mark.svg" alt="Apex Forge Mark" class="brand-mark-img" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-title">APEX FORGE</span>
+          <span class="brand-subtitle">TECHNOLOGY</span>
+        </div>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/receipt-ocr/" class="nav-link">Apex Forge OCR</a></li>
+          <li><a href="/regex-tester/" class="nav-link">Apex Forge Regex</a></li>
+          <li><a href="/english-to-sql/" class="nav-link">Apex Forge SQL</a></li>
+          <li><a href="/workflows/receipt-to-expense-analysis/" class="nav-link">Workflows</a></li>
+          <li><a href="/guides/" class="nav-link active">Guides</a></li>
+          <li><a href="/benchmarks/" class="nav-link">Benchmarks</a></li>
+          <li><a href="/about/" class="nav-link">About</a></li>
         </ul>
       </nav>
+      <div class="nav-cta">
+        <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open on Poe</a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem; max-width: 800px;">
-    <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #A5B4FC; border-color: rgba(99, 102, 241, 0.3);">Photography & Pre-Processing</span>
-    <h1>How to Photograph Receipts for Maximum OCR Accuracy</h1>
-    <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 2rem;">
-      High-megapixel cameras often produce illegible OCR because of flashlight reflection and motion blur. Follow this 4-step protocol to ensure clean, single-turn extraction.
+  <main id="main-content" class="container section" style="max-width: 820px;">
+    <ul class="breadcrumbs" aria-label="Breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>&rsaquo;</li>
+      <li><a href="/guides/">Guides</a></li>
+      <li>&rsaquo;</li>
+      <li aria-current="page">How to Photograph Receipts</li>
+    </ul>
+
+    <div class="hero-badge">Photography &amp; Pre-Processing</div>
+    <h1 class="section-title">How to Photograph Receipts for Accurate OCR</h1>
+    <p class="section-desc" style="margin-bottom: 2rem;">
+      High-megapixel smartphone cameras often produce illegible OCR because of thermal paper glare, perspective skew, and motion blur. Follow this 4-step protocol to ensure clean, single-turn extraction.
     </p>
 
-    <section style="color: var(--text-secondary); line-height: 1.8; display: flex; flex-direction: column; gap: 1.5rem;">
-      <div>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">1. Use a Dark Contrast Surface</h2>
-        <p>Place white thermal receipts on a dark desk or tabletop. Boundary detection algorithms rely on edge contrast to deskew rotation angles and crop margins cleanly.</p>
-      </div>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <article class="workflow-card">
+        <h3>1. Disable Direct Camera Flash (Eliminate Thermal Glare)</h3>
+        <p style="margin-top: 0.5rem;">
+          Thermal receipts use heat-sensitive coating that turns reflective white under a direct LED flash, washing out the tax subtotal and grand total. Always use diffused, ambient overhead lighting or step away from direct point-source lights.
+        </p>
+      </article>
 
-      <div>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">2. Disable Camera Flash</h2>
-        <p>Thermal receipt paper is coated and semi-reflective. Direct smartphone flash creates whiteout glare that permanently destroys numbers. Use diffuse room lighting instead.</p>
-      </div>
+      <article class="workflow-card">
+        <h3>2. Align Parallel with the Surface (Keep Skew Under 15&deg;)</h3>
+        <p style="margin-top: 0.5rem;">
+          While <strong>Apex Forge OCR</strong> incorporates automated projection profile deskewing, extreme trapezoidal keystoning distorts character aspect ratios. Hold the camera parallel to the document so all four corners are visible in frame.
+        </p>
+      </article>
 
-      <div>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">3. Capture All Four Corners</h2>
-        <p>Ensure the store header at the top and the payment total at the bottom are both comfortably inside the camera frame. Leave approximately 0.5 inches of margin around all sides.</p>
-      </div>
+      <article class="workflow-card">
+        <h3>3. Flatten Folds and Creases</h3>
+        <p style="margin-top: 0.5rem;">
+          Creased receipts break vertical text baselines. Smooth the receipt onto a flat, dark, non-reflective surface to provide maximum edge contrast against the white paper perimeter.
+        </p>
+      </article>
 
-      <div>
-        <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem;">4. Hold Camera Parallel (Birds-Eye View)</h2>
-        <p>Shoot directly downwards from 12 inches away to eliminate 3D perspective distortion (keystoning).</p>
-      </div>
-    </section>
+      <article class="workflow-card">
+        <h3>4. Avoid Motion Blur (Laplacian Threshold)</h3>
+        <p style="margin-top: 0.5rem;">
+          Our pre-processing pipeline computes the variance of the Laplacian transform on every upload. If the variance drops below 100, the image is flagged as blurry to prevent inaccurate extraction. Allow your camera to focus before capturing.
+        </p>
+      </article>
+    </div>
 
-    <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; text-align: center;">
-      <h2 style="color: #fff; font-size: 1.35rem; margin-bottom: 0.75rem;">Test Your Receipt Image</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Upload your photographed receipt directly to OCR-Doc-Parser on Poe for automated parsing:</p>
-      <a href="https://poe.com/OCR-Doc-Parser" target="_blank" rel="noopener noreferrer" class="cta-button">Launch OCR-Doc-Parser on Poe &nearr;</a>
+    <div class="callout callout-info" style="margin-top: 2.5rem;">
+      <h4 style="margin-bottom: 0.5rem; color: var(--af-text-primary);">Test Your Document Now</h4>
+      <p style="margin-bottom: 1rem;">Have a photo ready? Upload it to <strong>Apex Forge OCR</strong> on Poe to test extraction and confidence scoring.</p>
+      <a href="https://poe.com/OCR-Doc-Parser" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open Apex Forge OCR &rarr;</a>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-      </ul>
-      <p>&copy; 2026 Poe Developer Automation Suite.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apex Forge Technology. All rights reserved.</p>
+      <p><a href="/privacy/" class="nav-link">Privacy</a> · <a href="/terms/" class="nav-link">Terms</a> · <a href="/contact/" class="nav-link">Contact</a></p>
     </div>
   </footer>
 </body>

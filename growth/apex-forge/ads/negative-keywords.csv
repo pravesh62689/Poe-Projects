@@ -1,0 +1,24 @@
+Negative Keyword,Match Type,Reason for Exclusion
+free download,Phrase,Not a downloadable desktop binary; hosted cloud utility
+crack,Phrase,Zero tolerance for piracy queries
+torrent,Phrase,Not a distributed media file
+null,Exact,Programming language null search
+job,Phrase,Employment and hiring intent, not tool buyer
+salary,Phrase,Employment intent
+internship,Phrase,Student seeking employment
+course,Phrase,Tutorial/course buyers, not software users
+certification,Phrase,Academic or career exam queries
+tutorial for beginners,Phrase,Informational query with near-zero conversion to bot usage
+homework,Phrase,Academic student query
+assignment help,Phrase,Academic assistance query
+what is sql,Phrase,Broad informational query with low transactional intent
+what is regex,Phrase,Broad informational query
+tesseract github,Phrase,Open source library search, not SaaS/bot user
+pytesseract,Phrase,Developer library search
+cheat sheet pdf,Phrase,Static asset seeker
+hardware scanner,Phrase,Physical equipment buyer, not cloud software
+epson scanner driver,Phrase,Hardware driver query
+hp printer driver,Phrase,Hardware driver query
+cheap,Phrase,Low-intent price shoppers
+fresher,Phrase,Career query
+resume,Phrase,Job application query
