@@ -1,0 +1,69 @@
+{
+  "case_id": "receipt_001_occlusion",
+  "latency_ms": 4392,
+  "blur_score": 2934.8015136058134,
+  "deskew_angle": -13.5,
+  "raw_ocr_text": "a =\n——— Ze ==\nLf i - ero Ee\naes = se 5 =\na= Sr —\n\"\n= o TT\n= <0 Artisan = =\n== Roast Cafe ZZ =)\ny Bt pe — =\n== ARTISAN ROAST CAFE rl 3\npri = = AST = sr A\nEse 128 Brew Street — 1\n= a ~ London, EC 248 — ==\n= DATE: 14-00-2024 =————\n5 EE TIME: 10:24 Sam ===\n== z RECEIPT: #ARTT39 == 2\nLs ; ——— = =\n= : 1x Caramel Macchiato $5.20 —— £3\n1x Avocado Toast $9.50 = - ——\n3 =\n= GBTOTAL + x of qua E— =\n= cost € 2.5% 0a] =\n= 56ST @ 2.5% $0.37 — =\n= TOTAL $15.44 —\ni — = —\n= paid by Visa ¥¥¥¥ 1984 =\nWEES — Te =\n: = - =\n2 = = — Ti ————\n— Er —— =r\n= £ EZ Fa = f= =\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "ARTISAN ROAST CAFE",
+      "confidence": "high",
+      "rawText": "== ARTISAN ROAST CAFE rl 3"
+    },
+    "date": {
+      "value": "14-00-2024",
+      "confidence": "high",
+      "rawText": "= DATE: 14-00-2024 =————"
+    },
+    "amount": {
+      "value": 15.44,
+      "confidence": "high",
+      "rawText": "= TOTAL $15.44 —"
+    },
+    "time": {
+      "value": "10:24",
+      "confidence": "high",
+      "rawText": "TIME: 10:24"
+    },
+    "address": {
+      "value": "128 Brew Street, London",
+      "confidence": "high",
+      "rawText": "128 Brew Street"
+    },
+    "subtotal": {
+      "value": 14.7,
+      "confidence": "high",
+      "rawText": "Calculated from itemized lines"
+    },
+    "tax": {
+      "value": 0.74,
+      "confidence": "high",
+      "rawText": "Calculated from total ($15.44) - subtotal ($14.70)"
+    },
+    "lineItems": [
+      {
+        "description": "1x Caramel Macchiato",
+        "quantity": 1,
+        "amount": 5.2
+      },
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "amount": 9.5
+      }
+    ],
+    "invoiceNumber": {
+      "value": "#AR7739",
+      "confidence": "high",
+      "rawText": "RECEIPT: #ARTT39"
+    },
+    "paymentMethod": {
+      "value": "VISA",
+      "confidence": "high",
+      "rawText": "paid by Visa"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

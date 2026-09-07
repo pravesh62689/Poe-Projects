@@ -1,0 +1,18 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "REE INCE SOAS",
+    "confidence": "high",
+    "rawText": "REE INCE SOAS"
+  },
+  "date": {
+    "value": "Unknown Date",
+    "confidence": "low",
+    "flagReason": "No valid date format found in text"
+  },
+  "amount": {
+    "value": 0,
+    "confidence": "low",
+    "flagReason": "No total or subtotal amount detected"
+  }
+}

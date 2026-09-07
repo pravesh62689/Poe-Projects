@@ -1,0 +1,50 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "ARTISAN ROAST CAFE",
+    "confidence": "high",
+    "rawText": "= ARTISAN ROAST CAFE - =="
+  },
+  "date": {
+    "value": "14-Oct-2024",
+    "confidence": "high",
+    "rawText": "= DATE: 14-0ct-2024 =—"
+  },
+  "amount": {
+    "value": 49.81,
+    "confidence": "high",
+    "rawText": "Calculated from subtotal + tax"
+  },
+  "time": {
+    "value": "10:24",
+    "confidence": "high",
+    "rawText": "TIME: 10:24"
+  },
+  "address": {
+    "value": "128 Brew Street, London",
+    "confidence": "high",
+    "rawText": "128 Brew Street"
+  },
+  "subtotal": {
+    "value": 49.5,
+    "confidence": "high",
+    "rawText": "Calculated from itemized lines"
+  },
+  "tax": {
+    "value": 0.31,
+    "confidence": "high",
+    "rawText": "Calculated from 1 tax line(s)"
+  },
+  "lineItems": [
+    {
+      "description": "Avocado Toast",
+      "quantity": 1,
+      "amount": 49.5
+    }
+  ],
+  "paymentMethod": {
+    "value": "VISA",
+    "confidence": "high",
+    "rawText": "paid by Visa"
+  }
+}

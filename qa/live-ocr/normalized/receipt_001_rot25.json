@@ -1,0 +1,18 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "SOREN WS",
+    "confidence": "high",
+    "rawText": "5 CXS “> 27. : SOREN WS"
+  },
+  "date": {
+    "value": "Unknown Date",
+    "confidence": "low",
+    "flagReason": "No valid date format found in text"
+  },
+  "amount": {
+    "value": 0,
+    "confidence": "low",
+    "flagReason": "No total or subtotal amount detected"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "img_base_004_bank_statement",
+  "source": "test-pack_bank_statement",
+  "license_or_consent": "synthetic account data",
+  "document_type": "statement",
+  "fields": {
+    "bank_name": {
+      "value": "HDFC BANK",
+      "normalized": "hdfc bank",
+      "required": true
+    },
+    "account_number": {
+      "value": "XXXXXX5678",
+      "normalized": "xxxxxx5678",
+      "required": false
+    },
+    "closing_balance": 45200.5
+  },
+  "visibility": {
+    "bank_name": "EXACT",
+    "closing_balance": "EXACT"
+  },
+  "expected_warnings": [],
+  "reviewers": [
+    "reviewer_lead_qa"
+  ],
+  "review_status": "approved",
+  "image_sha256": "c59a5f6cfdb87e5a995bb200f770e6b1d0cbefe1ef4b2205dc097444e3e83366"
+}

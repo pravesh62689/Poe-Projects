@@ -1,0 +1,9 @@
+{
+  "case_id": "receipt_001_original",
+  "timestamp_utc": "2026-09-07T03:48:33.800Z",
+  "image_filename": "receipt_001_original.jpg",
+  "image_size_bytes": 1072036,
+  "image_sha256": "054af495091097bf5489a81facd0b8fffa11919401a95dfe015fcaf58e0563dd",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

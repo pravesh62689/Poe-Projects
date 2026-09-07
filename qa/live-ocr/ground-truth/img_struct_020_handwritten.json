@@ -1,0 +1,21 @@
+{
+  "case_id": "img_struct_020_handwritten",
+  "source": "test-pack_handwritten_bill",
+  "license_or_consent": "authorized test image",
+  "document_type": "receipt",
+  "fields": {
+    "vendor": null,
+    "total": 450
+  },
+  "visibility": {
+    "total": "AMBIGUOUS"
+  },
+  "expected_warnings": [
+    "handwritten_warning"
+  ],
+  "reviewers": [
+    "reviewer_lead_qa"
+  ],
+  "review_status": "approved",
+  "image_sha256": "60d287141d6fd2002b13a750a3e2a9e227d55712c1be09fed04f464503107886"
+}

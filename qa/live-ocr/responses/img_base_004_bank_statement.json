@@ -1,0 +1,28 @@
+{
+  "case_id": "img_base_004_bank_statement",
+  "latency_ms": 1688,
+  "blur_score": 2448.699488635255,
+  "deskew_angle": 0,
+  "raw_ocr_text": "HT HDFC BANK A4 Bank Statement\nPeriod: 01-Sep-2024 to 30-Sep-2024\n\nWe understand your world\nCustomer Name Rajesh Kumar\nAddress 90 Easy Daly Road, 14th Street,\n\nRajesh Kumar, Manapar,\n\nKandlu Raro\nAccount Number XXXX-XXXX-1294\nIFSC HDFC0000123 I)\n\nWithdrawal ; Closing\n\nEa (INR) Deposit (ND palace (NR)\n10Sep2024 [Electric Bil Payment | 182000] | 182000]\n",
+  "parsed_result": {
+    "documentType": "statement",
+    "bankName": {
+      "value": "HDFC",
+      "confidence": "high",
+      "rawText": "HDFC"
+    },
+    "accountHolder": {
+      "value": "Rajesh Kumar",
+      "confidence": "high",
+      "rawText": "Customer Name Rajesh Kumar"
+    },
+    "period": {
+      "value": "01-Sep-2024 to 30-Sep-2024",
+      "confidence": "high",
+      "rawText": "Statement\nPeriod: 01-Sep-2024 to 30-Sep-2024"
+    },
+    "transactions": []
+  },
+  "failure_stage": null,
+  "error": null
+}

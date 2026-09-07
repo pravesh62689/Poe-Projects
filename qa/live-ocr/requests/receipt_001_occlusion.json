@@ -1,0 +1,9 @@
+{
+  "case_id": "receipt_001_occlusion",
+  "timestamp_utc": "2026-09-07T03:48:29.605Z",
+  "image_filename": "receipt_001_occlusion.jpg",
+  "image_size_bytes": 263199,
+  "image_sha256": "69d7ba4f749ed87337092c27c6cc08f434cedeebc51a336bb4c2b1df36a83902",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

@@ -1,0 +1,19 @@
+{
+  "documentType": "id",
+  "idType": "Unknown",
+  "idNumber": {
+    "value": "Unknown",
+    "confidence": "low",
+    "flagReason": "No matching government ID number format discovered"
+  },
+  "name": {
+    "value": "a EE",
+    "confidence": "high",
+    "rawText": "Name a EE "
+  },
+  "dateOfBirth": {
+    "value": "15/08/1998",
+    "confidence": "high",
+    "rawText": "15/08/1998"
+  }
+}

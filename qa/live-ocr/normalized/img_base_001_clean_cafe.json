@@ -1,0 +1,50 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "Kanda, Nair and Bhalla Mart",
+    "confidence": "high",
+    "rawText": "Kanda, Nair and Bhalla Mart"
+  },
+  "date": {
+    "value": "18/02/2025",
+    "confidence": "high",
+    "rawText": "Date: 18/02/2025"
+  },
+  "amount": {
+    "value": 1684.63,
+    "confidence": "high",
+    "rawText": "TOTAL: Rs 1684.63"
+  },
+  "subtotal": {
+    "value": 1684.63,
+    "confidence": "high",
+    "rawText": "Calculated from itemized lines"
+  },
+  "lineItems": [
+    {
+      "description": "Soap",
+      "quantity": 1,
+      "amount": 358.27
+    },
+    {
+      "description": "Samosa",
+      "quantity": 1,
+      "amount": 577.26
+    },
+    {
+      "description": "Cold Drink",
+      "quantity": 1,
+      "amount": 65.61
+    },
+    {
+      "description": "Detergent",
+      "quantity": 1,
+      "amount": 683.49
+    }
+  ],
+  "gstin": {
+    "value": "07GELKH2948R2ZU",
+    "confidence": "high",
+    "rawText": "07GELKH2948R2ZU"
+  }
+}

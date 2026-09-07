@@ -1,0 +1,30 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "RIN SOND",
+    "confidence": "high",
+    "rawText": "= RIN SOND ==="
+  },
+  "date": {
+    "value": "Unknown Date",
+    "confidence": "low",
+    "flagReason": "No valid date format found in text"
+  },
+  "amount": {
+    "value": 355.08,
+    "confidence": "high",
+    "rawText": "Calculated from subtotal + tax"
+  },
+  "subtotal": {
+    "value": 355.08,
+    "confidence": "high",
+    "rawText": "Calculated from itemized lines"
+  },
+  "lineItems": [
+    {
+      "description": "See Sug 2 5",
+      "quantity": 1,
+      "amount": 355.08
+    }
+  ]
+}

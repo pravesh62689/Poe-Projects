@@ -1,0 +1,10 @@
+{
+  "case_id": "receipt_001_blur",
+  "latency_ms": 35,
+  "blur_score": 7.493048777100587,
+  "deskew_angle": 0,
+  "raw_ocr_text": "",
+  "parsed_result": null,
+  "failure_stage": "blur_gate",
+  "error": "Image rejected: Laplacian blur variance below threshold"
+}

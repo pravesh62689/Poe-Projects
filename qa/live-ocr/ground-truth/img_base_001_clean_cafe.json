@@ -1,0 +1,44 @@
+{
+  "case_id": "img_base_001_clean_cafe",
+  "source": "test-pack_clean_receipt",
+  "license_or_consent": "authorized test image",
+  "document_type": "receipt",
+  "fields": {
+    "vendor": {
+      "value": "STARBUCKS COFFEE",
+      "normalized": "starbucks coffee",
+      "required": true
+    },
+    "address": {
+      "value": "123 Main Street",
+      "normalized": "123 main street",
+      "required": false
+    },
+    "date": {
+      "value": "12/05/2024",
+      "normalized": "2024-05-12",
+      "required": false
+    },
+    "time": null,
+    "receipt_number": null,
+    "line_items": [],
+    "subtotal": null,
+    "taxes": [],
+    "total": 520,
+    "currency": "INR",
+    "payment_method": null,
+    "payment_last4": null
+  },
+  "visibility": {
+    "vendor": "EXACT",
+    "total": "EXACT",
+    "date": "EXACT",
+    "currency": "EXACT"
+  },
+  "expected_warnings": [],
+  "reviewers": [
+    "reviewer_lead_qa"
+  ],
+  "review_status": "approved",
+  "image_sha256": "6af12e68d31782730049478658f6a0f111cad66a20f0f8826d2b2a7ec99d9164"
+}

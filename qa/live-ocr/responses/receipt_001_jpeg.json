@@ -1,0 +1,74 @@
+{
+  "case_id": "receipt_001_jpeg",
+  "latency_ms": 4264,
+  "blur_score": 2454.1236176749508,
+  "deskew_angle": -10.5,
+  "raw_ocr_text": "EE ==\ni =\nSe =| 55, eee\nX ¥ ge 1 Zz Ea = — = =\nSE Ee\nARE —————\nFix Be — =\na = = —\n—a—\nee —— = = i\nEe Artisan =\nST {J Jat a\nar ARTISAN ROAST CAFE pl or 3\npe 128 Brew Street ~~ i\n= a London, EC1 2AB ——\n2 DATE: 14-Oct-2024 ==\n= TIME: 10:24 AM a\n— RECEIPT: #ART739 =\ni 1x Caramel Macchiato $5.20 Bem Ls\n1x Avocado Toast $9.50 =\n== GBTOTAL 0 $4.10 ue —\nCGST @ 2.5% Cog Eee———\n— SGST @ 2.5% i $0.37 ————\n= = TOTAL RETR\nz= paid by Visa ¥exk 1984 _—\nwo a\n—\nar Sm ===\nac Ea — —F =x\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "1x Caramel Macchiato $5.20 Bem",
+      "confidence": "high",
+      "rawText": "i 1x Caramel Macchiato $5.20 Bem Ls"
+    },
+    "date": {
+      "value": "14-Oct-2024",
+      "confidence": "high",
+      "rawText": "2 DATE: 14-Oct-2024 =="
+    },
+    "amount": {
+      "value": 19.17,
+      "confidence": "high",
+      "rawText": "Calculated from subtotal + tax"
+    },
+    "time": {
+      "value": "10:24 AM",
+      "confidence": "high",
+      "rawText": "TIME: 10:24 AM"
+    },
+    "address": {
+      "value": "128 Brew Street, London",
+      "confidence": "high",
+      "rawText": "128 Brew Street"
+    },
+    "subtotal": {
+      "value": 18.8,
+      "confidence": "high",
+      "rawText": "Calculated from itemized lines"
+    },
+    "tax": {
+      "value": 0.37,
+      "confidence": "high",
+      "rawText": "Calculated from 1 tax line(s)"
+    },
+    "lineItems": [
+      {
+        "description": "i 1x Caramel Macchiato",
+        "quantity": 1,
+        "amount": 5.2
+      },
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "amount": 9.5
+      },
+      {
+        "description": "GBTOTAL 0",
+        "quantity": 1,
+        "amount": 4.1
+      }
+    ],
+    "invoiceNumber": {
+      "value": "#ART739",
+      "confidence": "high",
+      "rawText": "RECEIPT: #ART739"
+    },
+    "paymentMethod": {
+      "value": "VISA ending in 1984",
+      "confidence": "high",
+      "rawText": "paid by Visa ¥exk 1984"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

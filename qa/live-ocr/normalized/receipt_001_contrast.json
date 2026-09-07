@@ -1,0 +1,45 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "ARTISAN ROAST",
+    "confidence": "high",
+    "rawText": "eas ARTISAN ROAST care =f 2"
+  },
+  "date": {
+    "value": "14-Oct-2024",
+    "confidence": "high",
+    "rawText": "DATE: 14-0ct p00, EE ——="
+  },
+  "amount": {
+    "value": 5,
+    "confidence": "medium",
+    "rawText": "SUBTOTAL 5 $14.70 : —"
+  },
+  "time": {
+    "value": "10:24",
+    "confidence": "high",
+    "rawText": "TIME: 10:24"
+  },
+  "subtotal": {
+    "value": 14.7,
+    "confidence": "high",
+    "rawText": "SUBTOTAL 5 $14.70 : —"
+  },
+  "tax": {
+    "value": 0.37,
+    "confidence": "high",
+    "rawText": "Calculated from 1 tax line(s)"
+  },
+  "lineItems": [
+    {
+      "description": "Avocado Toast",
+      "quantity": 1,
+      "amount": 9.5
+    }
+  ],
+  "paymentMethod": {
+    "value": "VISA",
+    "confidence": "high",
+    "rawText": "Paid by Visa"
+  }
+}

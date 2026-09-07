@@ -1,0 +1,60 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "ARTISAN ROAST CAFE",
+    "confidence": "high",
+    "rawText": "== ARTISAN ROAST CAFE rl 3"
+  },
+  "date": {
+    "value": "14-00-2024",
+    "confidence": "high",
+    "rawText": "= DATE: 14-00-2024 =————"
+  },
+  "amount": {
+    "value": 15.44,
+    "confidence": "high",
+    "rawText": "= TOTAL $15.44 —"
+  },
+  "time": {
+    "value": "10:24",
+    "confidence": "high",
+    "rawText": "TIME: 10:24"
+  },
+  "address": {
+    "value": "128 Brew Street, London",
+    "confidence": "high",
+    "rawText": "128 Brew Street"
+  },
+  "subtotal": {
+    "value": 14.7,
+    "confidence": "high",
+    "rawText": "Calculated from itemized lines"
+  },
+  "tax": {
+    "value": 0.74,
+    "confidence": "high",
+    "rawText": "Calculated from total ($15.44) - subtotal ($14.70)"
+  },
+  "lineItems": [
+    {
+      "description": "1x Caramel Macchiato",
+      "quantity": 1,
+      "amount": 5.2
+    },
+    {
+      "description": "Avocado Toast",
+      "quantity": 1,
+      "amount": 9.5
+    }
+  ],
+  "invoiceNumber": {
+    "value": "#AR7739",
+    "confidence": "high",
+    "rawText": "RECEIPT: #ARTT39"
+  },
+  "paymentMethod": {
+    "value": "VISA",
+    "confidence": "high",
+    "rawText": "paid by Visa"
+  }
+}

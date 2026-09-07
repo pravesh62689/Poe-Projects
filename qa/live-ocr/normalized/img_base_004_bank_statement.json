@@ -1,0 +1,19 @@
+{
+  "documentType": "statement",
+  "bankName": {
+    "value": "HDFC",
+    "confidence": "high",
+    "rawText": "HDFC"
+  },
+  "accountHolder": {
+    "value": "Rajesh Kumar",
+    "confidence": "high",
+    "rawText": "Customer Name Rajesh Kumar"
+  },
+  "period": {
+    "value": "01-Sep-2024 to 30-Sep-2024",
+    "confidence": "high",
+    "rawText": "Statement\nPeriod: 01-Sep-2024 to 30-Sep-2024"
+  },
+  "transactions": []
+}

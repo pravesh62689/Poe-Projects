@@ -1,0 +1,9 @@
+{
+  "case_id": "img_base_001_clean_cafe",
+  "timestamp_utc": "2026-09-07T03:48:03.488Z",
+  "image_filename": "img_base_001_clean_cafe.png",
+  "image_size_bytes": 31907,
+  "image_sha256": "6af12e68d31782730049478658f6a0f111cad66a20f0f8826d2b2a7ec99d9164",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

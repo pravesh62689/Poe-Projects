@@ -1,0 +1,39 @@
+{
+  "case_id": "img_struct_020_handwritten",
+  "latency_ms": 3555,
+  "blur_score": 1775.3564542096208,
+  "deskew_angle": 23,
+  "raw_ocr_text": "s\n= & >\n4 N fe J\nd A\n— (53 / . N\np ¢\n\\ rey v .\n$\nrl ov\nhy LL ea RR 5 § end -\nCR)\n: a S44 - = \\ \\\nI “tp » AWN AN\nEen .. oR Aiy\n[-A3 FE = Ee Eri 0g Cw =\nf \\ A Len So ~~ [23 ~\\ C\n4 0c 24 Cc =e D\n/ <3 : 2) oly oN\n= See Sug 2 5 [355.08 ==\n= RIN SOND ===\noq Fae\nSa ag Ee —\nAe\nEy ea\nEN ==\n? ge « NG \\ 3 (¢) 2 )) Fim\nE ce ~ FE\n# ae za\nJ \"T1o/s4 Ze\n53 —\n=1 = aaa == —\nBe mn 2 Er =\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "RIN SOND",
+      "confidence": "high",
+      "rawText": "= RIN SOND ==="
+    },
+    "date": {
+      "value": "Unknown Date",
+      "confidence": "low",
+      "flagReason": "No valid date format found in text"
+    },
+    "amount": {
+      "value": 355.08,
+      "confidence": "high",
+      "rawText": "Calculated from subtotal + tax"
+    },
+    "subtotal": {
+      "value": 355.08,
+      "confidence": "high",
+      "rawText": "Calculated from itemized lines"
+    },
+    "lineItems": [
+      {
+        "description": "See Sug 2 5",
+        "quantity": 1,
+        "amount": 355.08
+      }
+    ]
+  },
+  "failure_stage": null,
+  "error": null
+}

@@ -1,0 +1,59 @@
+{
+  "case_id": "receipt_001_glare",
+  "latency_ms": 3966,
+  "blur_score": 2590.268061132825,
+  "deskew_angle": -11.5,
+  "raw_ocr_text": "_ = Pr\nem = Se\n= a =\n[] = a =\nSs Es == =—\nREIN ee = Ee\nTRIE a —\n= —\nee\n= =\n= 0, = _—\n= . = r=\nre <0 Artisan = == =\nSe Roast Cafe ==\"\nEo ec\n- Fa ns, HA =\nSe ARTISAN ROAST CAFE =\nEat 128 Brew Street © Ce\nSher —— London, EC1 2M8 — ==\n= = — = = Ee ==\n= DATE: 14-0ct-2024 =———\n== TIME: 10:24 AM [Ram = =\n= RECEIPT: #ARTI39 = —  —\n¥ ; 1x Caramel Macchiato $5.20 =———— 3\n1x Avocado Toast $9.50 =—— =\nBe as —\n2 = po $14.70 EB oe\ncesT @ 2.5% Ben. =\nQnpeT a ——\n=\n; 2 a nr\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "ARTISAN ROAST CAFE",
+      "confidence": "high",
+      "rawText": "Se ARTISAN ROAST CAFE ="
+    },
+    "date": {
+      "value": "14-Oct-2024",
+      "confidence": "high",
+      "rawText": "= DATE: 14-0ct-2024 =———"
+    },
+    "amount": {
+      "value": 14.7,
+      "confidence": "high",
+      "rawText": "Calculated from subtotal + tax"
+    },
+    "time": {
+      "value": "10:24 AM",
+      "confidence": "high",
+      "rawText": "TIME: 10:24 AM"
+    },
+    "address": {
+      "value": "128 Brew Street, London",
+      "confidence": "high",
+      "rawText": "128 Brew Street"
+    },
+    "subtotal": {
+      "value": 14.7,
+      "confidence": "high",
+      "rawText": "Calculated from itemized lines"
+    },
+    "lineItems": [
+      {
+        "description": "1x Caramel Macchiato",
+        "quantity": 1,
+        "amount": 5.2
+      },
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "amount": 9.5
+      }
+    ],
+    "invoiceNumber": {
+      "value": "#ARTI39",
+      "confidence": "high",
+      "rawText": "RECEIPT: #ARTI39"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

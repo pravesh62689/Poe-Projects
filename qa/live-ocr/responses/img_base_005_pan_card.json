@@ -1,0 +1,28 @@
+{
+  "case_id": "img_base_005_pan_card",
+  "latency_ms": 3634,
+  "blur_score": 1431.0173705782752,
+  "deskew_angle": 0,
+  "raw_ocr_text": "— - Ne\n- . —\nINCOME TAX DEPARTMENT ~~ & 0 GOVERNMENT OF INDIA ar —\nweft Aa Te HE  —.\nIam PERMANENT ACCOUNT NUMBER CARD [SESS —.\noh ABCDEIZME EES\nwr dar En /PAN a\nx a1 / Name a EE >\n: PRAVESHRATHORE 4\n= fare am / Father's Name - = fied gear\ney VIKRAM RATHORE aie | oD all -\n= pailstl © Birth fe/ Gender oer | Psa Rei =\n== - 15/08/1998 © M LL \"5 Authorized Signatory | JRE\noy g =, TA ET RR ee,\nSmall ees a Ee\nmT Te ds\n8 NE NN RE rn SSR ee ES = < i\n",
+  "parsed_result": {
+    "documentType": "id",
+    "idType": "Unknown",
+    "idNumber": {
+      "value": "Unknown",
+      "confidence": "low",
+      "flagReason": "No matching government ID number format discovered"
+    },
+    "name": {
+      "value": "a EE",
+      "confidence": "high",
+      "rawText": "Name a EE "
+    },
+    "dateOfBirth": {
+      "value": "15/08/1998",
+      "confidence": "high",
+      "rawText": "15/08/1998"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

@@ -1,0 +1,54 @@
+{
+  "case_id": "receipt_001_contrast",
+  "latency_ms": 2791,
+  "blur_score": 474.191853309029,
+  "deskew_angle": 0,
+  "raw_ocr_text": "| A tm EE == =r ——— = —\n\nv 5 a te see ET =\nhe ae\n\n) SS —. = =\n\na = Tea\n\n= itisan =\nRoast Cafe = ——\n\neas ARTISAN ROAST care =f 2\n: — 28 Brey Strecr iE = _——%\n: = London, gg; gp ==\n= — —\n\nDATE: 14-0ct p00, EE ——=\nTIME: 10:24 py ee\n\n- RECEIPT: “pp7739 = ——\n: IX Carpe] Macchiato gg 59 == = =\n1X Avocado Toast $9.50 ————\n\n—\n\nSUBTOTAL 5 $14.70 : —\n\nal 82.58 ny EE —\n\nSGST @ 2,55 $0.37 E oe =\n\nRL Be 4 =a\n\nPaid by Visa shes 1984 — =\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "ARTISAN ROAST",
+      "confidence": "high",
+      "rawText": "eas ARTISAN ROAST care =f 2"
+    },
+    "date": {
+      "value": "14-Oct-2024",
+      "confidence": "high",
+      "rawText": "DATE: 14-0ct p00, EE ——="
+    },
+    "amount": {
+      "value": 5,
+      "confidence": "medium",
+      "rawText": "SUBTOTAL 5 $14.70 : —"
+    },
+    "time": {
+      "value": "10:24",
+      "confidence": "high",
+      "rawText": "TIME: 10:24"
+    },
+    "subtotal": {
+      "value": 14.7,
+      "confidence": "high",
+      "rawText": "SUBTOTAL 5 $14.70 : —"
+    },
+    "tax": {
+      "value": 0.37,
+      "confidence": "high",
+      "rawText": "Calculated from 1 tax line(s)"
+    },
+    "lineItems": [
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "amount": 9.5
+      }
+    ],
+    "paymentMethod": {
+      "value": "VISA",
+      "confidence": "high",
+      "rawText": "Paid by Visa"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

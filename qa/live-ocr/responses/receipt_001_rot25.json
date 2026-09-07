@@ -1,0 +1,27 @@
+{
+  "case_id": "receipt_001_rot25",
+  "latency_ms": 2646,
+  "blur_score": 1167.3959459520825,
+  "deskew_angle": 18,
+  "raw_ocr_text": "% Oz UREN\n2 y EAN\nal abr DANN\n5 CXS “> 27. : SOREN WS\n5%, ES Bl % ORR\na i, BBY aH ARN\n2, % 2% % RRR\n587 % % 3 ND REAR\n( X 2%, PAREN\nBE 4 7% Fu, ; aa\noll iy AE NER\nbr ce fo NOR ig\n2\nAAS NL\n: OREN\n% x\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "SOREN WS",
+      "confidence": "high",
+      "rawText": "5 CXS “> 27. : SOREN WS"
+    },
+    "date": {
+      "value": "Unknown Date",
+      "confidence": "low",
+      "flagReason": "No valid date format found in text"
+    },
+    "amount": {
+      "value": 0,
+      "confidence": "low",
+      "flagReason": "No total or subtotal amount detected"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

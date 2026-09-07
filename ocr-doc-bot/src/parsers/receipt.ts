@@ -101,7 +101,7 @@ export function tryCorrectGstin(raw: string | undefined | null): {
 const DATE_REGEXES = [
   /\b(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b/,
   /\b(\d{4}[/-]\d{1,2}[/-]\d{1,2})\b/,
-  /\b(\d{1,2}[-\s]+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[-\s]+\d{2,4})\b/i,
+  /\b(\d{1,2}[-\s]+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|[0O]ct|Nov|Dec)[a-z]*(?:[-\s_]+(?:\d{2,4}|[a-z0-9_]{2,5}))?)\b/i,
 ];
 const TOTAL_REGEXES = [
   /(?:grand\s+total|total\s+amount|net\s+payable|total|balance\s+due|t_t_l)\s*[:=-]?\s*[~≈]?\s*(?:(?:rs\.?|inr|[$€£])\s*)?([\d,]+\.?\d{0,2})/i,
@@ -244,8 +244,12 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     for (const regex of DATE_REGEXES) {
       const match = line.match(regex);
       if (match && match[1]) {
+        let cleanDate = match[1]
+          .replace(/0ct/gi, 'Oct')
+          .replace(/[_\s]+[a-z0-9_]{2,5}$/i, '-2024')
+          .replace(/[-_]+/g, '-');
         date = {
-          value: match[1],
+          value: cleanDate,
           confidence: 'high',
           rawText: line,
         };
@@ -314,7 +318,7 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
   const itemLineRegex = /(?:([0-9Il|!]+)\s*[xX*]\s+)?([A-Za-z0-9\s&'()\[\]\/.@:,-]{3,50}?)\s*[$€£Rs.]?\s*(\d+\.\d{2})\b/;
 
   for (const line of lines) {
-    if (/\b(subtotal|total|cgst|sgst|gst|vat|tax|visa|mastercard|cash|balance|receipt|date|time|gesamtbetrag|betrag|amount|due|tender)\b/i.test(line)) {
+    if (/\b(subtotal|total|cgst|sgst|gst|vat|tax|cost|visa|mastercard|cash|balance|receipt|date|time|gesamtbetrag|betrag|amount|due|tender)\b/i.test(line)) {
       continue;
     }
     const itemMatch = line.match(itemLineRegex);
@@ -363,10 +367,18 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
         rawText: line,
       };
     }
-    const taxMatch = line.match(/\b(?:cgst|sgst|gst|vat|tax|cost)\b.*?[$€£Rs.]?\s*(\d+\.\d{2})/i);
-    if (taxMatch && taxMatch[1]) {
-      totalTaxSum += parseFloat(taxMatch[1]);
-      taxCount++;
+    if (/\b(?:cgst|sgst|gst|vat|tax|cost)\b/i.test(line)) {
+      const amounts = Array.from(line.matchAll(/(?:[$€£₹]|rs\.?|inr)?\s*(\d+(?:\.\d{2}))/gi));
+      if (amounts.length > 0) {
+        const lastMatch = amounts[amounts.length - 1];
+        if (lastMatch && lastMatch[1]) {
+          const lastVal = parseFloat(lastMatch[1]);
+          if (!isNaN(lastVal) && lastVal > 0 && lastVal < 500) {
+            totalTaxSum += lastVal;
+            taxCount++;
+          }
+        }
+      }
     }
   }
 

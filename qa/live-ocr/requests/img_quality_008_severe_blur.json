@@ -1,0 +1,9 @@
+{
+  "case_id": "img_quality_008_severe_blur",
+  "timestamp_utc": "2026-09-07T03:48:08.855Z",
+  "image_filename": "img_quality_008_severe_blur.png",
+  "image_size_bytes": 51909,
+  "image_sha256": "79422a87a5c1cdd464faf58971bbbe74d32ff3f541c88505bf92452dd6a70341",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

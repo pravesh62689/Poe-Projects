@@ -1,0 +1,9 @@
+{
+  "case_id": "img_struct_020_handwritten",
+  "timestamp_utc": "2026-09-07T03:48:12.414Z",
+  "image_filename": "img_struct_020_handwritten.jpg",
+  "image_size_bytes": 888960,
+  "image_sha256": "60d287141d6fd2002b13a750a3e2a9e227d55712c1be09fed04f464503107886",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

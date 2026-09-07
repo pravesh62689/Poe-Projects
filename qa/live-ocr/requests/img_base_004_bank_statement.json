@@ -1,0 +1,9 @@
+{
+  "case_id": "img_base_004_bank_statement",
+  "timestamp_utc": "2026-09-07T03:48:05.196Z",
+  "image_filename": "img_base_004_bank_statement.jpg",
+  "image_size_bytes": 766060,
+  "image_sha256": "c59a5f6cfdb87e5a995bb200f770e6b1d0cbefe1ef4b2205dc097444e3e83366",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

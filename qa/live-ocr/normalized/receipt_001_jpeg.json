@@ -1,0 +1,65 @@
+{
+  "documentType": "receipt",
+  "vendor": {
+    "value": "1x Caramel Macchiato $5.20 Bem",
+    "confidence": "high",
+    "rawText": "i 1x Caramel Macchiato $5.20 Bem Ls"
+  },
+  "date": {
+    "value": "14-Oct-2024",
+    "confidence": "high",
+    "rawText": "2 DATE: 14-Oct-2024 =="
+  },
+  "amount": {
+    "value": 19.17,
+    "confidence": "high",
+    "rawText": "Calculated from subtotal + tax"
+  },
+  "time": {
+    "value": "10:24 AM",
+    "confidence": "high",
+    "rawText": "TIME: 10:24 AM"
+  },
+  "address": {
+    "value": "128 Brew Street, London",
+    "confidence": "high",
+    "rawText": "128 Brew Street"
+  },
+  "subtotal": {
+    "value": 18.8,
+    "confidence": "high",
+    "rawText": "Calculated from itemized lines"
+  },
+  "tax": {
+    "value": 0.37,
+    "confidence": "high",
+    "rawText": "Calculated from 1 tax line(s)"
+  },
+  "lineItems": [
+    {
+      "description": "i 1x Caramel Macchiato",
+      "quantity": 1,
+      "amount": 5.2
+    },
+    {
+      "description": "Avocado Toast",
+      "quantity": 1,
+      "amount": 9.5
+    },
+    {
+      "description": "GBTOTAL 0",
+      "quantity": 1,
+      "amount": 4.1
+    }
+  ],
+  "invoiceNumber": {
+    "value": "#ART739",
+    "confidence": "high",
+    "rawText": "RECEIPT: #ART739"
+  },
+  "paymentMethod": {
+    "value": "VISA ending in 1984",
+    "confidence": "high",
+    "rawText": "paid by Visa ¥exk 1984"
+  }
+}

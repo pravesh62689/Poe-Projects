@@ -1,0 +1,9 @@
+{
+  "case_id": "img_base_005_pan_card",
+  "timestamp_utc": "2026-09-07T03:48:08.837Z",
+  "image_filename": "img_base_005_pan_card.jpg",
+  "image_size_bytes": 909987,
+  "image_sha256": "9fbc88b98768b0b9e5f46f02e846880beef96981db7ae414583565daf051c206",
+  "protocol": "Poe QueryRequest Attachment",
+  "endpoint": "https://poe-ocr-doc-bot.onrender.com (simulated local execution harness)"
+}

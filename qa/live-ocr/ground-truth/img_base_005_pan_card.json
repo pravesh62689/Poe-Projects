@@ -1,0 +1,30 @@
+{
+  "case_id": "img_base_005_pan_card",
+  "source": "test-pack_pan_card",
+  "license_or_consent": "synthetic kyc sample",
+  "document_type": "id",
+  "fields": {
+    "id_type": "PAN",
+    "id_number": {
+      "value": "ABCDE1234F",
+      "normalized": "abcde1234f",
+      "required": true
+    },
+    "name": {
+      "value": "VIKRAM SHARMA",
+      "normalized": "vikram sharma",
+      "required": true
+    }
+  },
+  "visibility": {
+    "id_type": "EXACT",
+    "id_number": "EXACT",
+    "name": "EXACT"
+  },
+  "expected_warnings": [],
+  "reviewers": [
+    "reviewer_lead_qa"
+  ],
+  "review_status": "approved",
+  "image_sha256": "9fbc88b98768b0b9e5f46f02e846880beef96981db7ae414583565daf051c206"
+}

@@ -1,0 +1,17 @@
+case_id,document_type,condition,latency_ms,matches,total_fields,accuracy_pct,status
+img_base_001_clean_cafe,receipt,"clean_original",1139,4,8,50,DEGRADED
+img_base_004_bank_statement,statement,"clean_original",1688,0,0,0,FAIL
+img_base_005_pan_card,id,"clean_original",3634,0,0,0,FAIL
+img_quality_008_severe_blur,receipt,"clean_original",14,3,3,100,PASS
+img_struct_020_handwritten,receipt,"clean_original",3555,1,2,50,DEGRADED
+receipt_001_blur,receipt,"Moderate Gaussian blur (Laplacian variance test)",35,5,8,63,DEGRADED
+receipt_001_contrast,receipt,"Low contrast thermal fade",2791,6,8,75,DEGRADED
+receipt_001_crop,receipt,"Cropped bottom section (total missing)",1700,6,8,75,DEGRADED
+receipt_001_glare,receipt,"Flash glare across total section",3966,5,8,63,DEGRADED
+receipt_001_jpeg,receipt,"Heavy JPEG compression (quality=12)",4264,3,8,38,FAIL
+receipt_001_occlusion,receipt,"Partial occlusion across vendor header",4392,6,8,75,DEGRADED
+receipt_001_original,receipt,"clean_original",4188,8,8,100,PASS
+receipt_001_perspective,receipt,"Perspective skew simulation (affine scaling)",3594,5,8,63,DEGRADED
+receipt_001_rot25,receipt,"25-degree rotation (extreme)",2646,3,8,38,FAIL
+receipt_001_rot5,receipt,"5-degree clockwise rotation",3726,3,8,38,FAIL
+receipt_001_shadow,receipt,"Diagonal shadow across line items",1765,5,8,63,DEGRADED

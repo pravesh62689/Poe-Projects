@@ -1,0 +1,10 @@
+{
+  "case_id": "img_quality_008_severe_blur",
+  "latency_ms": 14,
+  "blur_score": 3.8583803822547544,
+  "deskew_angle": 0,
+  "raw_ocr_text": "",
+  "parsed_result": null,
+  "failure_stage": "blur_gate",
+  "error": "Image rejected: Laplacian blur variance below threshold"
+}

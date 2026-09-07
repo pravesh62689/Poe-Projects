@@ -1,0 +1,104 @@
+{
+  "case_id": "receipt_001_contrast",
+  "source": "variant_transformation",
+  "license_or_consent": "authorized test image",
+  "image_sha256": "573a9ec016f8cf9fe5d7e19d6893b4cbee5fd48de86708ceac58a2a2303ab982",
+  "document_type": "receipt",
+  "fields": {
+    "vendor": {
+      "value": "ARTISAN ROAST CAFE",
+      "normalized": "artisan roast cafe",
+      "required": true
+    },
+    "address": {
+      "value": "128 Brew Street, London, EC1 2AB",
+      "normalized": "128 brew street, london, ec1 2ab",
+      "required": false
+    },
+    "date": {
+      "value": "14-Oct-2024",
+      "normalized": "2024-10-14",
+      "required": false
+    },
+    "time": {
+      "value": "10:24 AM",
+      "normalized": "10:24",
+      "required": false
+    },
+    "receipt_number": {
+      "value": "#AR7739",
+      "normalized": "AR7739",
+      "required": false
+    },
+    "line_items": [
+      {
+        "description": "Caramel Macchiato",
+        "quantity": 1,
+        "unit_price": 5.2,
+        "line_total": 5.2
+      },
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "unit_price": 9.5,
+        "line_total": 9.5
+      }
+    ],
+    "subtotal": 14.7,
+    "taxes": [
+      {
+        "type": "CGST",
+        "rate_percent": 2.5,
+        "amount": 0.37
+      },
+      {
+        "type": "SGST",
+        "rate_percent": 2.5,
+        "amount": 0.37
+      }
+    ],
+    "total": 15.44,
+    "currency": "GBP",
+    "payment_method": "Visa",
+    "payment_last4": "1984"
+  },
+  "visibility": {
+    "vendor": "EXACT",
+    "address": "EXACT",
+    "date": "EXACT",
+    "time": "EXACT",
+    "receipt_number": "AMBIGUOUS",
+    "line_items": "EXACT",
+    "subtotal": "AMBIGUOUS",
+    "taxes": "EXACT",
+    "total": "EXACT",
+    "currency": "AMBIGUOUS",
+    "payment_method": "EXACT",
+    "payment_last4": "EXACT"
+  },
+  "ambiguities": [
+    {
+      "field": "currency",
+      "reason": "Address shows London (EC1 2AB) implying GBP, but symbol printed on ticket is '$'. Marked AMBIGUOUS."
+    },
+    {
+      "field": "taxes",
+      "reason": "Tax labels show CGST/SGST (Indian tax nomenclature) printed alongside a UK address and dollar symbols."
+    }
+  ],
+  "arithmetic_checks": {
+    "subtotal_matches_items": true,
+    "computed_subtotal": 14.7,
+    "total_matches_tax_addition": true,
+    "computed_total": 15.44
+  },
+  "expected_warnings": [
+    "faded_thermal"
+  ],
+  "reviewers": [
+    "reviewer_lead_qa",
+    "reviewer_senior_ocr"
+  ],
+  "review_status": "approved",
+  "transformation": "Low contrast thermal fade"
+}

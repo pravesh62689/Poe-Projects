@@ -1,0 +1,37 @@
+{
+  "case_id": "receipt_001_shadow",
+  "latency_ms": 1765,
+  "blur_score": 2393.9341662622833,
+  "deskew_angle": -11.5,
+  "raw_ocr_text": "=e — —\n) = ——\n=<\n<0 Artisan = =\nRoast Cafe = == :\nARTISAN ROAST CAFE =A\n: 128 Brew Street ae —\nLondon, EC1 288 —=———\nSUBTOTAL :\nCGST @ 2.5% dsl\nSST @ 2.5% $0.37 :\nTOTAL $15.44 —\npaid by Visa sxkx 1984\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "ARTISAN ROAST CAFE",
+      "confidence": "high",
+      "rawText": "ARTISAN ROAST CAFE =A"
+    },
+    "date": {
+      "value": "Unknown Date",
+      "confidence": "low",
+      "flagReason": "No valid date format found in text"
+    },
+    "amount": {
+      "value": 15.44,
+      "confidence": "high",
+      "rawText": "TOTAL $15.44 —"
+    },
+    "address": {
+      "value": "128 Brew Street, London",
+      "confidence": "high",
+      "rawText": "128 Brew Street"
+    },
+    "paymentMethod": {
+      "value": "VISA ending in 1984",
+      "confidence": "high",
+      "rawText": "paid by Visa sxkx 1984"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

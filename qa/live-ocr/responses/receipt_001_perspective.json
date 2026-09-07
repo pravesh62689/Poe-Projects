@@ -1,0 +1,59 @@
+{
+  "case_id": "receipt_001_perspective",
+  "latency_ms": 3594,
+  "blur_score": 2482.4234575845676,
+  "deskew_angle": -13.5,
+  "raw_ocr_text": "| NC Xa i Ne\n| ea SE =\npa = = Ee\naaa — = = Eos\n=r = — EE ee\n= =\n= [ : ==\n= <0 Artisan =)\n== : Roast Cafe =\na\n= ARTISAN ROAST CAFE - ==\n= == 128 Brew Street a. T=\n= = ~ London, EC 248 — ——\n= DATE: 14-0ct-2024 =—\n: TIME: 10:24 A fe = —\nRECEIPT: HARTTS® ey =\n: 1x Caranel yacchiato 20 ————\n1x Avocado Toast 49.50 § = —— =\nqBToTL qu —\ncost @ 2.5% © $0.31 ==\n363T @ 2.5% ; $0.37 = —\n; TOTAL RET =\n3 paid by Visa 1984 RE\n5 + ae)\n= Sor\n- EL ==\"\n2 ee =\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "ARTISAN ROAST CAFE",
+      "confidence": "high",
+      "rawText": "= ARTISAN ROAST CAFE - =="
+    },
+    "date": {
+      "value": "14-Oct-2024",
+      "confidence": "high",
+      "rawText": "= DATE: 14-0ct-2024 =—"
+    },
+    "amount": {
+      "value": 49.81,
+      "confidence": "high",
+      "rawText": "Calculated from subtotal + tax"
+    },
+    "time": {
+      "value": "10:24",
+      "confidence": "high",
+      "rawText": "TIME: 10:24"
+    },
+    "address": {
+      "value": "128 Brew Street, London",
+      "confidence": "high",
+      "rawText": "128 Brew Street"
+    },
+    "subtotal": {
+      "value": 49.5,
+      "confidence": "high",
+      "rawText": "Calculated from itemized lines"
+    },
+    "tax": {
+      "value": 0.31,
+      "confidence": "high",
+      "rawText": "Calculated from 1 tax line(s)"
+    },
+    "lineItems": [
+      {
+        "description": "Avocado Toast",
+        "quantity": 1,
+        "amount": 49.5
+      }
+    ],
+    "paymentMethod": {
+      "value": "VISA",
+      "confidence": "high",
+      "rawText": "paid by Visa"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

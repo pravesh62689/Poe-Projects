@@ -1,0 +1,27 @@
+{
+  "case_id": "receipt_001_rot5",
+  "latency_ms": 3726,
+  "blur_score": 1491.1395591740043,
+  "deskew_angle": 23,
+  "raw_ocr_text": "AE N i\nSEN RR\nREN Sh\nLo Ga = Be N\n= ON NLR SSS :\noe NS TREN -\n= . SS SS TEA NR\nSN SNS oa\n&% \\ ; EN\nS pS NES SS\nNAN - SRN\nay, RC 4 SONS\n2. KOCH: &, SS\nGg, 0 or AQ aE\nREE INCE SOAS\nZr “Egy ny SN\ner 8 SS\nTg 4 ES\n25:8 s NN\nae, ry\n2; @ 7d SA 9 0 NANOS }\nbers 2% EE SN Ne\n7s yy NB\nBRE Nw\n3 %e %, 7s A 4 aaa \\ NN\n_ NS\n) \\ SNS NN\nSRN\nNN RY RR NS\n“= ha =\nESN S a eS\n",
+  "parsed_result": {
+    "documentType": "receipt",
+    "vendor": {
+      "value": "REE INCE SOAS",
+      "confidence": "high",
+      "rawText": "REE INCE SOAS"
+    },
+    "date": {
+      "value": "Unknown Date",
+      "confidence": "low",
+      "flagReason": "No valid date format found in text"
+    },
+    "amount": {
+      "value": 0,
+      "confidence": "low",
+      "flagReason": "No total or subtotal amount detected"
+    }
+  },
+  "failure_stage": null,
+  "error": null
+}

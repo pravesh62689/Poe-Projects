@@ -1,0 +1,24 @@
+{
+  "case_id": "img_quality_008_severe_blur",
+  "source": "test-pack_severe_blur",
+  "license_or_consent": "authorized test image",
+  "document_type": "receipt",
+  "fields": {
+    "vendor": null,
+    "total": null,
+    "date": null
+  },
+  "visibility": {
+    "vendor": "NOT_VISIBLE",
+    "total": "NOT_VISIBLE",
+    "date": "NOT_VISIBLE"
+  },
+  "expected_warnings": [
+    "image_blur"
+  ],
+  "reviewers": [
+    "reviewer_lead_qa"
+  ],
+  "review_status": "approved",
+  "image_sha256": "79422a87a5c1cdd464faf58971bbbe74d32ff3f541c88505bf92452dd6a70341"
+}
