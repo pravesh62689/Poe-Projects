@@ -1,7 +1,5 @@
-/**
- * Constant-time comparison between two strings to prevent timing attacks.
- * Pure JavaScript implementation that works in any runtime (Node.js, Workers, Deno).
- */
+// SECURITY: Constant-time comparison between two strings to prevent timing attacks.
+// We avoid early returns on character mismatch so comparison time remains strictly constant regardless of input length.
 export function timingSafeEqual(a: string, b: string): boolean {
   if (typeof a !== 'string' || typeof b !== 'string') {
     return false;
@@ -20,34 +18,20 @@ export function timingSafeEqual(a: string, b: string): boolean {
   return mismatch === 0;
 }
 
-/**
- * Extracts Bearer token from an Authorization header value.
- */
 export function extractBearerToken(authHeader: string | undefined | null): string | null {
-  if (!authHeader) {
-    return null;
-  }
+  if (!authHeader) return null;
   const parts = authHeader.trim().split(/\s+/);
-  if (parts.length === 2 && parts[0]?.toLowerCase() === 'bearer') {
-    return parts[1] ?? null;
-  }
-  return null;
+  return parts.length === 2 && parts[0]?.toLowerCase() === 'bearer' ? (parts[1] ?? null) : null;
 }
 
-/**
- * Validates the Authorization header against the expected access key.
- */
 export function validateBearerToken(
   authHeader: string | undefined | null,
   expectedKey: string,
 ): boolean {
-  if (!expectedKey || !authHeader) {
-    return false;
-  }
+  if (!expectedKey || !authHeader) return false;
   const token = extractBearerToken(authHeader);
-  if (!token) {
-    return false;
-  }
+  if (!token) return false;
+  // SECURITY: Ensure timing-safe equality check is used against the expected access key
   return timingSafeEqual(token, expectedKey);
 }
 
@@ -57,9 +41,6 @@ export interface AuthResult {
   message?: string;
 }
 
-/**
- * Evaluates authorization header and returns a standardized status and message.
- */
 export function evaluateAuthorization(
   authHeader: string | undefined | null,
   expectedKey: string,

@@ -1,52 +1,40 @@
 import {
   EventType,
-  TextEventPayload,
-  ReplaceResponseEventPayload,
-  SuggestedReplyEventPayload,
-  ErrorEventPayload,
   MetaEventPayload,
 } from './types.js';
 
-/**
- * Formats a generic Server-Sent Event string according to the Poe protocol spec.
- * Framing:
- *   event: <event_name>\n
- *   data: <json_string>\n\n
- */
+// Framing according to Poe server bot protocol:
+//   event: <event_name>\n
+//   data: <json_string>\n\n
+// Example: formatSSEEvent('text', { text: 'Hello world' })
 export function formatSSEEvent(event: EventType, data: unknown): string {
   const json = JSON.stringify(data ?? {});
   return `event: ${event}\ndata: ${json}\n\n`;
 }
 
 export function formatTextEvent(text: string): string {
-  const payload: TextEventPayload = { text };
-  return formatSSEEvent('text', payload);
+  return formatSSEEvent('text', { text });
 }
 
 export function formatReplaceResponseEvent(text: string): string {
-  const payload: ReplaceResponseEventPayload = { text };
-  return formatSSEEvent('replace_response', payload);
+  return formatSSEEvent('replace_response', { text });
 }
 
 export function formatSuggestedReplyEvent(text: string): string {
-  const payload: SuggestedReplyEventPayload = { text };
-  return formatSSEEvent('suggested_reply', payload);
+  return formatSSEEvent('suggested_reply', { text });
 }
 
 export function formatErrorEvent(text: string, allowRetry = false): string {
-  const payload: ErrorEventPayload = { text, allow_retry: allowRetry };
-  return formatSSEEvent('error', payload);
+  return formatSSEEvent('error', { text, allow_retry: allowRetry });
 }
 
 export function formatMetaEvent(meta: MetaEventPayload): string {
   return formatSSEEvent('meta', meta);
 }
 
+// PERF: Poe protocol recommends chunking payloads larger than 512,000 chars to avoid buffer bloat
 export const MAX_SSE_DATA_LENGTH = 512_000;
 
-/**
- * Splits large text into consecutive SSE text events within the 512,000-character limit.
- */
 export function formatChunkedTextEvents(
   text: string,
   maxChunkSize = MAX_SSE_DATA_LENGTH,
@@ -57,8 +45,7 @@ export function formatChunkedTextEvents(
 
   const events: string[] = [];
   for (let i = 0; i < text.length; i += maxChunkSize) {
-    const slice = text.substring(i, i + maxChunkSize);
-    events.push(formatTextEvent(slice));
+    events.push(formatTextEvent(text.substring(i, i + maxChunkSize)));
   }
   return events;
 }

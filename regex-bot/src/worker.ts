@@ -121,9 +121,12 @@ Working with data? Try @English-To-SQL and @OCR-Doc-Parser.`;
           '### ⚡ Regex Execution Report',
           '',
           `**Pattern**: \`/${evaluation.pattern}/${evaluation.flags}\``,
-          `**Description**: ${proposal.explanation}`,
-          '',
         ];
+
+        if (proposal.explanation) {
+          lines.push(`**Description**: ${proposal.explanation}`);
+        }
+        lines.push('');
 
         if (!evaluation.isSafe) {
           lines.push(
@@ -131,6 +134,13 @@ Working with data? Try @English-To-SQL and @OCR-Doc-Parser.`;
             '',
             'Execution was halted on user samples to preserve Cloudflare Worker free-tier CPU limits.',
           );
+          if (evaluation.suggestedAlternative) {
+            lines.push(
+              '',
+              `💡 **Safer Alternative**: \`/${evaluation.suggestedAlternative}/g\``,
+              'Use un-nested quantifiers or atomic lookaheads to guarantee linear execution time.',
+            );
+          }
         } else if (samples.length === 0) {
           lines.push(
             '> ⚠️ **Notice: No test samples provided.**',

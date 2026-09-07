@@ -22,10 +22,22 @@ export function checkDestructiveSql(sql: string): { isDestructive: boolean; warn
       warning: '⚠️ **Destructive Statement Warning**: This query contains `DROP TABLE`, which permanently drops tables and destroys data.',
     };
   }
+  if (/\bTRUNCATE\s+TABLE\b/.test(upper)) {
+    return {
+      isDestructive: true,
+      warning: '⚠️ **Destructive Statement Warning**: This query contains `TRUNCATE TABLE`, which removes all records from the target table.',
+    };
+  }
   if (/\bDELETE\s+FROM\b/.test(upper) && !/\bWHERE\b/.test(upper)) {
     return {
       isDestructive: true,
       warning: '⚠️ **Destructive Statement Warning**: This query contains an unconditional `DELETE` without a `WHERE` clause, which truncates all records from the target table.',
+    };
+  }
+  if (/\bUPDATE\b/.test(upper) && !/\bWHERE\b/.test(upper) && /\bSET\b/.test(upper)) {
+    return {
+      isDestructive: true,
+      warning: '⚠️ **Destructive Statement Warning**: This query contains an `UPDATE` without a `WHERE` clause, which modifies all rows in the target table.',
     };
   }
   return { isDestructive: false };
@@ -202,11 +214,30 @@ export async function handleSqlWorkerRequest(
             lines.push(`| ${outcome.result.columns.join(' | ')} |`);
             lines.push(`| ${outcome.result.columns.map(() => ':---').join(' | ')} |`);
 
-            for (const row of outcome.result.values) {
+            const totalRows = outcome.result.values.length;
+            const maxDisplayRows = 100;
+            const displayedRows = outcome.result.values.slice(0, maxDisplayRows);
+
+            for (const row of displayedRows) {
               lines.push(`| ${row.map((v) => (v === null ? '*NULL*' : String(v))).join(' | ')} |`);
+            }
+
+            if (totalRows > maxDisplayRows) {
+              lines.push(
+                '',
+                `> ℹ️ *Showing first ${maxDisplayRows} rows of ${totalRows} total results. Add \`LIMIT\` and \`OFFSET\` for pagination.*`,
+              );
             }
           } else {
             lines.push('*Query executed successfully (0 rows returned).*');
+          }
+
+          const hasPostgresTypes = /\b(?:SERIAL|JSONB|TIMESTAMPTZ|NOW\(\))\b/i.test(schema);
+          if (hasPostgresTypes) {
+            lines.push(
+              '',
+              '> ℹ️ *Dialect Notice: Converted PostgreSQL-specific types (e.g. SERIAL, JSONB, NOW()) to SQLite equivalents for execution.*',
+            );
           }
 
           lines.push(
@@ -232,9 +263,20 @@ export async function handleSqlWorkerRequest(
             '',
             '**Database Diagnostic Error**:',
             `\`\`\`text\n${outcome.error}\n\`\`\``,
+          ];
+
+          const isRegexError = /\b(?:no such function:\s*REGEXP|REGEXP)\b/i.test(outcome.error || '');
+          if (isRegexError) {
+            failLines.push(
+              '',
+              '> ℹ️ *SQLite Notice: SQLite does not support native `REGEXP` functions out of the box. Use `LIKE` for simple pattern matching (e.g. `WHERE email LIKE \'%@%.%\'`) or perform regex validation with @Regex-Gen-Tester in your application code.*',
+            );
+          }
+
+          failLines.push(
             '',
             '> *Per engineering safety policy, unverified queries that fail execution are flagged honestly rather than guessed.*',
-          ];
+          );
           stream.sendText(failLines.join('\n'));
         }
       } catch (err) {

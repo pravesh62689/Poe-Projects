@@ -11,6 +11,7 @@ export interface RegexEvaluationReport {
   flags: string;
   isSafe: boolean;
   securityWarning?: string;
+  suggestedAlternative?: string;
   samples: RegexMatchSample[];
 }
 

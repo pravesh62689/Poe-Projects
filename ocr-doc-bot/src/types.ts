@@ -20,6 +20,7 @@ export interface ParsedReceipt {
     amount: number;
     quantity?: number;
   }>;
+  lineItemsTruncated?: boolean;
   time?: FieldValue<string>;
   address?: FieldValue<string>;
   subtotal?: FieldValue<number>;

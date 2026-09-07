@@ -128,6 +128,8 @@ export async function detectBlur(imageBuffer: Buffer, threshold = 300): Promise<
 
     const mean = sum / count;
     const variance = sumSq / count - mean * mean;
+    // console.debug('[ocr:blur] Laplacian variance score:', variance);
+
     return {
       isBlurred: variance < threshold,
       score: variance,
@@ -231,9 +233,7 @@ export async function projectionProfileDeskew(
   }
 }
 
-/**
- * Deskews an image buffer using guarded projection profile scanning.
- */
+// FIXME: Non-linear page curvature and extreme perspective distortion (>20 deg) require mesh unwarping
 export async function deskewImage(
   imageBuffer: Buffer
 ): Promise<{ buffer: Buffer; angle: number }> {

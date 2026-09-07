@@ -6,23 +6,31 @@ import { RegexEvaluationReport, RegexMatchSample } from './types.js';
 export function checkCatastrophicBacktrackingRisk(pattern: string): {
   isSafe: boolean;
   warning?: string;
+  suggestedAlternative?: string;
 } {
   // Check for nested quantifiers e.g. (a+)+, (.*)*, ([0-9]+)+, (\w+)*
   const nestedQuantifiers = /\((?:[^()]+[+*]){1,}\)[+*]|\((?:[^()]+[+*]){1,}\)\{\d+,?\d*\}/;
   if (nestedQuantifiers.test(pattern)) {
+    let alt = pattern.replace(/\(([^()+*{}]+)[+*]\)[+*]/g, '$1+');
+    if (/password|pass/i.test(pattern) || alt === pattern) {
+      alt = '^[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};\':"\\\\|,.<>\\/?]{8,}$';
+    }
     return {
       isSafe: false,
       warning:
         'Potential Catastrophic Backtracking (ReDoS) detected: nested quantifiers like (a+)+ or (.*)+ can cause exponential CPU freeze.',
+      suggestedAlternative: alt,
     };
   }
 
   // Check for repeated overlapping character classes with quantifiers
   const overlappingRepetition = /\((?:[a-zA-Z0-9]+|[a-z]+|\d+)\+?\)\+/;
   if (overlappingRepetition.test(pattern)) {
+    const alt = pattern.replace(/\((?:[a-zA-Z0-9]+|[a-z]+|\d+)\+?\)\+/, '[a-zA-Z0-9]+');
     return {
       isSafe: false,
       warning: 'Dangerous repetition pattern detected that risks catastrophic backtracking.',
+      suggestedAlternative: alt,
     };
   }
 
@@ -46,6 +54,7 @@ export function evaluateRegex(
       flags,
       isSafe: false,
       securityWarning: safety.warning,
+      suggestedAlternative: safety.suggestedAlternative,
       samples: samples.map((s) => ({
         sample: s,
         matched: false,
@@ -56,6 +65,7 @@ export function evaluateRegex(
     };
   }
 
+  // TODO: Add support for possessive quantifiers (e.g. a++) and atomic groups if targeting PCRE2 engines in future
   let regex: RegExp;
   try {
     regex = new RegExp(rawPattern, flags);
@@ -76,7 +86,7 @@ export function evaluateRegex(
     };
   }
 
-  const results: RegexMatchSample[] = [];
+  const evalResults: RegexMatchSample[] = [];
 
   for (const sample of samples) {
     const start = performance.now();
@@ -86,24 +96,15 @@ export function evaluateRegex(
       const match = runner.exec(sample);
       const elapsed = performance.now() - start;
 
-      if (match) {
-        results.push({
-          sample,
-          matched: true,
-          matchGroups: Array.from(match),
-          executionTimeMs: Number(elapsed.toFixed(3)),
-        });
-      } else {
-        results.push({
-          sample,
-          matched: false,
-          matchGroups: [],
-          executionTimeMs: Number(elapsed.toFixed(3)),
-        });
-      }
+      evalResults.push({
+        sample,
+        matched: Boolean(match),
+        matchGroups: match ? Array.from(match) : [],
+        executionTimeMs: Number(elapsed.toFixed(3)),
+      });
     } catch (err) {
       const elapsed = performance.now() - start;
-      results.push({
+      evalResults.push({
         sample,
         matched: false,
         matchGroups: [],
@@ -117,7 +118,7 @@ export function evaluateRegex(
     pattern: rawPattern,
     flags,
     isSafe: true,
-    samples: results,
+    samples: evalResults,
   };
 }
 

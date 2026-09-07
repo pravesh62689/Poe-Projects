@@ -122,7 +122,7 @@ export function createServer(options: ServerOptions = {}) {
               '',
               `The uploaded document image appears blurred (Clarity Score: \`${blurResult.score.toFixed(1)}\`, Minimum Required: \`${blurResult.threshold}\`).`,
               '',
-              'OCR accuracy is severely degraded on blurry photos. Please provide a sharper, well-focused photo or scan for reliable data extraction.',
+              'OCR accuracy is severely degraded on blurry or low-contrast photos. Please provide a sharper, well-focused photo or direct file upload (avoiding glare, motion blur, and screenshot compression artifacts) for reliable data extraction.',
             ].join('\n');
 
             res.write(formatTextEvent(blurWarning));
@@ -188,13 +188,17 @@ export function createServer(options: ServerOptions = {}) {
 
           if (rec.lineItems && rec.lineItems.length > 0) {
             const itemRows = rec.lineItems.map((it: any) => `| ${it.description} | ${it.quantity || 1} | $${it.amount.toFixed(2)} |`);
+            const truncationNotice = rec.lineItemsTruncated
+              ? '\n> ℹ️ *Showing first 30 items; total amount verified against receipt footer.*'
+              : '';
             itemsTable = [
               '',
               '#### 🛒 Line Items Detected:',
               '| Item | Qty | Price |',
               '| :--- | :---: | ---: |',
               ...itemRows,
-            ].join('\n');
+              truncationNotice,
+            ].filter(Boolean).join('\n');
           }
         } else if (parsedResult.documentType === 'statement') {
           tableRows.push(`| **Account Holder** | ${rec.accountHolder?.value || 'Unknown'} | ${rec.accountHolder?.confidence === 'high' ? '✅ High' : '⚠️ Low'} |`);
@@ -225,7 +229,7 @@ export function createServer(options: ServerOptions = {}) {
             ? `<details>\n<summary>🔍 <b>View Full Raw OCR Text (Click to expand)</b></summary>\n\n\`\`\`text\n${rawOcrText.trim()}\n\`\`\`\n</details>\n`
             : '',
           isHandwritten
-            ? '> ⚠️ **Notice**: Document text appears handwritten or has low clarity. Tesseract OCR is not optimized for handwriting; extracted values carry low confidence and must be manually verified.\n\n'
+            ? '> ⚠️ **Notice**: Document text appears handwritten or has low clarity. Tesseract OCR is not optimized for handwriting; extracted values carry low confidence and must be manually verified. For better results, use printed receipts or type details manually.\n\n'
             : '',
           '> ℹ️ *Fields flagged with `"confidence": "low"` indicate low OCR clarity or ambiguous layout. Please verify against the source document.*',
         ].filter(Boolean).join('\n');

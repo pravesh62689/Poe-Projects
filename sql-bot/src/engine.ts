@@ -6,19 +6,18 @@ import { SqlQueryResult, BenchmarkReport } from './types.js';
 // @ts-expect-error — no TS declaration for raw .wasm module imports
 import sqlWasmModule from 'sql.js/dist/sql-wasm.wasm';
 
-
+// ARCHITECTURE: We chose in-memory WASM SQLite (sql.js) because Cloudflare Workers have zero local disk
+// and a strict 10ms CPU free-tier ceiling. Spawning an ephemeral in-memory SQLite DB per request ensures
+// absolute tenant isolation, zero persistent state, and sub-millisecond execution times.
 let sqlJsModulePromise: Promise<SqlJsStatic> | null = null;
 
 export async function getSqlJs(): Promise<SqlJsStatic> {
   if (!sqlJsModulePromise) {
     const t0 = performance.now();
 
-    // In Cloudflare Workers, sqlWasmModule is a pre-compiled WebAssembly.Module.
-    // In Node.js/Vitest, it's undefined — fall back to default init.
     if (sqlWasmModule) {
-      // Polyfill: sql.js's Emscripten code detects WorkerGlobalScope and unconditionally
-      // accesses `self.location.href`. CF Workers has WorkerGlobalScope but no self.location,
-      // causing "Cannot read properties of undefined (reading 'href')".
+      // NOTE: CF Workers provides WorkerGlobalScope but omits self.location. Emscripten's loader
+      // checks WorkerGlobalScope and tries to read self.location.href. We polyfill it here.
       const s = self as unknown as Record<string, unknown>;
       if (typeof self !== 'undefined' && !s.location) {
         s.location = { href: '' };
@@ -54,6 +53,43 @@ export async function getSqlJs(): Promise<SqlJsStatic> {
 
 
 /**
+ * Normalizes PostgreSQL, MySQL, and generic dialect DDL syntax to SQLite equivalents.
+ */
+export function normalizeSchemaForSqlite(rawSchema: string): {
+  normalized: string;
+  hasDialectConversions: boolean;
+} {
+  let normalized = rawSchema;
+  let hasDialectConversions = false;
+
+  // Convert SERIAL / BIGSERIAL PRIMARY KEY -> INTEGER PRIMARY KEY AUTOINCREMENT
+  if (/\b(?:BIG)?SERIAL\s+PRIMARY\s+KEY\b/i.test(normalized)) {
+    normalized = normalized.replace(/\b(?:BIG)?SERIAL\s+PRIMARY\s+KEY\b/gi, 'INTEGER PRIMARY KEY AUTOINCREMENT');
+    hasDialectConversions = true;
+  }
+
+  // Convert JSONB / JSON types -> TEXT
+  if (/\b(?:JSONB)\b/i.test(normalized)) {
+    normalized = normalized.replace(/\bJSONB\b/gi, 'TEXT');
+    hasDialectConversions = true;
+  }
+
+  // Convert TIMESTAMPTZ / TIMESTAMP WITH TIME ZONE -> DATETIME / TEXT
+  if (/\b(?:TIMESTAMPTZ|TIMESTAMP\s+WITH\s+TIME\s+ZONE)\b/i.test(normalized)) {
+    normalized = normalized.replace(/\b(?:TIMESTAMPTZ|TIMESTAMP\s+WITH\s+TIME\s+ZONE)\b/gi, 'DATETIME');
+    hasDialectConversions = true;
+  }
+
+  // Convert DEFAULT NOW() -> DEFAULT CURRENT_TIMESTAMP
+  if (/\bDEFAULT\s+NOW\(\)/i.test(normalized)) {
+    normalized = normalized.replace(/\bDEFAULT\s+NOW\(\)/gi, 'DEFAULT CURRENT_TIMESTAMP');
+    hasDialectConversions = true;
+  }
+
+  return { normalized, hasDialectConversions };
+}
+
+/**
  * Creates an in-memory database instance seeded with the provided schema and rows.
  */
 export async function createDatabaseWithSchema(schemaSql: string): Promise<Database> {
@@ -61,7 +97,8 @@ export async function createDatabaseWithSchema(schemaSql: string): Promise<Datab
   const db = new SQL.Database();
 
   if (schemaSql && schemaSql.trim().length > 0) {
-    db.run(schemaSql);
+    const { normalized } = normalizeSchemaForSqlite(schemaSql);
+    db.run(normalized);
   }
 
   return db;

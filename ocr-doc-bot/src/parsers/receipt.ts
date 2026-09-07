@@ -14,10 +14,7 @@ export const CONFUSION_SUBS: Record<string, string> = {
   'B': '8',
 };
 
-/**
- * Validates 15-character GSTIN format and mod-36 checksum.
- * Ported directly from research/ocr-validation/run_ocr_eval.py.
- */
+// TODO: Integrate specialized QR/barcode decode (e-invoicing B2B IRN payload) for instant verification
 export function gstinChecksumValid(gstin: string): boolean {
   const upper = gstin.toUpperCase();
   if (upper.length !== 15) return false;
@@ -148,9 +145,15 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     'time:',
     'cashier',
     'system override',
+    'system instruction',
+    'system',
     'ignore all',
+    'ignore previous',
     'instruction',
     'prompt',
+    'pwned',
+    'hacked',
+    'output all',
   ];
 
   interface VendorCandidate {
@@ -338,6 +341,13 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     }
   }
 
+  let lineItemsTruncated = false;
+  let finalLineItems = lineItems;
+  if (lineItems.length > 30) {
+    finalLineItems = lineItems.slice(0, 30);
+    lineItemsTruncated = true;
+  }
+
   // 5. Extract Subtotal and Tax
   let subtotal: FieldValue<number> | undefined;
   let tax: FieldValue<number> | undefined;
@@ -519,7 +529,8 @@ export function parseReceipt(ocrText: string): ParsedReceipt {
     ...(address ? { address } : {}),
     ...(subtotal ? { subtotal } : {}),
     ...(tax ? { tax } : {}),
-    ...(lineItems.length > 0 ? { lineItems } : {}),
+    ...(finalLineItems.length > 0 ? { lineItems: finalLineItems } : {}),
+    ...(lineItemsTruncated ? { lineItemsTruncated: true } : {}),
     ...(invoiceNumber ? { invoiceNumber } : {}),
     ...(paymentMethod ? { paymentMethod } : {}),
     ...(gstin ? { gstin } : {}),
