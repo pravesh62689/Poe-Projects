@@ -1,7 +1,7 @@
 # Public Deployment Verification Audit
 
 **Auditor:** DevOps & Quality Assurance Lead  
-**Audit Target:** `https://poe-developer-suite.pages.dev`  
+**Audit Target:** `https://apex-forge-tools.pages.dev`  
 **Timestamp:** 2026-09-08  
 **Standard:** Automated HTTP live probe across every route.
 

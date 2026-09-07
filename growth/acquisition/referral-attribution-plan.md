@@ -7,7 +7,7 @@
 
 ## 1. Outbound Tracking Taxonomy
 
-All links from `https://poe-developer-suite.pages.dev` to `poe.com` bots utilize standard UTM query parameters:
+All links from `https://apex-forge-tools.pages.dev` to `poe.com` bots utilize standard UTM query parameters:
 
 ```
 https://poe.com/<bot_handle>?utm_source=<source>&utm_medium=<medium>&utm_campaign=<campaign>&utm_content=<content_id>

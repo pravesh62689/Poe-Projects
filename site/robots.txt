@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://poe-developer-suite.pages.dev/sitemap.xml
+Sitemap: https://apex-forge-tools.pages.dev/sitemap.xml

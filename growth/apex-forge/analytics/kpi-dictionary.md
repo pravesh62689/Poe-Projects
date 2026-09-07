@@ -8,7 +8,7 @@
 ## 1. Web Traffic & Funnel Conversion KPIs
 
 ### 1.1 Qualified Unique Visitors
-- **Definition:** Total unique human visits to static website pages on `https://poe-developer-suite.pages.dev` measured via server-side logs or privacy-preserving analytics.
+- **Definition:** Total unique human visits to static website pages on `https://apex-forge-tools.pages.dev` measured via server-side logs or privacy-preserving analytics.
 - **Source:** Cloudflare Pages Web Analytics (privacy-first, cookie-less).
 - **Update Frequency:** Daily aggregate.
 

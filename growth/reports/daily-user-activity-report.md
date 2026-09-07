@@ -28,6 +28,6 @@ Based on real customer query share, our optimization priority cascades directly 
 ---
 
 ## 3. SEO Static Hub Live Status
-- **Public Domain:** [https://poe-developer-suite.pages.dev/](https://poe-developer-suite.pages.dev/)
+- **Public Domain:** [https://apex-forge-tools.pages.dev/](https://apex-forge-tools.pages.dev/)
 - **Live Canonical Pages:** 16 Pages Published & Verified
-- **XML Sitemap:** [https://poe-developer-suite.pages.dev/sitemap.xml](https://poe-developer-suite.pages.dev/sitemap.xml)
+- **XML Sitemap:** [https://apex-forge-tools.pages.dev/sitemap.xml](https://apex-forge-tools.pages.dev/sitemap.xml)

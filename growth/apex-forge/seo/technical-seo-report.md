@@ -15,7 +15,7 @@
 | **Title Tags** | Exactly 1 per page, unique, <= 70 chars | PASS | All 17 pages have distinct titles formatted with brand context. |
 | **Meta Descriptions** | Exactly 1 per page, unique, 120-165 chars | PASS | Informative, action-oriented, and unique across all pages. |
 | **H1 Tag Hierarchy** | Exactly 1 H1 per page, unique text | PASS | No duplicate H1s found across entire site. |
-| **Canonical Tags** | Absolute URL matching target route | PASS | Points to `https://poe-developer-suite.pages.dev<route>` |
+| **Canonical Tags** | Absolute URL matching target route | PASS | Points to `https://apex-forge-tools.pages.dev<route>` |
 | **Robots Meta Tag** | `index, follow` (except `noindex, follow` on 404) | PASS | Configured correctly on all pages. |
 | **Open Graph Protocol**| `og:title`, `og:description`, `og:image`, `og:type` | PASS | High-resolution social card or bot icon present on all pages. |
 | **Twitter Card** | `twitter:card` set to `summary_large_image` | PASS | Present on all pages. |

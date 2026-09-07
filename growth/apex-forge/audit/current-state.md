@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-Prior to this initiative, the repository maintained a developer-oriented static website titled "Poe Developer Automation Suite" hosted on Cloudflare Pages (`https://poe-developer-suite.pages.dev/`). While the site passes baseline accessibility and static link checks, its branding is fragmented, lacks an overarching corporate identity, uses generic typography and minimal styling, and omits essential B2B product features such as a dedicated 404 page, design token architecture, and structured branding hierarchy.
+Prior to this initiative, the repository maintained a developer-oriented static website titled "Poe Developer Automation Suite" hosted on Cloudflare Pages (`https://apex-forge-tools.pages.dev/`). While the site passes baseline accessibility and static link checks, its branding is fragmented, lacks an overarching corporate identity, uses generic typography and minimal styling, and omits essential B2B product features such as a dedicated 404 page, design token architecture, and structured branding hierarchy.
 
 This audit establishes the factual baseline for transitioning the entire portfolio into **Apex Forge Technology**, featuring the **Apex Forge Tools** product suite:
 1. **Apex Forge OCR** (`OCR-Doc-Bot` / `OCR-Doc-Parser`)

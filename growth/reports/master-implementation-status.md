@@ -13,8 +13,8 @@
 | :--- | :--- | :--- | :---: |
 | **Unit & Integration Test Suites** | All monorepo packages | `npm test` (vitest run) | **183 / 183 PASSED** (28 test files, 100% green) |
 | **TypeScript Typecheck** | Monorepo workspaces | `npm run typecheck` (`tsc -b`) | **0 Errors** |
-| **Cloudflare Pages Deployment** | `https://poe-developer-suite.pages.dev/` | `scripts/growth/check-public-deployment.js` | **18 / 18 Routes HTTP 200 OK** |
-| **Public XML Sitemap** | `https://poe-developer-suite.pages.dev/sitemap.xml` | Live HTTP probe (25ms response) | **HTTP 200 OK** (16 canonical routes) |
+| **Cloudflare Pages Deployment** | `https://apex-forge-tools.pages.dev/` | `scripts/growth/check-public-deployment.js` | **18 / 18 Routes HTTP 200 OK** |
+| **Public XML Sitemap** | `https://apex-forge-tools.pages.dev/sitemap.xml` | Live HTTP probe (25ms response) | **HTTP 200 OK** (16 canonical routes) |
 | **Pillar Technical Guides Published** | `site/guides/*` | Live HTTP probes across all 4 guides | **4 / 4 HTTP 200 OK** |
 | **Edge Secrets & Key Rotation** | Cloudflare Workers & Render Web Service | Live endpoint POST settings / unauthenticated tests | **COMPLETED & ROTATED** (HTTP 401 unauthenticated defense verified) |
 | **Secret Scanning & Sanitization** | Entire repository git history & files | `git log` scan and grep audit | **0 Active Secrets** in repo |
@@ -48,7 +48,7 @@
 | **EXT-03** | Poe Creator Studio | Update `English-To-SQL` description and pricing | Description: `Text-to-SQL verified by execution. Give a schema + plain English ask — I generate the query, run it in in-memory SQLite, self-correct errors & flag risks.`<br>Price: `$2.00 / 1,000 msgs` | Open bot page incognito; verify description & rate |
 | **EXT-04** | GitHub Secrets | Configure CI/CD secrets for automated runs | `POE_ACCESS_KEY`, `CLOUDFLARE_API_TOKEN`, `RENDER_API_KEY` | Trigger `.github/workflows/live-smoke-tests.yml` |
 | **EXT-05** | Poe Creator Dashboard | Export creator analytics | Export daily CSV from `poe.com/creator` | Import via `node growth/measurement/import-poe-dashboard-metrics.js` |
-| **EXT-06** | Google Search Console | Claim property and submit sitemap | Property: `https://poe-developer-suite.pages.dev/`<br>Sitemap: `https://poe-developer-suite.pages.dev/sitemap.xml` | Search Console reports sitemap processed |
+| **EXT-06** | Google Search Console | Claim property and submit sitemap | Property: `https://apex-forge-tools.pages.dev/`<br>Sitemap: `https://apex-forge-tools.pages.dev/sitemap.xml` | Search Console reports sitemap processed |
 
 ---
 
@@ -114,9 +114,9 @@
 
 | Check | Local result | Public result | Evidence | Blocker |
 | :--- | :---: | :---: | :--- | :--- |
-| **Domain Availability** | N/A | **200 OK** | `https://poe-developer-suite.pages.dev/` | None |
-| **Sitemap Coverage** | 16 routes valid | **200 OK** | `https://poe-developer-suite.pages.dev/sitemap.xml` | None |
-| **Robots.txt** | Syntax valid | **200 OK** | `https://poe-developer-suite.pages.dev/robots.txt` | None |
+| **Domain Availability** | N/A | **200 OK** | `https://apex-forge-tools.pages.dev/` | None |
+| **Sitemap Coverage** | 16 routes valid | **200 OK** | `https://apex-forge-tools.pages.dev/sitemap.xml` | None |
+| **Robots.txt** | Syntax valid | **200 OK** | `https://apex-forge-tools.pages.dev/robots.txt` | None |
 | **Broken Link Count** | 0 broken / 263 checked | 0 broken | `scripts/growth/check-links.js` | None |
 | **Pillar Technical Guides** | 4 authored | 4 live (200 OK) | Verified by deployment check | None |
 | **Search Console Indexation** | N/A | **PENDING** | Property awaiting creator verification | `EXT-06` |

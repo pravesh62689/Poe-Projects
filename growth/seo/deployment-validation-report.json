@@ -1,13 +1,13 @@
 {
   "timestamp": "2026-09-07T21:08:09.135Z",
-  "baseUrl": "https://poe-developer-suite.pages.dev",
+  "baseUrl": "https://apex-forge-tools.pages.dev",
   "totalChecked": 18,
   "passed": 18,
   "failed": 0,
   "results": [
     {
       "path": "/",
-      "url": "https://poe-developer-suite.pages.dev/",
+      "url": "https://apex-forge-tools.pages.dev/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -15,7 +15,7 @@
     },
     {
       "path": "/receipt-ocr/",
-      "url": "https://poe-developer-suite.pages.dev/receipt-ocr/",
+      "url": "https://apex-forge-tools.pages.dev/receipt-ocr/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -23,7 +23,7 @@
     },
     {
       "path": "/regex-tester/",
-      "url": "https://poe-developer-suite.pages.dev/regex-tester/",
+      "url": "https://apex-forge-tools.pages.dev/regex-tester/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -31,7 +31,7 @@
     },
     {
       "path": "/english-to-sql/",
-      "url": "https://poe-developer-suite.pages.dev/english-to-sql/",
+      "url": "https://apex-forge-tools.pages.dev/english-to-sql/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -39,7 +39,7 @@
     },
     {
       "path": "/workflows/receipt-to-expense-analysis/",
-      "url": "https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/",
+      "url": "https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -47,7 +47,7 @@
     },
     {
       "path": "/guides/",
-      "url": "https://poe-developer-suite.pages.dev/guides/",
+      "url": "https://apex-forge-tools.pages.dev/guides/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -55,7 +55,7 @@
     },
     {
       "path": "/guides/how-to-photograph-receipts/",
-      "url": "https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/",
+      "url": "https://apex-forge-tools.pages.dev/guides/how-to-photograph-receipts/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -63,7 +63,7 @@
     },
     {
       "path": "/guides/tax-invoice-gstin-fields/",
-      "url": "https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/",
+      "url": "https://apex-forge-tools.pages.dev/guides/tax-invoice-gstin-fields/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -71,7 +71,7 @@
     },
     {
       "path": "/guides/sql-joins-with-sample-schema/",
-      "url": "https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/",
+      "url": "https://apex-forge-tools.pages.dev/guides/sql-joins-with-sample-schema/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -79,7 +79,7 @@
     },
     {
       "path": "/guides/sqlite-vs-postgres-syntax/",
-      "url": "https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/",
+      "url": "https://apex-forge-tools.pages.dev/guides/sqlite-vs-postgres-syntax/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -87,7 +87,7 @@
     },
     {
       "path": "/examples/",
-      "url": "https://poe-developer-suite.pages.dev/examples/",
+      "url": "https://apex-forge-tools.pages.dev/examples/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -95,7 +95,7 @@
     },
     {
       "path": "/benchmarks/",
-      "url": "https://poe-developer-suite.pages.dev/benchmarks/",
+      "url": "https://apex-forge-tools.pages.dev/benchmarks/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -103,7 +103,7 @@
     },
     {
       "path": "/privacy/",
-      "url": "https://poe-developer-suite.pages.dev/privacy/",
+      "url": "https://apex-forge-tools.pages.dev/privacy/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -111,7 +111,7 @@
     },
     {
       "path": "/terms/",
-      "url": "https://poe-developer-suite.pages.dev/terms/",
+      "url": "https://apex-forge-tools.pages.dev/terms/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -119,7 +119,7 @@
     },
     {
       "path": "/about/",
-      "url": "https://poe-developer-suite.pages.dev/about/",
+      "url": "https://apex-forge-tools.pages.dev/about/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -127,7 +127,7 @@
     },
     {
       "path": "/contact/",
-      "url": "https://poe-developer-suite.pages.dev/contact/",
+      "url": "https://apex-forge-tools.pages.dev/contact/",
       "status": 200,
       "ok": true,
       "contentType": "text/html; charset=utf-8",
@@ -135,7 +135,7 @@
     },
     {
       "path": "/robots.txt",
-      "url": "https://poe-developer-suite.pages.dev/robots.txt",
+      "url": "https://apex-forge-tools.pages.dev/robots.txt",
       "status": 200,
       "ok": true,
       "contentType": "text/plain; charset=utf-8",
@@ -143,7 +143,7 @@
     },
     {
       "path": "/sitemap.xml",
-      "url": "https://poe-developer-suite.pages.dev/sitemap.xml",
+      "url": "https://apex-forge-tools.pages.dev/sitemap.xml",
       "status": 200,
       "ok": true,
       "contentType": "application/xml",

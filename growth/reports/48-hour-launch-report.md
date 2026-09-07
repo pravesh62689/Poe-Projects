@@ -97,7 +97,7 @@ The following engineering, testing, SEO, and automation deliverables have been e
 | **HAR-01** | Poe Creator Studio | `https://poe.com/OCR-Doc-Parser` -> Edit Bot | Paste 156-char description & intro from `growth/reports/human-action-required.md` | Open in incognito mobile view; click starter prompt button |
 | **HAR-02** | Poe Creator Studio | `https://poe.com/Regex-Gen-Tester` -> Edit Bot | Paste 157-char description & intro from `growth/reports/human-action-required.md` | Open in incognito mobile view; click starter prompt button |
 | **HAR-03** | Poe Creator Studio | `https://poe.com/English-To-SQL` -> Edit Bot | Paste 156-char description & intro from `growth/reports/human-action-required.md` | Open in incognito mobile view; click starter prompt button |
-| **HAR-04** | Cloudflare Pages | `https://dash.cloudflare.com` -> Pages | Connect `site/` directory with build command `None` | Verify `https://poe-developer-suite.pages.dev/` returns HTTP 200 |
+| **HAR-04** | Cloudflare Pages | `https://dash.cloudflare.com` -> Pages | Connect `site/` directory with build command `None` | Verify `https://apex-forge-tools.pages.dev/` returns HTTP 200 |
 | **HAR-05** | Poe Creator Dashboard | `https://poe.com/creator` | Record baseline follower and unique user counters | Log baseline in `growth/reports/conversion-funnel.csv` |
 
 ---

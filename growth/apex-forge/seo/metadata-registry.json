@@ -2,160 +2,160 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "generated_at": "2026-09-08T02:30:00Z",
   "organization": "Apex Forge Technology",
-  "canonical_domain": "https://poe-developer-suite.pages.dev",
+  "canonical_domain": "https://apex-forge-tools.pages.dev",
   "pages": {
     "/": {
       "title": "Apex Forge Technology — Practical AI Tools for Document Extraction, Regex, and SQL",
       "meta_description": "Apex Forge Technology builds task-focused developer utilities on Poe: extract document fields with confidence flags, test regular expressions, and run verified SQL against your sample schema.",
-      "canonical": "https://poe-developer-suite.pages.dev/",
+      "canonical": "https://apex-forge-tools.pages.dev/",
       "robots": "index, follow",
       "h1": "Practical AI tools for document extraction, data validation, and analysis.",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/receipt-ocr/": {
       "title": "Apex Forge OCR — Extract Structured Data from Receipts & Invoices",
       "meta_description": "Extract merchant name, dates, line items, totals, and tax breakdowns from receipt and invoice images with field-confidence indicators and arithmetic cross-checks.",
-      "canonical": "https://poe-developer-suite.pages.dev/receipt-ocr/",
+      "canonical": "https://apex-forge-tools.pages.dev/receipt-ocr/",
       "robots": "index, follow",
       "h1": "Apex Forge OCR: Extract Structured Data from Receipts & Invoices",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/bots/ocr-doc-bot-1024.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/bots/ocr-doc-bot-1024.png"
     },
     "/regex-tester/": {
       "title": "Apex Forge Regex — Generate, Test, and Inspect Regular Expressions",
       "meta_description": "Generate regex patterns from plain English descriptions, test against multiple sample strings, inspect capture groups, and flag common ReDoS backtracking risks.",
-      "canonical": "https://poe-developer-suite.pages.dev/regex-tester/",
+      "canonical": "https://apex-forge-tools.pages.dev/regex-tester/",
       "robots": "index, follow",
       "h1": "Apex Forge Regex: Generate, Test, and Inspect Regular Expressions",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/bots/regex-bot-1024.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/bots/regex-bot-1024.png"
     },
     "/english-to-sql/": {
       "title": "Apex Forge SQL — Translate Natural Language to Executable SQL",
       "meta_description": "Generate SQL queries from plain English questions and table schemas. Queries are executed and validated in an isolated, in-memory SQLite sandbox.",
-      "canonical": "https://poe-developer-suite.pages.dev/english-to-sql/",
+      "canonical": "https://apex-forge-tools.pages.dev/english-to-sql/",
       "robots": "index, follow",
       "h1": "Apex Forge SQL: Translate Natural Language to Executable SQL",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/bots/sql-bot-1024.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/bots/sql-bot-1024.png"
     },
     "/workflows/receipt-to-expense-analysis/": {
       "title": "Receipt-to-Expense Analysis Workflow — Apex Forge Tools",
       "meta_description": "Step-by-step synthetic workflow: extract receipt fields with Apex Forge OCR, validate format with Regex, and analyze expense aggregates with Apex Forge SQL.",
-      "canonical": "https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/",
+      "canonical": "https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/",
       "robots": "index, follow",
       "h1": "End-to-End Workflow: Receipt Extraction to SQL Expense Analysis",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/guides/": {
       "title": "Technical Guides & Workflows — Apex Forge Technology",
       "meta_description": "Practical guides and technical reference articles for receipt scanning, tax invoice extraction, regular expression security, and relational SQL queries.",
-      "canonical": "https://poe-developer-suite.pages.dev/guides/",
+      "canonical": "https://apex-forge-tools.pages.dev/guides/",
       "robots": "index, follow",
       "h1": "Technical Guides & Tutorials",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/guides/how-to-photograph-receipts/": {
       "title": "How to Photograph Receipts for Better OCR Accuracy — Apex Forge",
       "meta_description": "Practical photography checklist to maximize OCR accuracy: framing, lighting, contrast, avoiding glare, and handling folded or thermal paper receipts.",
-      "canonical": "https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/",
+      "canonical": "https://apex-forge-tools.pages.dev/guides/how-to-photograph-receipts/",
       "robots": "index, follow",
       "h1": "How to Photograph Receipts for Better OCR Accuracy",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/guides/tax-invoice-gstin-fields/": {
       "title": "Tax Invoice & GSTIN Field Extraction Guide — Apex Forge",
       "meta_description": "Essential fields required on B2B tax invoices under GST regulations, pattern validation for 15-character GSTINs, and automated extraction checklist.",
-      "canonical": "https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/",
+      "canonical": "https://apex-forge-tools.pages.dev/guides/tax-invoice-gstin-fields/",
       "robots": "index, follow",
       "h1": "Tax Invoice & GSTIN Field Extraction Guide",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/guides/sql-joins-with-sample-schema/": {
       "title": "SQL JOINs and Aggregations with Sample Schema — Apex Forge",
       "meta_description": "Practical guide to constructing INNER, LEFT, and GROUP BY queries using a relational orders and customers schema with verified sandbox execution results.",
-      "canonical": "https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/",
+      "canonical": "https://apex-forge-tools.pages.dev/guides/sql-joins-with-sample-schema/",
       "robots": "index, follow",
       "h1": "SQL JOINs and Aggregations with a Sample Schema",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/guides/sqlite-vs-postgres-syntax/": {
       "title": "SQLite vs PostgreSQL Syntax Differences — Apex Forge",
       "meta_description": "Comparison of data types, date formatting, boolean representation, string concatenation, and upsert operations between SQLite and PostgreSQL.",
-      "canonical": "https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/",
+      "canonical": "https://apex-forge-tools.pages.dev/guides/sqlite-vs-postgres-syntax/",
       "robots": "index, follow",
       "h1": "SQLite vs PostgreSQL: Key Syntax and Behavior Differences",
       "og_type": "article",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/examples/": {
       "title": "Interactive Code & Prompt Examples — Apex Forge Tools",
       "meta_description": "Tested prompts and synthetic inputs for receipt OCR extraction, regex pattern generation with positive/negative test cases, and SQL schema queries.",
-      "canonical": "https://poe-developer-suite.pages.dev/examples/",
+      "canonical": "https://apex-forge-tools.pages.dev/examples/",
       "robots": "index, follow",
       "h1": "Tested Examples & Copyable Prompts",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/benchmarks/": {
       "title": "Performance Benchmarks & Methodology — Apex Forge Tools",
       "meta_description": "Measured latency, pass rates, and testing methodology for Apex Forge OCR, Regex, and SQL tools across local suites and public Poe endpoints.",
-      "canonical": "https://poe-developer-suite.pages.dev/benchmarks/",
+      "canonical": "https://apex-forge-tools.pages.dev/benchmarks/",
       "robots": "index, follow",
       "h1": "Performance Benchmarks & Test Methodology",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/about/": {
       "title": "About Apex Forge Technology — Engineering Practical Developer Tools",
       "meta_description": "Learn about Apex Forge Technology: our engineering philosophy, zero-retention privacy stance, and commitment to verifiable, sandboxed developer tools.",
-      "canonical": "https://poe-developer-suite.pages.dev/about/",
+      "canonical": "https://apex-forge-tools.pages.dev/about/",
       "robots": "index, follow",
       "h1": "About Apex Forge Technology",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/privacy/": {
       "title": "Privacy Policy — Apex Forge Technology",
       "meta_description": "Apex Forge Technology privacy commitment: ephemeral in-memory processing, zero data retention, and clear boundaries between our services and Poe platform.",
-      "canonical": "https://poe-developer-suite.pages.dev/privacy/",
+      "canonical": "https://apex-forge-tools.pages.dev/privacy/",
       "robots": "index, follow",
       "h1": "Privacy Policy",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/terms/": {
       "title": "Terms of Service — Apex Forge Technology",
       "meta_description": "Terms and conditions governing the use of Apex Forge Tools, disclaimers regarding automated output verification, and intellectual property terms.",
-      "canonical": "https://poe-developer-suite.pages.dev/terms/",
+      "canonical": "https://apex-forge-tools.pages.dev/terms/",
       "robots": "index, follow",
       "h1": "Terms of Service",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/contact/": {
       "title": "Contact & Support — Apex Forge Technology",
       "meta_description": "Contact the engineering team at Apex Forge Technology for tool feedback, bug reports, and partnership inquiries.",
-      "canonical": "https://poe-developer-suite.pages.dev/contact/",
+      "canonical": "https://apex-forge-tools.pages.dev/contact/",
       "robots": "index, follow",
       "h1": "Contact & Support",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     },
     "/404.html": {
       "title": "Page Not Found (404) — Apex Forge Technology",
       "meta_description": "The requested resource could not be found. Return to Apex Forge Technology home or explore our document extraction, regex, and SQL tools.",
-      "canonical": "https://poe-developer-suite.pages.dev/404.html",
+      "canonical": "https://apex-forge-tools.pages.dev/404.html",
       "robots": "noindex, follow",
       "h1": "Page Not Found (404)",
       "og_type": "website",
-      "og_image": "https://poe-developer-suite.pages.dev/assets/apex-forge/apex-forge-social-card.png"
+      "og_image": "https://apex-forge-tools.pages.dev/assets/apex-forge/apex-forge-social-card.png"
     }
   }
 }

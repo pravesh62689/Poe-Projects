@@ -1,6 +1,6 @@
 # SEO Internal Link Architecture & Page Graph
 
-**Site Base URL:** `https://poe-developer-suite.pages.dev`  
+**Site Base URL:** `https://apex-forge-tools.pages.dev`  
 **Standard:** Enterprise Zero-Budget SEO Architecture  
 **Date:** September 2026
 

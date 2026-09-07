@@ -30,10 +30,10 @@
   - Headline 1: Extract Receipt Data to JSON
   - Headline 2: Apex Forge OCR on Poe
   - Description 1: Extract merchant, dates, line items, and totals from receipt photos with field confidence signals.
-  - Final URL: `https://poe-developer-suite.pages.dev/receipt-ocr/`
+  - Final URL: `https://apex-forge-tools.pages.dev/receipt-ocr/`
 - **Ad Group 1.2:** Invoice Field Extraction
   - Keywords: `[extract invoice fields]`, `"invoice field extraction"`, `[invoice data parser]`
-  - Final URL: `https://poe-developer-suite.pages.dev/receipt-ocr/`
+  - Final URL: `https://apex-forge-tools.pages.dev/receipt-ocr/`
 
 ### Campaign 2: Search — Apex Forge Regex (Pattern Generation & Security)
 - **Ad Group 2.1:** Regex Generator & Tester
@@ -41,7 +41,7 @@
   - Headline 1: Test Regex with Sample Data
   - Headline 2: Apex Forge Regex on Poe
   - Description 1: Generate regular expressions from English, test against multiple sample strings, and inspect capture groups.
-  - Final URL: `https://poe-developer-suite.pages.dev/regex-tester/`
+  - Final URL: `https://apex-forge-tools.pages.dev/regex-tester/`
 
 ### Campaign 3: Search — Apex Forge SQL (Schema to Query Sandbox)
 - **Ad Group 3.1:** Natural Language to SQL
@@ -49,7 +49,7 @@
   - Headline 1: English to SQL with Schema
   - Headline 2: Apex Forge SQL on Poe
   - Description 1: Turn plain English questions into verified SQL executed in an isolated, in-memory SQLite sandbox.
-  - Final URL: `https://poe-developer-suite.pages.dev/english-to-sql/`
+  - Final URL: `https://apex-forge-tools.pages.dev/english-to-sql/`
 
 ---
 

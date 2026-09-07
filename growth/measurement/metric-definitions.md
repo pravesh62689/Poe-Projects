@@ -24,7 +24,7 @@ These metrics originate exclusively from the Poe Creator Studio dashboard or off
 
 ## 2. Public Website Metrics
 
-These metrics originate from Cloudflare Pages Web Analytics and client-side privacy-safe Beacon telemetry on `https://poe-developer-suite.pages.dev`:
+These metrics originate from Cloudflare Pages Web Analytics and client-side privacy-safe Beacon telemetry on `https://apex-forge-tools.pages.dev`:
 
 | Metric Name | Dimension | Unit | Description | Collection Method |
 | :--- | :--- | :--- | :--- | :--- |

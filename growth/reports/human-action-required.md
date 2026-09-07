@@ -124,4 +124,4 @@ Navigate to: `https://dash.cloudflare.com/` -> **Workers & Pages** -> **Create a
 The 12 static HTML pages, `styles.css`, `robots.txt`, and `sitemap.xml` deploy live with an HTTPS SSL certificate.
 
 ### 5. Verification Method
-Run `curl -I https://poe-developer-suite.pages.dev/` and verify HTTP 200 OK with `content-type: text/html`.
+Run `curl -I https://apex-forge-tools.pages.dev/` and verify HTTP 200 OK with `content-type: text/html`.

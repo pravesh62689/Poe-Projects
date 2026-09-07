@@ -33,7 +33,7 @@ To mitigate Render's free-tier container sleep on `ocr-doc-bot`:
 
 | Asset | Planned Host | Configured Domain | Current Status | Blocker |
 | :--- | :--- | :--- | :---: | :--- |
-| **Static SEO Site (`site/`)** | Cloudflare Pages | `https://poe-developer-suite.pages.dev/` (provisional) | **Local Build Only** | Human action required to authorize GitHub repository in `dash.cloudflare.com`. |
+| **Static SEO Site (`site/`)** | Cloudflare Pages | `https://apex-forge-tools.pages.dev/` (provisional) | **Local Build Only** | Human action required to authorize GitHub repository in `dash.cloudflare.com`. |
 
 ---
 

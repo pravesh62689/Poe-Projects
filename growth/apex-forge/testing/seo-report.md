@@ -12,7 +12,7 @@
 - **Total HTML Files Audited:** 17
 - **Unique Title Tags:** 17/17 (100%)
 - **Unique Meta Descriptions:** 17/17 (100%)
-- **Canonical Tags Configured:** 17/17 (100% absolute URLs pointing to `https://poe-developer-suite.pages.dev`)
+- **Canonical Tags Configured:** 17/17 (100% absolute URLs pointing to `https://apex-forge-tools.pages.dev`)
 - **Robots Directives:** 16 pages configured as `index, follow`; 1 page (`/404.html`) configured as `noindex, follow`.
 - **Open Graph & Twitter Cards:** Configured on 100% of pages with high-resolution brand cards or tool icons.
 

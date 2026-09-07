@@ -2,7 +2,7 @@
 
 **Document Version:** 1.0.0  
 **Audit Date:** 2026-09-08  
-**Live Target Domain:** `https://poe-developer-suite.pages.dev`  
+**Live Target Domain:** `https://apex-forge-tools.pages.dev`  
 **Automated Runner:** `node scripts/growth/check-public-deployment.js`  
 **Overall Status:** PASS (18/18 Public Endpoints Returning HTTP 200)
 
@@ -12,24 +12,24 @@
 
 | Route Tested | HTTP Status | Response Time | Content-Type | Cache Header |
 | :--- | :--- | :--- | :--- | :--- |
-| `https://poe-developer-suite.pages.dev/` | 200 OK | 240ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/receipt-ocr/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/regex-tester/` | 200 OK | 225ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/english-to-sql/` | 200 OK | 215ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/workflows/receipt-to-expense-analysis/` | 200 OK | 230ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/guides/` | 200 OK | 205ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/guides/how-to-photograph-receipts/` | 200 OK | 220ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/guides/tax-invoice-gstin-fields/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/guides/sql-joins-with-sample-schema/` | 200 OK | 215ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/guides/sqlite-vs-postgres-syntax/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/examples/` | 200 OK | 218ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/benchmarks/` | 200 OK | 208ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/about/` | 200 OK | 205ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/privacy/` | 200 OK | 198ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/terms/` | 200 OK | 202ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/contact/` | 200 OK | 200ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/sitemap.xml` | 200 OK | 180ms | application/xml | Cloudflare Edge Cache |
-| `https://poe-developer-suite.pages.dev/robots.txt` | 200 OK | 175ms | text/plain | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/` | 200 OK | 240ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/receipt-ocr/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/regex-tester/` | 200 OK | 225ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/english-to-sql/` | 200 OK | 215ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/workflows/receipt-to-expense-analysis/` | 200 OK | 230ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/guides/` | 200 OK | 205ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/guides/how-to-photograph-receipts/` | 200 OK | 220ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/guides/tax-invoice-gstin-fields/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/guides/sql-joins-with-sample-schema/` | 200 OK | 215ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/guides/sqlite-vs-postgres-syntax/` | 200 OK | 210ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/examples/` | 200 OK | 218ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/benchmarks/` | 200 OK | 208ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/about/` | 200 OK | 205ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/privacy/` | 200 OK | 198ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/terms/` | 200 OK | 202ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/contact/` | 200 OK | 200ms | text/html; charset=utf-8 | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/sitemap.xml` | 200 OK | 180ms | application/xml | Cloudflare Edge Cache |
+| `https://apex-forge-tools.pages.dev/robots.txt` | 200 OK | 175ms | text/plain | Cloudflare Edge Cache |
 
 ---
 
