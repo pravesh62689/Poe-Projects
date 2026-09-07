@@ -1,8 +1,4 @@
-/**
- * Apex Forge Technology - Enterprise Design System Tokens
- * Version: 2.0.0
- * Strict WCAG 2.1 AA Contrast Compliance & Zero External Dependencies
- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Surface & Canvas Tokens (Dark Mode Default) */
@@ -13,8 +9,8 @@
   --af-bg-code: #0b0f17;
 
   /* Border Tokens */
-  --af-border-subtle: #1e293b;
-  --af-border-muted: #334155;
+  --af-border-subtle: rgba(255, 255, 255, 0.08);
+  --af-border-muted: #24344d;
   --af-border-accent: #ea580c;
 
   /* Typography Colors */
@@ -34,20 +30,20 @@
   --af-copper-700: #c2410c;
   --af-copper-800: #9a3412;
   --af-copper-900: #7c2d12;
-  --af-copper: var(--af-copper-600);
-  --af-copper-hover: var(--af-copper-700);
-  --af-copper-glow: rgba(234, 88, 12, 0.22);
+  --af-copper: var(--af-copper-500);
+  --af-copper-hover: var(--af-copper-400);
+  --af-copper-glow: rgba(249, 115, 22, 0.28);
 
   /* Tech Blue & Status Accents */
   --af-blue-accent: #38bdf8;
-  --af-blue-glow: rgba(56, 189, 248, 0.15);
+  --af-blue-glow: rgba(56, 189, 248, 0.2);
   --af-status-success: #10b981;
   --af-status-warning: #f59e0b;
   --af-status-error: #ef4444;
 
   /* Typography Scales */
-  --af-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --af-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --af-font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --af-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
   
   --af-text-xs: 0.75rem;
   --af-text-sm: 0.875rem;

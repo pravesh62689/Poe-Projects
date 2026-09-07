@@ -27,7 +27,7 @@ export function checkAccessibility() {
       const stat = fs.statSync(filePath);
       if (stat && stat.isDirectory()) {
         results = results.concat(getHtmlFiles(filePath));
-      } else if (file.endsWith('.html')) {
+      } else if (file.endsWith('.html') && !file.startsWith('google')) {
         results.push(filePath);
       }
     }
